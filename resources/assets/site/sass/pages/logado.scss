@@ -20,6 +20,8 @@
 		.dados{
 			padding-top: 100px;
 			margin-bottom: 30px;
+			z-index: 4;
+			position: relative;
 			&.financeiro{
 				padding-top:0;
 			}

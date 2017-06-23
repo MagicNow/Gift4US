@@ -14,7 +14,7 @@
      {{-- {!! Html::style('assets/site/styles/bootstrap.min.css') !!} --}}
      {!! Html::style('assets/site/styles/styles.css') !!}
 </head>
-<body class="{!! $section !!}">
+<body class="{!! Route::currentRouteName() !!}">
         <!--HEADER-->
         <header>
             <div class="navbar navbar-default col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -29,16 +29,16 @@
                     </div>
                     <nav id="navbar" role="navigation" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="divisor"><a class="{!! ($section == 'home') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">aniversario convidado</a></li>
-                            <li><a class="{!! ($section == 'produtos') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">dados do usuário</a></li>
-                            <li><a class="{!! ($section == 'historia') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">meus aniversários</a></li>
-                            <li class="divisor"><a class="{!! ($section == 'fitoterapiconatural') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">lista de presentes</a></li>
-                            <li><a class="{!! ($section == 'comofunciona') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">resgatar valores</a></li>
+                            <li class="divisor"><a class="{!! (Route::currentRouteName() == 'home') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">aniversario convidado</a></li>
+                            <li><a class="{!! (Route::currentRouteName() == 'produtos') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">dados do usuário</a></li>
+                            <li><a class="{!! (Route::currentRouteName() == 'historia') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">meus aniversários</a></li>
+                            <li class="divisor"><a class="{!! (Route::currentRouteName() == 'fitoterapiconatural') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">lista de presentes</a></li>
+                            <li><a class="{!! (Route::currentRouteName() == 'comofunciona') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">resgatar valores</a></li>
                             <li class="logout"><a class="" href="{!! route('home')!!}" title="" alt="">{{ Html::image('assets/site/images/sair.png', '', array('class' => 'img-responsive')) }}</a></li>
                         </ul>
                     </nav>
                 </div>
-                <h2>{!!$title_section!!}</h2>
+                <h2>{{ isset($titulo) ? $titulo : '' }}</h2>
             </div>
 
         </header>

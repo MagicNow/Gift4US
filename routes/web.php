@@ -13,12 +13,11 @@
 Route::any('/', ['as'   => 'home','uses' => 'HomeController@index']);
 Route::any('/logado', ['as'   => 'home','uses' => 'HomeController@logado']);
 Route::any('/cadastro', ['as'   => 'home','uses' => 'HomeController@cadastro']);
-Route::any('/dados-bancarios', ['as'   => 'home','uses' => 'HomeController@dados_bancarios']);
-Route::any('/edit', ['as'   => 'home','uses' => 'HomeController@edit']);
-Route::any('/nova-senha', ['as'   => 'home','uses' => 'HomeController@nova_senha']);
-Route::any('/transferencia', ['as'   => 'home','uses' => 'HomeController@transferencia']);
-Route::any('/resgatar', ['as'   => 'home','uses' => 'HomeController@resgatar']);
-
+Route::any('/usuario/dados-bancarios', ['as'   => 'home','uses' => 'HomeController@dados_bancarios']);
+Route::any('/usuario/editar-dados', ['as'   => 'home','uses' => 'HomeController@editar_dados']);
+Route::any('/usuario/nova-senha', ['as'   => 'home','uses' => 'HomeController@nova_senha']);
+Route::any('/usuario/transferencia', ['as'   => 'home','uses' => 'HomeController@transferencia']);
+// Route::any('/usuarios', ['as'   => 'home','uses' => 'HomeController@resgatar']);
 
 Route::group(['prefix' => 'admin'], function() {
 	Route::get('/', ['as'=> 'admin.index','uses' => 'Admin\AdminController@index']);
@@ -38,13 +37,8 @@ Route::group(['prefix' => 'admin'], function() {
 
     Route::get('produtos', ['as'=> 'admin.produtos','uses' => 'Admin\ProdutosController@index']);
     Route::get('produtos/status/{id}/{status}', ['as'=> 'admin.produtos.status','uses' => 'Admin\ProdutosController@status']);
-
 });
 
-
-
 Route::group(['prefix' => 'api'], function() {
-
     Route::get('/produtos', ['as'   => 'produtos','uses' => 'ApiController@produtos']);
-
 });

@@ -1,67 +1,82 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
 class HomeController extends Controller {
+	public function index(Request $request)
+	{
+		$secao 		= 'cadastro';
+		$titulo 	= 'Informações';
+		return view('site.usuarios', compact('secao', 'titulo'));
+	}
 
+	public function cadastro(Request $request)
+	{
+		$secao 		= 'cadastro';
+		$titulo 	= 'Informações';
+		return view('site.cadastro', compact('secao', 'titulo'));
+	}
 
-    public function index(Request $request)
-    {
-        $section 		= 'cadastro';
-        $title_section 	= 'Informações';
-        return view('site.home',compact('section','title_section'));
-       
-    }
-    public function cadastro(Request $request)
-    {
-        $section 		= 'cadastro';
-        $title_section 	= 'Informações';
-        return view('site.cadastro',compact('section','title_section'));
-       
-    }
-    public function dados_bancarios(Request $request)
-    {
-        $section 		= 'cadastro';
-        $title_section 	= 'Área do usuário';
-        return view('site.dados_bancarios',compact('section','title_section'));
-       
-    }
-    public function edit(Request $request)
-    {
-        $section 		= 'cadastro';
-        $title_section 	= 'Área do usuário';
-        return view('site.edit',compact('section','title_section'));
-       
-    }
-    public function nova_senha(Request $request)
-    {
-        $section 		= 'cadastro';
-        $title_section 	= 'Senha';
-        return view('site.nova_senha',compact('section','title_section'));
-       
-    }
-    public function transferencia(Request $request)
-    {
-        $section 		= 'cadastro';
-        $title_section 	= 'RESGATAR VALORES';
-        return view('site.nova_senha',compact('section','title_section'));
-       
-    }
-    public function logado(Request $request)
-    {
-        $section 		= 'cadastro';
-        $title_section 	= 'Área do usuário';
-        return view('site.logado',compact('section','title_section'));
-       
-    }
-    public function resgatar(Request $request)
-    {
-        $section 		= 'cadastro';
-        $title_section 	= 'RESGATAR vALORES';
-        return view('site.resgatar',compact('section','title_section'));
-       
-    }
+	public function dados_bancarios(Request $request)
+	{
+		$method = $request->method();
+		$view 	= 'site.inc.usuarios.dados_bancarios';
+		if ($request->ajax()) {
+			return view($view);
+		} else {
+			$titulo = 'Área do usuário';
+			return view('site.usuarios', compact('view', 'titulo'));
+		}
+	}
+
+	public function editar_dados(Request $request)
+	{
+		$method = $request->method();
+		$view 	= 'site.inc.usuarios.editar_dados';
+		if ($request->ajax()) {
+			return view($view);
+		} else {
+			$titulo = 'Área do usuário';
+			return view('site.usuarios', compact('view', 'titulo'));
+		}
+	}
+
+	public function nova_senha(Request $request)
+	{
+		$method = $request->method();
+		$view 	= 'site.inc.usuarios.nova_senha';
+		if ($request->ajax()) {
+			return view($view);
+		} else {
+			$titulo = 'Senha';
+			return view('site.usuarios', compact('view', 'titulo'));
+		}
+	}
+
+	public function transferencia(Request $request)
+	{
+		$method = $request->method();
+		$view 	= 'site.inc.usuarios.transferencia';
+		if ($request->ajax()) {
+			return view($view);
+		} else {
+			$titulo = 'RESGATAR VALORES';
+			return view('site.usuarios', compact('view', 'titulo'));
+		}
+	}
+
+	public function logado(Request $request)
+	{
+		$secao 		= 'cadastro';
+		$titulo 	= 'Área do usuário';
+		return view('site.logado', compact('secao', 'titulo'));
+	}
+
+	public function usuarios(Request $request)
+	{
+		$secao 		= 'cadastro';
+		$titulo 	= 'RESGATAR vALORES';
+		return view('site.usuarios', compact('secao', 'titulo'));
+	}
 }
