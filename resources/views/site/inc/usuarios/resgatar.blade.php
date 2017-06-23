@@ -1,5 +1,5 @@
-<form>
-    <fieldset class="resgatar col-xs-12 col-sm-12 col-md-6 col-lg-6">
+<form class="usuario-form">
+    <fieldset class="resgatar col-md-12">
         <span>
             Aqui você pode resgatar o valor referente aos presentes que o aniversariante ganhou que se enquadram nas opções cotas e roupas. É super fácil! 
 

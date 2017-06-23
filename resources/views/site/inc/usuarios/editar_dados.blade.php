@@ -1,5 +1,5 @@
-<form>
-	<fieldset class=" col-xs-12 col-sm-12 col-md-5 col-lg-5">
+<form class="usuario-form">
+	<fieldset class="col-md-12">
 		<label>
 			Nome:
 			<input type="text" name="nome">

@@ -10,13 +10,13 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::any('/', ['as'   => 'home','uses' => 'HomeController@index']);
-Route::any('/logado', ['as'   => 'home','uses' => 'HomeController@logado']);
-Route::any('/cadastro', ['as'   => 'home','uses' => 'HomeController@cadastro']);
-Route::any('/usuario/dados-bancarios', ['as'   => 'home','uses' => 'HomeController@dados_bancarios']);
-Route::any('/usuario/editar-dados', ['as'   => 'home','uses' => 'HomeController@editar_dados']);
-Route::any('/usuario/nova-senha', ['as'   => 'home','uses' => 'HomeController@nova_senha']);
-Route::any('/usuario/transferencia', ['as'   => 'home','uses' => 'HomeController@transferencia']);
+Route::any('/', ['as' => 'home','uses' => 'HomeController@index']);
+Route::any('/logado', ['as' => 'home','uses' => 'HomeController@logado']);
+Route::any('/cadastro', ['as' => 'home','uses' => 'HomeController@cadastro']);
+Route::any('/usuario/dados-bancarios', ['as' => 'usuario.dados-bancarios','uses' => 'HomeController@dados_bancarios']);
+Route::any('/usuario/editar-dados', ['as' => 'usuario.editar-dados','uses' => 'HomeController@editar_dados']);
+Route::any('/usuario/nova-senha', ['as' => 'usuario.nova-senha','uses' => 'HomeController@nova_senha']);
+Route::any('/usuario/transferencia', ['as' => 'usuario.transferencia','uses' => 'HomeController@transferencia']);
 // Route::any('/usuarios', ['as'   => 'home','uses' => 'HomeController@resgatar']);
 
 Route::group(['prefix' => 'admin'], function() {

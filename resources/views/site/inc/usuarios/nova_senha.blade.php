@@ -1,5 +1,5 @@
-<form>
-	<fieldset class="nova_senha col-xs-12 col-sm-12 col-md-5 col-lg-5">
+<form class="usuario-form">
+	<fieldset class="nova_senha col-md-12">
 		<span>
 			Fique tranquilo! Você receberá uma senha próvisória no email cadastrado abaixo.
 		</span>

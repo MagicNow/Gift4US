@@ -1,5 +1,5 @@
-<form>
-	<fieldset class="financeiro col-xs-12 col-sm-12 col-md-5 col-lg-5">
+<form class="usuario-form">
+	<fieldset class="financeiro col-md-12">
 		<span>
 			[OPCIONAL]
 			Seus dados bancários são necessários para que você possa receber valores referentes as cotas de presentes. A Gift4Us não irá compartilhar esses dados com ninguém e seus dados estarão em mais completa segurança.
