@@ -1,5 +1,11 @@
-.usuario-form fieldset {
-	background-color: #fff;
+.usuario {
+	&-ajax {
+		background-color: #fff;
+	}
+
+	&-form fieldset {
+		background-color: #fff;
+	}
 }
 
 .dashboard{
@@ -23,7 +29,7 @@
 
 		.dados{
 			padding-top: 100px;
-			margin-bottom: 30px;
+			// margin-bottom: 30px;
 			// z-index: 4;
 			// position: relative;
 			background-color: #fff;
@@ -92,7 +98,7 @@
 		z-index: 1;
 		fieldset{
 			padding-top: 100px;
-			margin-bottom: 30px;
+			// margin-bottom: 30px;
 			&.financeiro{
 				padding-top:0;
 			}
@@ -107,7 +113,7 @@
 				display: block;
 				color: #525353;
 				clear: both;
-				margin: 10px 0;
+				margin: 0 0 10px;
 				&.radio{
 					display: inline-block;
 					clear: none;
@@ -142,7 +148,7 @@
 			background-color: #699dd2;
 			clear: both;
 			display: block;
-			margin:30px auto;
+			margin: 0 auto 8px
 		}
 	}	
 	.nova_senha{
@@ -180,24 +186,19 @@
 	}
 }
 
+@media only screen and (min-width : 481px) {
+	.flex-row.row {
+		display: flex;
+		flex-wrap: wrap;
+	}
 
+	.flex-row.row > [class*='col-'] {
+		display: flex;
+		flex-direction: column;
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	.flex-row.row:after, 
+	.flex-row.row:before {
+		display: flex;
+	}
+}

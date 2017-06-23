@@ -13,11 +13,13 @@
 Route::any('/', ['as' => 'home','uses' => 'HomeController@index']);
 Route::any('/logado', ['as' => 'home','uses' => 'HomeController@logado']);
 Route::any('/cadastro', ['as' => 'home','uses' => 'HomeController@cadastro']);
-Route::any('/usuario/dados-bancarios', ['as' => 'usuario.dados-bancarios','uses' => 'HomeController@dados_bancarios']);
-Route::any('/usuario/editar-dados', ['as' => 'usuario.editar-dados','uses' => 'HomeController@editar_dados']);
-Route::any('/usuario/nova-senha', ['as' => 'usuario.nova-senha','uses' => 'HomeController@nova_senha']);
-Route::any('/usuario/transferencia', ['as' => 'usuario.transferencia','uses' => 'HomeController@transferencia']);
-// Route::any('/usuarios', ['as'   => 'home','uses' => 'HomeController@resgatar']);
+
+Route::group(['prefix' => 'usuario'], function() {
+    Route::any('dados-bancarios', ['as' => 'usuario.dados-bancarios','uses' => 'HomeController@dados_bancarios']);
+    Route::any('editar-dados', ['as' => 'usuario.editar-dados','uses' => 'HomeController@editar_dados']);
+    Route::any('nova-senha', ['as' => 'usuario.nova-senha','uses' => 'HomeController@nova_senha']);
+    Route::any('transferencia', ['as' => 'usuario.transferencia','uses' => 'HomeController@transferencia']);
+});
 
 Route::group(['prefix' => 'admin'], function() {
 	Route::get('/', ['as'=> 'admin.index','uses' => 'Admin\AdminController@index']);

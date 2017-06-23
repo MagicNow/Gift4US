@@ -1,13 +1,20 @@
-body{
+* { box-sizing: border-box; }
+
+html { height: 100%; }
+
+body {
+	margin: 0;
+	height: 100%;
 	background:url(../images/bg.png) no-repeat;
 }
+
 header{
-	height: 118px;
+	height: 102px;
 	background:url(../images/bg_menu.png) no-repeat;
 	font-size:17px;
 	.navbar{
 		border:0;
-		margin-top: 36px;
+		margin-top: 20px;
 		margin-bottom: 0;
 		&.navbar-default{
 			.navbar-collapse {
@@ -41,7 +48,7 @@ header{
 		color: #FFF;
 		font-size:26px;
 		text-align:center;
-		margin-top: -10px;
+		margin-top: -15px;
 	}
 	img{
 		width: 50px;
