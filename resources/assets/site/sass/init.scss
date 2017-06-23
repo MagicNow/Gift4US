@@ -1,0 +1,18 @@
+//Misc
+@import '_bootstrap';
+@import 'config/_settings';
+@import 'config/_mixins';
+
+
+//Global
+@import 'general/_normalize';
+@import 'general/_reset';
+@import 'layout/_fonts';
+@import 'layout/_header';
+@import 'layout/_footer';
+@import 'layout/_mobile';
+@import 'pages/home';
+@import 'pages/cadastro';
+@import 'pages/logado';
+@import 'pages/_criando-aniversario';
+

@@ -1,0 +1,190 @@
+.dashboard{
+	padding:20px 0;
+	.container{
+
+		position: relative;
+		.clearfix{
+			clear: both;
+			width: 100%;
+			input{
+				width: 100%;
+			}
+		}
+		.presentinho{
+			position:absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+		}
+
+		.dados{
+			padding-top: 100px;
+			margin-bottom: 30px;
+			&.financeiro{
+				padding-top:0;
+			}
+			a{
+				font-family: 'HelveticaNeueLTPro';
+				font-size: 17px;
+				display: block;
+				color: #525353;
+				clear: both;
+				margin: 10px 0;
+				padding: 0 10px;	
+				&.active{
+					background-color:#e5c93b;
+					color: #FFF;
+				}
+			}
+			label{
+				font-family: 'HelveticaNeueLTPro';
+				font-size: 17px;
+				display: block;
+				color: #525353;
+				clear: both;
+				margin: 10px 0;
+				border-bottom: 1px solid #525353;
+				padding-bottom: 15px;
+				span{
+					clear: both;
+					display: block;
+					padding: 0 10px;
+				}		
+			}
+		}
+		.aniversario{
+			padding-top: 100px;
+			margin-bottom: 30px;	
+			text-align: center;
+			p{
+				font-family: 'HelveticaNeueLTPro';
+				font-size: 17px;
+				display: block;
+				color: #525353;
+				clear: both;
+				margin: 10px 0;		
+				text-align: left;
+				&.criar{
+					text-align: center;
+				}
+				span{
+					color: #e6c93b;
+
+				}		
+			}
+		}			
+	}
+	form{
+		position:relative;
+		z-index: 1;
+		fieldset{
+			padding-top: 100px;
+			margin-bottom: 30px;
+			&.financeiro{
+				padding-top:0;
+			}
+			span{
+				color: #e6c93b;
+				font-family: 'HelveticaNeueLTPro';
+				font-size: 17px;
+			}
+			label{
+				font-family: 'HelveticaNeueLTPro';
+				font-size: 17px;
+				display: block;
+				color: #525353;
+				clear: both;
+				margin: 10px 0;
+				&.radio{
+					display: inline-block;
+					clear: none;
+					padding-left:0;
+					input{
+						display: inline-block;
+						width: 18px;
+						margin-left: 10px;
+					}
+				}
+				input{
+					border:0;
+					border-bottom:1px solid #525353;
+					width: 100%;
+					color: #bebfc2;
+
+				}
+				select{
+					border:0;
+					border-bottom:1px solid #525353;
+					width: 100%;
+
+				}
+			}
+		}
+		button{
+			font-family: 'dk_astromonkeyregular';
+			color: #FFF;
+			font-size:26px;
+			text-align:center;
+			border:0;
+			background-color: #699dd2;
+			clear: both;
+			display: block;
+			margin:30px auto;
+		}
+	}	
+	.nova_senha{
+		text-align: center;
+		p{
+			font-family: 'HelveticaNeueLTPro';
+			font-size: 17px;
+			color: #bebfc2;
+		}
+	}
+	.resgatar{
+		padding-top:0;
+		label{
+			display: inline-block;
+			&.radio{
+				width: 100%;
+				display: block;
+				border-bottom:1px solid #525353
+			}
+		}
+		p{
+			font-family: 'HelveticaNeueLTPro';
+				font-size: 17px;
+				display: block;
+				text-align: center;
+		}
+		input{
+			border:0;
+			width: 50%;
+		}
+		span{
+			clear: both;
+			width: 100%;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

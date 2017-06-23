@@ -1,0 +1,58 @@
+footer{
+	height: 243px;
+	background:url(../images/bg_footer.png) no-repeat;
+	font-size:17px;
+	color:#FFF;
+	position: relative;
+	float:left;
+	width: 100%;
+	//.container{
+		padding-top: 20px;
+		.logo{
+			width: 120px;
+			display: inline-block;
+		}	
+		.nav{
+			display: inline-block;
+			ul{
+				list-style: none;
+				display: block;
+				max-width: 200px;
+
+				li{
+					display: inline-block;
+					a{
+						color: #FFF;
+					}
+				}
+			}
+		}
+		.placa{
+			background:url(../images/placa.png) no-repeat;
+			background-size:contain;
+			height: 160px;
+			margin-left: 5%;
+			ul{
+				list-style: none;
+				li{
+					display: inline-block;
+					margin: 25px 20px;
+					a{
+						img{
+							width: 30px;
+						}
+					}
+				}
+			}
+		}
+	//}
+	
+	.copyright{
+		border-top: 3px solid #FFF;
+		color: #FFF;
+		text-align: center;
+		padding: 10px 30px;
+		width: 100%;
+		margin-top: 15px;
+	}
+}

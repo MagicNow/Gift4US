@@ -1,0 +1,50 @@
+body{
+	background:url(../images/bg.png) no-repeat;
+}
+header{
+	height: 118px;
+	background:url(../images/bg_menu.png) no-repeat;
+	font-size:17px;
+	.navbar{
+		border:0;
+		margin-top: 36px;
+		margin-bottom: 0;
+		&.navbar-default{
+			.navbar-collapse {
+			  	text-align: center;
+				.navbar-nav{
+					display: inline-block;
+					float: none;
+					vertical-align: top;
+					li{
+						border-bottom: 3px solid #FFF;
+						&.logout{
+							border-bottom:0;
+							margin-left: -16px;
+							margin-top: -10px;
+						}
+						&.divisor{
+							border-right:3px solid #FFF;
+						}
+						a{
+							padding: 0 15px 5px;
+							color:#FFF;
+						}
+					}
+				} 
+			}
+			
+		}
+	}
+	h2{
+		font-family: 'dk_astromonkeyregular';
+		color: #FFF;
+		font-size:26px;
+		text-align:center;
+		margin-top: -10px;
+	}
+	img{
+		width: 50px;
+
+	}
+}

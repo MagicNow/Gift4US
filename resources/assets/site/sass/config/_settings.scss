@@ -1,0 +1,54 @@
+// Variables
+
+//Colors
+$color-gray: #e7ded9;
+$color-gray-dark: #403c3b;
+$color-white: #fff;
+$color-orange: #fe5000;
+
+//
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+a:active {
+    outline: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+// Classes
+.no-bullet {
+  list-style: none;
+}
+
+.text-color-orange{
+  color: $color-orange;
+}
+
+.background-color-orange {
+  background-color: $color-orange;
+}
+
+
+// Button
+.button {
+  background-color: transparent;
+  border: 1px solid $color-orange;
+  padding: 10px 65px;
+  min-width: 130px;
+
+  &--orange {
+    @extend .button;
+
+    border-color: $color-orange;
+    color: $color-orange;
+  }
+}
