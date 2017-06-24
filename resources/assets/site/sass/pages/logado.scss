@@ -38,20 +38,20 @@
 				padding-top:0;
 			}
 			a{
-				font-family: 'HelveticaNeueLTPro';
+				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
 				display: block;
 				color: #525353;
 				clear: both;
 				margin: 10px 0;
-				padding: 0 10px;	
+				padding: 0 10px;
 				&.active{
 					background-color:#e5c93b;
 					color: #FFF;
 				}
 			}
 			label{
-				font-family: 'HelveticaNeueLTPro';
+				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
 				display: block;
 				color: #525353;
@@ -63,7 +63,7 @@
 					clear: both;
 					display: block;
 					padding: 0 10px;
-				}		
+				}
 			}
 
 			&-container {
@@ -73,15 +73,15 @@
 		}
 		.aniversario{
 			padding-top: 100px;
-			margin-bottom: 30px;	
+			margin-bottom: 30px;
 			text-align: center;
 			p{
-				font-family: 'HelveticaNeueLTPro';
+				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
 				display: block;
 				color: #525353;
 				clear: both;
-				margin: 10px 0;		
+				margin: 10px 0;
 				text-align: left;
 				&.criar{
 					text-align: center;
@@ -89,9 +89,9 @@
 				span{
 					color: #e6c93b;
 
-				}		
+				}
 			}
-		}			
+		}
 	}
 	form{
 		position:relative;
@@ -104,11 +104,11 @@
 			}
 			span{
 				color: #e6c93b;
-				font-family: 'HelveticaNeueLTPro';
+				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
 			}
 			label{
-				font-family: 'HelveticaNeueLTPro';
+				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
 				display: block;
 				color: #525353;
@@ -150,11 +150,11 @@
 			display: block;
 			margin: 0 auto 8px
 		}
-	}	
+	}
 	.nova_senha{
 		text-align: center;
 		p{
-			font-family: 'HelveticaNeueLTPro';
+			font-family: 'HelveticaNeueStd';
 			font-size: 17px;
 			color: #bebfc2;
 		}
@@ -170,7 +170,7 @@
 			}
 		}
 		p{
-			font-family: 'HelveticaNeueLTPro';
+			font-family: 'HelveticaNeueStd';
 				font-size: 17px;
 				display: block;
 				text-align: center;
@@ -197,7 +197,7 @@
 		flex-direction: column;
 	}
 
-	.flex-row.row:after, 
+	.flex-row.row:after,
 	.flex-row.row:before {
 		display: flex;
 	}

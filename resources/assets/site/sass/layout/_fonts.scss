@@ -1,10 +1,26 @@
 
 @font-face {
-    font-family: 'HelveticaNeueLTPro';
+    font-family: 'HelveticaNeueStd';
+    src: url('../fonts/helveticaneueltstd-cn-webfont.eot');
+    src: url('../fonts/helveticaneueltstd-cn-webfont.eot') format('embedded-opentype'),
+         url('../fonts/helveticaneueltstd-cn-webfont.woff') format('woff'),
+         url('../fonts/helveticaneueltstd-cn-webfont.ttf') format('truetype');
+         font-weight: normal;
+}
+@font-face {
+    font-family: 'HelveticaNeueStd_BDCN';
     src: url('../fonts/helveticaneueltstd-bdcn-webfont.eot');
     src: url('../fonts/helveticaneueltstd-bdcn-webfont.eot') format('embedded-opentype'),
          url('../fonts/helveticaneueltstd-bdcn-webfont.woff') format('woff'),
          url('../fonts/helveticaneueltstd-bdcn-webfont.ttf') format('truetype');
+         font-weight: normal;
+}
+@font-face {
+    font-family: 'HelveticaNeueStd_CN';
+    src: url('../fonts/helveticaneueltstd-cn-webfont.eot');
+    src: url('../fonts/helveticaneueltstd-cn-webfont.eot') format('embedded-opentype'),
+         url('../fonts/helveticaneueltstd-cn-webfont.woff') format('woff'),
+         url('../fonts/helveticaneueltstd-cn-webfont.ttf') format('truetype');
          font-weight: normal;
 }
 @font-face {

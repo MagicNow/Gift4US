@@ -1,70 +1,79 @@
-.form-cadastro{
-	padding:20px 0;
-	.container{
-		position: relative;
-		.presentinho{
-			position:absolute;
-			top: 0;
-			left: 0;
-			z-index: 1;
-		}
-
-		form{
-			position:relative;
-			z-index: 1;
-			fieldset{
-				padding-top: 100px;
-				margin-bottom: 30px;
-				&.financeiro{
-					padding-top:0;
-				}
-				span{
-					color: #e6c93b;
-					font-family: 'HelveticaNeueLTPro';
-					font-size: 17px;
-				}
-				label{
-					font-family: 'HelveticaNeueLTPro';
-					font-size: 17px;
-					display: block;
-					color: #525353;
-					clear: both;
-					margin: 10px 0;
-					&.radio{
-						display: inline-block;
-						clear: none;
-						padding-left:0;
-						input{
-							display: inline-block;
-							width: 18px;
-    						margin-left: 10px;
-						}
-					}
-					input{
-						border:0;
-						border-bottom:1px solid #525353;
-						width: 100%;
-
-					}
-					select{
-						border:0;
-						border-bottom:1px solid #525353;
-						width: 100%;
-
-					}
-				}
-			}
-			button{
-				font-family: 'dk_astromonkeyregular';
-				color: #FFF;
-				font-size:26px;
-				text-align:center;
-				border:0;
-				background-color: #699dd2;
-				clear: both;
-				display: block;
-				margin:30px auto;
-			}
-		}
-	}
+.form-cadastro {
+    padding: 40px 0;
+    .container {
+        position: relative;
+        .presentinho {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        .presentinho_red {
+            position: absolute;
+            bottom: -56px;
+            left: 0;
+            z-index: 1;
+            left: 50%;
+            margin-left: -58px;
+        }
+        form {
+            position: relative;
+            z-index: 1;
+            background-color: #fff;
+            padding: 10px 40px;
+            fieldset {
+                padding-top: 100px;
+                margin-bottom: 30px;
+                &.financeiro {
+                    padding-top: 0;
+                }
+                span {
+                    color: #e0c142;
+                    font-family: 'HelveticaNeueStd';
+                    font-size: 17px;
+                }
+                label {
+                    font-family: 'HelveticaNeueStd';
+                    font-size: 17px;
+                    display: block;
+                    color: #525353;
+                    clear: both;
+                    margin: 10px 0;
+                    &.radio {
+                        display: inline-block;
+                        clear: none;
+                        padding-left: 0;
+                        input {
+                            display: inline-block;
+                            width: 18px;
+                            margin-left: 10px;
+                        }
+                    }
+                    input {
+                        border: 0;
+                        border-bottom: 1px solid #525353;
+                        width: 100%;
+                    }
+                    select {
+                        border: 0;
+                        border-bottom: 1px solid #525353;
+                        width: 100%;
+                    }
+                }
+            }
+            button {
+                font-family: 'dk_astromonkeyregular';
+                color: #FFF;
+                font-size: 17.42px;
+                text-align: center;
+                border: 0;
+                background-color: #019ee3;
+                clear: both;
+                display: block;
+                padding: 7px 40px;
+                letter-spacing: 5px;
+                margin: 30px auto 49px;
+            }
+        }
+    }
 }

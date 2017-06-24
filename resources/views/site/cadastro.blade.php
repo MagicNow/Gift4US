@@ -3,7 +3,7 @@
 @section('content')
     <div class="form-cadastro col-xs-12 col-sm-12 col-md-12 col-lg-12">
     	<div class="container">
-    	 	{{ Html::image('assets/site/images/presentinho.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-5 col-lg-5')) }}   
+    	 	{{ Html::image('assets/site/images/presentinho.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-5 col-lg-6')) }}
     		<form class="col-md-offset-2 col-xs-10 col-sm-10 col-md-10 col-lg-10">
     			<fieldset class=" col-xs-12 col-sm-12 col-md-6 col-lg-6">
     				<label>
@@ -61,6 +61,7 @@
     				<span>Fique tranquilo! Você poderá atualizar os dados da sua conta a qualquer momento aqui no portal.</span>
     			</fieldset>
                 <button type="submit" class="enviar"> Finalizar</button>
+              {{ Html::image('assets/site/images/presentinho_red_end.png', '', array('class' => 'presentinho_red')) }}
     		</form>
     	</div>
     </div>

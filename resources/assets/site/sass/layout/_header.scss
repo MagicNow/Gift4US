@@ -5,12 +5,12 @@ html { height: 100%; }
 body {
 	margin: 0;
 	height: 100%;
-	background:url(../images/bg.png) no-repeat;
+	background:url(../images/bg.jpg);
 }
 
 header{
-	height: 102px;
-	background:url(../images/bg_menu.png) no-repeat;
+	height: 119px;
+	background:url(../images/bg_menu.png);
 	font-size:17px;
 	.navbar{
 		border:0;
@@ -38,9 +38,9 @@ header{
 							color:#FFF;
 						}
 					}
-				} 
+				}
 			}
-			
+
 		}
 	}
 	h2{
@@ -49,6 +49,7 @@ header{
 		font-size:26px;
 		text-align:center;
 		margin-top: -15px;
+    letter-spacing: 5px;
 	}
 	img{
 		width: 50px;
