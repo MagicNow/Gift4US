@@ -8,17 +8,17 @@
 				<div class="dados col-md-offset-2 col-xs-12 col-sm-12 col-md-4 col-lg-4">
 					<div class="dados-container">
 						<label>
-							<span>Marlene Albuquerque</span>
-							<span>marlene@albuquerque.com.br</span>                     
+							<span class="usuario-menu-texto usuario-nome">Marlene Albuquerque</span>
+							<span class="usuario-menu-texto">marlene@albuquerque.com.br</span>                     
 						</label>
 						<label>
-							<a href="{{ URL::to('usuario/editar-dados') }}" class="{{ Route::currentRouteName() == 'usuario.editar-dados' ? 'active': '' }} usuario-menu">Editar informações do cadastro</a>            
-							<a href="{{ URL::to('usuario/nova-senha') }}" class="{{ Route::currentRouteName() == 'usuario.nova-senha' ? 'active': '' }} usuario-menu">Mudar senha</a>            
-							<a href="{{ URL::to('usuario/dados-bancarios') }}" class="{{ Route::currentRouteName() == 'usuario.dados-bancarios' ? 'active': '' }} usuario-menu">Atualizar dados Bancários</a>            
+							<a href="{{ URL::to('usuario/editar-dados') }}" class="{{ Route::currentRouteName() == 'usuario.editar-dados' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Editar informações do cadastro</span></a>            
+							<a href="{{ URL::to('usuario/nova-senha') }}" class="{{ Route::currentRouteName() == 'usuario.nova-senha' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Mudar senha</span></a>            
+							<a href="{{ URL::to('usuario/dados-bancarios') }}" class="{{ Route::currentRouteName() == 'usuario.dados-bancarios' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Atualizar dados Bancários</span></a>            
 						</label>
 						<label>
-							<a href="{{ URL::to('usuario/transferencia') }}" class="{{ Route::currentRouteName() == 'usuario.transferencia' ? 'active': '' }} usuario-menu">Resgatar valores</a>
-							<span>R$ 0,00</span>
+							<a href="{{ URL::to('usuario/transferencia') }}" class="{{ Route::currentRouteName() == 'usuario.transferencia' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Resgatar valores</span></a>
+							<span class="usuario-menu-texto">R$ 0,00</span>
 						</label>
 					</div>
 				</div>
