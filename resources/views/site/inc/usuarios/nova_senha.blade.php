@@ -1,6 +1,6 @@
 <form class="usuario-form">
 	<fieldset class="nova_senha col-md-12">
-		<span>
+		<span class="usuario-form-header-text">
 			Fique tranquilo! Você receberá uma senha próvisória no email cadastrado abaixo.
 		</span>
 		<p>marlene@albuquerque.com.br </p>

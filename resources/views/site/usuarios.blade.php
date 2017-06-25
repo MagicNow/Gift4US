@@ -23,7 +23,7 @@
 					</div>
 				</div>
 
-				<div class="usuario-ajax col-xs-12 col-sm-12 col-md-6 col-lg-6">
+				<div class="usuario-ajax col-xs-12 col-sm-12 col-md-5">
 					@if (isset($view))
 						@include($view)
 					@else

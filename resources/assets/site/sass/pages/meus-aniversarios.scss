@@ -1,0 +1,43 @@
+.my-birthday {
+	padding-bottom: 20px;
+	margin-top: 50px;
+	background-color: #fff;
+    position: relative;
+    z-index: 1;
+
+	&-new-text {
+		font-family: 'HelveticaNeueStd';
+		font-size: 17px;
+		color: #525353;
+		width: 100%;
+		display: inline-block;
+		text-align: center;
+	}
+
+	&-header-text {
+		text-align: center;
+	}
+
+	&-create-button {
+		margin: 20px auto;
+		display: table;
+	}
+
+	&-footer {
+		border-top: 1px solid #525353;
+		margin-top: 20px;
+		padding-top: 10px;
+
+		&-text1 {
+			text-align: left;
+		}
+
+		&-text2 {
+			color: #b2b5b8;
+			font-family: 'HelveticaNeueStd';
+			font-size: 17px;
+			width: 100%;
+			display: inline-block;
+		}
+	}
+}

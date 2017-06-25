@@ -17,8 +17,18 @@ input {
 		}
 	}
 
-	&-form fieldset {
-		background-color: #fff;
+	&-form {
+		&-header-text {
+			color: #e6c93b;
+			font-family: 'HelveticaNeueStd';
+			font-size: 17px;
+			width: 100%;
+			display: inline-block;
+		}
+
+		fieldset {
+			background-color: #fff;
+		}
 	}
 
 	&-nome {
@@ -141,11 +151,11 @@ input {
 			&.financeiro{
 				padding-top:0;
 			}
-			span{
-				color: #e6c93b;
-				font-family: 'HelveticaNeueStd';
-				font-size: 17px;
-			}
+			// span{
+			// 	color: #e6c93b;
+			// 	font-family: 'HelveticaNeueStd';
+			// 	font-size: 17px;
+			// }
 			label{
 				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
