@@ -19,6 +19,11 @@ Route::group(['prefix' => 'usuario'], function() {
     Route::any('editar-dados', ['as' => 'usuario.editar-dados','uses' => 'HomeController@editar_dados']);
     Route::any('nova-senha', ['as' => 'usuario.nova-senha','uses' => 'HomeController@nova_senha']);
     Route::any('transferencia', ['as' => 'usuario.transferencia','uses' => 'HomeController@transferencia']);
+
+    Route::group(['prefix' => 'meus-aniversarios'], function() {
+        Route::any('/', ['as' => 'usuario.meus-aniversarios','uses' => 'HomeController@meus_aniversarios']);
+        Route::any('novo', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'HomeController@meus_aniversarios_novo']);
+    });
 });
 
 Route::group(['prefix' => 'admin'], function() {

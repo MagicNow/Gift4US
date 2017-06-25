@@ -1,10 +1,51 @@
+input {
+	outline: 0;
+}
+
 .usuario {
 	&-ajax {
 		background-color: #fff;
+
+		&:after {
+			content: "";
+			background:url(../images/presentinho_formulario.png);
+			width: 150px;
+			height: 214px;
+			position: absolute;
+			right: -74px;
+			top: 170px;
+		}
 	}
 
-	&-form fieldset {
-		background-color: #fff;
+	&-form {
+		&-header-text {
+			color: #e6c93b;
+			font-family: 'HelveticaNeueStd';
+			font-size: 17px;
+			width: 100%;
+			display: inline-block;
+		}
+
+		fieldset {
+			background-color: #fff;
+		}
+	}
+
+	&-nome {
+		font-size: 28px;
+		font-family: 'HelveticaNeueStd_BDCN';
+	}
+
+	&-menu {
+		// padding: 0 5px;
+		text-decoration: none;
+
+		&-texto {
+			position: relative;
+			z-index: 1;
+			padding: 4px 0 0 5px;
+			text-decoration: none;
+		}
 	}
 }
 
@@ -29,25 +70,33 @@
 
 		.dados{
 			padding-top: 100px;
-			// margin-bottom: 30px;
-			// z-index: 4;
-			// position: relative;
 			background-color: #fff;
 
 			&.financeiro{
 				padding-top:0;
 			}
+
 			a{
 				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
 				display: block;
 				color: #525353;
 				clear: both;
-				margin: 10px 0;
-				padding: 0 10px;
+				// margin: 10px 0;
+				// padding: 0 10px;
 				&.active{
-					background-color:#e5c93b;
 					color: #FFF;
+					position: relative;
+
+					&:before {
+						content: "";
+						position: absolute;
+						background:url(../images/sidemenu_hover.png);
+						width: 360px;
+						height: 36px;
+						left: 0;
+						top: 0;
+					}
 				}
 			}
 			label{
@@ -62,7 +111,7 @@
 				span{
 					clear: both;
 					display: block;
-					padding: 0 10px;
+					// padding: 0 10px;
 				}
 			}
 
@@ -102,11 +151,11 @@
 			&.financeiro{
 				padding-top:0;
 			}
-			span{
-				color: #e6c93b;
-				font-family: 'HelveticaNeueStd';
-				font-size: 17px;
-			}
+			// span{
+			// 	color: #e6c93b;
+			// 	font-family: 'HelveticaNeueStd';
+			// 	font-size: 17px;
+			// }
 			label{
 				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
@@ -152,7 +201,7 @@
 		}
 	}
 	.nova_senha{
-		text-align: center;
+		// text-align: center;
 		p{
 			font-family: 'HelveticaNeueStd';
 			font-size: 17px;

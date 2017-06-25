@@ -1,6 +1,6 @@
 <form class="usuario-form">
     <fieldset class="resgatar col-md-12">
-        <span>
+        <span class="usuario-form-header-text">
             Aqui você pode resgatar o valor referente aos presentes que o aniversariante ganhou que se enquadram nas opções cotas e roupas. É super fácil! 
 
 Confira os dados da sua conta bancária escolhida para a transação, preeencha o campo com o valor que quer resgatar e clique em Solicitar Trasnferência.
