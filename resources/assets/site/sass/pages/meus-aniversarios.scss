@@ -21,6 +21,94 @@
 	&-create-button {
 		margin: 20px auto;
 		display: table;
+
+		&-small {
+			background-color: #019ee3;
+			font: 17px 'dk_astromonkeyregular';
+			text-transform: uppercase;
+			color: #fff;
+			padding: 10px;
+			display: table;
+			margin: 0 auto 30px;
+
+			&:hover {
+				text-transform: uppercase;
+				color: #fff;
+			}
+		}
+	}
+
+	&-title {
+		font: 17px 'HelveticaNeueStd_BDCN';
+		color: #525353;
+		margin: 20px 0 30px;
+	}
+
+	&-list {
+		border-top: 1px solid #525353;
+	}
+
+	&-item {
+		border-bottom: 1px solid #525353;
+		padding: 20px 0 5px;
+		display: inline-block;
+		width: 100%;
+
+		&-name {
+			font: 17px 'HelveticaNeueStd';
+			display: block;
+			color: #525353;
+			clear: both;
+		}
+
+		&-date {
+			color: #b2b5b8;
+			font: 15px 'HelveticaNeueStd';
+			display: block;
+			width: 100%;
+		}
+
+		&-enter {
+			color: #4d5053;
+			font: 17px 'HelveticaNeueStd';
+		}
+
+		&-unfinished, &-archived {
+			font: 17px/27px 'HelveticaNeueStd';
+			width: 96px;
+			height: 27px;
+			text-align: center;
+			display: block;
+			border-radius: 7px;
+		}
+
+		&-unfinished {
+			background-color: #bfbfc1;
+			color: #ee4a49;
+		}
+
+		&-archived {
+			background-color: #fff;
+			color: #4d5053;
+			border: 1px solid #4d5053;
+		}
+
+		&-presente, &-lixeira {
+			height: 27px;
+			width: 27px;
+			display: inline-block;
+			text-align: center;
+			font: 10px/33px 'HelveticaNeueStd_CN';
+			color: #fff;
+		}
+
+		&-presente {
+			background: url(../images/aniversarios_presente_icone.png);
+		}
+
+		&-lixeira {
+			background: url(../images/aniversarios_trash_icone.png);
+		}
 	}
 
 	&-footer {

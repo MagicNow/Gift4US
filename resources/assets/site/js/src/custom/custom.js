@@ -13,4 +13,9 @@ $(function() {
 			history.pushState('data', '', $self.attr('href'));
 		});
 	});
+
+	$('.my-birthday-checkbox').radiobutton({
+		className: 'jquery-switch',
+		checkedClass: 'jquery-switch-on'
+	});
 });
