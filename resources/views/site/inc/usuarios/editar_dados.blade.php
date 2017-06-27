@@ -12,7 +12,7 @@
 			Telefone:
 			<input type="text" name="tel">
 		</label>
-		<button type="submit" class="enviar"> Concluir</button>
+		<button type="submit" class="enviar usuario-form-enviar"> Concluir</button>
 		<p><span>Você receberá um email de confirmação</span></p>
 	</fieldset>
 </form>

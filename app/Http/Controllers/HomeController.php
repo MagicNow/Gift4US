@@ -78,6 +78,18 @@ class HomeController extends Controller {
 		}
 	}
 
+	public function meus_aniversarios_excluir(Request $request)
+	{
+		$method = $request->method();
+		$view 	= 'site.inc.usuarios.meus_aniversarios_excluir';
+		if ($request->ajax()) {
+			return view($view);
+		} else {
+			$titulo = 'ÁREA DO USUÁRIO';
+			return view('site.usuarios', compact('view', 'titulo'));
+		}
+	}
+
 	public function logado(Request $request)
 	{
 		$secao 		= 'cadastro';

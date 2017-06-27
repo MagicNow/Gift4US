@@ -38,7 +38,7 @@
 			Valor disponível:
 			<input type="text" name="cpf" value="R$ 7.879,90">
 		</label>
-		<button type="submit" class="enviar"> Solicitar Transferência  s</button>
+		<button type="submit" class="enviar usuario-form-enviar"> Solicitar Transferência</button>
 		<span class="clearfix">Sua solicitação de transferência foi solicitada com sucesso! Você recebera um email com as demais intruções</span>
 	</fieldset>
 </form>

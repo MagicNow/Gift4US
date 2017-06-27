@@ -23,6 +23,7 @@ Route::group(['prefix' => 'usuario'], function() {
     Route::group(['prefix' => 'meus-aniversarios'], function() {
         Route::any('/', ['as' => 'usuario.meus-aniversarios','uses' => 'HomeController@meus_aniversarios']);
         Route::any('novo', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'HomeController@meus_aniversarios_novo']);
+        Route::any('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir','uses' => 'HomeController@meus_aniversarios_excluir']);
     });
 });
 
