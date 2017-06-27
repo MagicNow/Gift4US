@@ -16,6 +16,6 @@
 			Insira novamente sua nova senha::
 			<input type="text" name="cpf">
 		</label>
-		<button type="submit" class="enviar"> Concluir</button>
+		<button type="submit" class="enviar usuario-form-enviar"> Concluir</button>
 	</fieldset>
 </form>

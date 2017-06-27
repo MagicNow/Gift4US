@@ -32,5 +32,5 @@
 		</label>
 		<span>Fique tranquilo! Você poderá atualizar os dados da sua conta a qualquer momento aqui no portal.</span>
 	</fieldset>
-	<button type="submit" class="enviar"> Concluir</button>
+	<button type="submit" class="enviar usuario-form-enviar"> Concluir</button>
 </form>

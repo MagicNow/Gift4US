@@ -29,6 +29,18 @@ input {
 		fieldset {
 			background-color: #fff;
 		}
+
+		&-enviar {
+			font-family: 'dk_astromonkeyregular';
+			color: #FFF;
+			font-size:26px;
+			text-align:center;
+			border:0;
+			background-color: #699dd2;
+			clear: both;
+			display: block;
+			margin: 0 auto 8px
+		}
 	}
 
 	&-nome {
@@ -187,17 +199,6 @@ input {
 
 				}
 			}
-		}
-		button{
-			font-family: 'dk_astromonkeyregular';
-			color: #FFF;
-			font-size:26px;
-			text-align:center;
-			border:0;
-			background-color: #699dd2;
-			clear: both;
-			display: block;
-			margin: 0 auto 8px
 		}
 	}
 	.nova_senha{

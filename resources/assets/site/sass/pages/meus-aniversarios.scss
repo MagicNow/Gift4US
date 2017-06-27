@@ -5,6 +5,36 @@
     position: relative;
     z-index: 1;
 
+    &-actions {
+		width: 100%;
+		margin: 20px 0 10px;
+
+		&-button {
+			border-radius: 0;
+			text-transform: uppercase;
+			border-top: 0 none;
+			border-color: #525353;
+			cursor: pointer;
+
+			&-yes {
+				border-right: 0 none;
+			}
+
+			&-no {
+				border-left: 0 none;
+				color: #ee4949;
+			}
+
+			&:hover {
+				background-color: transparent;
+			}
+		}
+    }
+
+    &-remove {
+    	padding-top: 32px;
+    }
+
 	&-new-text {
 		font-family: 'HelveticaNeueStd';
 		font-size: 17px;
@@ -68,9 +98,13 @@
 			width: 100%;
 		}
 
-		&-enter {
+		&-enter, &-confirm {
 			color: #4d5053;
 			font: 17px 'HelveticaNeueStd';
+		}
+
+		&-confirm {
+			margin-top: 10px;
 		}
 
 		&-unfinished, &-archived {
