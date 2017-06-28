@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller {
+	// public function index(Request $request)
+	// {
+	// 	$secao 		= 'cadastro';
+	// 	$titulo 	= 'Informações';
+	// 	return view('site.usuarios', compact('secao', 'titulo'));
+	// }
+	
 	public function index(Request $request)
 	{
-		$secao 		= 'cadastro';
-		$titulo 	= 'Informações';
-		return view('site.usuarios', compact('secao', 'titulo'));
+		return view('site.home');
 	}
 
 	public function cadastro(Request $request)

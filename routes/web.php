@@ -11,8 +11,8 @@
 |
 */
 Route::any('/', ['as' => 'home','uses' => 'HomeController@index']);
-Route::any('/logado', ['as' => 'home','uses' => 'HomeController@logado']);
-Route::any('/cadastro', ['as' => 'home','uses' => 'HomeController@cadastro']);
+Route::any('/logado', ['as' => 'logado','uses' => 'HomeController@logado']);
+Route::any('/cadastro', ['as' => 'cadastro','uses' => 'HomeController@cadastro']);
 
 Route::group(['prefix' => 'usuario'], function() {
     Route::any('dados-bancarios', ['as' => 'usuario.dados-bancarios','uses' => 'HomeController@dados_bancarios']);
