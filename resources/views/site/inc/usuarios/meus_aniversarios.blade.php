@@ -1,4 +1,4 @@
-<div class="col-md-12 my-birthday">
+<div class="col-md-12 my-birthday" data-presente="{{ asset('assets/site/images/presentinho_aniversario_novo.png') }}">
 	@if (request()->cadastro)
 		<h3 class="my-birthday-title">Meus aniversários</h3>
 		{{-- <a href="{{ route('usuario.meus-aniversarios.novo') }}" class="my-birthday-create-button-small">Criar novo aniversário</a> --}}

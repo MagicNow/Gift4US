@@ -1,4 +1,4 @@
-<form class="usuario-form">
+<form class="usuario-form" data-presente="{{ asset('assets/site/images/presentinho_senha.png') }}">
 	<fieldset class="col-md-12">
 		<label>
 			Nome:

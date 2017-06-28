@@ -7,23 +7,32 @@ footer {
     position: relative;
     float: left;
     width: 100%;
-    //.container{
-    padding-top: 30px;
+    padding-top: 26px;
     margin-top: 20px;
+
     .logo {
         width: 129px;
         display: inline-block;
+        float: left;
+        margin: 21px 20px 0 23px;
     }
+
     .presentinho_red {
-        width: 107px;
-    margin-top: 20px;
+        width: 97px;
+        margin: 20px 25px 0 0;
+        float: left;
     }
+
     .presentinho_blue {
-        width: 118px;
+        width: 108px;
         margin-top: 3px;
+        float: left;
     }
+
     .nav {
         display: inline-block;
+        margin-top: 33px;
+
         ul {
             list-style: none;
             display: block;
@@ -37,12 +46,15 @@ footer {
             }
         }
     }
+
     .placa {
         background: url(../images/placa.png) no-repeat;
         background-size: contain;
         height: 120px;
         margin-left: 10px;
-        margin-top: 10px;
+        margin-top: 48px;
+        float: right;
+
         ul {
             list-style: none;
             li {
@@ -56,15 +68,19 @@ footer {
             }
         }
     }
-    //}
+
     .copyright {
         border-top: 3px solid #FFF;
         color: #FFF;
         text-align: center;
         padding: 10px 30px 0;
         width: 100%;
-        margin-top: 10px;
+        margin-top: 5px;
         font-family: 'HelveticaNeueStd_CN';
         font-size: 17px;
+
+        a {
+            color: #fff;
+        }
     }
 }

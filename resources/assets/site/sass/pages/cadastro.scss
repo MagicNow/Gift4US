@@ -10,20 +10,23 @@
         }
         .presentinho_red {
             position: absolute;
-            bottom: -56px;
+            bottom: -90px;
             left: 0;
             z-index: 1;
             left: 50%;
             margin-left: -58px;
         }
         form {
-            position: relative;
-            z-index: 1;
+            // position: relative;
+            // z-index: 1;
             background-color: #fff;
             padding: 10px 40px;
             fieldset {
                 padding-top: 100px;
                 margin-bottom: 30px;
+                position: relative;
+                z-index: 4;
+
                 &.financeiro {
                     padding-top: 0;
                 }
@@ -39,6 +42,14 @@
                     color: #525353;
                     clear: both;
                     margin: 10px 0;
+
+                    &.error {
+                        color: #ee4949;
+                        margin: 0;
+                        padding: 0;
+                        font-size: 12px;
+                    }
+
                     &.radio {
                         display: inline-block;
                         clear: none;
@@ -49,11 +60,13 @@
                             margin-left: 10px;
                         }
                     }
+
                     input {
                         border: 0;
                         border-bottom: 1px solid #525353;
                         width: 100%;
                     }
+
                     select {
                         border: 0;
                         border-bottom: 1px solid #525353;

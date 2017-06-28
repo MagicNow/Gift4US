@@ -1,4 +1,4 @@
-<form class="usuario-form">
+<form class="usuario-form" data-presente="{{ asset('assets/site/images/presentinho_resgatar.png') }}">
 	<fieldset class="resgatar col-md-12">
 		<span class="usuario-form-header-text">
 			Aqui você pode resgatar o valor referente aos presentes que o aniversariante ganhou que se enquadram nas opções cotas e roupas. É super fácil! 
