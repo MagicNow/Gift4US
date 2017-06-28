@@ -1,4 +1,4 @@
-<div class="col-md-12 my-birthday">
+<div class="col-md-12 my-birthday" data-presente="{{ asset('assets/site/images/presentinho_aniversario.png') }}">
 	<div class="my-birthday-remove">
 		<div class="row">
 			<div class="col-md-4 my-birthday-item-input">
