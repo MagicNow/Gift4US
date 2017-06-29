@@ -15,7 +15,7 @@ Route::group(['prefix' => 'cadastro'], function() {
     Route::get('/', ['as' => 'cadastro.criar','uses' => 'RegisterController@create']);
     Route::post('/', ['as' => 'cadastro.gravar','uses' => 'RegisterController@store']);
 
-    Route::post('login', ['as' => 'cadastro.login','uses' => 'RegisterController@cadastro']);
+    Route::post('login', ['as' => 'cadastro.login','uses' => 'RegisterController@login']);
 });
 
 Route::group(['prefix' => 'usuario'], function() {

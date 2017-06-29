@@ -701,7 +701,7 @@
     padding-bottom: 0px;
     position: relative;
     margin-right: -10000px;
-    margin-top: 325px;
+    margin-top: 300px;
     left: 651px;
 }
 #u9220-4 {
@@ -2222,6 +2222,14 @@
     letter-spacing: 2px;
     font-family: Trebuchet, Trebuchet MS, Tahoma, Arial, sans-serif;
     padding: 0 10px;
+}
+.form-login-message {
+    width: 444px;
+    color: #fff;
+    font-family: Trebuchet, Trebuchet MS, Tahoma, Arial, sans-serif;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 .css_verticalspacer .verticalspacer {
     height: calc(100vh - 4474px);

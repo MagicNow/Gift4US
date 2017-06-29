@@ -236,11 +236,16 @@
 						<!-- column -->
 						<img class="colelem" id="u9220-4" alt="Entrar:" width="444" height="34" src="{{ asset('assets/home/images/u9220-4.png?crc=247824620') }}"/><!-- rasterized frame -->
 						<form method="post" action="{{ route('cadastro.login') }}" class="clearfix colelem" id="pu9606">
+							@if (session('status'))
+								<div class="form-login-message">
+									{{ session('status') }}
+								</div>
+							@endif
 							<!-- group -->
 							<div class="clearfix grpelem" id="u9606">
 								<!-- column -->
-								<input type="text" name="email" class="colelem form-login-input" id="u9597" placeholder="insira seu email:">
-								<input type="password" name="senha" class="colelem form-login-input" id="u9600" placeholder="insira a senha:">
+								<input type="text" name="email" class="colelem form-login-input" id="u9597" placeholder="insira seu email:" required>
+								<input type="password" name="senha" class="colelem form-login-input" id="u9600" placeholder="insira a senha:" required>
 							</div>
 						
 							<div class="clearfix colelem" id="u9609">

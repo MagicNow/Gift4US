@@ -7,6 +7,7 @@ use App\Http\Requests\StoreRegister;
 use App\Models\Bancos;
 use App\Models\Clientes;
 use App\Models\ClientesContas;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller {
 	public function create(Request $request) {
@@ -26,7 +27,8 @@ class RegisterController extends Controller {
 		$data = [
 			'telefone_ddd' => substr($phone, 0, 2),
 			'telefone_numero' => substr($phone, 2, strlen($phone)),
-			'cpf' => preg_replace('/\D/', '', $request->cpf)
+			'cpf' => preg_replace('/\D/', '', $request->cpf),
+			'senha' => Hash::make($request->senha)
 		];
 
 		$request->merge($data);
@@ -39,5 +41,16 @@ class RegisterController extends Controller {
 			   ->save(new ClientesContas($request->all()));
 
 		return redirect()->route('home');
+	}
+
+	public function login(Request $request) {
+		$client = Clientes::where('email', $request->email)->first();
+		if (!$client || !Hash::check($request->senha, $client->senha)) {
+			return redirect('/')->with('status', 'E-mail e/ou senha incorretos!');
+		}
+
+		session(['client_id' => $client->id]);
+
+		return redirect()->route('usuario.meus-aniversarios');
 	}
 }
