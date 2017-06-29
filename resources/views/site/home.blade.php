@@ -84,7 +84,7 @@
 								<!-- horizontal box -->
 								<div class="MenuItemLabel NoWrap clearfix grpelem" id="u3858-4">
 									<!-- content -->
-									<a href="{{ route('cadastro') }}" target="_self">novo usuário</a>
+									<a href="{{ route('cadastro.criar') }}" target="_self">novo usuário</a>
 								</div>
 							</div>
 						</div>
@@ -235,7 +235,7 @@
 					<div class="clearfix grpelem" id="u9630">
 						<!-- column -->
 						<img class="colelem" id="u9220-4" alt="Entrar:" width="444" height="34" src="{{ asset('assets/home/images/u9220-4.png?crc=247824620') }}"/><!-- rasterized frame -->
-						<form method="post" action="{{ route('logado') }}" class="clearfix colelem" id="pu9606">
+						<form method="post" action="{{ route('cadastro.login') }}" class="clearfix colelem" id="pu9606">
 							<!-- group -->
 							<div class="clearfix grpelem" id="u9606">
 								<!-- column -->

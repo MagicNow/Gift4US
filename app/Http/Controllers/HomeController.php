@@ -16,13 +16,6 @@ class HomeController extends Controller {
 		return view('site.home');
 	}
 
-	public function cadastro(Request $request)
-	{
-		$secao 		= 'cadastro';
-		$titulo 	= 'Informações';
-		return view('site.cadastro', compact('secao', 'titulo'));
-	}
-
 	public function dados_bancarios(Request $request)
 	{
 		$method = $request->method();
@@ -95,11 +88,9 @@ class HomeController extends Controller {
 		}
 	}
 
-	public function logado(Request $request)
+	public function login(Request $request)
 	{
-		$secao 		= 'cadastro';
-		$titulo 	= 'Área do usuário';
-		return view('site.logado', compact('secao', 'titulo'));
+
 	}
 
 	public function usuarios(Request $request)

@@ -17,3 +17,5 @@ bootstrap/cache/
 public/assets/site/css
 public/assets/site/js
 public/assets/site/styles
+*.sublime-project
+*.sublime-workspace
