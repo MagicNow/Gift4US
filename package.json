@@ -38,10 +38,6 @@
   "directories": {
     "test": "tests"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://MarcoACoelho@bitbucket.org/pravy_ti/bradescowebapp.git"
-  },
   "author": "",
   "license": "ISC",
   "homepage": "https://bitbucket.org/pravy_ti/bradescowebapp#readme"
