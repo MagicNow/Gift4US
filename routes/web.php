@@ -16,9 +16,10 @@ Route::resource('cadastro/dados-bancarios', 'BankController');
 Route::post('cadastro/login', ['as' => 'cadastro.login','uses' => 'RegisterController@login']);
 
 Route::group(['prefix' => 'usuario'], function() {
-    // Route::get('dados-bancarios', ['as' => 'usuario.dados-bancarios','uses' => 'HomeController@dados_bancarios']);
     Route::get('editar-dados', ['as' => 'usuario.editar-dados','uses' => 'HomeController@editar_dados']);
-    Route::get('nova-senha', ['as' => 'usuario.nova-senha','uses' => 'HomeController@nova_senha']);
+    Route::resource('nova-senha', 'PasswordController');
+    Route::put('nova-senha', ['as' => 'usuario.nova-senha.update','uses' => 'HomeController@nova_senha']);
+    Route::get('nova-senha/recuperar', ['as' => 'usuario.nova-senha.recuperar','uses' => 'HomeController@nova_senha_recuperar']);
     Route::get('transferencia', ['as' => 'usuario.transferencia','uses' => 'HomeController@transferencia']);
 
     Route::group(['prefix' => 'meus-aniversarios'], function() {

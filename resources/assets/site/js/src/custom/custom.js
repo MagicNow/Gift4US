@@ -56,6 +56,23 @@ $(function() {
 		checkedClass: 'jquery-switch-on'
 	});
 
+	$('.password-form').validate({
+		rules: {
+			provisoria: {
+				required: true
+			},
+			senha: {
+				required: true,
+				minlength: 6
+			},
+			confirma_senha: {
+				required: true,
+				minlength: 6,
+				equalTo: "input[name='senha']"
+			}
+		}
+	});
+
 	$(".register-form").validate({
 		rules: {
 			nome: {
@@ -64,11 +81,11 @@ $(function() {
 			},
 			senha: {
 				required: true,
-				minlength: 5
+				minlength: 6
 			},
 			confirma_senha: {
 				required: true,
-				minlength: 5,
+				minlength: 6,
 				equalTo: "input[name='senha']"
 			},
 			email: {

@@ -25,11 +25,10 @@ class HomeController extends Controller {
 		return view('site.home');
 	}
 
-	public function nova_senha(Request $request)
-	{
-        $client = $this->cliente;
+	public function nova_senha_recuperar(Request $request) {
+		$client = $this->cliente;
 		$method = $request->method();
-		$view = 'site.inc.usuarios.nova_senha';
+		$view = 'site.inc.usuarios.nova_senha_recuperar';
 		if ($request->ajax()) {
 			return view($view, compact('client'));
 		} else {
