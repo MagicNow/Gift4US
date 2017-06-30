@@ -4,7 +4,7 @@
     <div class="form-cadastro col-xs-12 col-sm-12 col-md-12 col-lg-12">
     	<div class="container">
     	 	{{ Html::image('assets/site/images/presentinho.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-5 col-lg-6')) }}
-    		<form action="{{ route('cadastro.gravar') }}" method="post" class="col-md-offset-2 col-xs-10 col-sm-10 col-md-10 col-lg-10 register-form">
+    		<form action="{{ route('cadastro.store') }}" method="post" class="col-md-offset-2 col-xs-10 col-sm-10 col-md-10 col-lg-10 register-form">
     			<fieldset class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     @if ($errors->any())
                         <div class="alert alert-danger">

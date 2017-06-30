@@ -11,23 +11,20 @@
 |
 */
 Route::any('/', ['as' => 'home','uses' => 'HomeController@index']);
-Route::group(['prefix' => 'cadastro'], function() {
-    Route::get('/', ['as' => 'cadastro.criar','uses' => 'RegisterController@create']);
-    Route::post('/', ['as' => 'cadastro.gravar','uses' => 'RegisterController@store']);
-
-    Route::post('login', ['as' => 'cadastro.login','uses' => 'RegisterController@login']);
-});
+Route::resource('cadastro', 'RegisterController');
+Route::resource('cadastro/dados-bancarios', 'BankController');
+Route::post('cadastro/login', ['as' => 'cadastro.login','uses' => 'RegisterController@login']);
 
 Route::group(['prefix' => 'usuario'], function() {
-    Route::any('dados-bancarios', ['as' => 'usuario.dados-bancarios','uses' => 'HomeController@dados_bancarios']);
-    Route::any('editar-dados', ['as' => 'usuario.editar-dados','uses' => 'HomeController@editar_dados']);
-    Route::any('nova-senha', ['as' => 'usuario.nova-senha','uses' => 'HomeController@nova_senha']);
-    Route::any('transferencia', ['as' => 'usuario.transferencia','uses' => 'HomeController@transferencia']);
+    // Route::get('dados-bancarios', ['as' => 'usuario.dados-bancarios','uses' => 'HomeController@dados_bancarios']);
+    Route::get('editar-dados', ['as' => 'usuario.editar-dados','uses' => 'HomeController@editar_dados']);
+    Route::get('nova-senha', ['as' => 'usuario.nova-senha','uses' => 'HomeController@nova_senha']);
+    Route::get('transferencia', ['as' => 'usuario.transferencia','uses' => 'HomeController@transferencia']);
 
     Route::group(['prefix' => 'meus-aniversarios'], function() {
-        Route::any('/', ['as' => 'usuario.meus-aniversarios','uses' => 'HomeController@meus_aniversarios']);
-        Route::any('novo', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'HomeController@meus_aniversarios_novo']);
-        Route::any('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir','uses' => 'HomeController@meus_aniversarios_excluir']);
+        Route::get('/', ['as' => 'usuario.meus-aniversarios','uses' => 'HomeController@meus_aniversarios']);
+        Route::get('novo', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'HomeController@meus_aniversarios_novo']);
+        Route::get('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir','uses' => 'HomeController@meus_aniversarios_excluir']);
     });
 });
 

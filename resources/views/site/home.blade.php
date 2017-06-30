@@ -84,7 +84,7 @@
 								<!-- horizontal box -->
 								<div class="MenuItemLabel NoWrap clearfix grpelem" id="u3858-4">
 									<!-- content -->
-									<a href="{{ route('cadastro.criar') }}" target="_self">novo usuário</a>
+									<a href="{{ route('cadastro.create') }}" target="_self">novo usuário</a>
 								</div>
 							</div>
 						</div>

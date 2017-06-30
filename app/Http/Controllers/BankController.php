@@ -9,7 +9,7 @@ use App\Models\Clientes;
 use App\Models\ClientesContas;
 use Illuminate\Support\Facades\Hash;
 
-class RegisterController extends Controller {
+class BankController extends Controller {
 	private $cliente;
 
 	public function __construct () {
@@ -40,10 +40,7 @@ class RegisterController extends Controller {
 	 * @return Response
 	 */
 	public function create(Request $request) {
-		$bancos 	= ['' => 'Selecione'] + Bancos::orderBy('nome', 'ASC')->pluck('nome', 'id')->toArray();
-		$secao 		= 'cadastro';
-		$titulo 	= 'Criar novo usuário';
-		return view('site.cadastro', compact('secao', 'titulo', 'bancos'));
+
 	}
 
     /**
@@ -52,26 +49,7 @@ class RegisterController extends Controller {
 	 * @return Response
 	 */
  	public function store(StoreRegister $request) {
-		$input = $request->all();
 
-		$phone = preg_replace('/\D/', '', $request->tel);
-		$data = [
-			'telefone_ddd' => substr($phone, 0, 2),
-			'telefone_numero' => substr($phone, 2, strlen($phone)),
-			'cpf' => preg_replace('/\D/', '', $request->cpf),
-			'senha' => Hash::make($request->senha)
-		];
-
-		$request->merge($data);
-
-		$client = new Clientes;
-		$client->fill($request->all());
-		$store = $client->save();
-
-		$client->conta()
-			   ->save(new ClientesContas($request->all()));
-
-		return redirect()->route('home');
 	}
 
 	/**
@@ -94,13 +72,19 @@ class RegisterController extends Controller {
 	public function edit(Request $request, $id)
 	{
 		$client = $this->cliente;
-		$method = $request->method();
-		$view 	= 'site.inc.usuarios.editar_dados';
+		$conta 	= ClientesContas::find($id);
+		$bancos = ['' => 'Selecione'] + Bancos::orderBy('nome', 'ASC')->pluck('nome', 'id')->toArray();
+		$view 	= 'site.inc.usuarios.dados_bancarios';
+
+		if ($conta->clientes_id !== $client->id) {
+			return response('Acesso não autorizado', 401);
+		}
+
 		if ($request->ajax()) {
-			return view($view, compact('client'));
+			return view($view, compact('client', 'bancos', 'conta'));
 		} else {
 			$titulo = 'Área do usuário';
-			return view('site.usuarios', compact('view', 'titulo', 'client'));
+			return view('site.usuarios', compact('view', 'titulo', 'client', 'bancos', 'conta'));
 		}
 	}
 
@@ -112,11 +96,22 @@ class RegisterController extends Controller {
 	 */
     public function update(Request $request, $id)
     {
-		$this->cliente->fill($request->all());
-		$store = $this->cliente->save();
-		
-		return redirect()->route('cadastro.edit', [ 'id' => $this->cliente->id ]);
-    }
+    	$conta 	= ClientesContas::find($id);
+		$client = $this->cliente;
+		$data 	= ['cpf' => preg_replace('/\D/', '', $request->cpf)];
+
+		$request->merge($data);
+
+		if ($conta->clientes_id !== $client->id) {
+			return response('Acesso não autorizado', 401);
+		}
+
+		$conta 	= ClientesContas::find($id);
+		$conta->fill($request->all());
+		$conta->save();
+
+		return redirect()->route('dados-bancarios.edit', [ 'id' => $this->cliente->conta->id ]);
+	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -127,16 +122,5 @@ class RegisterController extends Controller {
 	public function destroy($id)
 	{
 		//
-	}
-
-	public function login(Request $request) {
-		$client = Clientes::where('email', $request->email)->first();
-		if (!$client || !Hash::check($request->senha, $client->senha)) {
-			return redirect('/')->with('status', 'E-mail e/ou senha incorretos!');
-		}
-
-		session(['client_id' => $client->id]);
-
-		return redirect()->route('usuario.meus-aniversarios');
 	}
 }

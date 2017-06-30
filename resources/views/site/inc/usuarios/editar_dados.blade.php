@@ -1,4 +1,5 @@
-<form class="usuario-form" data-presente="{{ asset('assets/site/images/presentinho_senha.png') }}">
+<form action="{{ route('cadastro.update', $client->id) }}" method="post" class="usuario-form" data-presente="{{ asset('assets/site/images/presentinho_senha.png') }}">
+	<input type="hidden" name="_method" value="put" />
 	<fieldset class="col-md-12">
 		<div class="form-group">
 			<label for="dados-nome">Nome:</label>
