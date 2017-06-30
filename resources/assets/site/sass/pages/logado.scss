@@ -177,32 +177,17 @@ input {
 			label{
 				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
-				display: block;
 				color: #525353;
-				clear: both;
-				margin: 0 0 10px;
 
 				&.error {
 					color: #ee4949;
 					margin-top: 0;
 				}
 
-				&.radio{
-					display: inline-block;
-					clear: none;
-					padding-left:0;
-					input{
-						display: inline-block;
-						width: 18px;
-						margin-left: 10px;
-					}
-				}
 				input{
 					border:0;
 					border-bottom:1px solid #525353;
-					width: 100%;
 					color: #bebfc2;
-
 				}
 
 				select{
@@ -221,31 +206,16 @@ input {
 			color: #bebfc2;
 		}
 	}
-	.resgatar{
-		padding-top:0;
-		label{
-			display: inline-block;
-			&.radio{
-				width: 100%;
-				display: block;
-				border-bottom:1px solid #525353
-			}
-		}
-		p{
-			font-family: 'HelveticaNeueStd';
-				font-size: 17px;
-				display: block;
-				text-align: center;
-		}
-		input{
-			border:0;
-			width: 50%;
-		}
-		span{
-			clear: both;
-			width: 100%;
-		}
-	}
+}
+
+.resgate-valor {
+	width: 100%;
+	border-top: 1px solid #acacac;
+	font: 17px 'HelveticaNeueStd';
+	color: #525353;
+	text-align: center;
+	padding: 5px 0;
+	margin-top: 10px;
 }
 
 @media only screen and (min-width : 481px) {

@@ -2,15 +2,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Clientes;
+use App\Models\Bancos;
 
 class HomeController extends Controller {
-	// public function index(Request $request)
-	// {
-	// 	$secao 		= 'cadastro';
-	// 	$titulo 	= 'Informações';
-	// 	return view('site.usuarios', compact('secao', 'titulo'));
-	// }
-	
+    private $cliente;
+
+    public function __construct () {
+		$this->middleware(function ($request, $next) {
+			if (!session('client_id') && request()->path() !== '/') {
+				return redirect()->route('home');
+			}
+
+			$this->cliente = Clientes::find(session('client_id'));
+
+			return $next($request);
+		});
+    }
+
 	public function index(Request $request)
 	{
 		return view('site.home');
@@ -18,61 +27,67 @@ class HomeController extends Controller {
 
 	public function dados_bancarios(Request $request)
 	{
+		$client = $this->cliente;
+		$bancos = ['' => 'Selecione'] + Bancos::orderBy('nome', 'ASC')->pluck('nome', 'id')->toArray();
 		$method = $request->method();
 		$view 	= 'site.inc.usuarios.dados_bancarios';
 		if ($request->ajax()) {
-			return view($view);
+			return view($view, compact('client', 'bancos'));
 		} else {
 			$titulo = 'Área do usuário';
-			return view('site.usuarios', compact('view', 'titulo'));
+			return view('site.usuarios', compact('view', 'titulo', 'client', 'bancos'));
 		}
 	}
 
 	public function editar_dados(Request $request)
 	{
+		$client = $this->cliente;
 		$method = $request->method();
 		$view 	= 'site.inc.usuarios.editar_dados';
 		if ($request->ajax()) {
-			return view($view);
+			return view($view, compact('client'));
 		} else {
 			$titulo = 'Área do usuário';
-			return view('site.usuarios', compact('view', 'titulo'));
+			return view('site.usuarios', compact('view', 'titulo', 'client'));
 		}
 	}
 
 	public function nova_senha(Request $request)
 	{
+        $client = $this->cliente;
 		$method = $request->method();
-		$view 	= 'site.inc.usuarios.nova_senha';
+		$view = 'site.inc.usuarios.nova_senha';
 		if ($request->ajax()) {
-			return view($view);
+			return view($view, compact('client'));
 		} else {
 			$titulo = 'Senha';
-			return view('site.usuarios', compact('view', 'titulo'));
+			return view('site.usuarios', compact('view', 'titulo', 'client'));
 		}
 	}
 
 	public function transferencia(Request $request)
 	{
+		$client = $this->cliente;
 		$method = $request->method();
 		$view 	= 'site.inc.usuarios.transferencia';
 		if ($request->ajax()) {
-			return view($view);
+			return view($view, compact('client'));
 		} else {
 			$titulo = 'RESGATAR VALORES';
-			return view('site.usuarios', compact('view', 'titulo'));
+			return view('site.usuarios', compact('view', 'titulo', 'client'));
 		}
 	}
 
 	public function meus_aniversarios(Request $request)
 	{
+		$client = $this->cliente;
 		$method = $request->method();
 		$view 	= 'site.inc.usuarios.meus_aniversarios';
 		if ($request->ajax()) {
 			return view($view);
 		} else {
 			$titulo = 'ÁREA DO USUÁRIO';
-			return view('site.usuarios', compact('view', 'titulo'));
+			return view('site.usuarios', compact('view', 'titulo', 'client'));
 		}
 	}
 
@@ -86,11 +101,6 @@ class HomeController extends Controller {
 			$titulo = 'ÁREA DO USUÁRIO';
 			return view('site.usuarios', compact('view', 'titulo'));
 		}
-	}
-
-	public function login(Request $request)
-	{
-
 	}
 
 	public function usuarios(Request $request)

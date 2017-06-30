@@ -16,6 +16,6 @@ class Clientes extends Model {
 	protected $fillable = ['nome', 'email', 'telefone_ddd', 'telefone_numero', 'senha'];
 
     public function conta() {
-        return $this->hasMany('App\Models\ClientesContas');
+        return $this->hasOne('App\Models\ClientesContas');
     }
 }

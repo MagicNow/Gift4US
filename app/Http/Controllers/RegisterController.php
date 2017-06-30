@@ -12,9 +12,7 @@ use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller {
 	public function create(Request $request) {
 		// $bancos 	= Bancos::select('id', DB::raw("concat(id, ' - ', nome) as nome"))
-		$bancos 	= Bancos::orderBy('nome', 'ASC')
-							->pluck('nome', 'id');
-		$bancos 	= ['' => 'Selecione'] + $bancos->toArray();
+		$bancos 	= ['' => 'Selecione'] + Bancos::orderBy('nome', 'ASC')->pluck('nome', 'id')->toArray();
 		$secao 		= 'cadastro';
 		$titulo 	= 'Criar novo usuário';
 		return view('site.cadastro', compact('secao', 'titulo', 'bancos'));

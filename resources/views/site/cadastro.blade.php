@@ -26,7 +26,7 @@
     				</label>
     				<label>
     					Telefone:
-    					<input type="text" name="tel" value="{{ old('tel') }}">
+    					<input type="tel" name="tel" value="{{ old('tel') }}">
     				</label>
     				<label>
     					Senha:

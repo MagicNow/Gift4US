@@ -13,4 +13,8 @@ class ClientesContas extends Model {
 	];
 
 	protected $fillable = ['cliente_id', 'bancos_id', 'tipo_conta', 'agencia', 'conta', 'cpf'];
+
+    public function banco() {
+        return $this->belongsTo('App\Models\Bancos', 'bancos_id');
+    }
 }

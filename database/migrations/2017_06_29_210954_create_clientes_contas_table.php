@@ -20,7 +20,7 @@ class CreateClientesContasTable extends Migration {
 			$table->enum('tipo_conta', array('CORRENTE','POUPANCA'))->nullable();
 			$table->string('agencia', 8)->nullable();
 			$table->string('conta', 14)->nullable();
-			$table->integer('cpf')->nullable();
+			$table->bigInteger('cpf')->nullable();
 			$table->timestamps();
 		});
 	}
