@@ -89,9 +89,6 @@ class PasswordController extends Controller {
 	 */
 	public function update(Request $request, $id)
 	{
-// dd($request->provisoria, $this->cliente);
-// dd(Hash::check($request->provisoria, $this->cliente->senha));
-
 		if (!Hash::check($request->provisoria, $this->cliente->senha)) {
 			return back()->withErrors('Senha não confere');
 		}

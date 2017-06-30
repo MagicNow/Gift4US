@@ -14,6 +14,6 @@
 			<input type="tel" name="tel" id="dados-telefone" class="form-control form-input" value="({{ $client->telefone_ddd }}) {{ $client->telefone_numero }}">
 		</div>
 		<button type="submit" class="enviar usuario-form-enviar"> Concluir</button>
-		<p><span>Você receberá um email de confirmação</span></p>
+		<p class="text-center usuario-form-header-text">Você receberá um email de confirmação</p>
 	</fieldset>
 </form>

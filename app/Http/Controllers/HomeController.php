@@ -55,23 +55,21 @@ class HomeController extends Controller {
 		$client = $this->cliente;
 		$method = $request->method();
 		$view 	= 'site.inc.usuarios.meus_aniversarios';
-		if ($request->ajax()) {
-			return view($view);
-		} else {
-			$titulo = 'ÁREA DO USUÁRIO';
-			return view('site.usuarios', compact('view', 'titulo', 'client'));
-		}
+
+		$titulo = 'ÁREA DO USUÁRIO';
+		return view('site.usuarios', compact('view', 'titulo', 'client'));
 	}
 
 	public function meus_aniversarios_excluir(Request $request)
 	{
+		$client = $this->cliente;
 		$method = $request->method();
 		$view 	= 'site.inc.usuarios.meus_aniversarios_excluir';
 		if ($request->ajax()) {
-			return view($view);
+			return view($view, compact('client'));;
 		} else {
 			$titulo = 'ÁREA DO USUÁRIO';
-			return view('site.usuarios', compact('view', 'titulo'));
+			return view('site.usuarios', compact('view', 'titulo', 'client'));
 		}
 	}
 

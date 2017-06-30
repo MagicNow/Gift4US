@@ -29,12 +29,12 @@
                     </div>
                     <nav id="navbar" role="navigation" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="divisor"><a class="{!! (Route::currentRouteName() == 'home') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt=""><i class="fa fa-search" aria-hidden="true"></i> aniversário convidado</a></li>
-                            <li><a class="{!! (Route::currentRouteName() == 'produtos') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">dados do usuário</a></li>
-                            <li><a class="{!! (Route::currentRouteName() == 'usuario.meus-aniversarios') ? 'active': ''!!}" href="{{ route('usuario.meus-aniversarios') }}" title="" alt="">meus aniversários</a></li>
-                            <li class="divisor"><a class="{!! (Route::currentRouteName() == 'fitoterapiconatural') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">lista de presentes</a></li>
-                            <li><a class="{!! (Route::currentRouteName() == 'comofunciona') ? 'active': ''!!}" href="{!! route('home')!!}" title="" alt="">resgatar valores</a></li>
-                            <li class="logout"><a class="" href="{!! route('home')!!}" title="" alt="">{{ Html::image('assets/site/images/sair.png', '', array('class' => 'img-responsive')) }}</a></li>
+                            <li class="divisor"><a class="{!! (Route::currentRouteName() == 'home') ? 'active': ''!!}" href="{!! route('home')!!}" alt=""><i class="fa fa-search" aria-hidden="true"></i> aniversário convidado</a></li>
+                            <li><a class="{!! (Route::currentRouteName() == 'produtos') ? 'active': ''!!}" href="{!! route('home')!!}" alt="">dados do usuário</a></li>
+                            <li><a class="{!! (Route::currentRouteName() == 'usuario.meus-aniversarios') ? 'active': ''!!}" href="{{ route('usuario.meus-aniversarios') }}" alt="">meus aniversários</a></li>
+                            <li class="divisor"><a class="{!! (Route::currentRouteName() == 'fitoterapiconatural') ? 'active': ''!!}" href="{!! route('home')!!}" alt="">lista de presentes</a></li>
+                            <li><a class="{!! (Route::currentRouteName() == 'usuario.transferencia') ? 'active': ''!!}" href="{{ route('usuario.transferencia') }}" alt="">resgatar valores</a></li>
+                            <li class="logout"><a class="" href="{!! route('home')!!}" alt="">{{ Html::image('assets/site/images/sair.png', '', array('class' => 'img-responsive')) }}</a></li>
                         </ul>
                     </nav>
                 </div>

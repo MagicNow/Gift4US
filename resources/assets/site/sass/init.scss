@@ -37,20 +37,26 @@
 	}
 }
 
-.form-input {
-	border-top: 0 none;
-	border-left: 0 none;
-	border-right: 0 none;
-	border-color: #acacac;
-	border-radius: 0;
-	box-shadow: none;
-	padding: 6px 0;
-	color: #bfbfc1;
-	font: 17px 'HelveticaNeueStd';
-	outline: 0;
+.form {
+	&-group {
+		margin-bottom: 5px;
+	}
 
-	&[disabled=""] {
-		background-color: transparent;
-		border: 0 none;
+	&-input {
+		border-top: 0 none;
+		border-left: 0 none;
+		border-right: 0 none;
+		border-color: #acacac;
+		border-radius: 0;
+		box-shadow: none;
+		padding: 6px 0;
+		color: #bfbfc1;
+		font: 17px 'HelveticaNeueStd';
+		outline: 0;
+
+		&[disabled=""] {
+			background-color: transparent;
+			border: 0 none;
+		}
 	}
 }
