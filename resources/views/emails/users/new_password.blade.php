@@ -14,8 +14,7 @@
 							<p style="font-size:18px;text-align: left;font-family:Arial, Sans-Serif;color:#000;">
 							<span>Olá! Os dados de acesso do site são:</span><br /><br />
 							Endereço: www.xxxxx.com.br/xxx<br />
-							Login: {{$dados['email']}}<br />
-							Senha: {{$dados['senha']}}<br />
+							Login: {{$orderName}}<br />
 							<br />CAMPARI<br /><br />
 							</p>
 						</td>

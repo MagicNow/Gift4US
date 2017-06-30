@@ -1,5 +1,5 @@
 <form class="usuario-form" data-presente="{{ asset('assets/site/images/presentinho_senha.png') }}">
-	<fieldset class="nova_senha col-md-12">
+	<fieldset class="nova-senha-recuperar col-md-12">
 		<span class="usuario-form-header-text text-center">Fique tranquilo! Você receberá uma senha próvisória no email cadastrado abaixo.</span>
 		<p class="nova-senha-email text-center">{{ $client->email }}</p>
 		<div class="form-group">

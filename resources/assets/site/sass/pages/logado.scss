@@ -45,7 +45,7 @@ input {
 			color: #FFF;
 			text-align:center;
 			border: 0;
-			background-color: #699dd2;
+			background-color: #019ee3;
 			clear: both;
 			display: block;
 			margin: 23px auto 8px;
@@ -226,6 +226,10 @@ input {
 		font-size: 17px;
 		color: #bebfc2;
 		margin: 5px 0 10px;
+	}
+
+	&-recuperar {
+		margin-top: 52px;
 	}
 }
 

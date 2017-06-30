@@ -3,7 +3,9 @@ namespace App\Http\Controllers;
 
 use \DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\StoreRegister;
+use App\Mail\NewPassword;
 use App\Models\Clientes;
 use Illuminate\Support\Facades\Hash;
 
@@ -115,6 +117,9 @@ class PasswordController extends Controller {
 
 	public function recuperar(Request $request)
 	{
+		Mail::to($this->cliente->email)
+			->send(new NewPassword($this->cliente));
+
 		$client = $this->cliente;
 		$method = $request->method();
 		$view = 'site.inc.usuarios.nova_senha_recuperar';
