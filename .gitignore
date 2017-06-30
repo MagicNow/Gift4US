@@ -20,3 +20,4 @@ public/assets/site/styles
 *.sublime-project
 *.sublime-workspace
 package-lock.json
+public/assets/site/images
