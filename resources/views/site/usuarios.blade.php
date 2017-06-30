@@ -8,8 +8,8 @@
 				<div class="dados col-md-offset-2 col-xs-12 col-sm-12 col-md-4 col-lg-4">
 					<div class="dados-container">
 						<label>
-							<span class="usuario-menu-texto usuario-nome">Marlene Albuquerque</span>
-							<span class="usuario-menu-texto">marlene@albuquerque.com.br</span>                     
+							<span class="usuario-menu-texto usuario-nome">{{ $client->nome }}</span>
+							<span class="usuario-menu-texto">{{ $client->email }}</span>                     
 						</label>
 						<label>
 							<a href="{{ URL::to('usuario/editar-dados') }}" class="{{ Route::currentRouteName() == 'usuario.editar-dados' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Editar informações do cadastro</span></a>            

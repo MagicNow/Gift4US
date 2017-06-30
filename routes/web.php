@@ -11,8 +11,12 @@
 |
 */
 Route::any('/', ['as' => 'home','uses' => 'HomeController@index']);
-Route::any('/logado', ['as' => 'home','uses' => 'HomeController@logado']);
-Route::any('/cadastro', ['as' => 'home','uses' => 'HomeController@cadastro']);
+Route::group(['prefix' => 'cadastro'], function() {
+    Route::get('/', ['as' => 'cadastro.criar','uses' => 'RegisterController@create']);
+    Route::post('/', ['as' => 'cadastro.gravar','uses' => 'RegisterController@store']);
+
+    Route::post('login', ['as' => 'cadastro.login','uses' => 'RegisterController@login']);
+});
 
 Route::group(['prefix' => 'usuario'], function() {
     Route::any('dados-bancarios', ['as' => 'usuario.dados-bancarios','uses' => 'HomeController@dados_bancarios']);

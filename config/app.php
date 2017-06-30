@@ -177,7 +177,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Orchestra\Parser\XmlServiceProvider::class,
-        
+        Laravel\Tinker\TinkerServiceProvider::class,
+        Way\Generators\GeneratorsServiceProvider::class,
+        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
+        Orangehill\Iseed\IseedServiceProvider::class
     ],
 
     /*
