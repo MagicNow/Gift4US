@@ -1,7 +1,7 @@
 <form action="{{ route('nova-senha.update', $client->id) }}" method="post" class="usuario-form password-form" data-presente="{{ asset('assets/site/images/presentinho_senha.png') }}">
 	<input type="hidden" name="_method" value="put" />
 
-	<fieldset class="nova_senha col-md-12">
+	<fieldset class="nova-senha col-md-12">
 		@if (session('errors'))
 			<div class="alert alert-danger">
 				{!! session('errors')->first() !!}

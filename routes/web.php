@@ -11,16 +11,18 @@
 |
 */
 Route::any('/', ['as' => 'home','uses' => 'HomeController@index']);
-Route::resource('cadastro', 'RegisterController');
+
 Route::resource('cadastro/dados-bancarios', 'BankController');
-Route::post('cadastro/login', ['as' => 'cadastro.login','uses' => 'RegisterController@login']);
+Route::resource('cadastro', 'RegisterController');
 
 Route::group(['prefix' => 'usuario'], function() {
     Route::get('editar-dados', ['as' => 'usuario.editar-dados','uses' => 'HomeController@editar_dados']);
     Route::resource('nova-senha', 'PasswordController');
     Route::put('nova-senha', ['as' => 'usuario.nova-senha.update','uses' => 'HomeController@nova_senha']);
-    Route::get('nova-senha/recuperar', ['as' => 'usuario.nova-senha.recuperar','uses' => 'HomeController@nova_senha_recuperar']);
+    Route::get('nova-senha/recuperar', ['as' => 'usuario.nova-senha.recuperar','uses' => 'PasswordController@recuperar']);
     Route::get('transferencia', ['as' => 'usuario.transferencia','uses' => 'HomeController@transferencia']);
+    Route::get('logout', ['as' => 'usuario.logout','uses' => 'RegisterController@logout']);
+    Route::post('login', ['as' => 'usuario.login','uses' => 'RegisterController@login']);
 
     Route::group(['prefix' => 'meus-aniversarios'], function() {
         Route::get('/', ['as' => 'usuario.meus-aniversarios','uses' => 'HomeController@meus_aniversarios']);

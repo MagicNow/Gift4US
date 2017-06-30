@@ -113,14 +113,16 @@ class PasswordController extends Controller {
 		//
 	}
 
-	public function login(Request $request) {
-		$client = Clientes::where('email', $request->email)->first();
-		if (!$client || !Hash::check($request->senha, $client->senha)) {
-			return redirect('/')->with('status', 'E-mail e/ou senha incorretos!');
+	public function recuperar(Request $request)
+	{
+		$client = $this->cliente;
+		$method = $request->method();
+		$view = 'site.inc.usuarios.nova_senha_recuperar';
+		if ($request->ajax()) {
+			return view($view, compact('client'));
+		} else {
+			$titulo = 'Senha';
+			return view('site.usuarios', compact('view', 'titulo', 'client'));
 		}
-
-		session(['client_id' => $client->id]);
-
-		return redirect()->route('usuario.meus-aniversarios');
 	}
 }

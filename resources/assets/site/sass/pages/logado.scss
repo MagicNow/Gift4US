@@ -174,16 +174,10 @@ input {
 		position:relative;
 		z-index: 1;
 		fieldset{
-			padding-top: 100px;
-			// margin-bottom: 30px;
 			&.financeiro{
 				padding-top:0;
 			}
-			// span{
-			// 	color: #e6c93b;
-			// 	font-family: 'HelveticaNeueStd';
-			// 	font-size: 17px;
-			// }
+
 			label{
 				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
@@ -220,11 +214,19 @@ input {
 	margin-top: 10px;
 }
 
-.nova-senha-email {
-	font-family: 'HelveticaNeueStd';
-	font-size: 17px;
-	color: #bebfc2;
-	margin: 5px 0 10px;
+.editar-dados {
+	padding-top: 142px;
+}
+
+.nova-senha {
+	padding-top: 142px;
+
+	&-email {
+		font-family: 'HelveticaNeueStd';
+		font-size: 17px;
+		color: #bebfc2;
+		margin: 5px 0 10px;
+	}
 }
 
 @media only screen and (min-width : 481px) {

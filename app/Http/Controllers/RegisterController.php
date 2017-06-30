@@ -14,7 +14,7 @@ class RegisterController extends Controller {
 
 	public function __construct () {
 		$this->middleware(function ($request, $next) {
-			if (!session('client_id') && request()->path() !== '/') {
+			if (!session('client_id') && request()->path() !== '/' && request()->path() !== 'usuario/login') {
 				return redirect()->route('home');
 			}
 
@@ -82,7 +82,7 @@ class RegisterController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		var_dump('show', $id);
 	}
 
 	/**
@@ -131,6 +131,7 @@ class RegisterController extends Controller {
 
 	public function login(Request $request) {
 		$client = Clientes::where('email', $request->email)->first();
+
 		if (!$client || !Hash::check($request->senha, $client->senha)) {
 			return redirect('/')->with('status', 'E-mail e/ou senha incorretos!');
 		}
@@ -138,5 +139,11 @@ class RegisterController extends Controller {
 		session(['client_id' => $client->id]);
 
 		return redirect()->route('usuario.meus-aniversarios');
+	}
+
+	public function logout(Request $request) {
+		$request->session()->forget('client_id');
+
+		return redirect()->route('home');
 	}
 }

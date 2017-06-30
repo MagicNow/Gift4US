@@ -10,7 +10,7 @@ class HomeController extends Controller {
 
 	public function __construct () {
 		$this->middleware(function ($request, $next) {
-			if (!session('client_id') && request()->path() !== '/') {
+			if (!session('client_id') && request()->path() !== '/' && request()->path() !== '/') {
 				return redirect()->route('home');
 			}
 
@@ -23,18 +23,6 @@ class HomeController extends Controller {
 	public function index(Request $request)
 	{
 		return view('site.home');
-	}
-
-	public function nova_senha_recuperar(Request $request) {
-		$client = $this->cliente;
-		$method = $request->method();
-		$view = 'site.inc.usuarios.nova_senha_recuperar';
-		if ($request->ajax()) {
-			return view($view, compact('client'));
-		} else {
-			$titulo = 'Senha';
-			return view('site.usuarios', compact('view', 'titulo', 'client'));
-		}
 	}
 
 	public function transferencia(Request $request)

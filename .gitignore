@@ -19,3 +19,4 @@ public/assets/site/js
 public/assets/site/styles
 *.sublime-project
 *.sublime-workspace
+package-lock.json
