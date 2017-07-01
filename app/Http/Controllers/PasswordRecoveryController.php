@@ -30,57 +30,34 @@ class PasswordController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index(Request $request)
+	public function show(Request $request)
 	{
+		$password = str_random(8);
+
+		$this->cliente->senha = Hash::make($password);
+		$this->cliente->save();
+
+		$content = [
+			'title'	 	=> 'Senha provisória',
+			'body' 	 	=> 'Olá, sua senha provisória é: ',
+			'password'	=> $password,
+			'button' 	=> 'Clique aqui para acessar o site',
+			'url'		=> route('usuario.nova-senha.recuperar')
+		];
+
+		$mail = Mail::to($this->cliente->email)
+					->send(new NewPassword($content));
+
 		$client = $this->cliente;
 		$method = $request->method();
-		$view = 'site.inc.usuarios.nova_senha';
+		$view = 'site.inc.usuarios.nova_senha_recuperar.show';
+
 		if ($request->ajax()) {
 			return view($view, compact('client'));
 		} else {
 			$titulo = 'Senha';
 			return view('site.usuarios', compact('view', 'titulo', 'client'));
 		}
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create(Request $request) {
-
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store(StoreRegister $request) {
-
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit(Request $request, $id)
-	{
-
 	}
 
 	/**
@@ -101,17 +78,6 @@ class PasswordController extends Controller {
 		$this->cliente->fill($request->all());
 		$store = $this->cliente->save();
 
-		return redirect()->route('nova-senha.index');
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
+		return redirect()->route('usuario.nova-senha.recuperar.show');
 	}
 }
