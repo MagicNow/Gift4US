@@ -101,7 +101,7 @@ class PasswordController extends Controller {
 		$this->cliente->fill($request->all());
 		$store = $this->cliente->save();
 
-		return redirect()->route('nova-senha.index');
+		return redirect()->route('nova-senha.index')->with('status', 'Senha alterada com sucesso!');
 	}
 
 	/**
