@@ -60,3 +60,17 @@
 		}
 	}
 }
+
+.alert {
+	&-success {
+		background-color: #F0C517;
+		color: #F29100;
+		font: 17px 'HelveticaNeueStd_BDCN';
+	}
+
+	&-danger {
+		background-color: #E73D3E;
+		color: #ffffff;
+		font: 17px 'HelveticaNeueStd_BDCN';
+	}
+}
