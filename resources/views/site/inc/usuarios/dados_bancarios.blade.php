@@ -29,7 +29,7 @@
 			<label for="banco-cpf">CPF:</label>
 			<input type="text" id="banco-cpf" name="cpf" class="form-control form-input" value="{{ $conta->cpf }}">
 		</div>
-		<span>Fique tranquilo! Você poderá atualizar os dados da sua conta a qualquer momento aqui no portal.</span>
+		<p class="usuario-form-header-text">Fique tranquilo! Você poderá atualizar os dados da sua conta a qualquer momento aqui no portal.<br><br></p>
 	</fieldset>
 	<button type="submit" class="enviar usuario-form-enviar"> Concluir</button>
 </form>

@@ -117,8 +117,9 @@ class PasswordController extends Controller {
 
 	public function recuperar(Request $request)
 	{
-		Mail::to($this->cliente->email)
-			->send(new NewPassword($this->cliente));
+		// Mail::from('heitorglockner@gmail.com')
+		// 	->to($this->cliente->email)
+		// 	->send(new NewPassword($this->cliente));
 
 		$client = $this->cliente;
 		$method = $request->method();
