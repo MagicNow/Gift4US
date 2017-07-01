@@ -28,7 +28,7 @@ class NewPassword extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.users.new_passord')
+        return $this->markdown('emails.users.new_password')
                     ->with('content', $this->content);
     }
 }
