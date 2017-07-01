@@ -124,6 +124,7 @@ class PasswordController extends Controller {
     	];
 
     	$mail = Mail::to($this->cliente->email)
+    				->subject('GIFT4US - Senha provisória')
     				->send(new NewPassword($content));
 
 		$client = $this->cliente;
