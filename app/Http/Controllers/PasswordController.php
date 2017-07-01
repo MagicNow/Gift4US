@@ -125,7 +125,7 @@ class PasswordController extends Controller {
     	$content = [
     		'title'	 => 'Senha provisória',
     		'body' 	 => 'Olá, sua senha provisória é: <strong>' . $password . '</strong>',
-    		'button' => 'Clique aqui para acessar o site'
+    		'button' => 'Clique aqui para acessar o site',
     		'url' 	 => route('usuario.nova-senha.recuperar')
     	];
 
