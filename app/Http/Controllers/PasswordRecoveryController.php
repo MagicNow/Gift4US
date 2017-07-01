@@ -79,6 +79,6 @@ class PasswordRecoveryController extends Controller {
 		$this->cliente->fill($request->all());
 		$store = $this->cliente->save();
 
-		return redirect()->route('usuario.nova-senha.recuperar.show');
+		return redirect()->route('nova-senha.index');
 	}
 }
