@@ -3,7 +3,7 @@
 
 {{ $content['body'] }}
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => $content['url']])
 {{ $content['button'] }}
 @endcomponent
 
