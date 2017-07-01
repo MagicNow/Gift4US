@@ -1,7 +1,7 @@
 ﻿@component('mail::message')
 	# {{ $content['title'] }}
 
-	{{ $content['body'] }}
+	{!! $content['body'] !!}
 
 	@component('mail::table')
 		| Laravel       | Table         | Example  |
@@ -11,7 +11,7 @@
 	@endcomponent
 
 	@component('mail::button', ['url' => ''])
-		{{ $content['button'] }}
+		{!! $content['button'] !!}
 	@endcomponent
 
 	Thanks,

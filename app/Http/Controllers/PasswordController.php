@@ -123,9 +123,8 @@ class PasswordController extends Controller {
     		'button' => 'Click Here'
     	];
 
-    	$mail = Mail::to('heitor@magictech.co')->send(new NewPassword($content));
-
-		dd($this->cliente->email, $mail);
+    	$mail = Mail::to($this->cliente->email)
+    				->send(new NewPassword($content));
 
 		$client = $this->cliente;
 		$method = $request->method();
