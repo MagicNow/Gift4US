@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use \DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\StoreRegister;
+use App\Http\Requests\StorePassword;
 use App\Mail\NewPassword;
 use App\Models\Clientes;
 use Illuminate\Support\Facades\Hash;
@@ -63,10 +63,9 @@ class PasswordRecoveryController extends Controller {
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(StorePassword $request)
 	{
 		if (!Hash::check($request->provisoria, $this->cliente->senha)) {
 			return back()->withErrors('Senha não confere');
