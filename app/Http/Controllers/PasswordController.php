@@ -117,10 +117,16 @@ class PasswordController extends Controller {
 
 	public function recuperar(Request $request)
 	{
+		$password = Hash::make(str_random(8));
+
+		$this->cliente->senha = $password;
+		$this->cliente->save();
+
     	$content = [
-    		'title'	 => 'Itsolutionstuff.com mail',
-    		'body' 	 => 'The body of your message.',
-    		'button' => 'Click Here'
+    		'title'	 => 'Senha provisória',
+    		'body' 	 => 'Olá, sua senha provisória é: <strong>' . $password . '</strong>',
+    		'button' => 'Clique aqui para acessar o site'
+    		'url' 	 => route('usuario.nova-senha.recuperar')
     	];
 
     	$mail = Mail::to($this->cliente->email)
@@ -129,6 +135,7 @@ class PasswordController extends Controller {
 		$client = $this->cliente;
 		$method = $request->method();
 		$view = 'site.inc.usuarios.nova_senha_recuperar';
+
 		if ($request->ajax()) {
 			return view($view, compact('client'));
 		} else {

@@ -1,19 +1,12 @@
 ﻿@component('mail::message')
 # {{ $content['title'] }}
 
-{!! $content['body'] !!}
-
-@component('mail::table')
-| Laravel       | Table         | Example  |
-| ------------- |:-------------:| --------:|
-| PHP           | Centered      | $100     |
-| Laravel       | Right-Aligned | $200     |
-@endcomponent
+{{ $content['body'] }}
 
 @component('mail::button', ['url' => ''])
-{!! $content['button'] !!}
+{{ $content['button'] }}
 @endcomponent
 
-Thanks,
+Obrigado,
 {{ config('app.name') }}
 @endcomponent
