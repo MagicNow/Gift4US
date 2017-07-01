@@ -117,9 +117,9 @@ class PasswordController extends Controller {
 
 	public function recuperar(Request $request)
 	{
-		$password = Hash::make(str_random(8));
+		$password = str_random(8);
 
-		$this->cliente->senha = $password;
+		$this->cliente->senha = Hash::make($password);
 		$this->cliente->save();
 
     	$content = [
