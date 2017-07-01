@@ -8,6 +8,12 @@
 			</div>
 		@endif
 
+		@if (session('status'))
+			<div class="alert alert-success">
+				{{ session('status') }}
+			</div>
+		@endif
+
 		<div class="form-group">
 			<label for="senha-atual">Senha atual:</label>
 			<input type="password" class="form-control form-input" id="senha-atual" name="provisoria" required>
