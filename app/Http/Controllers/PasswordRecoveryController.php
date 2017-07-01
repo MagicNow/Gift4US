@@ -32,21 +32,23 @@ class PasswordRecoveryController extends Controller {
 	 */
 	public function show(Request $request)
 	{
-		$password = str_random(8);
+		if (session('errors')) {
+			$password = str_random(8);
 
-		$this->cliente->senha = Hash::make($password);
-		$this->cliente->save();
+			$this->cliente->senha = Hash::make($password);
+			$this->cliente->save();
 
-		$content = [
-			'title'	 	=> 'Senha provisória',
-			'body' 	 	=> 'Olá, sua senha provisória é: ',
-			'password'	=> $password,
-			'button' 	=> 'Clique aqui para acessar o site',
-			'url'		=> route('usuario.nova-senha.recuperar.show')
-		];
+			$content = [
+				'title'	 	=> 'Senha provisória',
+				'body' 	 	=> 'Olá, sua senha provisória é: ',
+				'password'	=> $password,
+				'button' 	=> 'Clique aqui para acessar o site',
+				'url'		=> route('usuario.nova-senha.recuperar.show')
+			];
 
-		$mail = Mail::to($this->cliente->email)
-					->send(new NewPassword($content));
+			$mail = Mail::to($this->cliente->email)
+						->send(new NewPassword($content));
+		}
 
 		$client = $this->cliente;
 		$method = $request->method();
