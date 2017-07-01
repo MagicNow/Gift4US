@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use \DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\StoreRegister;
+use App\Http\Requests\StorePassword;
 use App\Mail\NewPassword;
 use App\Models\Clientes;
 use Illuminate\Support\Facades\Hash;
