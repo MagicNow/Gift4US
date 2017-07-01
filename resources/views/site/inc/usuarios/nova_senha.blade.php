@@ -12,7 +12,7 @@
 			<label for="senha-atual">Senha atual:</label>
 			<input type="password" class="form-control form-input" id="senha-atual" name="provisoria" required>
 
-			<p class="text-center usuario-form-header-text">esqueceu sua senha? <a href="{{ route('usuario.nova-senha.recuperar') }}">Clique aqui!</a></p>
+			<p class="text-center usuario-form-header-text">esqueceu sua senha? <a href="{{ route('usuario.nova-senha.recuperar.show') }}">Clique aqui!</a></p>
 		</div>
 		<div class="form-group">
 			<label for="senha-nova">Insira sua nova senha:</label>
