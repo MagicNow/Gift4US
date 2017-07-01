@@ -89,7 +89,7 @@ class PasswordController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(StoreRegister $request, $id)
+	public function update(StorePassword $request, $id)
 	{
 		if (!Hash::check($request->provisoria, $this->cliente->senha)) {
 			return back()->withErrors('Senha não confere');
