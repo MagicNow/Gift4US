@@ -17,8 +17,8 @@ Route::resource('cadastro', 'RegisterController');
 
 Route::group(['prefix' => 'usuario'], function() {
     Route::get('editar-dados', ['as' => 'usuario.editar-dados','uses' => 'HomeController@editar_dados']);
-    Route::get('nova-senha/recuperar', ['as' => 'usuario.nova-senha.recuperar.show','uses' => 'PasswordRecoveryController@recuperar']);
-    Route::post('nova-senha/recuperar', ['as' => 'usuario.nova-senha.recuperar.update','uses' => 'PasswordRecoveryController@recuperar']);
+    Route::get('nova-senha/recuperar', ['as' => 'usuario.nova-senha.recuperar.show','uses' => 'PasswordRecoveryController@show']);
+    Route::post('nova-senha/recuperar', ['as' => 'usuario.nova-senha.recuperar.update','uses' => 'PasswordRecoveryController@update']);
     Route::resource('nova-senha', 'PasswordController');
     Route::get('transferencia', ['as' => 'usuario.transferencia','uses' => 'HomeController@transferencia']);
     Route::get('logout', ['as' => 'usuario.logout','uses' => 'RegisterController@logout']);

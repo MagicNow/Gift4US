@@ -9,7 +9,7 @@ use App\Mail\NewPassword;
 use App\Models\Clientes;
 use Illuminate\Support\Facades\Hash;
 
-class PasswordController extends Controller {
+class PasswordRecoveryController extends Controller {
 	private $cliente;
 
 	public function __construct () {
@@ -42,7 +42,7 @@ class PasswordController extends Controller {
 			'body' 	 	=> 'Olá, sua senha provisória é: ',
 			'password'	=> $password,
 			'button' 	=> 'Clique aqui para acessar o site',
-			'url'		=> route('usuario.nova-senha.recuperar')
+			'url'		=> route('usuario.nova-senha.recuperar.show')
 		];
 
 		$mail = Mail::to($this->cliente->email)
@@ -50,7 +50,7 @@ class PasswordController extends Controller {
 
 		$client = $this->cliente;
 		$method = $request->method();
-		$view = 'site.inc.usuarios.nova_senha_recuperar.show';
+		$view = 'site.inc.usuarios.nova_senha_recuperar';
 
 		if ($request->ajax()) {
 			return view($view, compact('client'));
