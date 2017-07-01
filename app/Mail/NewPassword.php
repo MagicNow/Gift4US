@@ -9,28 +9,26 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class NewPassword extends Mailable
 {
-	use Queueable, SerializesModels;
+    use Queueable, SerializesModels;
 
-	/**
-	 * Create a new message instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		//
-	}
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
+    public function __construct($content)
+    {
+        $this->content = $content;
+    }
 
-	/**
-	 * Build the message.
-	 *
-	 * @return $this
-	 */
-	public function build()
-	{
-		return $this->view('emails.users.new_password')
-					->with([
-						'orderName' => 'nome'
-					]);
-	}
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->markdown('emails.users.new_passord')
+                    ->with('content', $this->content);
+    }
 }
