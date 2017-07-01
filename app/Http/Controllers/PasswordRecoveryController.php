@@ -32,7 +32,7 @@ class PasswordRecoveryController extends Controller {
 	 */
 	public function show(Request $request)
 	{
-		if (session('errors')) {
+		if (!session('errors')) {
 			$password = str_random(8);
 
 			$this->cliente->senha = Hash::make($password);
