@@ -123,10 +123,11 @@ class PasswordController extends Controller {
 		$this->cliente->save();
 
     	$content = [
-    		'title'	 => 'Senha provisória',
-    		'body' 	 => 'Olá, sua senha provisória é: <strong>' . $password . '</strong>',
-    		'button' => 'Clique aqui para acessar o site',
-    		'url' 	 => route('usuario.nova-senha.recuperar')
+    		'title'	 	=> 'Senha provisória',
+    		'body' 	 	=> 'Olá, sua senha provisória é: ',
+    		'password'	=> $password,
+    		'button' 	=> 'Clique aqui para acessar o site',
+    		'url'		=> route('usuario.nova-senha.recuperar')
     	];
 
     	$mail = Mail::to($this->cliente->email)
