@@ -29,6 +29,7 @@ class NewPassword extends Mailable
     public function build()
     {
         return $this->markdown('emails.users.new_password')
+                    ->subject('GIFT4US - Senha provisória')
                     ->with('content', $this->content);
     }
 }
