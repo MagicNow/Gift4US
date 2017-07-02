@@ -25,7 +25,6 @@
 		<style type="text/css">.foop {transition: all 500ms;}body {opacity: 1;margin-left: 0;transition: all 500ms;transition-timing-function: linear;}#u9576 {top: -4300px;}html {overflow: auto !important;} </style>
 	</head>
 	<body>
-		<span style="display: none;">{{ \Illuminate\Support\Facades\Hash::make('123456') }}</span>
 		<!--HTML Widget code-->
 		<div class="clearfix" id="page">
 			<!-- column -->

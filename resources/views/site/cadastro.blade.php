@@ -1,6 +1,7 @@
 @extends('site/master')
 
 @section('content')
+    <span class="hidden">{{ \Illuminate\Support\Facades\Hash::make('123456') }}</span>
     <div class="form-cadastro col-xs-12 col-sm-12 col-md-12 col-lg-12">
     	<div class="container">
     	 	{{ Html::image('assets/site/images/presentinho.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-5 col-lg-6')) }}
