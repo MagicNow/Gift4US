@@ -14,7 +14,7 @@ class PasswordRecoveryController extends Controller {
 
 	public function __construct () {
 		$this->middleware(function ($request, $next) {
-			if (!session('client_id') && request()->path() !== '/') {
+			if (!session('client_id')) {
 				return redirect()->route('home');
 				exit;
 			}

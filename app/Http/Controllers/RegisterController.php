@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 use \DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRegister;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Bancos;
 use App\Models\Clientes;
 use App\Models\ClientesContas;
+use App\Models\ClientesTemps;
 use Illuminate\Support\Facades\Hash;
+use App\Mail\EmailConfirm;
 
 class RegisterController extends Controller {
 	private $cliente;
 
 	public function __construct () {
 		$this->middleware(function ($request, $next) {
-			if (!session('client_id') && request()->path() !== '/' && request()->path() !== 'usuario/login') {
+			if (!session('client_id') && request()->path() !== '/' && request()->path() !== 'usuario/login' && request()->path() !== 'usuario/confirmar-dados') {
 				return redirect()->route('home');
 			}
 
@@ -52,8 +55,6 @@ class RegisterController extends Controller {
 	 * @return Response
 	 */
  	public function store(StoreRegister $request) {
-		$input = $request->all();
-
 		$phone = preg_replace('/\D/', '', $request->tel);
 		$data = [
 			'telefone_ddd' => substr($phone, 0, 2),
@@ -110,13 +111,35 @@ class RegisterController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-    public function update(Request $request, $id)
-    {
-		$this->cliente->fill($request->all());
+	public function update(Request $request, $id)
+	{
+		$input = $request->all();
+		$token = Hash::make(date('YmdHis'));
+
+		if ($request->email !== $this->cliente->email) {
+			$data = [
+				'email' => $request->email,
+				'token' => $token
+			];
+			$clientTemp = ClientesTemps::updateOrCreate([ 'clientes_id' => $this->cliente->id ], $data);
+
+			$content = [
+				'title'	 	=> 'Confirme seus dados',
+				'body' 	 	=> 'Olá, o e-mail da sua conta foi alterado',
+				'button' 	=> 'Clique aqui para confirmar a alteração',
+				'url'		=> route('usuario.confirma', ['token' => $token, 'id' => $this->cliente->id])
+			];
+			$mail = Mail::to($this->cliente->email)
+						->send(new EmailConfirm($content));
+		}
+
+		unset($input['email']);
+
+		$this->cliente->fill($input);
 		$store = $this->cliente->save();
 		
 		return redirect()->route('cadastro.edit', [ 'id' => $this->cliente->id ]);
-    }
+	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -145,5 +168,9 @@ class RegisterController extends Controller {
 		$request->session()->forget('client_id');
 
 		return redirect()->route('home');
+	}
+
+	public function confirmar(Request $request) {
+
 	}
 }

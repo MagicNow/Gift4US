@@ -12,6 +12,7 @@
 */
 Route::any('/', ['as' => 'home','uses' => 'HomeController@index']);
 
+Route::get('cadastro/confirmar-dados', ['as' => 'usuario.confirma', 'uses' => 'RegisterController@confirmar']);
 Route::resource('cadastro/dados-bancarios', 'BankController');
 Route::resource('cadastro', 'RegisterController');
 
