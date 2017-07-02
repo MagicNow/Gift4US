@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use \DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRegister;
+use App\Http\Requests\StoreEditRegister;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Bancos;
 use App\Models\Clientes;
@@ -111,7 +112,7 @@ class RegisterController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(StoreEditRegister $request, $id)
 	{
 		$input = $request->all();
 		$token = Hash::make(date('YmdHis'));
@@ -171,6 +172,17 @@ class RegisterController extends Controller {
 	}
 
 	public function confirmar(Request $request) {
+		$client = ClientesTemps::where([ 'clientes_id' => $request->id, 'token' => $request->token ])
+								->with('cliente')
+								->first();
 
+		if (!$client) {
+			return redirect('/')->with('status', 'Token expirado!');
+		}
+
+		$client->cliente
+				->update(['email' => $client->email]);
+
+		return redirect()->route('home');
 	}
 }

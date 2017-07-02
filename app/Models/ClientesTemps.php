@@ -14,4 +14,8 @@ class ClientesTemps extends Model {
 	];
 
 	protected $fillable = ['clientes_id', 'email', 'token'];
+
+    public function cliente() {
+        return $this->belongsTo('App\Models\Clientes', 'clientes_id');
+    }
 }
