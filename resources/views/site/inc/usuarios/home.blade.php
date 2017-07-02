@@ -1,4 +1,3 @@
-<span class="hidden">{{ \Illuminate\Support\Facades\Hash::make('123456') }}</span>
 <form>
 	<fieldset class="resgatar col-md-12">
 		<span class="usuario-form-header-text">
