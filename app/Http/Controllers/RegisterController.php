@@ -129,7 +129,7 @@ class RegisterController extends Controller {
 				'button' 	=> 'Clique aqui para confirmar a alteração',
 				'url'		=> route('usuario.confirma', ['token' => $token, 'id' => $this->cliente->id])
 			];
-			$mail = Mail::to($this->cliente->email)
+			$mail = Mail::to($request->email)
 						->send(new EmailConfirm($content));
 		}
 
