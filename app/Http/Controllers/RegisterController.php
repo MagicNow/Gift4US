@@ -17,7 +17,7 @@ class RegisterController extends Controller {
 
 	public function __construct () {
 		$this->middleware(function ($request, $next) {
-			if (!session('client_id') && request()->path() !== '/' && request()->path() !== 'usuario/login' && request()->path() !== 'usuario/confirmar-dados') {
+			if (!session('client_id') && request()->path() !== '/' && request()->path() !== 'usuario/login' && request()->path() !== 'usuario/confirmar-dados' && request()->path() !== 'cadastro/create') {
 				return redirect()->route('home');
 			}
 
