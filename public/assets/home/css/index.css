@@ -2234,6 +2234,10 @@
 .css_verticalspacer .verticalspacer {
     height: calc(100vh - 4474px);
 }
+.MenuItemLabel a {
+    color: #373639;
+    text-transform: none;
+}
 #muse_css_mq,
 .html {
     background-color: #FFFFFF;

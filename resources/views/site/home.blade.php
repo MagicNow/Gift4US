@@ -94,7 +94,7 @@
 								<!-- horizontal box -->
 								<div class="MenuItemLabel NoWrap clearfix grpelem" id="u3866-4">
 									<!-- content -->
-									<p>login</p>
+									<a href="{{ url('/#convidado_aniversariante') }}" target="_self"><p>login</p></a>
 								</div>
 							</div>
 						</div>
