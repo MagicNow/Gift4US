@@ -49,7 +49,7 @@
     				</label>
     				<label>
     					Nº da agência:
-    					<input type="text" name="agencia" required maxlength="8" value="{{ old('agencia') }}">
+    					<input type="text" name="agencia" maxlength="8" value="{{ old('agencia') }}">
     				</label>
     				<label class="radio col-md-6 col-lg-6">
     					conta corrente
@@ -61,11 +61,11 @@
     				</label>
     				<label>
     					Nº da conta:
-    					<input type="text" name="conta" required maxlength="14" value="{{ old('conta') }}">
+    					<input type="text" name="conta" maxlength="14" value="{{ old('conta') }}">
     				</label>
     				<label>
     					CPF:
-    					<input type="text" name="cpf" required value="{{ old('cpf') }}">
+    					<input type="text" name="cpf" value="{{ old('cpf') }}">
     				</label>
     				<span>Fique tranquilo! Você poderá atualizar os dados da sua conta a qualquer momento aqui no portal.</span>
     			</fieldset>

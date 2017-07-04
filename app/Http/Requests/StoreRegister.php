@@ -29,11 +29,11 @@ class StoreRegister extends FormRequest
             'tel' => 'required|max:15',
             'senha' => 'required',
             'confirma_senha' => 'required',
-            'bancos_id' => 'required|max:15',
-            'agencia' => 'required|max:10',
-            'tipo_conta' => 'required|in:corrente,poupanca',
-            'conta' => 'required|max:14',
-            'cpf' => 'required|max:14'
+            // 'bancos_id' => 'required|max:15',
+            // 'agencia' => 'required|max:10',
+            // 'tipo_conta' => 'required|in:corrente,poupanca',
+            // 'conta' => 'required|max:14',
+            // 'cpf' => 'required|max:14'
         ];
     }
 }

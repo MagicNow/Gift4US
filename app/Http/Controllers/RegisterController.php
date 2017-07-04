@@ -70,8 +70,14 @@ class RegisterController extends Controller {
 		$client->fill($request->all());
 		$store = $client->save();
 
-		$client->conta()
-			   ->save(new ClientesContas($request->all()));
+		if (isset($request->bancos_id) && !empty($request->bancos_id) &&
+			isset($request->agencia) && !empty($request->agencia) &&
+			isset($request->conta) && !empty($request->conta) &&
+			isset($request->cpf) && !empty($request->cpf)) {
+
+			$client->conta()
+					->save(new ClientesContas($request->all()));
+		}
 
 		return redirect()->route('home');
 	}

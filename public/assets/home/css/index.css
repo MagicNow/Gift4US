@@ -2236,7 +2236,7 @@
 }
 .MenuItemLabel a {
     color: #373639;
-    text-transform: none;
+    text-decoration: none;
 }
 #muse_css_mq,
 .html {

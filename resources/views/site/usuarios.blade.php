@@ -13,9 +13,12 @@
 						</label>
 						<label>
 							<a href="{{ route('cadastro.edit', $client->id) }}" class="{{ Route::currentRouteName() == 'usuario.editar-dados' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Editar informações do cadastro</span></a>            
-							<a href="{{ URL::to('usuario/nova-senha') }}" class="{{ Route::currentRouteName() == 'usuario.nova-senha' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Mudar senha</span></a>            
-							<a href="{{ route('dados-bancarios.edit', $client->conta->id) }}" class="{{ Route::currentRouteName() == 'usuario.dados-bancarios' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Atualizar dados Bancários</span></a>
-							<p class="usuario-menu-texto-cinza">Nenhuma conta cadastrada neste perfil</p>
+							<a href="{{ URL::to('usuario/nova-senha') }}" class="{{ Route::currentRouteName() == 'usuario.nova-senha' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Mudar senha</span></a>
+
+							<a href="{{ isset($client->conta) ? route('dados-bancarios.edit', $client->conta->id) : route('dados-bancarios.create') }}" class="{{ Route::currentRouteName() == 'usuario.dados-bancarios' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Atualizar dados Bancários</span></a>
+							@if (!isset($client->conta))
+								<p class="usuario-menu-texto-cinza">Nenhuma conta cadastrada neste perfil</p>
+							@endif
 						</label>
 						<label>
 							<a href="{{ URL::to('usuario/transferencia') }}" class="{{ Route::currentRouteName() == 'usuario.transferencia' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Resgatar valores</span></a>

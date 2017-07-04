@@ -40,7 +40,16 @@ class BankController extends Controller {
 	 * @return Response
 	 */
 	public function create(Request $request) {
+		$client = $this->cliente;
+		$bancos = ['' => 'Selecione'] + Bancos::orderBy('nome', 'ASC')->pluck('nome', 'id')->toArray();
+		$view 	= 'site.inc.usuarios.dados_bancarios';
 
+		if ($request->ajax()) {
+			return view($view, compact('client', 'bancos'));
+		} else {
+			$titulo = 'Área do usuário';
+			return view('site.usuarios', compact('view', 'titulo', 'client', 'bancos'));
+		}
 	}
 
     /**
@@ -48,8 +57,20 @@ class BankController extends Controller {
 	 *
 	 * @return Response
 	 */
- 	public function store(StoreRegister $request) {
+ 	public function store(Request $request) {
+		$client = $this->cliente;
+		$data 	= ['cpf' => preg_replace('/\D/', '', $request->cpf)];
 
+		$request->merge($data);
+
+		if (isset($conta) && $conta->clientes_id !== $client->id) {
+			return response('Acesso não autorizado', 401);
+		}
+
+		$client->conta()
+				->save(new ClientesContas($request->all()));
+
+		return redirect()->route('dados-bancarios.edit', [ 'id' => $this->cliente->conta->id ]);
 	}
 
 	/**
@@ -96,7 +117,7 @@ class BankController extends Controller {
 	 */
     public function update(Request $request, $id)
     {
-    	$conta 	= ClientesContas::find($id);
+		$conta 	= ClientesContas::find($id);
 		$client = $this->cliente;
 		$data 	= ['cpf' => preg_replace('/\D/', '', $request->cpf)];
 
