@@ -61,6 +61,19 @@ class HomeController extends Controller {
 		}
 	}
 
+	public function meus_aniversarios_novo(Request $request)
+	{
+		$client = $this->cliente;
+		$method = $request->method();
+		$view 	= 'site.criar-aniversario';
+		if ($request->ajax()) {
+			return view($view, compact('client'));;
+		} else {
+			$titulo = 'ÁREA DO USUÁRIO';
+			return view('site.usuarios', compact('view', 'titulo', 'client'));
+		}
+	}
+
 	public function usuarios(Request $request)
 	{
 		$secao 		= 'cadastro';

@@ -94,23 +94,7 @@ $(function() {
 			},
 			tel: {
 				required: true
-			},
-			// banco: {
-			// 	required: true
-			// },
-			// agencia: {
-			// 	required: true
-			// },
-			// tipo_conta: {
-			// 	required: true
-			// },
-			// conta: {
-			// 	required: true
-			// },
-			// cpf: {
-			// 	cpf: true,
-			// 	required: true
-			// }
+			}
 		}
 	});
 
