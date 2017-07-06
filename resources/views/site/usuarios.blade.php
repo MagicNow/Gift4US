@@ -7,11 +7,9 @@
 			<div class="flex-row row">
 				<div class="dados col-md-offset-2 col-xs-12 col-sm-12 col-md-4 col-lg-4">
 					<div class="dados-container">
-						<label>
-							<span class="usuario-menu-texto usuario-nome">{{ $client->nome }}</span>
-							<span class="usuario-menu-texto">{{ $client->email }}</span>                     
-						</label>
-						<label>
+						<p class="usuario-menu-texto usuario-nome">{{ $client->nome }}</p>
+						<p class="usuario-menu-texto">{{ $client->email }}</p>
+						<div class="usuario-menu-dados">
 							<a href="{{ route('cadastro.edit', $client->id) }}" class="{{ Route::currentRouteName() == 'usuario.editar-dados' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Editar informações do cadastro</span></a>            
 							<a href="{{ URL::to('usuario/nova-senha') }}" class="{{ Route::currentRouteName() == 'usuario.nova-senha' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Mudar senha</span></a>
 
@@ -19,12 +17,10 @@
 							@if (!isset($client->conta))
 								<p class="usuario-menu-texto-cinza">Nenhuma conta cadastrada neste perfil</p>
 							@endif
-						</label>
-						<label>
-							<a href="{{ URL::to('usuario/transferencia') }}" class="{{ Route::currentRouteName() == 'usuario.transferencia' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Resgatar valores</span></a>
-							<span class="usuario-menu-texto">R$ 0,00</span>
-							<p class="usuario-menu-texto-cinza">Você não tem nenhum valor para ser resgatado</p>
-						</label>
+						</div>
+						<a href="{{ URL::to('usuario/transferencia') }}" class="{{ Route::currentRouteName() == 'usuario.transferencia' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Resgatar valores</span></a>
+						<span class="usuario-menu-texto-cinza">R$ 0,00</span>
+						<p class="usuario-menu-texto-cinza">Você não tem nenhum valor para ser resgatado</p>
 					</div>
 				</div>
 

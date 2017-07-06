@@ -1,206 +1,77 @@
-.dashboard{
-	padding:20px 0;
-	.container{
-		position: relative;
-		.presentinho{
-			position:absolute;
-			top: 0;
-			left: 0;
-			z-index: 3;
+.form-birthday {
+	&-first {
+		margin-top: 40px;
+	}
+
+	&-presence {
+		border-top: 1px solid #c1c1c1;
+		margin-top: 43px;
+		padding-top: 10px;
+	}
+
+	&-paginate {
+		&-list {
+			list-style-type: none;
 		}
 
-		.bx-form-left {
-			padding-top: 100px;
-			margin-bottom: 30px;
-			background: #ffffff;
-			&.financeiro{
-				padding-top:0;
-			}
-		}
-		.aniversario{
-			padding-top: 100px;
-			margin-bottom: 30px;
-			text-align: center;
-			p{
-				font-family: 'HelveticaNeueStd';
-				font-size: 17px;
-				display: block;
-				color: #525353;
-				clear: both;
-				margin: 10px 0;
-				text-align: left;
-				&.criar{
-					text-align: center;
-				}
-				span{
-					color: #e6c93b;
+		&-item {
+			background: url('../images/niver-paginate.png') no-repeat;
+			width: 22px;
+			height: 22px;
+			display: inline-block;
+			margin-right: 12px;
 
-				}
-			}
-		}
-
-		.bx-container {
-			background: #ffffff;
-			padding-top: 30px;
-			padding-bottom: 150px;
-
-			form {
-				position:relative;
-				z-index: 2;
-
-				fieldset {
-					span{
-						color: #e6c93b;
-						font-family: 'HelveticaNeueStd';
-						font-size: 17px;
-					}
-					h4 {
-						color: #f0ca22;
-						font-family: 'HelveticaNeueStd';
-						font-size: 22px;
-					}
-
-					label {
-						font-family: 'HelveticaNeueStd';
-						font-size: 17px;
-						display: block;
-						color: #525353;
-						clear: both;
-						margin: 10px 0;
-						.text-label {
-							color: #525353;
-							font-family: 'HelveticaNeueStd';
-							font-size: 17px;
-						}
-
-						.d-block {
-							display: block;
-							clear: both;
-						}
-
-						input[type="text"]{
-							border:0;
-							border-bottom:1px solid #525353;
-							width: 100%;
-
-							&.inp-20 {
-								width: 20%;
-							}
-							&.inp-30 {
-								width: 30%;
-							}
-						}
-					}
-				}
+			&:last-child {
+				margin-right: 0;
 			}
 
-			.bx-etapa {
-				display: table;
-				clear: both;
-				margin: 0 auto;
-
-				ul {
-					list-style: none;
-					margin: 0 0 0 0;
-					padding: 0 0 0 0;
-
-					li {
-						width: 25px;
-						height: 20px;
-						display: inline;
-						float: left;
-
-						border: 2px solid #469ed5;
-
-						-webkit-transform: skew(20deg, 0deg);
-						-moz-transform: skew(20deg, 0deg);
-						-o-transform: skew(20deg, 0deg);
-						-ms-transform: skew(20deg, 0deg);
-						transform: skew(20deg, 0deg);
-						  margin: 0 8px 0 0;
-
-						  &:last-child {
-						  	margin: 0 0 0 0;
-						  }
-
-						&.active {
-							background: #469ed5;
-						}
-					}
-				}
+			&.active {
+				background-color: #019ee3;
 			}
 		}
 	}
-	// form{
-	// 	position:relative;
-	// 	z-index: 1;
-	// 	fieldset{
-	// 		padding-top: 100px;
-	// 		margin-bottom: 30px;
-	// 		&.financeiro{
-	// 			padding-top:0;
-	// 		}
-	// 		span{
-	// 			color: #e6c93b;
-	// 			font-family: 'HelveticaNeueStd';
-	// 			font-size: 17px;
 
-	// 			&.text-label {
-	// 				color: #525353;
-	// 			}
-	// 		}
-	// 		.d-block {
-	// 			display: block;
-	// 			clear: both;
-	// 		}
-	// 		label{
-	// 			font-family: 'HelveticaNeueStd';
-	// 			font-size: 17px;
-	// 			display: block;
-	// 			color: #525353;
-	// 			clear: both;
-	// 			margin: 10px 0;
-	// 			&.radio{
-	// 				display: inline-block;
-	// 				clear: none;
-	// 				padding-left:0;
-	// 				input{
-	// 					display: inline-block;
-	// 					width: 18px;
-	// 					margin-left: 10px;
-	// 				}
-	// 			}
-	// 			input{
-	// 				border:0;
-	// 				border-bottom:1px solid #525353;
-	// 				width: 100%;
+	&-submit {
+		@extend .reset-btn;
+		display: block;
+		margin: 0 auto 35px;
+	}
+}
 
-	// 				&.inp-20 {
-	// 					width: 20%;
-	// 				}
-	// 				&.inp-30 {
-	// 					width: 30%;
-	// 				}
+.form-inline .form-birthday {
+	&-years {
+		width: 16%;
+	}
 
-	// 			}
-	// 			select{
-	// 				border:0;
-	// 				border-bottom:1px solid #525353;
-	// 				width: 100%;
+	&-date {
+		&-day, &-month {
+			width: 10%;
+		}
 
-	// 			}
-	// 		}
-	// 	}
-	// 	button{
-	// 		font-family: 'dk_astromonkeyregular';
-	// 		color: #FFF;
-	// 		font-size:26px;
-	// 		text-align:center;
-	// 		border:0;
-	// 		background-color: #699dd2;
-	// 		clear: both;
-	// 		display: block;
-	// 		margin:30px auto;
-	// 	}
-	// }
+		&-year {
+			width: 18%;
+		}
+	}
+
+	&-time {
+		width: 18%;
+	}
+
+	&-separator {
+		padding-top: 21px;
+		line-height: 0;
+	}
+
+	&-calendar {
+		border: 0;
+		background-color: transparent;
+		font-size: 19px;
+		vertical-align: bottom;
+		padding-bottom: 0;
+	}
+
+	&-photo {
+		margin: 20px auto;
+		display: table;
+	}
 }

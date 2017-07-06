@@ -54,25 +54,53 @@ input {
 		}
 	}
 
-	&-nome {
-		font-size: 28px;
-		font-family: 'HelveticaNeueStd_BDCN';
-	}
-
 	&-menu {
-		// padding: 0 5px;
+		font-family: 'HelveticaNeueStd';
+		font-size: 17px;
+		display: block;
+		color: #525353;
+		clear: both;
 		text-decoration: none;
+
+		&.active{
+			color: #FFF;
+			position: relative;
+
+			&:before {
+				content: "";
+				position: absolute;
+				background:url(../images/sidemenu_hover.png);
+				width: 360px;
+				height: 36px;
+				left: 0;
+				top: 0;
+			}
+		}
 
 		&-texto {
 			position: relative;
 			z-index: 1;
 			padding: 4px 0 0 5px;
 			text-decoration: none;
+			font: 17px 'HelveticaNeueStd';
 
 			&-cinza {
 				color: #bfbfc1;
 				padding: 4px 0 0 5px;
+				font: 17px 'HelveticaNeueStd';
 			}
+
+			&.usuario-nome {
+				font: 28px 'HelveticaNeueStd_BDCN';
+			}
+		}
+
+		&-dados {
+			clear: both;
+			margin: 10px 0;
+			border-bottom: 1px solid #525353;
+			border-top: 1px solid #525353;
+			padding: 15px 0;
 		}
 	}
 }
@@ -82,13 +110,6 @@ input {
 	.container{
 
 		position: relative;
-		.clearfix{
-			clear: both;
-			width: 100%;
-			input{
-				width: 100%;
-			}
-		}
 		.presentinho{
 			position:absolute;
 			top: 0;
@@ -104,29 +125,6 @@ input {
 				padding-top:0;
 			}
 
-			a{
-				font-family: 'HelveticaNeueStd';
-				font-size: 17px;
-				display: block;
-				color: #525353;
-				clear: both;
-				// margin: 10px 0;
-				// padding: 0 10px;
-				&.active{
-					color: #FFF;
-					position: relative;
-
-					&:before {
-						content: "";
-						position: absolute;
-						background:url(../images/sidemenu_hover.png);
-						width: 360px;
-						height: 36px;
-						left: 0;
-						top: 0;
-					}
-				}
-			}
 			label{
 				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
