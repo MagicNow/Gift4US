@@ -18,7 +18,15 @@ class RegisterController extends Controller {
 
 	public function __construct () {
 		$this->middleware(function ($request, $next) {
-			if (!session('client_id') && request()->path() !== '/' && request()->path() !== 'usuario/login' && request()->path() !== 'usuario/confirmar-dados' && request()->path() !== 'cadastro/create') {
+			$except = [
+				'/'
+				'usuario/login',
+				'usuario/confirmar-dados',
+				'cadastro/create',
+				'cadastro'
+			];
+
+			if (!session('client_id') && !in_array(request()->path(), $except)) {
 				return redirect()->route('home');
 			}
 
@@ -70,7 +78,7 @@ class RegisterController extends Controller {
 		$client->fill($request->all());
 		$client->save();
 		session(['client_id' => $client->id]);
-dd('client', $client->id);
+
 		if (isset($request->bancos_id) && !empty($request->bancos_id) &&
 			isset($request->agencia) && !empty($request->agencia) &&
 			isset($request->conta) && !empty($request->conta) &&
