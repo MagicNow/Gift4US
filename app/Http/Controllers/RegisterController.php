@@ -68,7 +68,8 @@ class RegisterController extends Controller {
 
 		$client = new Clientes;
 		$client->fill($request->all());
-		$store = $client->save();
+		$client->save();
+		session(['client_id' => $client->id]);
 
 		if (isset($request->bancos_id) && !empty($request->bancos_id) &&
 			isset($request->agencia) && !empty($request->agencia) &&
@@ -79,7 +80,7 @@ class RegisterController extends Controller {
 					->save(new ClientesContas($request->all()));
 		}
 
-		return redirect()->route('home');
+		return redirect()->route('usuario.meus-aniversarios');
 	}
 
 	/**
