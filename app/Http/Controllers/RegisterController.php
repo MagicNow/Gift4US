@@ -19,7 +19,7 @@ class RegisterController extends Controller {
 	public function __construct () {
 		$this->middleware(function ($request, $next) {
 			$except = [
-				'/'
+				'/',
 				'usuario/login',
 				'usuario/confirmar-dados',
 				'cadastro/create',
