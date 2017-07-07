@@ -1,10 +1,18 @@
-<form class="usuario-form" data-presente="{{ asset('assets/site/images/presentinho_resgatar.png') }}">
+<form action="{{ route('transferencia.store') }}" method="post" class="usuario-form" data-presente="{{ asset('assets/site/images/presentinho_resgatar.png') }}">
 	<fieldset class="resgatar col-md-12">
 		<span class="usuario-form-header-text">
 			Aqui você pode resgatar o valor referente aos presentes que o aniversariante ganhou que se enquadram nas opções cotas e roupas. É super fácil! 
 
 			Confira os dados da sua conta bancária escolhida para a transação, preeencha o campo com o valor que quer resgatar e clique em Solicitar Trasnferência.
 		</span>
+
+		@if (session('status'))
+			<br><br>
+			<div class="alert alert-success">
+				{{ session('status') }}
+			</div>
+		@endif
+
 		<div class="form-group">
 			<label for="resgate-favorecido">Nome do Favorecido:</label>
 			<input type="text" class="form-control form-input" id="resgate-favorecido" name="nome" value="{{ $client->nome }}" disabled>

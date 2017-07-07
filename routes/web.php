@@ -21,9 +21,10 @@ Route::group(['prefix' => 'usuario'], function() {
     Route::get('nova-senha/recuperar', ['as' => 'usuario.nova-senha.recuperar.show','uses' => 'PasswordRecoveryController@show']);
     Route::post('nova-senha/recuperar', ['as' => 'usuario.nova-senha.recuperar.update','uses' => 'PasswordRecoveryController@update']);
     Route::resource('nova-senha', 'PasswordController');
-    Route::get('transferencia', ['as' => 'usuario.transferencia','uses' => 'HomeController@transferencia']);
     Route::get('logout', ['as' => 'usuario.logout','uses' => 'RegisterController@logout']);
     Route::post('login', ['as' => 'usuario.login','uses' => 'RegisterController@login']);
+
+    Route::resource('transferencia', 'TransferController');
 
     Route::group(['prefix' => 'meus-aniversarios'], function() {
         Route::get('/', ['as' => 'usuario.meus-aniversarios','uses' => 'HomeController@meus_aniversarios']);

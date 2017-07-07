@@ -25,19 +25,6 @@ class HomeController extends Controller {
 		return view('site.home');
 	}
 
-	public function transferencia(Request $request)
-	{
-		$client = $this->cliente;
-		$method = $request->method();
-		$view 	= 'site.inc.usuarios.transferencia';
-		if ($request->ajax()) {
-			return view($view, compact('client'));
-		} else {
-			$titulo = 'RESGATAR VALORES';
-			return view('site.usuarios', compact('view', 'titulo', 'client'));
-		}
-	}
-
 	public function meus_aniversarios(Request $request)
 	{
 		$client = $this->cliente;

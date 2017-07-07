@@ -33,7 +33,7 @@
                             <li><a class="{!! (Route::currentRouteName() == 'produtos') ? 'active': ''!!}" href="{!! route('home')!!}" alt="">dados do usuário</a></li>
                             <li><a class="{!! (Route::currentRouteName() == 'usuario.meus-aniversarios') ? 'active': ''!!}" href="{{ route('usuario.meus-aniversarios') }}" alt="">meus aniversários</a></li>
                             <li class="divisor"><a class="{!! (Route::currentRouteName() == 'fitoterapiconatural') ? 'active': ''!!}" href="{!! route('home')!!}" alt="">lista de presentes</a></li>
-                            <li><a class="{!! (Route::currentRouteName() == 'usuario.transferencia') ? 'active': ''!!}" href="{{ route('usuario.transferencia') }}" alt="">resgatar valores</a></li>
+                            <li><a class="{!! (Route::currentRouteName() == 'transferencia.index') ? 'active': ''!!}" href="{{ route('transferencia.index') }}" alt="">resgatar valores</a></li>
                             <li class="logout"><a href="{{ route('usuario.logout') }}" alt="">{{ Html::image('assets/site/images/sair.png', '', array('class' => 'img-responsive')) }}</a></li>
                         </ul>
                     </nav>

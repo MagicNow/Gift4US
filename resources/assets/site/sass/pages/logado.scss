@@ -61,6 +61,11 @@ input {
 		color: #525353;
 		clear: both;
 		text-decoration: none;
+		margin-bottom: 5px;
+
+		&:active, &:hover, &:focus {
+			text-decoration: none;
+		}
 
 		&.active{
 			color: #FFF;
