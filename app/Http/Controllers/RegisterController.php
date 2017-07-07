@@ -70,7 +70,7 @@ class RegisterController extends Controller {
 		$client->fill($request->all());
 		$client->save();
 		session(['client_id' => $client->id]);
-
+dd('client', $client->id);
 		if (isset($request->bancos_id) && !empty($request->bancos_id) &&
 			isset($request->agencia) && !empty($request->agencia) &&
 			isset($request->conta) && !empty($request->conta) &&
