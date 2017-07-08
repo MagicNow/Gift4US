@@ -17,7 +17,6 @@ Route::resource('cadastro/dados-bancarios', 'BankController');
 Route::resource('cadastro', 'RegisterController');
 
 Route::group(['prefix' => 'usuario'], function() {
-    Route::get('editar-dados', ['as' => 'usuario.editar-dados','uses' => 'HomeController@editar_dados']);
     Route::get('nova-senha/recuperar', ['as' => 'usuario.nova-senha.recuperar.show','uses' => 'PasswordRecoveryController@show']);
     Route::post('nova-senha/recuperar', ['as' => 'usuario.nova-senha.recuperar.update','uses' => 'PasswordRecoveryController@update']);
     Route::resource('nova-senha', 'PasswordController');

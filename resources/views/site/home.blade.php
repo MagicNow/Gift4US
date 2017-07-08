@@ -465,7 +465,7 @@
 					<img class="grpelem" id="u8743-4" alt="MURAL DE RECADOS" width="250" height="34" src="{{ asset('assets/home/images/u8743-4.png?crc=4280958362') }}"/><!-- rasterized frame -->
 					<img class="grpelem" id="u8761-4" alt="CONFIRMAÇÃO DE PRESENÇA" width="315" height="34" src="{{ asset('assets/home/images/u8761-4.png?crc=3778112425') }}"/><!-- rasterized frame -->
 					<img class="grpelem" id="u8746-4" alt="PÁGINA PERSONALIZADA" width="273" height="34" src="{{ asset('assets/home/images/u8746-4.png?crc=185781916') }}"/><!-- rasterized frame -->
-					<a class="nonblock nontext anim_swing mse_pre_init" id="u8742" href="index.html#full_banner" data-href="anchor:U8683:U9973">
+					<a class="nonblock nontext anim_swing mse_pre_init" id="u8742" href="{{ route('cadastro.create') }}">
 						<!-- state-based BG images --><img id="u8742_states" alt="Começar agora!" src="{{ asset('assets/home/images/blank.gif?crc=4208392903') }}"/>
 					</a>
 					<a class="anchor_item grpelem" id="full_banner"></a>
@@ -590,7 +590,7 @@
 					<div class="clearfix grpelem" id="u9916">
 						<!-- column -->
 						<img class="colelem" id="u9276-4" alt="O QUE VOCÊ ESTÁ ESPERANDO?" width="344" height="35" src="{{ asset('assets/home/images/u9276-4.png?crc=404340866') }}"/><!-- rasterized frame -->
-						<a class="nonblock nontext anim_swing colelem" id="u9273" href="index.html#contato" data-href="anchor:U8683:U8733">
+						<a class="nonblock nontext anim_swing colelem" id="u9273" href="{{ route('cadastro.create') }}">
 							<!-- state-based BG images --><img id="u9273_states" alt="cOMEÇE AGORA SUA FESTA!" src="{{ asset('assets/home/images/blank.gif?crc=4208392903') }}"/>
 						</a>
 					</div>
