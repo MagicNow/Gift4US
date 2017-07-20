@@ -163,3 +163,178 @@
 		}
 	}
 }
+
+.form-birthday {
+	&-paginate-nav {
+		margin-top: 46px;
+	}
+
+	&-presence {
+		p {
+			margin-bottom: 7px;
+		}
+	}
+
+	&-photo {
+		margin-top: 10px;
+		display: inline-block;
+
+		img {
+			max-width: 100%;
+			max-height: 280px;
+		}
+	}
+
+	&-first {
+		margin-top: 40px;
+	}
+
+	&-presence {
+		border-top: 1px solid #c1c1c1;
+		margin-top: 43px;
+		padding-top: 10px;
+	}
+
+	&-paginate {
+		&-list {
+			list-style-type: none;
+		}
+
+		&-item {
+			background: url('../images/niver-paginate.png') no-repeat;
+			width: 22px;
+			height: 22px;
+			display: inline-block;
+			margin-right: 12px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&.active {
+				background-color: #019ee3;
+			}
+		}
+	}
+
+	&-submit {
+		@extend .reset-btn;
+		display: block;
+		margin: 0 auto 35px;
+	}
+
+	&-upload {
+		&-text {
+			background-color: #f29200;
+			width: 200px;
+			color: #fff;
+			font: 18px 'HelveticaNeueStd_CN';
+			text-align: center;
+			margin: 170px auto 0;
+			padding: 15px 0;
+		}
+
+		&-btn {
+			background: url('../images/niver_photo.png') no-repeat;
+			width: 269px;
+			height: 258px;
+			cursor: pointer;
+			margin: 72px auto 0;
+		}
+	}
+
+	&-modal {
+		top: 25px;
+		background: rgba(255,255,255,0.85);
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		z-index: 1;
+
+		&-text {
+			text-align: center;
+			font-family: 'HelveticaNeueStd';
+			font-size: 17px;
+			color: #f29200;
+			margin: 23px 0 0 0;
+			cursor: pointer;
+		}
+
+		&-close {
+			float: right;
+			margin: 10px 15px 0 0;
+			height: 30px;
+			width: 30px;
+			display: inline-block;
+			position: relative;
+
+			&:after {
+				transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
+			}
+
+			&:before {
+				transform: rotate(-45deg);
+				-ms-transform: rotate(-45deg);
+				-webkit-transform: rotate(-45deg);				
+			}
+
+			&:after, &:before {
+				content: "";
+				background-color: #f19100;
+				width: 3px;
+				height: 18px;
+				display: inline-block;
+				position: absolute;
+				top: 7px;
+				right: 13px;
+			}
+		}
+	}
+}
+
+.form-inline .form-birthday {
+	&-years {
+		width: 16%;
+	}
+
+	&-date {
+		&-day, &-month {
+			width: 10%;
+		}
+
+		&-year {
+			width: 18%;
+		}
+	}
+
+	&-date-day, &-date-month, &-date-year, &-time {
+		// height: 18px;
+		// vertical-align: bottom;
+		// padding: 0;
+		text-align: center;
+	}
+
+	&-time {
+		width: 18%;
+	}
+
+	&-separator {
+		padding-top: 21px;
+		line-height: 0;
+	}
+
+	&-calendar {
+		border: 0;
+		background-color: transparent;
+		font-size: 19px;
+		vertical-align: bottom;
+		padding-bottom: 0;
+	}
+
+	&-photo {
+		margin: 20px auto;
+		display: table;
+	}
+}

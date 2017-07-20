@@ -54,3 +54,5 @@ $ php artisan key:generate
 ```shell
 $ php artisan serve --host bradescowebapp.dev --port 8080
 ```
+
+sudo ln -sf /var/www/MagicTech/Gift4US/storage/app/ /var/www/MagicTech/Gift4US/public/

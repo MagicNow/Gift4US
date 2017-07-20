@@ -27,7 +27,9 @@ Route::group(['prefix' => 'usuario'], function() {
 
     Route::group(['prefix' => 'meus-aniversarios'], function() {
         Route::get('/', ['as' => 'usuario.meus-aniversarios','uses' => 'HomeController@meus_aniversarios']);
-        Route::get('novo', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'HomeController@meus_aniversarios_novo']);
+        Route::get('novo/{number?}', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'HomeController@meus_aniversarios_novo']);
+        Route::post('novo/{number?}', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'HomeController@meus_aniversarios_novo']);
+        Route::post('upload', ['as' => 'usuario.meus-aniversarios.upload','uses' => 'HomeController@meus_aniversarios_upload']);
         Route::get('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir','uses' => 'HomeController@meus_aniversarios_excluir']);
     });
 });

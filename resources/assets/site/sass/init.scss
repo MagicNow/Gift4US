@@ -6,6 +6,8 @@
 @import 'config/_settings';
 @import 'config/_mixins';
 
+//Plugins
+@import "plugins/fileinput";
 
 //Global
 @import 'general/_normalize';
@@ -17,7 +19,6 @@
 @import 'pages/home';
 @import 'pages/cadastro';
 @import 'pages/logado';
-@import 'pages/criando-aniversario';
 @import 'pages/meus-aniversarios';
 
 .jquery-switch-wrapper {
@@ -87,4 +88,11 @@
 .reset-btn {
 	border: 0;
 	background-color: transparent;
+}
+
+.kv-upload-progress {
+	position: absolute;
+	width: 270px;
+	top: 40px;
+	left: calc(50% - 135px);
 }

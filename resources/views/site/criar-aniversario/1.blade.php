@@ -6,7 +6,13 @@
 			{{ Html::image('assets/site/images/presentinho_criando.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
 
 			<div class="dados row col-md-offset-2">
-				<form action="" method="post" class="dados-container">
+				<form action="{{ route('usuario.meus-aniversarios.novo', 2) }}" method="post" class="dados-container">
+					<input type="hidden" name="foto" class="aniver-photo">
+					<div class="form-birthday-modal hidden">
+						<a href="#" class="form-birthday-modal-close"></a>
+						<input class="form-birthday-file file-loading" type="file" name="file" data-show-preview="false">
+						<p class="form-birthday-modal-text">agora não, vou inserir a foto depois</p>
+					</div>
 					<div class="clearfix">
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12 col-md-5 col-lg-5">
 							<div class="form-group">

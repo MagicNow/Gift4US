@@ -109,5 +109,55 @@ $(function() {
 		var $presentinho = $('.presentinho'),
 			image = $('.usuario-ajax').find('[data-presente]');
 		 $presentinho.append('<img src="' + image.data('presente') + '">');
-;	});
+	});
+    
+    var $modal = $('.form-birthday-modal');
+    var $modalButton = $(".form-birthday-file");
+
+    $modalButton.fileinput({
+    	showUpload: false,
+    	showCaption: false,
+    	showCancel: false,
+    	showRemove: false,
+    	allowedFileExtensions: ['jpg', 'gif', 'png'],
+    	uploadUrl: baseUrl + '/usuario/meus-aniversarios/upload',
+    	uploadAsync: true,
+    	required: true,
+    	uploadExtraData: { id: 100 },
+		msgAjaxError: 'Algo deu errado com a operação {operação}. Por favor, tente novamente mais tarde!',
+		msgAjaxProgressError: '{operation} falhou.',
+		msgUploadEnd: 'Sucesso',
+		ajaxOperations: {
+			deleteThumb: 'arquivo excluído',
+			uploadThumb: 'arquivo carregado',
+			uploadBatch: 'carregamento de arquivos em lote',
+			uploadExtra: 'dados do upload'
+		},
+		layoutTemplates: {
+			btnBrowse: '<div tabindex="500" class="form-birthday-upload-btn btn-file"{status}>' +
+							'<p class="form-birthday-upload-text">procurar nas suas pastas uma foto bem legal!!!</p>' +
+						'</div>',
+		}
+    }).on("filebatchselected", function(event, files) {
+		// trigger upload method immediately after files are selected
+		$modalButton.fileinput("upload");
+	}).on('fileuploaded', function(event, data, previewId, index) {
+		$modal.addClass('hidden');
+
+		var form = data.form, files = data.files, extra = data.extra,
+			response = data.response, reader = data.reader;
+
+		$('.aniver-photo').val(response.path);
+		$('.form-birthday-photo').html('<img src="' + baseUrl + '/app/' + response.path + '">');
+	});
+
+    $('.form-birthday-modal-close, .form-birthday-modal-text').on('click', function (e) {
+    	e.preventDefault();
+		$modal.addClass('hidden');
+    });
+
+    $('.form-birthday-photo').on('click', function (e) {
+    	e.preventDefault();
+		$modal.removeClass('hidden');
+    });
 });

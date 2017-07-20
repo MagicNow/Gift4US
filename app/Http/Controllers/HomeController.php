@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Clientes;
 use App\Models\Bancos;
+use App\Http\Requests\StoreBirthdayPhoto;
 
 class HomeController extends Controller {
 	private $cliente;
@@ -22,7 +23,7 @@ class HomeController extends Controller {
 
 	public function index(Request $request)
 	{
-		return view('site.home');
+		return view('site.criar_aniversario');
 	}
 
 	public function meus_aniversarios(Request $request)
@@ -33,6 +34,14 @@ class HomeController extends Controller {
 
 		$titulo = 'ÁREA DO USUÁRIO';
 		return view('site.usuarios', compact('view', 'titulo', 'client'));
+	}
+
+	public function meus_aniversarios_upload(StoreBirthdayPhoto $request)
+	{
+		$path = $request->file->store('images');
+
+		return response()
+			->json(['path' => $path]);
 	}
 
 	public function meus_aniversarios_excluir(Request $request)
@@ -52,7 +61,13 @@ class HomeController extends Controller {
 	{
 		$client = $this->cliente;
 		$method = $request->method();
-		$view 	= 'site.criar-aniversario';
+
+		if (isset($request->number)) {
+			$view = 'site.criar-aniversario.' . $request->number;
+		} else {
+			$view = 'site.criar-aniversario.1';
+		}
+
 		if ($request->ajax()) {
 			return view($view, compact('client'));;
 		} else {

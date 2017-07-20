@@ -29,7 +29,7 @@
 						@if (isset($view))
 							@include($view)
 						@else
-							@include('site/inc/usuarios/home')
+							@include('site/inc/usuarios/meus_aniversarios')
 						@endif
 					</div>
 				</div>
