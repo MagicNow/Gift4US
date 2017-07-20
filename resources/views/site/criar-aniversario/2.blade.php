@@ -12,8 +12,8 @@
 					</div>
 					<nav class="form-birthday-paginate-nav text-center">
 						<ul class="form-birthday-paginate-list">
-							<li class="form-birthday-paginate-item active"></li>
 							<li class="form-birthday-paginate-item"></li>
+							<li class="form-birthday-paginate-item active"></li>
 							<li class="form-birthday-paginate-item"></li>
 							<li class="form-birthday-paginate-item"></li>
 							<li class="form-birthday-paginate-item"></li>
