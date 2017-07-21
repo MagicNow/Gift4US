@@ -57,9 +57,10 @@
 					return;
 				}
 
-				latlngbounds.extend(place.geometry.location);
 				marker.setPosition(place.geometry.location);
 				marker.setVisible(true);
+
+				latlngbounds.extend(place.geometry.location);
 
 				map.setCenter(latlngbounds.getCenter());
 				map.fitBounds(latlngbounds);
@@ -109,6 +110,6 @@
 			});
 		}
 	</script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCY5TMTVCp_l_QRxOTt37mkrCkDUeg2JQ&libraries=places&callback=initMap">
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCY5TMTVCp_l_QRxOTt37mkrCkDUeg2JQ&libraries=places&callback=initMap&language=pt-BR">
 	</script>
 @endsection
