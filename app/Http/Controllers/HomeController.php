@@ -23,7 +23,7 @@ class HomeController extends Controller {
 
 	public function index(Request $request)
 	{
-		return view('site.criar_aniversario');
+		return view('site.home');
 	}
 
 	public function meus_aniversarios(Request $request)
