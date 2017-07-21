@@ -37,7 +37,7 @@ class HomeController extends Controller {
 		return view('site.usuarios', compact('view', 'titulo', 'client'));
 	}
 
-	public function meus_aniversarios_upload(StoreBirthdayPhoto $request)
+	public function meus_aniversarios_upload(Request $request)
 	{
 		$path = $request->file->store('images');
 
