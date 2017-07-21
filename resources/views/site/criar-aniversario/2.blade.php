@@ -7,6 +7,7 @@
 
 			<div class="dados row col-md-offset-2">
 				<form action="{{ route('usuario.meus-aniversarios.novo', 3) }}" method="post" class="dados-container">
+					<input type="hidden" name="step" value="2">
 					<div class="clearfix">
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12 col-md-5 col-lg-5">
 							<div class="form-group">
@@ -22,6 +23,9 @@
 								<input type="text" class="form-control form-input" id="aniver-observacoes" name="observacoes">
 							</div>
 						</fieldset>
+						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+							<div id="map" style="height: 269px;"></div>
+						</div>
 					</div>
 					<nav class="form-birthday-paginate-nav text-center">
 						<ul class="form-birthday-paginate-list">
@@ -37,4 +41,74 @@
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section('scripts')
+	<script>
+		function setMapPosition (map, latlngbounds, marker, autocomplete) {
+			autocomplete.addListener('place_changed', function() {
+				var place = autocomplete.getPlace(),
+					address = '';
+
+				marker.setVisible(false);
+
+				if (!place.geometry) {
+					console.log("No details available for input: '" + place.name + "'");
+					return;
+				}
+
+				latlngbounds.extend(place.geometry.location);
+				marker.setPosition(place.geometry.location);
+				marker.setVisible(true);
+
+				map.setCenter(latlngbounds.getCenter());
+				map.fitBounds(latlngbounds);
+
+				if (place.address_components) {
+					address = [
+						(place.address_components[0] && place.address_components[0].short_name || ''),
+						(place.address_components[1] && place.address_components[1].short_name || ''),
+						(place.address_components[2] && place.address_components[2].short_name || '')
+					].join(' ');
+				}
+			});
+		}
+
+		function setMapPin (map, pin) {
+			var marker = new google.maps.Marker();
+			marker.setIcon(pin);
+			marker.setShadow(baseUrl + '/assets/site/images/pin-shadow.png');
+			marker.setMap(map);
+			return marker;
+		}
+
+		function initMap () {
+			var position = { lat: -15.2581783, lng: -51.8358431 },
+				latlngbounds = new google.maps.LatLngBounds();;
+
+			$.getJSON(baseUrl + '/assets/site/js/map.json', function(style) {
+				var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 3,
+					center: position,
+					zoomControl: true,
+					mapTypeControl: false,
+					scaleControl: true,
+					streetViewControl: false,
+					rotateControl: false,
+					fullscreenControl: false,
+					styles: style
+				});
+
+				var marker1 = setMapPin(map, baseUrl + '/assets/site/images/pin-blue.png'),
+					marker2 = setMapPin(map, baseUrl + '/assets/site/images/pin-red.png'),
+					autocomplete1 = new google.maps.places.Autocomplete(document.getElementById('aniver-endereco')),
+					autocomplete2 = new google.maps.places.Autocomplete(document.getElementById('aniver-referencia'));
+
+				setMapPosition(map, latlngbounds, marker1, autocomplete1);
+				setMapPosition(map, latlngbounds, marker2, autocomplete2);
+			});
+		}
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCY5TMTVCp_l_QRxOTt37mkrCkDUeg2JQ&libraries=places&callback=initMap">
+	</script>
 @endsection

@@ -8,6 +8,7 @@
 			<div class="dados row col-md-offset-2">
 				<form action="{{ route('usuario.meus-aniversarios.novo', 2) }}" method="post" class="dados-container">
 					<input type="hidden" name="foto" class="aniver-photo">
+					<input type="hidden" name="step" value="1">
 					<div class="form-birthday-modal hidden">
 						<a href="#" class="form-birthday-modal-close"></a>
 						<input class="form-birthday-file file-loading" type="file" name="file" data-show-preview="false">

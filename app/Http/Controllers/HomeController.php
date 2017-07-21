@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Clientes;
 use App\Models\Bancos;
 use App\Http\Requests\StoreBirthdayPhoto;
+use App\Http\Requests\StoreBirthdayStep1;
 
 class HomeController extends Controller {
 	private $cliente;
