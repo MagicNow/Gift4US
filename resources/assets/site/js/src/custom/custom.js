@@ -148,7 +148,7 @@ $(function() {
 			response = data.response, reader = data.reader;
 
 		$('.aniver-photo').val(response.path);
-		$('.form-birthday-photo').html('<img src="' + baseUrl + '/app/' + response.path + '">');
+		$('.form-birthday-photo').html('<img src="' + baseUrl + '/storage/birthdays/' + response.path + '">');
 	});
 
     $('.form-birthday-modal-close, .form-birthday-modal-text').on('click', function (e) {

@@ -39,7 +39,7 @@ class HomeController extends Controller {
 
 	public function meus_aniversarios_upload(Request $request)
 	{
-		$path = $request->file->store('images');
+		$path = basename($request->file->store('public/birthdays'));
 
 		return response()
 			->json(['path' => $path]);
