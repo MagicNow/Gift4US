@@ -16,7 +16,6 @@ var gulp			= require('gulp'),
     shell           = require('gulp-shell');
 	sourceMaps  	= require('gulp-sourcemaps');
 
-
 //compressing images & handle SVG files
 gulp.task('images', function(tmp) {
     gulp.src(['resources/assets/site/images/*.jpg', 'public/assets/site/images/*.png'])
@@ -24,6 +23,11 @@ gulp.task('images', function(tmp) {
         .pipe(plumber())
         .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
         .pipe(gulp.dest('public/assets/site/images'));
+});
+
+gulp.task('copy', function() {
+    gulp.src(['resources/assets/site/json/*'])
+        .pipe(gulp.dest('public/assets/site/json'));
 });
 
 //compressing images & handle SVG files
@@ -148,13 +152,11 @@ gulp.task('default', ['scripts', 'styles'], function() {
     gulp.watch('resources/assets/site/js/src/**', ['scripts']);
     gulp.watch('resources/assets/site/sass/**', ['styles']);
     gulp.watch('resources/assets/site/images/**', ['images']);
+    gulp.watch('resources/assets/site/json/**', ['copy']);
 });
 
-
 //this is our deployment task, it will set everything for deployment-ready files
-gulp.task('deploy', gulpSequence( ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy'));
-
-
+gulp.task('deploy', gulpSequence( ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy', 'copy'));
 
 gulp.task('admin-fonts', function() {
     gulp.src(['resources/assets/admin/fonts/**/*'])

@@ -86,7 +86,7 @@
 			var position = { lat: -15.2581783, lng: -51.8358431 },
 				latlngbounds = new google.maps.LatLngBounds();;
 
-			$.getJSON(baseUrl + '/assets/site/js/map.json', function(style) {
+			$.getJSON(baseUrl + '/assets/site/json/map.json', function(style) {
 				var map = new google.maps.Map(document.getElementById('map'), {
 					zoom: 3,
 					center: position,
