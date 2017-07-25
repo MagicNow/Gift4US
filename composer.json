@@ -10,6 +10,7 @@
         "maatwebsite/excel": "^2.1",
         "orchestra/parser": "~3.0",
         "laravel/tinker": "^1.0",
+        "doctrine/dbal": "~2.3",
         "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
