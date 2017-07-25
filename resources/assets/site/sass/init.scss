@@ -19,6 +19,7 @@
 @import 'pages/home';
 @import 'pages/cadastro';
 @import 'pages/logado';
+@import 'pages/presentes';
 @import 'pages/meus-aniversarios';
 
 .jquery-switch-wrapper {
@@ -95,4 +96,11 @@
 	width: 270px;
 	top: 40px;
 	left: calc(50% - 135px);
+}
+
+.btn-blue {
+	background-color: #019ee3;
+	color: #fff;
+	text-transform: uppercase;
+	font: 20px 'dk_astromonkeyregular';
 }

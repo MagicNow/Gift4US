@@ -16,7 +16,7 @@
 									<a href="#"><img src="{{ asset('assets/site/images/passo_5_item_1.png') }}"></a>
 								</div>
 								<div class="col-md-4">
-									<a href="#"><img src="{{ asset('assets/site/images/passo_5_item_2.png') }}"></a>
+									<a href="{{ route('usuario.meus-aniversarios.presentes.roupas') }}"><img src="{{ asset('assets/site/images/passo_5_item_2.png') }}"></a>
 								</div>
 								<div class="col-md-4">
 									<a href="#"><img src="{{ asset('assets/site/images/passo_5_item_3.png') }}"></a>

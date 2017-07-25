@@ -1,0 +1,63 @@
+.gifts {
+	&-box-number {
+		text-align: left;
+		&-header {
+			background-color: #e6e6e8;
+			padding-bottom: 33px;
+		}
+
+		&-middle {
+			text-align: center;
+			border-bottom: 1px solid #e6e6e8;
+			padding: 8px 0;
+		}
+
+		&-footer {
+			margin-top: 30px;
+		}
+
+		&-submit {
+			@extend .btn-blue;
+			@extend .reset-btn;
+
+			margin: 0 auto;
+			display: block;
+		}
+
+		&-back {
+			text-align: center;
+			width: 100%;
+			display: block;
+		}
+	}
+
+	&-item {
+		list-style-type: none;
+		margin-bottom: 8px;
+
+		&-buttons {
+			margin-top: 10px;
+		}
+
+		&-button {
+			border-top: 0 none;
+			border-bottom: 1px solid #cfcfd1;
+			background-color: transparent;
+			outline: 0;
+
+			&-show {
+				border-left: 0 none;
+				border-right: 1px solid #cfcfd1;
+			}
+
+			&-select {
+				border-left: 0 none;
+				border-right: 0 none;
+			}
+		}
+
+		&-price-description, &-color-description {
+			color: #bebec0;
+		}
+	}
+}

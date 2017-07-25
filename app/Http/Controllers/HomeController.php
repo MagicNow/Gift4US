@@ -83,4 +83,11 @@ class HomeController extends Controller {
 		$titulo 	= 'RESGATAR vALORES';
 		return view('site.usuarios', compact('secao', 'titulo'));
 	}
+
+	public function meus_aniversarios_presentes()
+	{
+		$client = $this->cliente;
+		$titulo = 'ÁREA DO USUÁRIO';
+		return view('site.presentes.roupas', compact('titulo', 'client'));
+	}
 }
