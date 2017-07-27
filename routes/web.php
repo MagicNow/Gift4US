@@ -31,7 +31,7 @@ Route::group(['prefix' => 'usuario'], function() {
         Route::post('novo/{number?}', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'HomeController@meus_aniversarios_novo'])->where(['number' => '[0-9]+']);
         Route::post('upload', ['as' => 'usuario.meus-aniversarios.upload','uses' => 'HomeController@meus_aniversarios_upload']);
         Route::get('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir','uses' => 'HomeController@meus_aniversarios_excluir'])->where(['id' => '[0-9]+']);
-        Route::get('novo/presentes/roupas', ['as' => 'usuario.meus-aniversarios.presentes.roupas','uses' => 'HomeController@meus_aniversarios_presentes']);
+        Route::get('novo/presentes/roupas', ['as' => 'usuario.meus-aniversarios.presentes.roupas','uses' => 'GiftsController@index']);
     });
 });
 
@@ -53,8 +53,4 @@ Route::group(['prefix' => 'admin'], function() {
 
     Route::get('produtos', ['as'=> 'admin.produtos','uses' => 'Admin\ProdutosController@index']);
     Route::get('produtos/status/{id}/{status}', ['as'=> 'admin.produtos.status','uses' => 'Admin\ProdutosController@status']);
-});
-
-Route::group(['prefix' => 'api'], function() {
-    Route::get('/produtos', ['as'   => 'produtos','uses' => 'ApiController@produtos']);
 });

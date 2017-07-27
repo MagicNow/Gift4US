@@ -5,44 +5,40 @@ use Cookie;
 use Illuminate\Http\Request;
 use MetzWeb\Instagram\Instagram;
 use App\Models\Produtos;
+use App\Models\ProdutosTipos;
+use App\Models\ProdutosMarcas;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 
 class ApiController extends Controller {
 
 
-    public function produtos()
-    {
-
-        //$xml = simplexml_load_file("google.xml");
-        //$xml = XmlParser::load(url("http://www.pandabrinquedos.com.br/xml/google.xml"));
-        //$xml = XmlParser::load('http://www.pandabrinquedos.com.br/xml/google.xml');
-
-        $xml = XmlParser::load("google.xml");
+	public function produtos()
+	{
+		$xml = XmlParser::load(env('PRODUCTS_XML'));
  
-        $feed = $xml->rebase('channel')->parse([
-            //'items'  => ['uses' => 'item[title,description]'],
-            'items' => ['uses' => 'item[title,description]'],
-            'values' => ['uses' => 'item/g[id,price,sale_price,image_link,brand,product_type]'],
-        ]);
-        
-        $result = array_replace_recursive($feed['items'], $feed['values']);
-        foreach ($result as $key => $value) {
-            $produto = new Produtos;
+		$feed = $xml->rebase('channel')->parse([
+					'items'		=> ['uses' => 'item[title,description]'],
+					'values'	=> ['uses' => 'item/g[id,price,sale_price,image_link,brand,product_type]'],
+				]);
+		
+		$result = array_replace_recursive($feed['items'], $feed['values']);
+		foreach ($result as $key => $value) {
+			$tipo 	= ProdutosTipos::firstOrCreate(['nome' => $value['product_type']]);
+			$marca 	= ProdutosMarcas::firstOrCreate(['nome' => $value['brand']]);
+			$data 	= [
+						'titulo'		=> $value['title'],
+						'descricao'		=> $value['description'],
+						'preco'			=> $value['price'],
+						'preco_venda'	=> $value['sale_price'],
+						'imagem'		=> $value['image_link'],
+						'tipo_id'		=> $tipo->id,
+						'marca_id'		=> $marca->id
+					];
 
-            $produto->title         = $value['title'];
-            $produto->description   = $value['description'];
-            $produto->cod           = $value['id'];
-            $produto->price         = $value['price'];
-            $produto->sales_price   = $value['sale_price'];
-            $produto->image         = $value['image_link'];
-            $produto->brand         = $value['brand'];
-            $produto->type          = $value['product_type'];
+			$produto = Produtos::updateOrCreate(['codigo' => $value['id']], $data);
+		}
 
-            $produto->save();
-        }
-
-
-    }
-
-        
+		return response()
+			->json(['response' => 'Importação realizada com sucesso.']);
+	}    
 }
