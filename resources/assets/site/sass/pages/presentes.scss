@@ -33,10 +33,35 @@
 
 	&-item {
 		list-style-type: none;
-		margin-bottom: 8px;
+		// margin-bottom: 8px;
+
+		&.selected {
+			background-color: #def2fb;
+			background-clip: content-box;
+
+			.gifts-item {
+				&-buttons {
+					display: none;
+				}
+
+				&-button-selected {
+					display: block !important;
+					height: 21px;
+				}
+			}
+		}
+
+		> .row {
+			padding-top: 9px;
+		}
+
+		&-image {
+			padding-left: 8px;
+		}
 
 		&-buttons {
 			margin-top: 10px;
+			height: 21px;
 		}
 
 		&-button {
@@ -53,6 +78,13 @@
 			&-select {
 				border-left: 0 none;
 				border-right: 0 none;
+			}
+
+			&-selected {
+				background-color: #019ee3;
+				border: 0 none;
+				margin-top: 10px;
+				color: #fff;
 			}
 		}
 

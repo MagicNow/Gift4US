@@ -160,4 +160,15 @@ $(function() {
     	e.preventDefault();
 		$modal.removeClass('hidden');
     });
+
+    $('.gifts-item-button-select').on('click', function (e) {
+    	e.preventDefault();
+
+    	var $self = $(this);
+    	var $item = $self.parents('.gifts-item');
+    	var $total = $('.gifts-box-number-header-total');
+
+    	$item.addClass('selected');
+    	$total.text(parseInt($total.text()) + 1);
+    });
 });

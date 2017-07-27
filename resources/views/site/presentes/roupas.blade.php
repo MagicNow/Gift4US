@@ -10,7 +10,7 @@
 					<div class="gifts-box-number-header row">
 						<div class="col-md-11 col-md-offset-1">
 							<h4>Lista de Roupas</h4>
-							<img src="{{ asset('assets/site/images/presentinho-icone.png') }}"> 14 selecionados
+							<img src="{{ asset('assets/site/images/presentinho-icone.png') }}"> <span class="gifts-box-number-header-total">0</span> selecionados
 						</div>
 					</div>
 					<div class="gifts-box-number-middle">
@@ -27,7 +27,9 @@
 					<ul class="gifts-list">
 						<li class="col-md-6 gifts-item">
 							<div class="row">
-								<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="col-md-5">
+								<div class="col-md-5">
+									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
+								</div>
 								<div class="gifts-item-content col-md-7">
 									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
 									<p class="gifts-item-price-description">Preço aproximado</p>
@@ -40,10 +42,13 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
+							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
 						</li>
 						<li class="col-md-6 gifts-item">
 							<div class="row">
-								<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="col-md-5">
+								<div class="col-md-5">
+									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
+								</div>
 								<div class="gifts-item-content col-md-7">
 									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
 									<p class="gifts-item-price-description">Preço aproximado</p>
@@ -56,10 +61,13 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
+							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
 						</li>
 						<li class="col-md-6 gifts-item">
 							<div class="row">
-								<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="col-md-5">
+								<div class="col-md-5">
+									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
+								</div>
 								<div class="gifts-item-content col-md-7">
 									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
 									<p class="gifts-item-price-description">Preço aproximado</p>
@@ -72,10 +80,13 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
+							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
 						</li>
 						<li class="col-md-6 gifts-item">
 							<div class="row">
-								<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="col-md-5">
+								<div class="col-md-5">
+									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
+								</div>
 								<div class="gifts-item-content col-md-7">
 									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
 									<p class="gifts-item-price-description">Preço aproximado</p>
@@ -88,10 +99,13 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
+							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
 						</li>
 						<li class="col-md-6 gifts-item">
 							<div class="row">
-								<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="col-md-5">
+								<div class="col-md-5">
+									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
+								</div>
 								<div class="gifts-item-content col-md-7">
 									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
 									<p class="gifts-item-price-description">Preço aproximado</p>
@@ -104,10 +118,13 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
+							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
 						</li>
 						<li class="col-md-6 gifts-item">
 							<div class="row">
-								<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="col-md-5">
+								<div class="col-md-5">
+									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
+								</div>
 								<div class="gifts-item-content col-md-7">
 									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
 									<p class="gifts-item-price-description">Preço aproximado</p>
@@ -120,6 +137,7 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
+							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
 						</li>
 					</ul>
 				</div>
