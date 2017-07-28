@@ -8,6 +8,7 @@
 
 //Plugins
 @import "plugins/fileinput";
+@import "plugins/select2.min";
 
 //Global
 @import 'general/_normalize';
@@ -102,5 +103,7 @@
 	background-color: #019ee3;
 	color: #fff;
 	text-transform: uppercase;
-	font: 20px 'dk_astromonkeyregular';
+	font: 16px 'dk_astromonkeyregular';
+	letter-spacing: 0.26em;
+	height: 34px;
 }

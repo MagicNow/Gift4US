@@ -149,6 +149,13 @@ gulp.task('html-deploy', function() {
 //  compress all scripts and SCSS files
 gulp.task('default', ['scripts', 'styles'], function() {
     //a list of watchers, so it will watch all of the following files waiting for changes
+    gulp.task('resources/assets/site/js/src/**', ['scripts']);
+    gulp.task('resources/assets/site/sass/**', ['styles']);
+    gulp.task('resources/assets/site/images/**', ['images']);
+    gulp.task('resources/assets/site/json/**', ['copy']);
+});
+
+gulp.task('watch', ['scripts', 'styles'], function() {
     gulp.watch('resources/assets/site/js/src/**', ['scripts']);
     gulp.watch('resources/assets/site/sass/**', ['styles']);
     gulp.watch('resources/assets/site/images/**', ['images']);

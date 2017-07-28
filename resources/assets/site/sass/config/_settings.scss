@@ -45,7 +45,7 @@ a:focus {
   padding: 10px 65px;
   min-width: 130px;
 
-  &--orange {
+  &-orange {
     @extend .button;
 
     border-color: $color-orange;

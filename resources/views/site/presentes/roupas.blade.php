@@ -5,25 +5,48 @@
 		<div class="container">
 			{{ Html::image('assets/site/images/presentinho_aniversario_presente_roupas.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
 
-			<div class="dados row col-md-offset-2">
-				<div class="gifts-box-number col-md-3 dados-container">
+			<div class="gifts-container row col-md-offset-2">
+				<div class="gifts-box-number col-md-3">
 					<div class="gifts-box-number-header row">
 						<div class="col-md-11 col-md-offset-1">
-							<h4>Lista de Roupas</h4>
-							<img src="{{ asset('assets/site/images/presentinho-icone.png') }}"> <span class="gifts-box-number-header-total">0</span> selecionados
+							<h4 class="gifts-box-number-header-title">Lista de Roupas</h4>
+							<p><img src="{{ asset('assets/site/images/presentinho-icone.png') }}"> <span class="gifts-box-number-header-total">0</span> selecionados</p>
 						</div>
 					</div>
-					<div class="gifts-box-number-middle">
-						Ver lista<br>
-						selecionados
-					</div>
-					<div class="gifts-box-number-footer">
+					<a href="#" class="gifts-box-number-middle dados-container">
+						<p class="gifts-box-number-middle-view">Ver lista</p>
+						<p class="gifts-box-number-middle-selected">selecionados</p>
+					</a>
+					<div class="gifts-box-number-footer dados-container">
 						<button class="gifts-box-number-submit">Finalizar lista</button>
 						<a href="{{ route('usuario.meus-aniversarios.novo', 5) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
 					</div>
 				</div>
 				<div class="col-md-9 dados-container">
-					<h4>Sugestões</h4>
+					<div class="row">
+						<div class="col-md-4">
+							<h4 class="gifts-title">Sugestões</h4>
+						</div>
+						<div class="gifts-filter col-md-8">
+							<ul class="gifts-filter-categories">
+								<li class="gifts-filter-categories-item"><a href="#"><i class="gifts-filter-categories-icon gifts-filter-categories-toys"></i> <span>brinquedos</span></a></li><li class="gifts-filter-categories-item active"><a href="#"><i class="gifts-filter-categories-icon 
+								gifts-filter-categories-clothes"></i> <span>roupas</span></a></li><li class="gifts-filter-categories-item"><a href="#"><i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i> <span>cotas</span></a></li>
+							</ul>
+							<form method="get" action="#">
+								<div class="input-group gifts-filter-search pull-right" method="get">
+									<span class="input-group-addon"><i class="fa fa-search"></i></span>
+									<input type="search" class="form-control gifts-filter-search-input" name="busca" placeholder="presente que está procurando">
+								</div>
+								<div class="gifts-filter-select-container pull-right">
+									<select class="gifts-filter-select" name="filtrar">
+										<option value=""></option>
+										<option value="nome">Nome</option>
+										<option value="cor">Cor</option>
+									</select>
+								</div>
+							</form>
+						</div>
+					</div>
 					<ul class="gifts-list">
 						<li class="col-md-6 gifts-item">
 							<div class="row">
@@ -42,7 +65,7 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
-							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
+							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 						<li class="col-md-6 gifts-item">
 							<div class="row">
@@ -61,7 +84,7 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
-							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
+							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 						<li class="col-md-6 gifts-item">
 							<div class="row">
@@ -80,7 +103,7 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
-							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
+							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 						<li class="col-md-6 gifts-item">
 							<div class="row">
@@ -99,7 +122,7 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
-							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
+							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 						<li class="col-md-6 gifts-item">
 							<div class="row">
@@ -118,7 +141,7 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
-							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
+							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 						<li class="col-md-6 gifts-item">
 							<div class="row">
@@ -137,7 +160,7 @@
 								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
-							<button class="col-md-12 gifts-item-button-selected hidden">Selecionado</button>
+							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 					</ul>
 				</div>

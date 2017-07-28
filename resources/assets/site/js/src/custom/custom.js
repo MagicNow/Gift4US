@@ -171,4 +171,8 @@ $(function() {
     	$item.addClass('selected');
     	$total.text(parseInt($total.text()) + 1);
     });
+
+    $('.gifts-filter-select').select2({
+    	placeholder: 'filtrar por'
+    });
 });

@@ -1,15 +1,55 @@
 .gifts {
+	&-title {
+		font: 18px 'HelveticaNeueStd_BDCN';
+		color: #555557;
+		margin-top: 30px;
+	}
+
+	&-container {
+		padding-top: 35px;
+		margin-top: 35px;
+		background-color: #fff;
+	}
+
 	&-box-number {
 		text-align: left;
+
 		&-header {
+			margin-top: 10px;
 			background-color: #e6e6e8;
-			padding-bottom: 33px;
+			padding: 20px 0 33px;
+
+			&-title {
+				font: 18px 'HelveticaNeueStd_BDCN';
+				color: #545456;
+				margin: 0 0 15px;
+			}
+
+			p {
+				font: 16px 'HelveticaNeueStd_CN';
+				margin: 0;
+				color: #555557;
+			}
 		}
 
 		&-middle {
 			text-align: center;
 			border-bottom: 1px solid #e6e6e8;
 			padding: 8px 0;
+			display: inline-block;
+			border-bottom: 1px solid #e6e6e8;
+			width: calc(100% + 30px);
+			margin: 0 -15px;
+
+			&-view {
+				font: 15px 'HelveticaNeueStd_BDCN';
+				color: #555557;
+			}
+
+			&-selected {
+				font: 16px 'HelveticaNeueStd_CN';
+				color: #555557;
+			}
 		}
 
 		&-footer {
@@ -28,12 +68,13 @@
 			text-align: center;
 			width: 100%;
 			display: block;
+			font: 15px 'HelveticaNeueStd_CN';
+			color: #b2b5b8;
 		}
 	}
 
 	&-item {
 		list-style-type: none;
-		// margin-bottom: 8px;
 
 		&.selected {
 			background-color: #def2fb;
@@ -46,13 +87,20 @@
 
 				&-button-selected {
 					display: block !important;
-					height: 21px;
+					height: 24px;
+					font: 15px/24px 'HelveticaNeueStd_BDCN';
+					text-align: center;
 				}
 			}
 		}
 
 		> .row {
 			padding-top: 9px;
+		}
+
+		&-title {
+			font: 16px 'HelveticaNeueStd_CN';
+			color: #555557;
 		}
 
 		&-image {
@@ -69,6 +117,8 @@
 			border-bottom: 1px solid #cfcfd1;
 			background-color: transparent;
 			outline: 0;
+			font: 15px 'HelveticaNeueStd_BDCN';
+			position: relative;
 
 			&-show {
 				border-left: 0 none;
@@ -86,10 +136,144 @@
 				margin-top: 10px;
 				color: #fff;
 			}
+
+			&-remove {
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 30px;
+				height: 100%;
+				background-color: transparent;
+				border: 0 none;
+				outline: 0;
+
+				&:after, &:before {
+					content: "";
+					display: inline-block;
+					border-top: 1px solid #fff;
+					width: 20px;
+					height: 0;
+					position: absolute;
+					left: 9px;
+					top: 11px;
+				}
+
+				&:after {
+					transform: rotate(45deg);
+				}
+
+				&:before {
+					transform: rotate(-45deg);
+				}
+			}
 		}
 
 		&-price-description, &-color-description {
 			color: #bebec0;
+			font: 15px 'HelveticaNeueStd_CN';
+		}
+
+		&-price-value, &-color-value {
+			font: 15px 'HelveticaNeueStd_CN';
+		}
+	}
+
+	&-filter {
+		margin-bottom: 15px;
+
+		&-categories {
+			list-style-type: none;
+			text-align: right;
+			margin-right: 15px;
+
+			&-item {
+				font: 16px 'HelveticaNeueStd_CN';
+				color: #525457;
+				display: inline-block;
+				padding-left: 10px;
+				border-bottom: 1px solid #525457;
+
+				&.active {
+					span, i {
+						opacity: 1;
+					}
+				}
+
+				span {
+					line-height: 35px;
+					opacity: 0.4;
+				}
+
+				i {
+					opacity: 0.4;
+				}
+
+				a {
+					color: #525457;
+				}
+
+				&:first-child {
+					padding-left: 0;
+				}
+			}
+
+			&-icon {
+				background: url('../images/presentes-icones.png') no-repeat;
+				height: 35px;
+				width: 37px;
+				display: inline-block;
+				float: left;
+			}
+		}
+
+		&-search {
+			margin-right: 15px;
+			width: 275px;
+
+			.input-group-addon {
+				background-color: transparent;
+				border: 0 none;
+				font-size: 22px;
+			}
+
+			&-input {
+				border: 0;
+				box-shadow: none;
+				border-bottom: 1px solid #525457;
+				border-radius: 0;
+				padding: 0;
+				outline: 0;
+			}
+		}
+
+		&-select {
+			width: 100px;
+
+			&-container {
+				clear: both;
+				margin-right: 15px;
+
+				.select2-selection--single {
+					border: 0 none;
+					border-bottom: 1px solid #525457;
+					border-radius: 0;
+					font: 16px 'HelveticaNeueStd_CN';
+					color: #555557;
+				
+					.select2-selection__arrow b {
+						border-top: 10px solid #555557;
+						border-right: 7px solid transparent;
+						border-bottom: 10px solid transparent;
+						border-left: 7px solid transparent;
+						display: block;
+						margin-top: -4px;
+					}
+
+					.select2-selection__rendered {
+						color: #555557;
+					}
+				}
+			}
 		}
 	}
 }
