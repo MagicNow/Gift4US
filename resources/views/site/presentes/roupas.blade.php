@@ -1,6 +1,17 @@
 @extends('site/master')
 
 @section('content')
+	<div class="gifts-modal hidden">
+		<div class="gifts-modal-content col-md-3 col-md-offset-5">
+			<h3 class="gifts-modal-title">Excluir este presente da sua lista</h3>
+			<p class="gifts-modal-subtitle">Você realmente deseja excluir este presente?</p>
+			<div class="gifts-modal-frame row"></div>
+			<div class="gifts-modal-buttons">
+				<button class="gifts-modal-button gifts-modal-button-remove">Excluir</button>
+				<button class="gifts-modal-button gifts-modal-button-cancel">Cancelar</button>
+			</div>
+		</div>
+	</div>
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container">
 			{{ Html::image('assets/site/images/presentinho_aniversario_presente_roupas.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
@@ -48,6 +59,11 @@
 						</div>
 					</div>
 					<ul class="gifts-list">
+						<div class="gifts-list-message">
+							<button class="gifts-list-message-remove"></button>
+							<p class="gifts-list-message-first">Selecione as roupas que possuam a personalidade do aniversariante! É bem fácil! Você pode selecionar os produtos sugeridos abaixo, procurar algum modelo específico pelo nome e filtrar por diversas formas! </p>
+							<p class="gifts-list-message-secound">*As roupas adquiridas pelos convidados serão automaticamente convertidas em crédito na sua conta bancária. Não cadastrou seu conta bancária ainda? Não esqueça de cadastra-la a qualquer momento no painel de controle assim que finalizar a criação do aniversário.</p>
+						</div>
 						<li class="col-md-6 gifts-item">
 							<div class="row">
 								<div class="col-md-5">

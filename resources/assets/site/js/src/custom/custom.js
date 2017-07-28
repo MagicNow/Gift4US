@@ -1,4 +1,6 @@
 $(function() {
+	var $activeGift;
+
 	// add validate to cpf
 	$.validator.addMethod("cpf", function(value, element) {
 		value = jQuery.trim(value);
@@ -175,4 +177,38 @@ $(function() {
     $('.gifts-filter-select').select2({
     	placeholder: 'filtrar por'
     });
+
+    $('.gifts-list-message-remove').on('click', function (e) {
+    	e.preventDefault();
+    	$('.gifts-list-message').remove();
+    });
+
+    $('.gifts-item-button-remove').on('click', function (e) {
+    	e.preventDefault();
+
+		$activeGift = $(this).parents('.gifts-item');
+
+    	var $modal		= $('.gifts-modal');
+    	var $content 	= $activeGift.find('.row');
+
+    	$modal.removeClass('hidden');
+    	$modal.find('.gifts-modal-frame').html($content.html());
+console.log($modal);
+    });
+
+    $('.gifts-modal-button-cancel').on('click', closeGiftModal);
+
+    $('.gifts-modal-button-remove').on('click', function (e) {
+    	e.preventDefault();
+
+    	var $total = $('.gifts-box-number-header-total');
+
+    	$activeGift.removeClass('selected');
+    	$total.text(parseInt($total.text()) - 1);
+    	closeGiftModal();
+    });
 });
+
+function closeGiftModal() {
+	$('.gifts-modal').addClass('hidden');
+}
