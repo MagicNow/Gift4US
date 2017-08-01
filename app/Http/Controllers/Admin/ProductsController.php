@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Input;
 use Redirect;
 
 
-class ProdutosController extends Controller
+class ProductsController extends Controller
 {
     public function __construct()
     {
@@ -22,9 +22,9 @@ class ProdutosController extends Controller
     public function index()
     {
         $section = 'produtos';
-        $produtos = Produtos::orderBy('id','desc')->get();
+        $produtos = Produtos::orderBy('id','desc')->simplePaginate(30);
 
-        return view('admin.produtos.list',compact('produtos','section'));
+        return view('admin.produtos.list', compact('produtos', 'section'));
     }
 
     public function status($id,$status)
@@ -36,5 +36,9 @@ class ProdutosController extends Controller
         return Redirect::route('admin.produtos')->with('sucess', 'Registro alterado com sucesso!');;
     }
 
-    
+    public function create()
+    {
+        $section = 'produtos';
+        return view('admin.produtos.create', compact('section'));
+    }
 }

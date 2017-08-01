@@ -12,9 +12,9 @@
     <div class="box">
 
 		<div class="box-header"> <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Novo Usuário</a></div><!-- /.box-header -->
-		@if (session('sucess'))
+		@if (session('success'))
           <div class="alert alert-success">
-              {{ session('sucess') }}
+              {{ session('success') }}
           </div>
       	@endif
 		<div class="box-body">

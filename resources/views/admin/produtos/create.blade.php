@@ -1,12 +1,15 @@
 @extends('admin.app')
 
 @section('htmlheader_title')
-   Novo Usuário
-@endsection
-@section('contentheader_title')
-    Novo Usuário
+    Produtos :: Criar
 @endsection
 
+@section('contentheader_title')
+    <h1 class="col-md-6">
+        Produtos
+        <small></small>
+    </h1>
+@endsection
 
 @section('main-content')
     @if(count($errors) > 0)
@@ -16,26 +19,42 @@
             @endforeach
         </div>
     @endif
-    @if (session('sucess'))
+
+    @if (session('success'))
         <div class="alert alert-success">
-            {{ session('sucess') }}
+            {{ session('success') }}
         </div>
     @endif
-    {!! Form::open(array('route' => array('admin.users.store',isset($user->id) ? $user->id : ''),'id'=>'form-users','method' => 'POST','files'=>false)) !!}
-       {{--  <div class="form-group col-xs-12">
-            {!! Form::label('type', 'Tipo Usuário') !!}
-            {!! Form::select('type', $types, isset($user->type) ? $user->type : '', ['placeholder' => 'Tipo Usuário*', 'class' => 'form-control select2','id' => 'type']) !!}
-        </div> --}}
-        <div class="form-group col-xs-12">
-            <label for="">Nome</label>
-            {!! Form::text('nome',isset($user->name) ? $user->name : '',array('class' => 'form-control','placeholder'=>'Nome usuário*','id'=>'nome') )!!}
-        </div>
-        <div class="form-group col-xs-12">
-            <label for="">Email</label>
-            {!! Form::text('email',isset($user->email) ? $user->email : '',array('class' => 'form-control','placeholder'=>'Email*','id'=>'email') )!!}
+
+    {!! Form::open(['route' => [ 'admin.products.store', isset($product->id) ? $product->id : ''], 'id' => 'form-products', 'method' => 'POST', 'files' => true ]) !!}
+
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label for="nome" class="form-">Categoria</label>
+                {!! Form::select('size', ['roupa' => 'Roupa', 'brinquedo' => 'Brinquedo'], isset($product->categoria) ? $product->categoria : '', ['placeholder' => 'Categoria', 'class' => 'form-control']) !!}
+            </div>
         </div>
 
-        <div class="form-group col-xs-12">
+        <div class="form-group">
+            <label for="nome" class="form-">Título</label>
+            {!! Form::text('nome', isset($product->titulo) ? $product->titulo : '', ['class' => 'form-control','placeholder'=>'Título*', 'id' => 'nome'] )!!}
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="preco_venda">Preço</label>
+                {!! Form::text('preco_venda', isset($product->preco_venda) ? $product->preco_venda : '', ['class' => 'form-control', 'placeholder' => 'Preço*', 'id' => 'preco_venda'] )!!}
+            </div>
+            <div class="form-group col-md-6">
+                <label for="cor">Cor</label>
+                {!! Form::text('cor', isset($product->cor) ? $product->cor : '', ['class' => 'form-control', 'placeholder' => 'Preço*', 'id' => 'cor'] )!!}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="imagem">Imagem</label>
+            <input type="file" id="imagem">
+        </div>
+
+        <div class="form-group">
             <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
 	{!! Form::close() !!}

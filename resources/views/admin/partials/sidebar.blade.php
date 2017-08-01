@@ -9,7 +9,7 @@
                 <a href="{{ route('admin.users') }}"><i class='fa fa-user'></i> <span>Usuários</span></a>
             </li> --}}
             <li class="{!! ($section == 'produtos') ? 'active': ''!!}">
-                <a href="{{ route('admin.produtos') }}"><i class='fa fa-instagram'></i> <span>Produtos</span></a>
+                <a href="{{ route('produtos') }}"><i class='fa fa-instagram'></i> <span>Produtos</span></a>
             </li>
         </ul><!-- /.sidebar-menu -->
     </section>

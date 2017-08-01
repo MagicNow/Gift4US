@@ -35,22 +35,33 @@ Route::group(['prefix' => 'usuario'], function() {
     });
 });
 
-Route::group(['prefix' => 'admin'], function() {
-	Route::get('/', ['as'=> 'admin.index','uses' => 'Admin\AdminController@index']);
-    Route::get('login', ['as'=> 'admin.login','uses' => 'Admin\AdminController@index']);
-    Route::post('login', ['uses' => 'Admin\AdminController@login']);
-    Route::post('password/reset', ['as'=> 'admin.password','uses' => 'Admin\AdminController@changePassword']);
-    Route::get('logout', ['as'=> 'admin.logout','uses' => 'Admin\AdminController@logout']);
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+	Route::get('/', ['as'=> 'admin.index','uses' => 'AdminController@index']);
+    Route::get('login', ['as'=> 'admin.login','uses' => 'AdminController@index']);
+    Route::post('login', ['uses' => 'AdminController@login']);
+    Route::post('password/reset', ['as'=> 'admin.password','uses' => 'AdminController@changePassword']);
+    Route::get('logout', ['as'=> 'admin.logout','uses' => 'AdminController@logout']);
 
     //USERS
-    Route::get('users', ['as'=> 'admin.users','uses' => 'Admin\UsersController@index']);
-    Route::get('users/create', ['as'=> 'admin.users.create','uses' => 'Admin\UsersController@create']);
-    Route::get('users/edit/{id}', ['as'=> 'admin.users.edit','uses' => 'Admin\UsersController@edit']);
-	Route::get('users/destroy/{id}', ['as'=> 'admin.users.destroy','uses' => 'Admin\UsersController@destroy']);
-    Route::post('users/store/{id?}', ['as'=> 'admin.users.store','uses' => 'Admin\UsersController@store']);
+    Route::get('users', ['as'=> 'admin.users','uses' => 'UsersController@index']);
+    Route::get('users/create', ['as'=> 'admin.users.create','uses' => 'UsersController@create']);
+    Route::get('users/edit/{id}', ['as'=> 'admin.users.edit','uses' => 'UsersController@edit']);
+	Route::get('users/destroy/{id}', ['as'=> 'admin.users.destroy','uses' => 'UsersController@destroy']);
+    Route::post('users/store/{id?}', ['as'=> 'admin.users.store','uses' => 'UsersController@store']);
 	
 	//POSTS
 
-    Route::get('produtos', ['as'=> 'admin.produtos','uses' => 'Admin\ProdutosController@index']);
-    Route::get('produtos/status/{id}/{status}', ['as'=> 'admin.produtos.status','uses' => 'Admin\ProdutosController@status']);
+    Route::get('produtos/status/{id}/{status}', ['as'=> 'admin.produtos.status','uses' => 'ProductsController@status']);
+
+    Route::resource('produtos', 'ProductsController', [
+        'names' => [
+            'index'   => 'admin.products.index',
+            'create'  => 'admin.products.create',
+            'store'   => 'admin.products.store',
+            'show'    => 'admin.products.show',
+            'edit'    => 'admin.products.edit',
+            'update'  => 'admin.products.update',
+            'destroy' => 'admin.products.destroy'
+        ]
+    ]);
 });

@@ -17,9 +17,9 @@
         </div>
         
     @endif
-    @if (session('sucess'))
+    @if (session('success'))
         <div class="alert alert-success">
-            {{ session('sucess') }}
+            {{ session('success') }}
         </div>
     @endif
     {!! Form::open(array('route' => array('admin.users.store',isset($user->id) ? $user->id : ''),'method' => 'POST','files'=>true)) !!}
