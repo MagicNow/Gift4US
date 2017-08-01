@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request as Req;
 use URL;
 use Auth;
 use Request;
@@ -40,5 +41,13 @@ class ProductsController extends Controller
     {
         $section = 'produtos';
         return view('admin.produtos.create', compact('section'));
+    }
+
+    public function store(Req $request)
+    {
+        $section = 'produtos';
+
+        $product = new Produtos($request->all());
+        $product->save();
     }
 }
