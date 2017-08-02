@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Input;
 use Validator;
 use Redirect;
 use Mail;
+use App\Mail\EmailConfirm;
 
 class UsersController extends Controller
 {
@@ -100,15 +101,16 @@ class UsersController extends Controller
                 $user->password     = bcrypt($senha);
             }
 
-
             $user->save();
 
             if($email){
-                $dados['senha'] = $senha;
-                Mail::send('emails.new_user', [ 'dados' => $dados, 'text' => $dados ], function ($m) use ($dados) {
-                    $m->from('no-reply@campari.com', 'Aperol Spritz');
-                    $m->to($dados['email'], $dados['nome'])->subject('Aperol Spritz: Novo Usuário');
-                });
+                $dados['title'] = 'Confirmação dos dados';
+                $dados['body'] = 'Senha: ' . $senha;
+                $dados['url'] = url('/');
+                $dados['button'] = url('Acessar');
+
+                Mail::to($dados['email'], $dados['nome'])
+                    ->send(new EmailConfirm($dados));
             }
             
          

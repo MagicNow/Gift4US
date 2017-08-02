@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Produtos extends Model {
     protected $dates = ['deleted_at'];
 
-	protected $fillable = ['titulo', 'descricao', 'codigo', 'preco', 'preco_venda', 'imagem', 'marca_id', 'tipo_id'];
+	protected $fillable = ['categoria', 'titulo', 'descricao', 'codigo', 'preco', 'preco_venda', 'imagem', 'marca_id', 'tipo_id', 'cor'];
 
     protected $hidden = [
         'created_at',

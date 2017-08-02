@@ -30,6 +30,8 @@ class EmailConfirm extends Mailable
     {
         return $this->markdown('emails.users.confirm')
                     ->subject('GIFT4US - Confirmação de dados')
-                    ->with('content', $this->content);
+                    ->with([
+                        'content' => $this->content
+                    ]);
     }
 }

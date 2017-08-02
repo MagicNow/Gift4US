@@ -1,10 +1,14 @@
 @extends('admin.app')
 
 @section('htmlheader_title')
-   Novo Usuário
+   Usuários :: Criar
 @endsection
+
 @section('contentheader_title')
-    Novo Usuário
+    <h1 class="col-md-6">
+        Produtos
+        <small></small>
+    </h1>
 @endsection
 
 

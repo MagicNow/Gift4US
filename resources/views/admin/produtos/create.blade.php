@@ -1,12 +1,12 @@
 @extends('admin.app')
 
 @section('htmlheader_title')
-    Produtos :: Criar
+    Usuários :: Criar
 @endsection
 
 @section('contentheader_title')
     <h1 class="col-md-6">
-        Produtos
+        Usuários
         <small></small>
     </h1>
 @endsection
@@ -30,14 +30,14 @@
 
         <div class="row">
             <div class="col-md-4 form-group">
-                <label for="nome" class="form-">Categoria</label>
-                {!! Form::select('size', ['roupa' => 'Roupa', 'brinquedo' => 'Brinquedo'], isset($product->categoria) ? $product->categoria : '', ['placeholder' => 'Categoria', 'class' => 'form-control']) !!}
+                <label for="categoria" class="form-category">Categoria</label>
+                {!! Form::select('categoria', ['roupa' => 'Roupa', 'brinquedo' => 'Brinquedo'], isset($product->categoria) ? $product->categoria : '', ['placeholder' => 'Categoria', 'class' => 'form-control', 'id' => 'categoria']) !!}
             </div>
         </div>
 
         <div class="form-group">
-            <label for="nome" class="form-">Título</label>
-            {!! Form::text('nome', isset($product->titulo) ? $product->titulo : '', ['class' => 'form-control','placeholder'=>'Título*', 'id' => 'nome'] )!!}
+            <label for="titulo" class="form-title">Título</label>
+            {!! Form::text('titulo', isset($product->titulo) ? $product->titulo : '', ['class' => 'form-control','placeholder'=>'Título*', 'id' => 'titulo'] )!!}
         </div>
         <div class="row">
             <div class="form-group col-md-6">
@@ -46,12 +46,12 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="cor">Cor</label>
-                {!! Form::text('cor', isset($product->cor) ? $product->cor : '', ['class' => 'form-control', 'placeholder' => 'Preço*', 'id' => 'cor'] )!!}
+                {!! Form::text('cor', isset($product->cor) ? $product->cor : '', ['class' => 'form-control', 'placeholder' => 'Cor*', 'id' => 'cor'] )!!}
             </div>
         </div>
         <div class="form-group">
             <label for="imagem">Imagem</label>
-            <input type="file" id="imagem">
+            <input type="file" id="imagem" name="imagem">
         </div>
 
         <div class="form-group">

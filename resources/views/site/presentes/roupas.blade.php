@@ -46,13 +46,13 @@
 							<form method="get" action="#">
 								<div class="input-group gifts-filter-search pull-right" method="get">
 									<span class="input-group-addon"><i class="fa fa-search"></i></span>
-									<input type="search" class="form-control gifts-filter-search-input" name="busca" placeholder="presente que está procurando">
+									<input type="search" class="form-control gifts-filter-search-input" name="busca" placeholder="presente que está procurando" value="{{ $request->busca }}">
 								</div>
 								<div class="gifts-filter-select-container pull-right">
 									<select class="gifts-filter-select" name="filtrar">
 										<option value=""></option>
-										<option value="nome">Nome</option>
-										<option value="cor">Cor</option>
+										<option value="nome" {{ $request->filtrar == 'nome' ? 'selected' : '' }}>Nome</option>
+										<option value="cor" {{ $request->filtrar == 'cor' ? 'selected' : '' }}>Cor</option>
 									</select>
 								</div>
 							</form>
@@ -64,120 +64,33 @@
 							<p class="gifts-list-message-first">Selecione as roupas que possuam a personalidade do aniversariante! É bem fácil! Você pode selecionar os produtos sugeridos abaixo, procurar algum modelo específico pelo nome e filtrar por diversas formas! </p>
 							<p class="gifts-list-message-secound">*As roupas adquiridas pelos convidados serão automaticamente convertidas em crédito na sua conta bancária. Não cadastrou seu conta bancária ainda? Não esqueça de cadastra-la a qualquer momento no painel de controle assim que finalizar a criação do aniversário.</p>
 						</div>
-						<li class="col-md-6 gifts-item">
-							<div class="row">
-								<div class="col-md-5">
-									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
-								</div>
-								<div class="gifts-item-content col-md-7">
-									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
-									<p class="gifts-item-price-description">Preço aproximado</p>
-									<p class="gifts-item-price-value">R$ 113,00</p>
-									<p class="gifts-item-color-description">Cor</p>
-									<p class="gifts-item-color-value">Azul</p>
-								</div>
-							</div>
-							<div class="gifts-item-buttons">
-								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
-								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
-							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
-						</li>
-						<li class="col-md-6 gifts-item">
-							<div class="row">
-								<div class="col-md-5">
-									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
-								</div>
-								<div class="gifts-item-content col-md-7">
-									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
-									<p class="gifts-item-price-description">Preço aproximado</p>
-									<p class="gifts-item-price-value">R$ 113,00</p>
-									<p class="gifts-item-color-description">Cor</p>
-									<p class="gifts-item-color-value">Azul</p>
-								</div>
-							</div>
-							<div class="gifts-item-buttons">
-								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
-								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
-							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
-						</li>
-						<li class="col-md-6 gifts-item">
-							<div class="row">
-								<div class="col-md-5">
-									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
-								</div>
-								<div class="gifts-item-content col-md-7">
-									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
-									<p class="gifts-item-price-description">Preço aproximado</p>
-									<p class="gifts-item-price-value">R$ 113,00</p>
-									<p class="gifts-item-color-description">Cor</p>
-									<p class="gifts-item-color-value">Azul</p>
-								</div>
-							</div>
-							<div class="gifts-item-buttons">
-								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
-								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
-							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
-						</li>
-						<li class="col-md-6 gifts-item">
-							<div class="row">
-								<div class="col-md-5">
-									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
-								</div>
-								<div class="gifts-item-content col-md-7">
-									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
-									<p class="gifts-item-price-description">Preço aproximado</p>
-									<p class="gifts-item-price-value">R$ 113,00</p>
-									<p class="gifts-item-color-description">Cor</p>
-									<p class="gifts-item-color-value">Azul</p>
-								</div>
-							</div>
-							<div class="gifts-item-buttons">
-								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
-								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
-							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
-						</li>
-						<li class="col-md-6 gifts-item">
-							<div class="row">
-								<div class="col-md-5">
-									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
-								</div>
-								<div class="gifts-item-content col-md-7">
-									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
-									<p class="gifts-item-price-description">Preço aproximado</p>
-									<p class="gifts-item-price-value">R$ 113,00</p>
-									<p class="gifts-item-color-description">Cor</p>
-									<p class="gifts-item-color-value">Azul</p>
-								</div>
-							</div>
-							<div class="gifts-item-buttons">
-								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
-								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
-							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
-						</li>
-						<li class="col-md-6 gifts-item">
-							<div class="row">
-								<div class="col-md-5">
-									<img src="{{ asset('assets/site/images/presente-camiseta.png') }}" class="gifts-item-image">
-								</div>
-								<div class="gifts-item-content col-md-7">
-									<h5 class="gifts-item-title">Camiseta - Looney Tunes Frajola</h5>
-									<p class="gifts-item-price-description">Preço aproximado</p>
-									<p class="gifts-item-price-value">R$ 113,00</p>
-									<p class="gifts-item-color-description">Cor</p>
-									<p class="gifts-item-color-value">Azul</p>
-								</div>
-							</div>
-							<div class="gifts-item-buttons">
-								<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
-								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
-							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
-						</li>
+						@if (isset($products) && count($products) > 0)
+							@foreach ($products as $product)
+								<li class="col-md-6 gifts-item">
+									<div class="row">
+										<div class="col-md-5">
+											@if (file_exists('storage/products/' . $product->imagem))
+												<img src="{{ url('storage/products/' . $product->imagem) }}" class="gifts-item-image">
+											@endif
+										</div>
+										<div class="gifts-item-content col-md-7">
+											<h5 class="gifts-item-title">{{ $product->titulo }}</h5>
+											<p class="gifts-item-price-description">Preço aproximado</p>
+											<p class="gifts-item-price-value">R$ {{ $product->preco_venda }}</p>
+											<p class="gifts-item-color-description">Cor</p>
+											<p class="gifts-item-color-value">{{ $product->cor }}</p>
+										</div>
+									</div>
+									<div class="gifts-item-buttons">
+										<button class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</button>
+										<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
+									</div>
+									<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
+								</li>
+							@endforeach
+						@else
+							Nenhum produto cadastrado
+						@endif
 					</ul>
 				</div>
 			</div>

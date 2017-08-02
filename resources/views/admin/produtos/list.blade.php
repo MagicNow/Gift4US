@@ -18,9 +18,9 @@
 @section('main-content')
 	<div class="box">
 		<div class="box-header">
-			@if (session('success'))
+			@if (session('status'))
 				<div class="alert alert-success">
-					{{ session('success') }}
+					{{ session('status') }}
 				</div>
 			@endif
 		</div><!-- /.box-header -->
@@ -31,10 +31,10 @@
 						<th>Id</th>
 						<th>Nome</th>
 						<th>Descrição</th>
-						<th>Tipo</th>
+						<th>Categoria</th>
 						<th>Imagem</th>
 						<th>Data</th>
-						<th>Ações</th>
+						<th width="100">Ações</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -42,16 +42,28 @@
 						<tr>
 							<td>{{ $prod->id }}</td>
 							<td>{{ $prod->titulo }}</td>
-							<td style="word-wrap: break-word !important;float: left;max-width: 300px;">{{ str_limit($prod->descricao, $limit = 150, $end = '...') }}</td>
-							<td>{{ $prod->tipo()->first()->nome }}</td>
-							<td><img src="{{ $prod->imagem }}" width="150"></td>
+							<td style="word-wrap: break-word !important;float: left; max-width: 300px;">{{ str_limit($prod->descricao, $limit = 150, $end = '...') }}</td>
+							<td>{{ $prod->categoria }}</td>
+							<td>
+								@if (file_exists('storage/products/' . $prod->imagem))
+									<img src="{{ url('storage/products/' . $prod->imagem) }}" width="100">
+								@endif
+							</td>
 							<td>{{ date('d/m/Y H:i:s',strtotime($prod->created_at)) }}</td>
 							<td>	
 								@if($prod->status == 1)		
-									<a href="{{ route('admin.produtos.status', [ $prod->id, 0 ]) }}" class="btn btn-danger">Reprovar</a>
+									<a href="{{ route('admin.products.status', [ $prod->id, 0 ]) }}" class="btn btn-danger" title="Reprovar"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
 								@else
-									<a href="{{ route('admin.produtos.status', [ $prod->id, 1 ]) }}" class="btn btn-default">Aprovar</a>
+									<a href="{{ route('admin.products.status', [ $prod->id, 1 ]) }}" class="btn btn-default" title="Aprovar"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
 								@endif
+								<form method="post" action="{{ route('admin.products.destroy', $prod->id) }}" style="display: inline-block;">
+
+									{{ Form::open(['method' => 'DELETE', 'route' => [ 'admin.products.destroy', $prod->id ]]) }}
+										{{ Form::hidden('id', $prod->id) }}
+
+										<button type="submit" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
+									{{ Form::close() }}
+								</form>
 							</td>
 						</tr>
 					@endforeach

@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 	
 	//POSTS
 
-    Route::get('produtos/status/{id}/{status}', ['as'=> 'admin.produtos.status','uses' => 'ProductsController@status']);
+    Route::get('produtos/status/{id}/{status}', ['as'=> 'admin.products.status', 'uses' => 'ProductsController@status']);
 
     Route::resource('produtos', 'ProductsController', [
         'names' => [
