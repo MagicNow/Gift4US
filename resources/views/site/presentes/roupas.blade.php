@@ -71,6 +71,8 @@
 										<div class="col-md-5">
 											@if (file_exists('storage/products/' . $product->imagem))
 												<img src="{{ url('storage/products/' . $product->imagem) }}" class="gifts-item-image">
+											@else 
+												<input type="hidden" value="{{ url('storage/products/' . $product->imagem) }}">
 											@endif
 										</div>
 										<div class="gifts-item-content col-md-7">
