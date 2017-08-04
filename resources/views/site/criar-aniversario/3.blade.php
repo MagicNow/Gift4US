@@ -6,8 +6,12 @@
 			{{ Html::image('assets/site/images/presentinho_aniversario_passo3.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
 
 			<div class="dados row col-md-offset-2">
-				<form action="{{ route('usuario.meus-aniversarios.novo', 4) }}" method="post" class="dados-container">
+				<form action="{{ route('usuario.meus-aniversarios.store3') }}" method="post" class="dados-container">
 					<input type="hidden" name="step" value="3">
+					@if (session('party'))
+						<input type="hidden" value="{{ session('party') }}" name="festa_id">
+					@endif
+
 					<div class="clearfix">
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12">
 							<img src="{{ asset('assets/site/images/passo_3.png') }}" style="margin-top: -60px;">

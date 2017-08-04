@@ -193,7 +193,6 @@ $(function() {
 
     	$modal.removeClass('hidden');
     	$modal.find('.gifts-modal-frame').html($content.html());
-console.log($modal);
     });
 
     $('.gifts-modal-button-cancel').on('click', closeGiftModal);

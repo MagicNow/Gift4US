@@ -6,7 +6,17 @@
 			{{ Html::image('assets/site/images/presentinho_criando.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
 
 			<div class="dados row col-md-offset-2">
-				<form action="{{ route('usuario.meus-aniversarios.novo', 2) }}" method="post" class="dados-container">
+				@if ($errors->any())
+					<div class="alert alert-danger">
+						<ul>
+							@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
+
+				<form action="{{ route('usuario.meus-aniversarios.store1') }}" method="post" class="dados-container" novalidate>
 					<input type="hidden" name="foto" class="aniver-photo">
 					<input type="hidden" name="step" value="1">
 					<div class="form-birthday-modal hidden">
@@ -18,35 +28,35 @@
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12 col-md-5 col-lg-5">
 							<div class="form-group">
 								<label for="aniver-nome">Qual nome do aniversáriante?</label>
-								<input type="text" class="form-control form-input" id="aniver-nome" name="nome">
+								<input type="text" class="form-control form-input" id="aniver-nome" name="nome" maxlength="100" value="{{ old('nome') }}">
 							</div>
 							
 							<div class="form-group">
 								<label for="aniver-anos">Quantos anos irá fazer?</label>
 								<div class="form-inline">
-									<input type="number" name="anos" class="form-control form-input form-birthday-years" id="aniver-anos">
+									<input type="number" name="idade_anos" class="form-control form-input form-birthday-years" id="aniver-anos" value="{{ old('idade_anos') }}">
 									<label class="control-label form-birthday-separator">anos</label>
-									<input type="number" name="meses" class="form-control form-input form-birthday-years">
+									<input type="number" name="idade_meses" class="form-control form-input form-birthday-years" value="{{ old('idade_meses') }}">
 									<label class="control-label form-birthday-separator">meses</label>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="aniver-data">Qual a data da festa?</label>
 								<div class="form-inline">
-									<input type="number" name="dia" class="form-control form-input form-birthday-date-day" id="aniver-data">
+									<input type="number" name="festa_dia" class="form-control form-input form-birthday-date-day" id="aniver-data" value="{{ old('festa_dia') }}">
 									<label class="control-label form-birthday-separator">/</label>
-									<input type="number" name="mes" class="form-control form-input form-birthday-date-month">
+									<input type="number" name="festa_mes" class="form-control form-input form-birthday-date-month" value="{{ old('festa_mes') }}">
 									<label class="control-label form-birthday-separator">/</label>
-									<input type="number" name="ano" class="form-control form-input form-birthday-date-year">
+									<input type="number" name="festa_ano" class="form-control form-input form-birthday-date-year" value="{{ old('festa_ano') }}">
 									<button type="button" class="form-birthday-calendar"><i class="fa fa-calendar" aria-hidden="true"></i></button>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="aniver-horario">Qual horário da festa?</label>
 								<div class="form-inline">
-									<input type="number" name="hora" class="form-control form-input form-birthday-time" id="aniver-horario">
+									<input type="number" name="festa_hora" class="form-control form-input form-birthday-time" id="aniver-horario" value="{{ old('festa_hora') }}">
 									<span class="control-label form-birthday-separator">:</span>
-									<input type="number" name="minuto" class="form-control form-input form-birthday-time">
+									<input type="number" name="festa_minuto" class="form-control form-input form-birthday-time" value="{{ old('festa_minuto') }}">
 								</div>
 							</div>
 						</fieldset>
@@ -57,11 +67,11 @@
 							</div>
 							<div class="form-birthday-presence">
 								<p class="defaut-text">Gostaria que os convidados confirmassem presença?</p>
-								<label class="checkbox-inline">
-									<input type="checkbox" id="presenca-sim" value="yes"> Sim
+								<label class="checkbox-inline pd0">
+									<input type="radio" id="presenca-sim" value="1" name="confirma_presenca" checked> Sim
 								</label>
 								<label class="checkbox-inline">
-									<input type="checkbox" id="presenca-nao" value="no"> Não
+									<input type="radio" id="presenca-nao" value="0" name="confirma_presenca"> Não
 								</label>
 							</div>
 						</fieldset>

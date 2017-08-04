@@ -3,11 +3,24 @@
 @section('content')
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container">
-			{{ Html::image('assets/site/images/presentinho_criando.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
+			{{ Html::image('assets/site/images/presentinho_criando.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }}
 
 			<div class="dados row col-md-offset-2">
-				<form action="{{ route('usuario.meus-aniversarios.novo', 3) }}" method="post" class="dados-container">
+				@if ($errors->any())
+					<div class="alert alert-danger">
+						<ul>
+							@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
+
+				<form action="{{ route('usuario.meus-aniversarios.store2') }}" method="post" class="dados-container">
 					<input type="hidden" name="step" value="2">
+					@if (session('party'))
+						<input type="hidden" value="{{ session('party') }}" name="festa_id">
+					@endif
 					<div class="clearfix">
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12 col-md-5 col-lg-5">
 							<div class="form-group">

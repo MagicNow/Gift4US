@@ -26,11 +26,16 @@ Route::group(['prefix' => 'usuario'], function() {
     Route::resource('transferencia', 'TransferController');
 
     Route::group(['prefix' => 'meus-aniversarios'], function() {
-        Route::get('/', ['as' => 'usuario.meus-aniversarios','uses' => 'HomeController@meus_aniversarios']);
-        Route::get('novo/{number?}', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'HomeController@meus_aniversarios_novo'])->where(['number' => '[0-9]+']);
-        Route::post('novo/{number?}', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'HomeController@meus_aniversarios_novo'])->where(['number' => '[0-9]+']);
-        Route::post('upload', ['as' => 'usuario.meus-aniversarios.upload','uses' => 'HomeController@meus_aniversarios_upload']);
-        Route::get('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir','uses' => 'HomeController@meus_aniversarios_excluir'])->where(['id' => '[0-9]+']);
+        Route::get('/', ['as' => 'usuario.meus-aniversarios','uses' => 'BirthdayController@index']);
+        Route::get('novo/{number?}', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'BirthdayController@create'])->where(['number' => '[0-9]+']);
+        Route::get('novo/{number?}/festa/{festa_id?}', ['as' => 'usuario.meus-aniversarios.novo.festa','uses' => 'BirthdayController@create'])->where(['number' => '[0-9]+', 'festa_id' => '[0-9]+']);
+        Route::post('novo/1', ['as' => 'usuario.meus-aniversarios.store1','uses' => 'BirthdayController@store1']);
+        Route::post('novo/2', ['as' => 'usuario.meus-aniversarios.store2','uses' => 'BirthdayController@store2']);
+        Route::post('novo/3', ['as' => 'usuario.meus-aniversarios.store3','uses' => 'BirthdayController@store3']);
+        Route::post('novo/4', ['as' => 'usuario.meus-aniversarios.store4','uses' => 'BirthdayController@store4']);
+        Route::post('novo/4', ['as' => 'usuario.meus-aniversarios.store5','uses' => 'BirthdayController@store5']);
+        Route::post('upload', ['as' => 'usuario.meus-aniversarios.upload','uses' => 'BirthdayController@upload']);
+        Route::get('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir','uses' => 'BirthdayController@destroy'])->where(['id' => '[0-9]+']);
         Route::get('novo/presentes/roupas', ['as' => 'usuario.meus-aniversarios.presentes.roupas','uses' => 'GiftsController@index']);
     });
 });
