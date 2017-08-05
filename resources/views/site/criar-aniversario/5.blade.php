@@ -6,7 +6,7 @@
 			{{ Html::image('assets/site/images/presentinho_aniversario_passo3.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
 
 			<div class="dados row col-md-offset-2">
-				<form action="{{ route('usuario.meus-aniversarios.store5') }}" method="post" class="dados-container">
+				<form action="{{ route('usuario.meus-aniversarios.store') }}" method="post" class="dados-container">
 					<input type="hidden" name="step" value="5">
 					<fieldset class="form-birthday-first col-xs-12 col-sm-12" style="margin-bottom: 50px;">
 						<div class="clearfix">

@@ -16,24 +16,24 @@
 					</div>
 				@endif
 
-				<form action="{{ route('usuario.meus-aniversarios.store2') }}" method="post" class="dados-container">
+				<form action="{{ route('usuario.meus-aniversarios.store') }}" method="post" class="dados-container">
 					<input type="hidden" name="step" value="2">
-					@if (session('party'))
-						<input type="hidden" value="{{ session('party') }}" name="festa_id">
+					@if (isset($festa->id) && !empty($festa->id))
+						<input type="hidden" value="{{ $festa->id }}" name="id">
 					@endif
 					<div class="clearfix">
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12 col-md-5 col-lg-5">
 							<div class="form-group">
 								<label for="aniver-endereco">Qual o endereço da festa?</label>
-								<input type="text" class="form-control form-input" id="aniver-endereco" name="endereco" placeholder="">
+								<input type="text" class="form-control form-input" id="aniver-endereco" name="endereco" placeholder="" value="{{ old('endereco', $festa->endereco) }}">
 							</div>
 							<div class="form-group">
 								<label for="aniver-referencia">Quer inserir um ponto de referência? (opcional)</label>
-								<input type="text" class="form-control form-input" id="aniver-referencia" name="referencia" placeholder="">
+								<input type="text" class="form-control form-input" id="aniver-referencia" name="referencia" value="{{ old('referencia', $festa->referencia) }}">
 							</div>
 							<div class="form-group">
 								<label for="aniver-observacoes">Observações gerais (opcional)</label>
-								<input type="text" class="form-control form-input" id="aniver-observacoes" name="observacoes">
+								<input type="text" class="form-control form-input" id="aniver-observacoes" name="observacoes" value="{{ old('observacoes', $festa->observacoes) }}">
 							</div>
 						</fieldset>
 						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">

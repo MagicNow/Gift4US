@@ -21,7 +21,7 @@ class StoreBirthdayStep1 extends FormRequest
 	 *
 	 * @return array
 	 */
-	public function rules()
+	public static function rules()
 	{
 		return [
 			'nome' => 'required|max:100',

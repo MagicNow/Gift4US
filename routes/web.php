@@ -27,13 +27,11 @@ Route::group(['prefix' => 'usuario'], function() {
 
     Route::group(['prefix' => 'meus-aniversarios'], function() {
         Route::get('/', ['as' => 'usuario.meus-aniversarios','uses' => 'BirthdayController@index']);
+        Route::get('/{festa?}', ['as' => 'usuario.meus-aniversarios.editar','uses' => 'BirthdayController@edit'])->where(['festa' => '[0-9]+']);
+
         Route::get('novo/{number?}', ['as' => 'usuario.meus-aniversarios.novo','uses' => 'BirthdayController@create'])->where(['number' => '[0-9]+']);
-        Route::get('novo/{number?}/festa/{festa_id?}', ['as' => 'usuario.meus-aniversarios.novo.festa','uses' => 'BirthdayController@create'])->where(['number' => '[0-9]+', 'festa_id' => '[0-9]+']);
-        Route::post('novo/1', ['as' => 'usuario.meus-aniversarios.store1','uses' => 'BirthdayController@store1']);
-        Route::post('novo/2', ['as' => 'usuario.meus-aniversarios.store2','uses' => 'BirthdayController@store2']);
-        Route::post('novo/3', ['as' => 'usuario.meus-aniversarios.store3','uses' => 'BirthdayController@store3']);
-        Route::post('novo/4', ['as' => 'usuario.meus-aniversarios.store4','uses' => 'BirthdayController@store4']);
-        Route::post('novo/4', ['as' => 'usuario.meus-aniversarios.store5','uses' => 'BirthdayController@store5']);
+        Route::get('festa/{festa_id?}/passo/{passo?}', ['as' => 'usuario.meus-aniversarios.novo.festa','uses' => 'BirthdayController@create'])->where(['passo' => '[0-9]+', 'festa_id' => '[0-9]+']);
+        Route::post('novo/{passo?}', ['as' => 'usuario.meus-aniversarios.store','uses' => 'BirthdayController@store']);
         Route::post('upload', ['as' => 'usuario.meus-aniversarios.upload','uses' => 'BirthdayController@upload']);
         Route::get('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir','uses' => 'BirthdayController@aviso'])->where(['id' => '[0-9]+']);
         Route::post('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir-post','uses' => 'BirthdayController@destroy'])->where(['id' => '[0-9]+']);

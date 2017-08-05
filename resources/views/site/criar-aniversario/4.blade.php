@@ -6,8 +6,10 @@
 			{{ Html::image('assets/site/images/presentinho_aniversario_passo3.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
 
 			<div class="dados row col-md-offset-2">
-				<form action="{{ route('usuario.meus-aniversarios.store4') }}" method="post" class="dados-container">
+				<form action="{{ route('usuario.meus-aniversarios.store') }}" method="post" class="dados-container">
 					<input type="hidden" name="step" value="4">
+					<input type="hidden" name="layout_id" value="1">
+					<input type="hidden" name="receber_recados" value="1">
 					<div class="clearfix">
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12">
 							<img src="{{ asset('assets/site/images/passo_4.png') }}" class="img1" style="margin: -20px auto 0; display: block;">

@@ -16,7 +16,7 @@
 							<span class="my-birthday-item-presente">33</span>
 						</div>
 					</div>
-					<a href="#" class="row col-md-12 text-center my-birthday-item-enter">Entrar no aniversário</a>
+					<a href="{{ route('usuario.meus-aniversarios.editar', $festa->id) }}" class="row col-md-12 text-center my-birthday-item-enter">Entrar no aniversário</a>
 				</div>
 			@endforeach
 		</div>

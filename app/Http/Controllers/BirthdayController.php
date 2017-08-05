@@ -5,10 +5,13 @@ use \DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRegister;
 use Illuminate\Support\Facades\Hash;
+use Validator;
 use App\Models\Clientes;
 use App\Models\Festas;
 use App\Http\Requests\StoreBirthdayStep1;
 use App\Http\Requests\StoreBirthdayStep2;
+use App\Http\Requests\StoreBirthdayStep3;
+use App\Http\Requests\StoreBirthdayStep4;
 
 class BirthdayController extends Controller {
 	private $cliente;
@@ -70,21 +73,27 @@ class BirthdayController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create(Request $request) {
+	public function create(Request $request, $festa_id = NULL, $passo = NULL) {
 		$client = $this->cliente;
 		$method = $request->method();
 
-		if (isset($request->number)) {
-			$view = 'site.criar-aniversario.' . $request->number;
+		if (isset($festa_id) && !empty($festa_id)) {
+			$festa = Festas::find($festa_id);
+		} else {
+			$festa = new Festas;
+		}
+
+		if (isset($request->passo) && !empty($request->passo)) {
+			$view = 'site.criar-aniversario.' . $request->passo;
 		} else {
 			$view = 'site.criar-aniversario.1';
 		}
 
 		if ($request->ajax()) {
-			return view($view, compact('client'));;
+			return view($view, compact('client', 'festa'));
 		} else {
 			$titulo = 'ÁREA DO USUÁRIO';
-			return view('site.usuarios', compact('view', 'titulo', 'client'));
+			return view('site.usuarios', compact('view', 'titulo', 'client', 'festa'));
 		}
 	}
 
@@ -93,38 +102,44 @@ class BirthdayController extends Controller {
 	 *
 	 * @return Response
 	 */
- 	public function store1(StoreBirthdayStep1 $request) {
- 		$next = (int)$request->step + 1;
+ 	public function store(Request $request) {
+ 		switch ($request->step) {
+			case '1':
+				$rules = StoreBirthdayStep1::rules();
+				break;
+			case '2':
+				$rules = StoreBirthdayStep2::rules();
+				break;
+			case '3':
+				$rules = StoreBirthdayStep3::rules();
+				break;
+			case '4':
+				$rules = StoreBirthdayStep4::rules();
+				break;
+			case '5':
+				$rules = StoreBirthdayStep5::rules();
+				break;
+ 		}
 
-		$party = new Festas();
-		$party->fill($request->all());
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+ 		$next = (int)$request->step + 1;
+ 		$input = $request->all();
+ 		$input['clientes_id'] = $this->cliente->id;
+
+		$party = Festas::firstOrNew(['id' => $request->id]);
+		$party->fill($input);
 		$party->save();
 
 		return redirect()->route('usuario.meus-aniversarios.novo.festa', [
-					'number' => $next, 'festa_id' => $party->id
+					'passo' => $next, 'festa_id' => $party->id
 				]);
-	}
-
- 	public function store2(StoreBirthdayStep2 $request) {
- 		$next = (int)$request->step + 1;
-		return redirect()
-					->route('usuario.meus-aniversarios.novo', $next)
-					->with('party', $party);;
-	}
-
- 	public function store3(Request $request) {
- 		$next = (int)$request->step + 1;
-		return redirect()->route('usuario.meus-aniversarios.novo', $next)->withInput();
-	}
-
- 	public function store4(Request $request) {
- 		$next = (int)$request->step + 1;
-		return redirect()->route('usuario.meus-aniversarios.novo', $next)->withInput();
-	}
-
- 	public function store5(Request $request) {
- 		$next = (int)$request->step + 1;
-		return redirect()->route('usuario.meus-aniversarios.novo', $next)->withInput();
 	}
 
 	/**
@@ -146,7 +161,26 @@ class BirthdayController extends Controller {
 	 */
 	public function edit(Request $request, $id)
 	{
+		$client = $this->cliente;
+		$method = $request->method();
+		$festa = Festas::find($id);
 
+		if ($festa->clientes_id !== $this->cliente->id) {
+			return redirect()->route('usuario.meus-aniversarios');
+		}
+
+		if (isset($request->number)) {
+			$view = 'site.criar-aniversario.' . $request->number;
+		} else {
+			$view = 'site.criar-aniversario.1';
+		}
+
+		if ($request->ajax()) {
+			return view($view, compact('client', 'festa'));
+		} else {
+			$titulo = 'ÁREA DO USUÁRIO';
+			return view('site.usuarios', compact('view', 'titulo', 'client', 'festa'));
+		}
 	}
 
 	/**

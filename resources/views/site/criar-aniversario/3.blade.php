@@ -6,10 +6,16 @@
 			{{ Html::image('assets/site/images/presentinho_aniversario_passo3.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
 
 			<div class="dados row col-md-offset-2">
-				<form action="{{ route('usuario.meus-aniversarios.store3') }}" method="post" class="dados-container">
+				<form action="{{ route('usuario.meus-aniversarios.store') }}" method="post" class="dados-container">
 					<input type="hidden" name="step" value="3">
-					@if (session('party'))
-						<input type="hidden" value="{{ session('party') }}" name="festa_id">
+					<input type="hidden" name="ciclo_vida" value="Bebê">
+					<input type="hidden" name="tamanho_camiseta" value="P">
+					<input type="hidden" name="tamanho_calca" value="M">
+					<input type="hidden" name="tamanho_sapato" value="37">
+					<input type="hidden" name="observacoes_2" value="">
+
+					@if (isset($festa->id) && !empty($festa->id))
+						<input type="hidden" value="{{ $festa->id }}" name="id">
 					@endif
 
 					<div class="clearfix">

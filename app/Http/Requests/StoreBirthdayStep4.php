@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBirthdayStep2 extends FormRequest
+class StoreBirthdayStep4 extends FormRequest
 {
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class StoreBirthdayStep2 extends FormRequest
 	public static function rules()
 	{
 		return [
-			'endereco' => 'required|max:255',
-			'referencia' => 'max:255'
+			'layout_id' => 'required|exists:festas_layout',
+			'receber_recados' => 'required'
 		];
 	}
 
@@ -38,7 +38,8 @@ class StoreBirthdayStep2 extends FormRequest
 	public function messages()
 	{
 		return [
-			'endereco.required' => 'Campo endereço obrigatório'
+			'layout_id.required' => 'Escolha de layout obrigatória',
+			'receber_recados.required' => 'Campo para receber recados obrigatório',
 		];
 	}
 }
