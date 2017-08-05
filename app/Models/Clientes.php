@@ -18,4 +18,8 @@ class Clientes extends Model {
     public function conta() {
         return $this->hasOne('App\Models\ClientesContas');
     }
+
+    public function festas() {
+        return $this->hasMany('App\Models\Festas');
+    }
 }

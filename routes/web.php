@@ -35,7 +35,8 @@ Route::group(['prefix' => 'usuario'], function() {
         Route::post('novo/4', ['as' => 'usuario.meus-aniversarios.store4','uses' => 'BirthdayController@store4']);
         Route::post('novo/4', ['as' => 'usuario.meus-aniversarios.store5','uses' => 'BirthdayController@store5']);
         Route::post('upload', ['as' => 'usuario.meus-aniversarios.upload','uses' => 'BirthdayController@upload']);
-        Route::get('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir','uses' => 'BirthdayController@destroy'])->where(['id' => '[0-9]+']);
+        Route::get('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir','uses' => 'BirthdayController@aviso'])->where(['id' => '[0-9]+']);
+        Route::post('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir-post','uses' => 'BirthdayController@destroy'])->where(['id' => '[0-9]+']);
         Route::get('novo/presentes/roupas', ['as' => 'usuario.meus-aniversarios.presentes.roupas','uses' => 'GiftsController@index']);
     });
 });

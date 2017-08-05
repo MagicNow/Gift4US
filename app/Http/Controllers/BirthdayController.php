@@ -32,12 +32,37 @@ class BirthdayController extends Controller {
 	 */
 	public function index(Request $request)
 	{
-		$client = $this->cliente;
-		$method = $request->method();
-		$view 	= 'site.inc.usuarios.meus_aniversarios';
+		$client 	= $this->cliente;
+		$method 	= $request->method();
+		$view 		= 'site.inc.usuarios.meus_aniversarios';
+
+		$festas = $this->populateParties($client->festas);
 
 		$titulo = 'ÁREA DO USUÁRIO';
-		return view('site.usuarios', compact('view', 'titulo', 'client'));
+		return view('site.usuarios', compact('view', 'titulo', 'client', 'festas'));
+	}
+
+	private function populateParties($festas)
+	{
+		$festas_ativas = [];
+		$festas_antigas = [];
+
+		if (isset($festas) && count($festas) > 0) {
+			foreach ($festas as $festa) {
+				$data = $festa->festa_ano . '-' . $festa->festa_mes . '-' . $festa->festa_dia;
+
+				if ($data >= date('Y-m-d')) {
+					$festas_ativas[] = $festa;
+				} else {
+					$festas_antigas[] = $festa;
+				}
+			}
+		}
+
+		return [
+			'festas_ativas' => $festas_ativas,
+			'festas_antigas' => $festas_antigas
+		];
 	}
 
 	/**
@@ -149,16 +174,33 @@ class BirthdayController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy(Request $request)
+	public function destroy(Request $request, $id = NULL)
+	{
+		$festa = Festas::find($id);
+
+		if ($festa->clientes_id === $this->cliente->id) {
+			$festa->delete();
+		}
+
+		return redirect()->route('usuario.meus-aniversarios');
+	}
+
+	public function aviso(Request $request, $id = NULL)
 	{
 		$client = $this->cliente;
 		$method = $request->method();
+		$festa = Festas::find($id);
+
+		if ($festa->clientes_id !== $client->id) {
+			return redirect()->route('usuario.meus-aniversarios');
+		}
+
 		$view 	= 'site.inc.usuarios.meus_aniversarios_excluir';
 		if ($request->ajax()) {
-			return view($view, compact('client'));
+			return view($view, compact('client', 'festa'));
 		} else {
 			$titulo = 'ÁREA DO USUÁRIO';
-			return view('site.usuarios', compact('view', 'titulo', 'client'));
+			return view('site.usuarios', compact('view', 'titulo', 'client', 'festa'));
 		}
 	}
 
