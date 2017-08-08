@@ -3,7 +3,7 @@
 @section('content')
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container">
-			{{ Html::image('assets/site/images/presentinho_criando.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }}
+			{{ Html::image('assets/site/images/presentinho_passo2.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }}
 
 			<div class="dados row col-md-offset-2">
 				@if ($errors->any())
