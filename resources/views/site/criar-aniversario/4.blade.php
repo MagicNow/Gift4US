@@ -10,6 +10,11 @@
 					<input type="hidden" name="step" value="4">
 					<input type="hidden" name="layout_id" value="1">
 					<input type="hidden" name="receber_recados" value="1">
+
+					@if (isset($festa->id) && !empty($festa->id))
+						<input type="hidden" value="{{ $festa->id }}" name="id">
+					@endif
+
 					<div class="clearfix">
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12">
 							<img src="{{ asset('assets/site/images/passo_4.png') }}" class="img1" style="margin: -20px auto 0; display: block;">
@@ -33,9 +38,9 @@
 					</div>
 					<nav class="form-birthday-paginate-nav text-center">
 						<ul class="form-birthday-paginate-list">
-							<li class="form-birthday-paginate-item"></li>
-							<li class="form-birthday-paginate-item"></li>
-							<li class="form-birthday-paginate-item"></li>
+							<li class="form-birthday-paginate-item active"><a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $festa->id, 1]) }}" class="form-birthday-paginate-link">&nbsp;</a></li>
+							<li class="form-birthday-paginate-item active"><a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $festa->id, 2]) }}" class="form-birthday-paginate-link">&nbsp;</a></li>
+							<li class="form-birthday-paginate-item active"><a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $festa->id, 3]) }}" class="form-birthday-paginate-link">&nbsp;</a></li>
 							<li class="form-birthday-paginate-item active"></li>
 							<li class="form-birthday-paginate-item"></li>
 						</ul>

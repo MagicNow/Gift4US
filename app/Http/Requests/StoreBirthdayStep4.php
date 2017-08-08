@@ -24,7 +24,7 @@ class StoreBirthdayStep4 extends FormRequest
 	public static function rules()
 	{
 		return [
-			'layout_id' => 'required|exists:festas_layout',
+			'layout_id' => 'required|exists:festas_layout,id',
 			'receber_recados' => 'required'
 		];
 	}

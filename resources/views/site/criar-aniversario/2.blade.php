@@ -42,7 +42,7 @@
 					</div>
 					<nav class="form-birthday-paginate-nav text-center">
 						<ul class="form-birthday-paginate-list">
-							<li class="form-birthday-paginate-item"></li>
+							<li class="form-birthday-paginate-item active"><a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $festa->id, 1]) }}" class="form-birthday-paginate-link">&nbsp;</a></li>
 							<li class="form-birthday-paginate-item active"></li>
 							<li class="form-birthday-paginate-item"></li>
 							<li class="form-birthday-paginate-item"></li>

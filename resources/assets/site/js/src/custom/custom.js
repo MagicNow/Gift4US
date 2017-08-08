@@ -206,6 +206,26 @@ $(function() {
     	$total.text(parseInt($total.text()) - 1);
     	closeGiftModal();
     });
+
+    $('input[type="number"]')
+    	.on('focusout', function (e) {
+			var $self = $(this);
+			var inputVal = parseInt($self.val(), 10);
+			var inputMin = parseInt($self.attr('min'), 10);
+			var inputMax = parseInt($self.attr('max'), 10);
+
+			if(typeof $self.attr('max') !== undefined && inputVal > inputMax && e.keyCode != 8) $self.val('');
+			if(typeof $self.attr('min') !== undefined && inputVal < inputMin && e.keyCode != 8) $self.val(0);
+		})
+		.on('keyup', function (e) {
+			// var $self = $(this);
+			// var $form = $self.parents('form');
+			// var inputVal = $self.val();
+			// var inputIndex = parseInt($self.attr('tabindex'), 10);
+			// var inputMax = $self.attr('max');
+
+			// if(typeof $self.attr('max') !== undefined && inputVal.length >= inputMax.length) $form.find('input[tabindex="' + (inputIndex+1) + '"]').focus();
+		});
 });
 
 function closeGiftModal() {

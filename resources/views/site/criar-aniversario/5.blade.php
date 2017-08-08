@@ -8,6 +8,11 @@
 			<div class="dados row col-md-offset-2">
 				<form action="{{ route('usuario.meus-aniversarios.store') }}" method="post" class="dados-container">
 					<input type="hidden" name="step" value="5">
+
+					@if (isset($festa->id) && !empty($festa->id))
+						<input type="hidden" value="{{ $festa->id }}" name="id">
+					@endif
+					
 					<fieldset class="form-birthday-first col-xs-12 col-sm-12" style="margin-bottom: 50px;">
 						<div class="clearfix">
 							<img src="{{ asset('assets/site/images/passo_5_titulo.png') }}" style="margin: -60px auto 0; display: block;">
@@ -26,10 +31,10 @@
 					</fieldset>
 					<nav class="form-birthday-paginate-nav text-center">
 						<ul class="form-birthday-paginate-list">
-							<li class="form-birthday-paginate-item"></li>
-							<li class="form-birthday-paginate-item"></li>
-							<li class="form-birthday-paginate-item"></li>
-							<li class="form-birthday-paginate-item"></li>
+							<li class="form-birthday-paginate-item active"><a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $festa->id, 1]) }}" class="form-birthday-paginate-link">&nbsp;</a></li>
+							<li class="form-birthday-paginate-item active"><a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $festa->id, 2]) }}" class="form-birthday-paginate-link">&nbsp;</a></li>
+							<li class="form-birthday-paginate-item active"><a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $festa->id, 3]) }}" class="form-birthday-paginate-link">&nbsp;</a></li>
+							<li class="form-birthday-paginate-item active"><a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $festa->id, 4]) }}" class="form-birthday-paginate-link">&nbsp;</a></li>
 							<li class="form-birthday-paginate-item active"></li>
 						</ul>
 					</nav>
