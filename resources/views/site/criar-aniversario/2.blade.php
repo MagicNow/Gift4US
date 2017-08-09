@@ -102,11 +102,11 @@
 
 			$.getJSON(baseUrl + '/assets/site/json/map.json', function(style) {
 				var map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 3,
+					zoom: 4,
 					center: position,
 					zoomControl: true,
 					mapTypeControl: false,
-					scaleControl: true,
+					scaleControl: false,
 					streetViewControl: false,
 					rotateControl: false,
 					fullscreenControl: false,

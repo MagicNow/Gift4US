@@ -8,7 +8,6 @@
 			<div class="dados row col-md-offset-2">
 				<form action="{{ route('usuario.meus-aniversarios.store') }}" method="post" class="dados-container">
 					<input type="hidden" name="step" value="3">
-					<input type="hidden" name="ciclo_vida" value="Bebê">
 					<input type="hidden" name="tamanho_camiseta" value="P">
 					<input type="hidden" name="tamanho_calca" value="M">
 					<input type="hidden" name="tamanho_sapato" value="37">
@@ -19,9 +18,26 @@
 					@endif
 
 					<div class="clearfix">
-						<fieldset class="form-birthday-first col-xs-12 col-sm-12">
-							<img src="{{ asset('assets/site/images/passo_3.png') }}" style="margin-top: -60px;">
+						<fieldset class="form-birthday-first col-xs-4 col-sm-4">
+							<div class="radio">
+								<label data-image="bebe-menina.png">
+									<input type="radio" name="ciclo_vida" value="Bebê" checked="checked"><span></span> Bebê
+								</label>
+							</div>
+							<div class="radio">
+								<label data-image="crianca-menina.png">
+									<input type="radio" name="ciclo_vida" value="Criança"><span></span> Criança
+								</label>
+							</div>
+							<div class="radio">
+								<label data-image="adolescente-menina.png">
+									<input type="radio" name="ciclo_vida" value="Adolescente"><span></span> Adolescente
+								</label>
+							</div>
 						</fieldset>
+						<div class="form-birthday-first col-xs-8 col-sm-8">
+							<img src="{{ asset('assets/site/images/avatar/bebe-menina.png') }}">
+						</div>
 					</div>
 					<nav class="form-birthday-paginate-nav text-center">
 						<ul class="form-birthday-paginate-list">

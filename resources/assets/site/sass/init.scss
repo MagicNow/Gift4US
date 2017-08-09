@@ -111,3 +111,41 @@
 .pd0 {
 	padding-left: 0;
 }
+
+.radio {
+	input {
+	    display:none;
+
+		&:checked + span{
+		     background-color: #4d5053;
+		     border: 2px solid #4d5053;
+		}
+	}
+
+	label {
+		color: #292321;
+		font-family:Arial, sans-serif;
+		font-size:14px;
+
+		span {
+			display: inline-block;
+			width: 19px;
+			height: 19px;
+			margin: -1px 4px 0 0;
+			vertical-align: middle;
+			cursor: pointer;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+     		background-color: #fff;
+     		border: 2px solid #aeb0b2;
+		}
+	}
+}
+
+.radio input + span,
+.radio input:checked + span {
+	-webkit-transition:background-color 0.4s linear;
+	-o-transition:background-color 0.4s linear;
+	-moz-transition:background-color 0.4s linear;
+	transition:background-color 0.4s linear;
+}
