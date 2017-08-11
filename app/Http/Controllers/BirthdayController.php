@@ -103,12 +103,37 @@ class BirthdayController extends Controller {
 	 * @return Response
 	 */
  	public function store(Request $request) {
+ 		$input = $request->all();
+ 		$input['clientes_id'] = $this->cliente->id;
+
  		switch ($request->step) {
 			case '1':
 				$rules = StoreBirthdayStep1::rules();
 				break;
 			case '2':
 				$rules = StoreBirthdayStep2::rules();
+
+				if (empty($input['endereco_latitude'])) {
+					unset($input['endereco_latitude']);
+				}
+
+				if (empty($input['endereco_longitude'])) {
+					unset($input['endereco_longitude']);
+				}
+
+				if (empty($input['referencia'])) {
+					unset($input['referencia_latitude']);
+					unset($input['referencia_longitude']);
+				} else {
+					if (empty($input['referencia_latitude'])) {
+						unset($input['referencia_latitude']);
+					}
+
+					if (empty($input['referencia_longitude'])) {
+						unset($input['referencia_longitude']);
+					}
+				}
+
 				break;
 			case '3':
 				$rules = StoreBirthdayStep3::rules();
@@ -130,8 +155,6 @@ class BirthdayController extends Controller {
         }
 
  		$next = (int)$request->step + 1;
- 		$input = $request->all();
- 		$input['clientes_id'] = $this->cliente->id;
 
 		$party = Festas::firstOrNew(['id' => $request->id]);
 		$party->fill($input);

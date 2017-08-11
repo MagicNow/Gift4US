@@ -18,6 +18,11 @@
 
 				<form action="{{ route('usuario.meus-aniversarios.store') }}" method="post" class="dados-container">
 					<input type="hidden" name="step" value="2">
+					<input type="hidden" name="endereco_latitude" value="{{ old('endereco_latitude', $festa->endereco_latitude) }}" id="aniver-endereco-latitude">
+					<input type="hidden" name="endereco_longitude" value="{{ old('endereco_longitude', $festa->endereco_longitude) }}" id="aniver-endereco-longitude">
+					<input type="hidden" name="referencia_latitude" value="{{ old('referencia_latitude', $festa->referencia_latitude) }}" id="aniver-referencia-latitude">
+					<input type="hidden" name="referencia_longitude" value="{{ old('referencia_longitude', $festa->referencia_longitude) }}" id="aniver-referencia-longitude">
+
 					@if (isset($festa->id) && !empty($festa->id))
 						<input type="hidden" value="{{ $festa->id }}" name="id">
 					@endif
@@ -58,7 +63,7 @@
 
 @section('scripts')
 	<script>
-		function setMapPosition (map, latlngbounds, marker, autocomplete) {
+		function setMapPosition (map, latlngbounds, marker, autocomplete, latitude, longitude) {
 			autocomplete.addListener('place_changed', function() {
 				var place = autocomplete.getPlace(),
 					address = '';
@@ -70,6 +75,9 @@
 					return;
 				}
 
+				latitude.val(place.geometry.location.lat());
+				longitude.val(place.geometry.location.lng());
+
 				marker.setPosition(place.geometry.location);
 				marker.setVisible(true);
 
@@ -78,6 +86,11 @@
 				map.setCenter(latlngbounds.getCenter());
 				map.fitBounds(latlngbounds);
 
+				map.setOptions({
+					zoomControl: true,
+					draggable: true
+				});
+
 				if (place.address_components) {
 					address = [
 						(place.address_components[0] && place.address_components[0].short_name || ''),
@@ -85,6 +98,8 @@
 						(place.address_components[2] && place.address_components[2].short_name || '')
 					].join(' ');
 				}
+
+				return map;
 			});
 		}
 
@@ -98,18 +113,24 @@
 
 		function initMap () {
 			var position = { lat: -15.2581783, lng: -51.8358431 },
-				latlngbounds = new google.maps.LatLngBounds();;
+				latlngbounds = new google.maps.LatLngBounds(),
+				addressLat = $('#aniver-endereco-latitude'),
+				addressLng = $('#aniver-endereco-longitude'),
+				refLat = $('#aniver-referencia-latitude'),
+				refLng = $('#aniver-referencia-longitude');
 
 			$.getJSON(baseUrl + '/assets/site/json/map.json', function(style) {
 				var map = new google.maps.Map(document.getElementById('map'), {
 					zoom: 4,
+					draggable: false,
 					center: position,
-					zoomControl: true,
+					zoomControl: false,
 					mapTypeControl: false,
 					scaleControl: false,
 					streetViewControl: false,
 					rotateControl: false,
 					fullscreenControl: false,
+					scrollwheel: false,
 					styles: style
 				});
 
@@ -118,8 +139,34 @@
 					autocomplete1 = new google.maps.places.Autocomplete(document.getElementById('aniver-endereco')),
 					autocomplete2 = new google.maps.places.Autocomplete(document.getElementById('aniver-referencia'));
 
-				setMapPosition(map, latlngbounds, marker1, autocomplete1);
-				setMapPosition(map, latlngbounds, marker2, autocomplete2);
+				// Check if positions exists
+				if (addressLat.val() !== '' && addressLng.val() !== '') {
+					var latlng = new google.maps.LatLng(addressLat.val(), addressLng.val());
+					marker1.setPosition(latlng);
+					marker1.setVisible(true);
+
+					// Set map center marker position
+					latlngbounds.extend(latlng);
+					map.setCenter(latlngbounds.getCenter());
+					map.fitBounds(latlngbounds);
+
+					map.draggable = true;
+					map.zoomControl = true;
+				}
+
+				if (refLat.val() !== '' && refLng.val() !== '') {
+					var latlng = new google.maps.LatLng(refLat.val(), refLng.val());
+					marker2.setPosition(latlng);
+					marker2.setVisible(true);
+
+					// Set map center marker position
+					latlngbounds.extend(latlng);
+					map.setCenter(latlngbounds.getCenter());
+					map.fitBounds(latlngbounds);
+				}
+
+				setMapPosition(map, latlngbounds, marker1, autocomplete1, addressLat, addressLng);
+				setMapPosition(map, latlngbounds, marker2, autocomplete2, refLat, refLng);
 			});
 		}
 	</script>
