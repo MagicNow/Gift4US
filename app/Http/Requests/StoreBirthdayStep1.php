@@ -25,6 +25,7 @@ class StoreBirthdayStep1 extends FormRequest
 	{
 		return [
 			'nome' => 'required|max:100',
+			'sexo' => 'required',
 			'idade_anos' => 'required',
 			'idade_meses' => 'required',
 			'festa_dia' => 'required',
@@ -45,6 +46,7 @@ class StoreBirthdayStep1 extends FormRequest
 	{
 		return [
 			'nome.required' => 'Campo nome obrigatório',
+			'sexo.required' => 'Campo nome obrigatório',
 			'idade_anos.required'  => 'Campo anos obrigatório',
 			'idade_meses.required'  => 'Campo meses obrigatório',
 			'festa_dia.required'  => 'Campo dia da festa obrigatório',
