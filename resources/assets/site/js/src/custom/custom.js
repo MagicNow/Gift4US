@@ -207,6 +207,10 @@ $(function() {
     	closeGiftModal();
     });
 
+    $('.form-birthday-sex-label').on('click', function () {
+    	$('.form-birthday-avatar').attr('src', $(this).data('image'));
+    });
+
     $('input[type="number"]')
     	.on('focusout', function (e) {
 			var $self = $(this);
@@ -216,16 +220,9 @@ $(function() {
 
 			if(typeof $self.attr('max') !== undefined && inputVal > inputMax && e.keyCode != 8) $self.val('');
 			if(typeof $self.attr('min') !== undefined && inputVal < inputMin && e.keyCode != 8) $self.val(0);
-		})
-		.on('keyup', function (e) {
-			// var $self = $(this);
-			// var $form = $self.parents('form');
-			// var inputVal = $self.val();
-			// var inputIndex = parseInt($self.attr('tabindex'), 10);
-			// var inputMax = $self.attr('max');
-
-			// if(typeof $self.attr('max') !== undefined && inputVal.length >= inputMax.length) $form.find('input[tabindex="' + (inputIndex+1) + '"]').focus();
 		});
+
+	$(".form-birthday-size-input").select2();
 });
 
 function closeGiftModal() {

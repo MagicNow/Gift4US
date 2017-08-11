@@ -327,6 +327,61 @@
 			opacity: 1;
 		}
 	}
+
+	&-avatar {
+		position: absolute;
+		right: 0;
+		top: 0;
+		max-width: 100%;
+	}
+
+	&-size {
+		&-column {
+			margin-top: 35px;
+		}
+
+		&-label {
+			font: 18px HelveticaNeueStd_CN;
+		}
+
+		&-container {
+			&.form-group {
+				margin-bottom: 25px;
+			}
+
+			.select2-selection {
+				&--single {
+					border-radius: 0;
+					border-bottom: 1px solid #c1c1c1;
+					border-top: 0 none;
+					border-left: 0 none;
+					border-right: 0 none;
+				}
+
+				&__rendered {
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+					color: #a0a3a5 !important;
+					font: 16px HelveticaNeueStd_CN;
+
+					&:after {
+						content: "";
+						border-top: 12px solid #000;
+						border-left: 10px solid transparent;
+						border-bottom: 0 solid transparent;
+						border-right: 10px solid transparent;
+						position: absolute;
+						right: 0;
+						top: 10px;
+					}
+				}
+			}
+		}
+	}
+
+	&-sex-label {
+		padding-left: 0 !important;
+	}
 }
 
 .form-inline .form-birthday {
