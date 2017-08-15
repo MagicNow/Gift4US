@@ -6,10 +6,19 @@
 			{{ Html::image('assets/site/images/presentinho_aniversario_passo4.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
 
 			<div class="dados row col-md-offset-2">
+				@if ($errors->any())
+					<div class="alert alert-danger">
+						<ul>
+							@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
+
 				<form action="{{ route('usuario.meus-aniversarios.store') }}" method="post" class="dados-container">
 					<input type="hidden" name="step" value="4">
-					<input type="hidden" name="layout_id" value="1">
-					<input type="hidden" name="receber_recados" value="1">
+					<input type="hidden" name="layout_id" value="{{ isset($festa->layout_id) ? $festa->layout_id : NULL }}" class="form-birthday-layout-id">
 
 					@if (isset($festa->id) && !empty($festa->id))
 						<input type="hidden" value="{{ $festa->id }}" name="id">
@@ -17,22 +26,72 @@
 
 					<div class="clearfix">
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12">
-							<img src="{{ asset('assets/site/images/passo_4.png') }}" class="img1" style="margin: -20px auto 0; display: block;">
-							<img src="{{ asset('assets/site/images/passo_4_escolha.png') }}" class="img2 hidden" style="margin: -20px auto 0; display: block;">
-
-							<div id="buttons1">
-								<button type="button" data-toggle="modal" data-target="#preview-blue" style="position: absolute; left: 60px; top: 107px; width: 51px; height: 28px; background-color: transparent; border: 0 none; outline: 0;"></button>
-								<button type="button" data-toggle="modal" data-target="#preview-blue" style="position: absolute; left: 360px; top: 107px; width: 51px; height: 28px; background-color: transparent; border: 0 none; outline: 0;"></button>
-								<button type="button" data-toggle="modal" data-target="#preview-blue" style="position: absolute; left: 657px; top: 107px; width: 51px; height: 28px; background-color: transparent; border: 0 none; outline: 0;"></button>
-
-								<button type="button" style="position: absolute; left: 229px; top: 107px; width: 80px; height: 28px; background-color: transparent; border: 0 none; outline: 0;" onclick="$('.img1').addClass('hidden');$('.img2').removeClass('hidden');$('#buttons1').hide();$('#buttons2').show();"></button>
-								<button type="button" style="position: absolute; left: 527px; top: 107px; width: 80px; height: 28px; background-color: transparent; border: 0 none; outline: 0;" onclick="$('.img1').addClass('hidden');$('.img2').removeClass('hidden');$('#buttons1').hide();$('#buttons2').show();"></button>
-								<button type="button" style="position: absolute; left: 824px; top: 107px; width: 80px; height: 28px; background-color: transparent; border: 0 none; outline: 0;" onclick="$('.img1').addClass('hidden');$('.img2').removeClass('hidden');$('#buttons1').hide();$('#buttons2').show();"></button>
+							<div class="form-birthday-layouts-container {{ isset($festa->layout_id) ? 'hidden' : NULL }}">
+								<p class="text-center form-birthday-layouts-text">Escolha abaixo o layout que mais gosta para ser a página oficial do aniversariante</p>
+								<ul class="form-birthday-layouts row">
+									<li class="form-birthday-layouts-item col-md-4">
+										<button type="button" class="form-birthday-layouts-preview red" data-toggle="modal" data-target="#preview-red">Ver</button>
+										<span class="form-birthday-layouts-icon red"></span>
+										<button type="button" class="form-birthday-layouts-choise red" data-color="red">Escolher</button>
+									</li>
+									<li class="form-birthday-layouts-item col-md-4">
+										<button type="button" class="form-birthday-layouts-preview orange" data-toggle="modal" data-target="#preview-orange">Ver</button>
+										<span class="form-birthday-layouts-icon orange"></span>
+										<button type="button" class="form-birthday-layouts-choise orange" data-color="orange">Escolher</button>
+									</li>
+									<li class="form-birthday-layouts-item col-md-4">
+										<button type="button" class="form-birthday-layouts-preview blue" data-toggle="modal" data-target="#preview-blue">Ver</button>
+										<span class="form-birthday-layouts-icon blue"></span>
+										<button type="button" class="form-birthday-layouts-choise blue" data-color="blue">Escolher</button>
+									</li>
+								</ul>
 							</div>
-							<div id="buttons2" style="display: none;">
-								<button type="button" data-toggle="modal" data-target="#preview-blue" style="position: absolute; left: 360px; top: 107px; width: 51px; height: 28px; background-color: transparent; border: 0 none; outline: 0;"></button>
-	
-								<button type="button" style="position: absolute; left: 527px; top: 107px; width: 80px; height: 28px; background-color: transparent; border: 0 none; outline: 0;" onclick="$('.img2').addClass('hidden');$('.img1').removeClass('hidden');$('#buttons2').hide();$('#buttons1').show();"></button>
+							<div class="form-birthday-choise-container {{ isset($festa->layout_id) ? NULL : 'hidden' }}">
+								<p class="text-center form-birthday-layouts-text">Layout escolhido para página oficial do aniversariante</p>
+								<?php
+								switch ($festa->layout_id) {
+									case 1:
+										$color = 'red';
+										break;
+									case 2:
+										$color = 'orange';
+										break;
+									case 3:
+										$color = 'blue';
+										break;
+								}
+								?>
+								<div class="form-birthday-layouts row">
+									<div class="form-birthday-layouts-item col-md-4 col-md-offset-4">
+										<button type="button" class="form-birthday-layouts-preview {{ $color }}" data-toggle="modal" data-target="#preview-blue">Ver</button>
+										<span class="form-birthday-layouts-icon {{ $color }}"></span>
+										<button type="button" class="form-birthday-layouts-swap {{ $color }}">Trocar</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-birthday-layouts-choise-modal hidden">
+								<p class="form-birthday-layouts-choise-modal-text">Escolher esse layout</p>
+								<span class="form-birthday-layouts-icon blue"></span>
+								<div class="row form-birthday-layouts-choise-modal-buttons">
+									<button type="button" class="form-birthday-layouts-choise-modal-button form-birthday-choise-modal-confirm blue" data-color="blue">CONFIRMAR</button>
+									<button type="button" class="form-birthday-layouts-choise-modal-button form-birthday-choise-modal-cancel blue">CANCELAR</button>
+								</div>
+							</div>
+
+							<div class="form-birthday-layouts-dashboard form-inline">
+								<p class="form-birthday-layouts-text">Gostaria que os convidados vissem os recados que receber em um mural de recados na página do aniversariante?</p>
+
+								<div class="radio">
+									<label class="form-birthday-sex-label">
+										<input type="radio" name="receber_recados" value="1" {{ isset($festa->receber_recados) && $festa->receber_recados == '1' ? 'checked="checked"' : '' }}><span></span> Sim
+									</label>
+								</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<div class="radio">
+									<label class="form-birthday-sex-label">
+										<input type="radio" name="receber_recados" value="0" {{ isset($festa->receber_recados) && $festa->receber_recados == '0' ? 'checked="checked"' : '' }}><span></span> Não
+									</label>
+								</div>
 							</div>
 						</fieldset>
 					</div>
@@ -50,7 +109,6 @@
 			</div>
 		</div>
 	</div>
-
 
 	<!-- Modal -->
 	<div class="modal fade" id="preview-blue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

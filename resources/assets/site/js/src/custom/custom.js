@@ -222,7 +222,66 @@ $(function() {
 			if(typeof $self.attr('min') !== undefined && inputVal < inputMin && e.keyCode != 8) $self.val(0);
 		});
 
-	$(".form-birthday-size-input").select2();
+	$('.form-birthday-size-input').select2();
+
+	$('.form-birthday-layouts-swap').on('click', function (e) {
+		e.preventDefault();
+		$('.form-birthday-choise-container').addClass('hidden');
+		$('.form-birthday-layouts-container').removeClass('hidden');
+	});
+
+	$('.form-birthday-choise-modal-cancel').on('click', function (e) {
+		e.preventDefault();
+		$('.form-birthday-layouts-choise-modal').addClass('hidden');
+	});
+
+	$('.form-birthday-layouts-choise').on('click', function (e) {
+		var $self = $(this);
+		var $modal = $('.form-birthday-layouts-choise-modal');
+		var $els = $modal.find('.form-birthday-layouts-icon, .form-birthday-choise-modal-confirm, .form-birthday-choise-modal-cancel');
+
+		$els
+			.removeClass('red')
+			.removeClass('blue')
+			.removeClass('orange');
+
+		$els.addClass($self.data('color'));
+		$modal.find('.form-birthday-choise-modal-confirm').data('color', $self.data('color'));
+
+		$modal.removeClass('hidden');
+	});
+
+	$('.form-birthday-choise-modal-confirm').on('click', function (e) {
+		e.preventDefault();
+
+		var id;
+		var $self = $(this);
+		var $container = $('.form-birthday-choise-container');
+		var $icon = $container.find('.form-birthday-layouts-icon');
+
+		$('.form-birthday-layouts-container').addClass('hidden');
+		$container.removeClass('hidden');
+
+		$container.find('.red').removeClass('red');
+		$container.find('.blue').removeClass('blue');
+		$container.find('.orange').removeClass('orange');
+
+		$container.find('.form-birthday-layouts-preview, .form-birthday-layouts-icon, .form-birthday-layouts-swap').addClass($self.data('color'));
+
+		$('.form-birthday-layouts-choise-modal').addClass('hidden');
+
+		if ($icon.hasClass('red')) {
+			id = 1;
+		} else {
+			if ($icon.hasClass('orange')) {
+				id = 2;
+			} else {
+				id = 3;
+			}
+		}
+console.log($('.form-birthday-layout-id'), id, $icon);
+		$('.form-birthday-layout-id').val(id);
+	});
 });
 
 function closeGiftModal() {

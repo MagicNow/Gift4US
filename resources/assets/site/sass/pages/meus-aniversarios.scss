@@ -1,3 +1,35 @@
+$layout-color-red: #e73d3e;
+$layout-color-orange: #f29200;
+$layout-color-blue: #019ee3;
+
+@mixin layout-preview-button($color) {
+	border-top: 27px solid transparent;
+	border-left: 2px solid $color;
+	border-bottom: 0 solid transparent;
+	border-right: 0 solid transparent;
+}
+
+@mixin layout-choise-button($color) {
+	border-top: 0 solid transparent;
+	border-left: 2px solid transparent;
+	border-bottom: 27px solid $color;
+	border-right: 0 solid transparent;
+}
+
+@mixin layout-icon-before($color) {
+	border-top: 0 solid transparent;
+	border-left: 0 solid transparent;
+	border-bottom: 136px solid transparent;
+	border-right: 6px solid $color;
+}
+
+@mixin layout-icon-after($color) {
+	border-top: 138px solid $color;
+	border-left: 0 solid transparent;
+	border-bottom: 0 solid transparent;
+	border-right: 6px solid transparent;
+}
+
 .my-birthday {
 	padding-bottom: 20px;
 	margin-top: 50px;
@@ -382,6 +414,233 @@
 	&-sex-label {
 		padding-left: 0 !important;
 	}
+
+	&-layouts {
+		margin-top: 30px;
+		padding-bottom: 0;
+		margin-bottom: 10px;
+		position: relative;
+
+		&:after {
+			border-bottom: 1px solid #acacac;
+			width: calc(100% - 80px);
+			height: 0;
+			padding-top: 40px;
+			margin-left: 40px;
+		}
+
+		&-text {
+			color: #4d5053;
+			font: 18px/27px HelveticaNeueStd_CN;
+		}
+
+		&-item {
+			list-style-type: none;
+			text-align: center;
+
+			&:after {
+				content: "";
+				display: inline-block;
+				width: 0;
+				height: 137px;
+				border-left: 1px solid #acacac;
+				position: absolute;
+				left: 0;
+			}
+
+			&:first-child {
+				&:after {
+					display: none;
+				}
+			}
+		}
+
+		&-choise, &-preview, &-swap {
+			border: 0 none;
+			font: 18px/27px HelveticaNeueStd_CN;
+			color: #fff;
+			position: relative;
+			top: -61px;
+
+			&:before, &:after {
+				content: "";
+				display: inline-block;
+				position: absolute;
+				top: 0;
+			}
+		}
+
+		&-choise {
+			&-modal {
+				background-color: rgba(255, 255, 255, 0.9);
+				position: absolute;
+				width: 100%;
+				top: 30px;
+				text-align: center;
+				padding: 80px 0 80px 0;
+				z-index: 1;
+
+				&-text {
+					font: 18px HelveticaNeueStd_BDCN;
+					padding: 0 0 25px;
+					color: #4d5053;
+				}
+
+				&-buttons {
+					margin-top: 25px;
+				}
+
+				&-button {
+					font: 16px/35px dk_astromonkeyregular;
+					border: 0 none;
+					color: #fff;
+					padding: 0 10px;
+					margin: 0 15px;
+
+					&.blue {
+						background-color: $layout-color-blue;
+					}
+
+					&.orange {
+						background-color: $layout-color-orange;
+					}
+
+					&.red {
+						background-color: $layout-color-red;
+					}
+				}
+			}
+		}
+
+		&-choise, &-swap {
+			right: -7px;
+			padding: 0 9px;
+
+			&:before {
+				left: -2px;
+			}
+
+			&.red {
+				background-color: $layout-color-red;
+
+				&:before {
+					@include layout-choise-button($layout-color-red);
+				}
+			}
+
+			&.orange {
+				background-color: $layout-color-orange;
+
+				&:before {
+					@include layout-choise-button($layout-color-orange);
+				}
+			}
+
+			&.blue {
+				background-color: $layout-color-blue;
+
+				&:before {
+					@include layout-choise-button($layout-color-blue);
+				}
+			}
+		}
+
+		&-preview {
+			left: -7px;
+			padding: 0 13px;
+
+			&:after {
+				right: -2px;
+			}
+
+			&.red {
+				background-color: $layout-color-red;
+
+				&:after {
+					@include layout-preview-button($layout-color-red);
+				}
+			}
+
+			&.orange {
+				background-color: $layout-color-orange;
+
+				&:after {
+					@include layout-preview-button($layout-color-orange);
+				}
+			}
+
+			&.blue {
+				background-color: $layout-color-blue;
+
+				&:after {
+					@include layout-preview-button($layout-color-blue);
+				}
+			}
+		}
+
+		&-icon {
+			width: 103px;
+			height: 136px;
+			display: inline-block;
+			position: relative;
+			background: url(../images/layouts-icon.png) no-repeat center 0;
+
+			&.red {
+				background-color: $layout-color-red;
+
+				&:before {
+					@include layout-icon-before($layout-color-red);
+				}
+
+				&:after {
+					@include layout-icon-after($layout-color-red);
+				}
+			}
+
+			&.orange {
+				background-color: $layout-color-orange;
+
+				&:before {
+					@include layout-icon-before($layout-color-orange);
+				}
+
+				&:after {
+					@include layout-icon-after($layout-color-orange);
+				}
+			}
+
+			&.blue {
+				background-color: $layout-color-blue;
+
+				&:before {
+					@include layout-icon-before($layout-color-blue);
+				}
+
+				&:after {
+					@include layout-icon-after($layout-color-blue);
+				}
+			}
+
+			&:before, &:after {
+				content: "";
+				display: inline-block;
+				position: absolute;
+				top: 0;
+			}
+
+			&:before {
+				left: -6px;
+			}
+
+			&:after {
+				right: -6px;
+			}
+		}
+
+		&-dashboard {
+			margin-left: 30px;
+		}
+	}
 }
 
 .form-inline .form-birthday {
@@ -400,9 +659,6 @@
 	}
 
 	&-date-day, &-date-month, &-date-year, &-time {
-		// height: 18px;
-		// vertical-align: bottom;
-		// padding: 0;
 		text-align: center;
 	}
 
