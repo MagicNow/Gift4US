@@ -3,7 +3,7 @@ $layout-color-orange: #f29200;
 $layout-color-blue: #019ee3;
 
 @mixin layout-preview-button($color) {
-	border-top: 27px solid transparent;
+	border-top: 21px solid transparent;
 	border-left: 2px solid $color;
 	border-bottom: 0 solid transparent;
 	border-right: 0 solid transparent;
@@ -548,6 +548,11 @@ $layout-color-blue: #019ee3;
 		&-preview {
 			left: -7px;
 			padding: 0 13px;
+
+			&:hover {
+				text-decoration: none;
+				color: #fff;
+			}
 
 			&:after {
 				right: -2px;

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Clientes;
+use App\Models\Festas;
 use App\Models\Produtos;
 use XmlParser;
 
@@ -47,5 +48,16 @@ class GiftsController extends Controller {
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
 		return view('site.presentes.roupas', compact('request', 'titulo', 'client', 'products'));
+	}
+
+	public function preview($festa_id, $layout_id)
+	{
+		$festa = Festas::find($festa_id);
+
+		if ($festa->clientes_id != $this->cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		return view('site.criar-aniversario.preview', compact('festa'));
 	}
 }

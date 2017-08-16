@@ -279,7 +279,7 @@ $(function() {
 				id = 3;
 			}
 		}
-console.log($('.form-birthday-layout-id'), id, $icon);
+
 		$('.form-birthday-layout-id').val(id);
 	});
 });

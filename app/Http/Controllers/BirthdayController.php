@@ -5,6 +5,7 @@ use \DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRegister;
 use Illuminate\Support\Facades\Hash;
+use Intervention\Image\ImageManagerStatic as Image;
 use Validator;
 use App\Models\Clientes;
 use App\Models\Festas;
@@ -220,6 +221,19 @@ class BirthdayController extends Controller {
 	public function upload(Request $request)
 	{
 		$path = basename($request->file->store('public/birthdays'));
+		$folder = \File::makeDirectory(storage_path('app/public/birthdays/mask/'), 0775, true);
+
+		$img = Image::make(storage_path('app/public/birthdays/' . $path));
+		$img->resize(780, null, function ($constraint) {
+				$constraint->aspectRatio();
+			})
+			->save(storage_path('app/public/birthdays/' . $path));
+
+		$img->resize(166, null, function ($constraint) {
+				$constraint->aspectRatio();
+			})
+			->mask(public_path('assets/site/images/layout-mask.png'), true)
+			->save(storage_path('app/public/birthdays/mask/' . pathinfo($path, PATHINFO_FILENAME) . '.png'));
 
 		return response()
 			->json(['path' => $path]);

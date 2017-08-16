@@ -63,7 +63,7 @@
 								?>
 								<div class="form-birthday-layouts row">
 									<div class="form-birthday-layouts-item col-md-4 col-md-offset-4">
-										<button type="button" class="form-birthday-layouts-preview {{ $color }}" data-toggle="modal" data-target="#preview-blue">Ver</button>
+										<a href="{{ route('usuario.meus-aniversarios.preview', [ $festa->id, $festa->layout_id ]) }}" class="form-birthday-layouts-preview {{ $color }}">Ver</a>
 										<span class="form-birthday-layouts-icon {{ $color }}"></span>
 										<button type="button" class="form-birthday-layouts-swap {{ $color }}">Trocar</button>
 									</div>
@@ -106,16 +106,6 @@
 					</nav>
 					<button type="submit" name="enviar" class="form-birthday-submit"><img src="{{ asset('assets/site/images/niver-next-step.png') }}" alt="Próxima Etapa"></button>
 				</form>
-			</div>
-		</div>
-	</div>
-
-	<!-- Modal -->
-	<div class="modal fade" id="preview-blue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="form-birthday-preview" role="document">
-			<div class="modal-content">
-				<button type="button" class="close form-birthday-preview-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<img src="{{ asset('assets/site/images/passo_4_preview_azul.jpg') }}" class="form-birthday-preview-image">
 			</div>
 		</div>
 	</div>
