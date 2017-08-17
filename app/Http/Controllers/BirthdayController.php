@@ -221,7 +221,10 @@ class BirthdayController extends Controller {
 	public function upload(Request $request)
 	{
 		$path = basename($request->file->store('public/birthdays'));
-		$folder = \File::makeDirectory(storage_path('app/public/birthdays/mask/'), 0775, true);
+
+		if (!\File::exists(storage_path('app/public/birthdays/mask'))) {
+			$folder = \File::makeDirectory(storage_path('app/public/birthdays/mask'), 0775, true);
+		}
 
 		$img = Image::make(storage_path('app/public/birthdays/' . $path));
 		$img->resize(780, null, function ($constraint) {
