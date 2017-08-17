@@ -62,12 +62,14 @@
 											break;
 									}
 									?>
+								@else
+									<?php $color = ''; ?>
 								@endif
 								<div class="form-birthday-layouts row">
 									<div class="form-birthday-layouts-item col-md-4 col-md-offset-4">
-										<a href="{{ route('usuario.meus-aniversarios.preview', [ $festa->id, $festa->layout_id ]) }}" class="form-birthday-layouts-preview {{ isset($color) ? $color : '' }}">Ver</a>
-										<span class="form-birthday-layouts-icon {{ isset($color) ? $color : '' }}"></span>
-										<button type="button" class="form-birthday-layouts-swap {{ isset($color) ? $color : '' }}">Trocar</button>
+										<a href="{{ route('usuario.meus-aniversarios.preview', [ $festa->id, $festa->layout_id ]) }}" class="form-birthday-layouts-preview {{ $color }}">Ver</a>
+										<span class="form-birthday-layouts-icon {{ $color }}"></span>
+										<button type="button" class="form-birthday-layouts-swap {{ $color }}">Trocar</button>
 									</div>
 								</div>
 							</div>
