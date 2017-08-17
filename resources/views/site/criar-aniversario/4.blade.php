@@ -48,24 +48,26 @@
 							</div>
 							<div class="form-birthday-choise-container {{ isset($festa->layout_id) ? NULL : 'hidden' }}">
 								<p class="text-center form-birthday-layouts-text">Layout escolhido para página oficial do aniversariante</p>
-								<?php
-								switch ($festa->layout_id) {
-									case 1:
-										$color = 'red';
-										break;
-									case 2:
-										$color = 'orange';
-										break;
-									case 3:
-										$color = 'blue';
-										break;
-								}
-								?>
+								@if (isset($festa->layout_id))
+									<?php
+									switch ($festa->layout_id) {
+										case 1:
+											$color = 'red';
+											break;
+										case 2:
+											$color = 'orange';
+											break;
+										case 3:
+											$color = 'blue';
+											break;
+									}
+									?>
+								@endif
 								<div class="form-birthday-layouts row">
 									<div class="form-birthday-layouts-item col-md-4 col-md-offset-4">
-										<a href="{{ route('usuario.meus-aniversarios.preview', [ $festa->id, $festa->layout_id ]) }}" class="form-birthday-layouts-preview {{ $color }}">Ver</a>
-										<span class="form-birthday-layouts-icon {{ $color }}"></span>
-										<button type="button" class="form-birthday-layouts-swap {{ $color }}">Trocar</button>
+										<a href="{{ route('usuario.meus-aniversarios.preview', [ $festa->id, $festa->layout_id ]) }}" class="form-birthday-layouts-preview {{ isset($color) ? $color : '' }}">Ver</a>
+										<span class="form-birthday-layouts-icon {{ isset($color) ? $color : '' }}"></span>
+										<button type="button" class="form-birthday-layouts-swap {{ isset($color) ? $color : '' }}">Trocar</button>
 									</div>
 								</div>
 							</div>
