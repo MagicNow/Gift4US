@@ -30,17 +30,17 @@
 								<p class="text-center form-birthday-layouts-text">Escolha abaixo o layout que mais gosta para ser a página oficial do aniversariante</p>
 								<ul class="form-birthday-layouts row">
 									<li class="form-birthday-layouts-item col-md-4">
-										<button type="button" class="form-birthday-layouts-preview red" data-toggle="modal" data-target="#preview-red">Ver</button>
+										<a href="{{ route('usuario.meus-aniversarios.preview', [ $festa->id, 1 ]) }}" class="form-birthday-layouts-preview red">Ver</a>
 										<span class="form-birthday-layouts-icon red"></span>
 										<button type="button" class="form-birthday-layouts-choise red" data-color="red">Escolher</button>
 									</li>
 									<li class="form-birthday-layouts-item col-md-4">
-										<button type="button" class="form-birthday-layouts-preview orange" data-toggle="modal" data-target="#preview-orange">Ver</button>
+										<a href="{{ route('usuario.meus-aniversarios.preview', [ $festa->id, 2 ]) }}" class="form-birthday-layouts-preview orange">Ver</a>
 										<span class="form-birthday-layouts-icon orange"></span>
 										<button type="button" class="form-birthday-layouts-choise orange" data-color="orange">Escolher</button>
 									</li>
 									<li class="form-birthday-layouts-item col-md-4">
-										<button type="button" class="form-birthday-layouts-preview blue" data-toggle="modal" data-target="#preview-blue">Ver</button>
+										<a href="{{ route('usuario.meus-aniversarios.preview', [ $festa->id, 3 ]) }}" class="form-birthday-layouts-preview blue">Ver</a>
 										<span class="form-birthday-layouts-icon blue"></span>
 										<button type="button" class="form-birthday-layouts-choise blue" data-color="blue">Escolher</button>
 									</li>

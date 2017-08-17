@@ -17,11 +17,11 @@ var gulp			= require('gulp'),
 	sourceMaps  	= require('gulp-sourcemaps');
 
 //compressing images & handle SVG files
-gulp.task('images', function(tmp) {
+gulp.task('images', function() {
     gulp.src(['resources/assets/site/images/*.jpg', 'public/assets/site/images/*.png'])
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
-        .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+        // .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
         .pipe(gulp.dest('public/assets/site/images'));
 });
 
@@ -147,7 +147,7 @@ gulp.task('html-deploy', function() {
 //  startup the web server,
 //  start up browserSync
 //  compress all scripts and SCSS files
-gulp.task('default', ['scripts', 'styles'], function() {
+gulp.task('default', ['scripts', 'styles', 'images'], function() {
     //a list of watchers, so it will watch all of the following files waiting for changes
     gulp.task('resources/assets/site/js/src/**', ['scripts']);
     gulp.task('resources/assets/site/sass/**', ['styles']);
@@ -155,7 +155,7 @@ gulp.task('default', ['scripts', 'styles'], function() {
     gulp.task('resources/assets/site/json/**', ['copy']);
 });
 
-gulp.task('watch', ['scripts', 'styles'], function() {
+gulp.task('watch', ['scripts', 'styles', 'images'], function() {
     gulp.watch('resources/assets/site/js/src/**', ['scripts']);
     gulp.watch('resources/assets/site/sass/**', ['styles']);
     gulp.watch('resources/assets/site/images/**', ['images']);

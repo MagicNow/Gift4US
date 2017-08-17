@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Clientes;
 use App\Models\Festas;
+use App\Models\FestasLayouts;
 use App\Models\Produtos;
 use XmlParser;
 
@@ -53,11 +54,14 @@ class GiftsController extends Controller {
 	public function preview($festa_id, $layout_id)
 	{
 		$festa = Festas::find($festa_id);
+		$layout = FestasLayouts::find($layout_id);
 
 		if ($festa->clientes_id != $this->cliente->id) {
 			abort(403, 'Unauthorized action.');
 		}
 
-		return view('site.criar-aniversario.preview', compact('festa'));
+		$client = $this->cliente;
+		$titulo = 'CRIANDO ANIVERSÁRIO';
+		return view('site.criar-aniversario.preview', compact('festa', 'client', 'titulo', 'layout'));
 	}
 }

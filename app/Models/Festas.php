@@ -18,4 +18,8 @@ class Festas extends Model {
     public function cliente() {
         return $this->hasOne('App\Models\Clientes');
     }
+
+    public function layout() {
+        return $this->belongsTo('App\Models\FestasLayouts');
+    }
 }
