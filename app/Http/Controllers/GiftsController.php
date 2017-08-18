@@ -23,32 +23,49 @@ class GiftsController extends Controller {
 		});
 	}
 
-	public function index(Request $request)
+	public function index(Request $request, $festa_id)
 	{
-		$products = Produtos::where('categoria', 'roupa')
-						->where('status', 1);
+		$party = Festas::find($festa_id);
+		$products = Produtos::where('categoria', 'roupa')->where('status', 1);
+
+		if (!isset($party) || empty($party)) {
+			abort(404, 'Page not found.');
+		}
+
+		if ($party->clientes_id != $this->cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
 
 		if ($request->busca) {
-			if ($request->filtrar) {
-				switch ($request->filtrar) {
-					case 'cor':
-						$products = $products->where('cor', 'LIKE', '%' . $request->busca . '%');
-						break;
-					case 'nome':
-						$products = $products->where('titulo', 'LIKE', '%' . $request->busca . '%');
-						break;
-					default:
-						$products = $products->where('titulo', 'LIKE', '%' . $request->busca . '%')
-											->orWhere('cor', 'LIKE', '%' . $request->busca . '%');
-						break;
-				}
+			$products = $products->where('titulo', 'LIKE', '%' . $request->busca . '%');
+		}
+
+		if ($request->ordenacao) {
+			switch ($request->ordenacao) {
+				case 'maiorPreco':
+					$products = $products->orderBy('preco_venda', 'DESC');
+					break;
+				case 'menorPreco':
+					$products = $products->orderBy('preco_venda', 'ASC');
+					break;
+				case 'AZ':
+					$products = $products->orderBy('titulo', 'ASC');
+					break;
+				case 'ZA':
+					$products = $products->orderBy('titulo', 'DESC');
+					break;
+				case 'MaisVendidos':
+					break;
+				case 'Lancamentos':
+					break;
 			}
 		}
 
+		$selected = $party->produto->pluck('id')->toArray();
 		$products = $products->get();
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
-		return view('site.presentes.roupas', compact('request', 'titulo', 'client', 'products'));
+		return view('site.presentes.roupas', compact('request', 'titulo', 'client', 'products', 'party', 'selected'));
 	}
 
 	public function preview($festa_id, $layout_id)

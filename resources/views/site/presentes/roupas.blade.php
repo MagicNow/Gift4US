@@ -21,7 +21,7 @@
 					<div class="gifts-box-number-header row">
 						<div class="col-md-11 col-md-offset-1">
 							<h4 class="gifts-box-number-header-title">Lista de Roupas</h4>
-							<p><img src="{{ asset('assets/site/images/presentinho-icone.png') }}"> <span class="gifts-box-number-header-total">0</span> selecionados</p>
+							<p><img src="{{ asset('assets/site/images/presentinho-icone.png') }}"> <span class="gifts-box-number-header-total">{{ count($selected) }}</span> selecionados</p>
 						</div>
 					</div>
 					<a href="#" class="gifts-box-number-middle dados-container">
@@ -29,8 +29,8 @@
 						<p class="gifts-box-number-middle-selected">selecionados</p>
 					</a>
 					<div class="gifts-box-number-footer dados-container">
-						<button class="gifts-box-number-submit">Finalizar lista</button>
-						<a href="{{ route('usuario.meus-aniversarios.novo', 5) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
+						<a class="gifts-box-number-submit" href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}">Finalizar lista</a>
+						<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
 					</div>
 				</div>
 				<div class="col-md-9 dados-container">
@@ -49,24 +49,31 @@
 									<input type="search" class="form-control gifts-filter-search-input" name="busca" placeholder="presente que está procurando" value="{{ $request->busca }}">
 								</div>
 								<div class="gifts-filter-select-container pull-right">
-									<select class="gifts-filter-select" name="filtrar">
+									<select class="gifts-filter-select" name="ordenacao">
 										<option value=""></option>
-										<option value="nome" {{ $request->filtrar == 'nome' ? 'selected' : '' }}>Nome</option>
-										<option value="cor" {{ $request->filtrar == 'cor' ? 'selected' : '' }}>Cor</option>
+										<option value="maiorPreco" {{ $request->ordenacao == 'maiorPreco' ? 'selected' : '' }}>Maior preço</option>
+										<option value="menorPreco" {{ $request->ordenacao == 'menorPreco' ? 'selected' : '' }}>Menor preço</option>
+										<option value="AZ" {{ $request->ordenacao == 'AZ' ? 'selected' : '' }}>A-Z</option>
+										<option value="ZA" {{ $request->ordenacao == 'ZA' ? 'selected' : '' }}>Z-A</option>
+										<option value="MaisVendidos" {{ $request->ordenacao == 'MaisVendidos' ? 'selected' : '' }}>Mais vendidos</option>
+										<option value="Lancamentos" {{ $request->ordenacao == 'Lancamentos' ? 'selected' : '' }}>Lançamento</option>
 									</select>
 								</div>
 							</form>
 						</div>
 					</div>
-					<ul class="gifts-list">
-						<div class="gifts-list-message">
-							<button class="gifts-list-message-remove"></button>
-							<p class="gifts-list-message-first">Selecione as roupas que possuam a personalidade do aniversariante! É bem fácil! Você pode selecionar os produtos sugeridos abaixo, procurar algum modelo específico pelo nome e filtrar por diversas formas! </p>
-							<p class="gifts-list-message-secound">*As roupas adquiridas pelos convidados serão automaticamente convertidas em crédito na sua conta bancária. Não cadastrou seu conta bancária ainda? Não esqueça de cadastra-la a qualquer momento no painel de controle assim que finalizar a criação do aniversário.</p>
-						</div>
+					<ul class="gifts-list" data-festa-id="{{ $party->id }}">
+						@if(!isset($_COOKIE['closeModalGift']) || empty($_COOKIE['closeModalGift']))
+							<div class="gifts-list-message">
+								<button class="gifts-list-message-remove"></button>
+								<p class="gifts-list-message-first">Selecione as roupas que possuam a personalidade do aniversariante! É bem fácil! Você pode selecionar os produtos sugeridos abaixo, procurar algum modelo específico pelo nome e filtrar por diversas formas! </p>
+								<p class="gifts-list-message-secound">*As roupas adquiridas pelos convidados serão automaticamente convertidas em crédito na sua conta bancária. Não cadastrou seu conta bancária ainda? Não esqueça de cadastra-la a qualquer momento no painel de controle assim que finalizar a criação do aniversário.</p>
+							</div>
+						@endif
+
 						@if (isset($products) && count($products) > 0)
 							@foreach ($products as $product)
-								<li class="col-md-6 gifts-item">
+								<li class="col-md-6 gifts-item {{ in_array($product->id, $selected) ? 'selected' : '' }}" data-id="{{ $product->id }}">
 									<div class="row">
 										<div class="col-md-5">
 											@if (file_exists('storage/products/' . $product->imagem))

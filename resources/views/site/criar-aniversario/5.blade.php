@@ -38,7 +38,7 @@
 							<li class="form-birthday-paginate-item active"></li>
 						</ul>
 					</nav>
-					<a href="{{ route('usuario.meus-aniversarios.novo', 4) }}" class="form-birthday-submit" style="text-align: center; color: #acacac; font-size: 17px;">voltar a etapa anterior</a>
+					<a href="{{ route('usuario.meus-aniversarios.novo.festa', [$festa->id, 4]) }}" class="form-birthday-submit" style="text-align: center; color: #acacac; font-size: 17px;">voltar a etapa anterior</a>
 				</form>
 			</div>
 		</div>

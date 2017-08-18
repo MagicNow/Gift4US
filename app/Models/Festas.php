@@ -22,4 +22,8 @@ class Festas extends Model {
     public function layout() {
         return $this->belongsTo('App\Models\FestasLayouts');
     }
+
+    public function produto() {
+        return $this->belongsToMany('App\Models\Produtos');
+    }
 }

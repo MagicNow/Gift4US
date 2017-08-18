@@ -7,11 +7,11 @@ use MetzWeb\Instagram\Instagram;
 use App\Models\Produtos;
 use App\Models\ProdutosTipos;
 use App\Models\ProdutosMarcas;
+use App\Models\Clientes;
+use App\Models\Festas;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 
 class ApiController extends Controller {
-
-
 	public function produtos()
 	{
 		$xml = XmlParser::load(env('PRODUCTS_XML'));
@@ -40,5 +40,36 @@ class ApiController extends Controller {
 
 		return response()
 			->json(['response' => 'Importação realizada com sucesso.']);
-	}    
+	}  
+
+	public function presentesAdicionar(Request $request) {
+		if(!$request->ajax()) {
+			abort(404, 'Page not found.');
+		}
+
+		$festa = Festas::find($request->festa);
+		$cliente = Clientes::find(session('client_id'));
+		$produto = Produtos::find($request->produto);
+
+		if ($festa->clientes_id != $cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$festa->produto()->attach($produto);
+	}
+
+	public function presentesRemover(Request $request) {
+		if(!$request->ajax()) {
+			abort(404, 'Page not found.');
+		}
+
+		$festa = Festas::find($request->festa);
+		$cliente = Clientes::find(session('client_id'));
+
+		if ($festa->clientes_id != $cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$festa->produto()->detach($request->produto);
+	}
 }

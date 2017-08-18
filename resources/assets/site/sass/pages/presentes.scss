@@ -106,6 +106,8 @@
 
 			margin: 0 auto;
 			display: block;
+			line-height: 34px !important;
+			text-align: center;
 		}
 
 		&-back {
@@ -199,6 +201,8 @@
 		&-title {
 			font: 16px 'HelveticaNeueStd_CN';
 			color: #555557;
+			height: 60px;
+			overflow: hidden;
 		}
 
 		&-image {

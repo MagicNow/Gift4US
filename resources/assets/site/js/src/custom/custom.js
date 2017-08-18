@@ -167,20 +167,27 @@ $(function() {
     	e.preventDefault();
 
     	var $self = $(this);
-    	var $item = $self.parents('.gifts-item');
+		var $list = $self.parents('.gifts-list');
+		var $item = $self.parents('.gifts-item');
     	var $total = $('.gifts-box-number-header-total');
 
     	$item.addClass('selected');
     	$total.text(parseInt($total.text()) + 1);
+
+    	$.post(baseUrl + '/api/presentes/adicionar', { produto: $item.data('id'), festa: $list.data('festaId')})
     });
 
     $('.gifts-filter-select').select2({
-    	placeholder: 'filtrar por'
-    });
+    	placeholder: 'ordenar por'
+    }).on('change', function (evt) {
+		$(this).parents('form').submit();
+	});
 
     $('.gifts-list-message-remove').on('click', function (e) {
     	e.preventDefault();
     	$('.gifts-list-message').remove();
+
+    	createCookie('closeModalGift', true, 1);
     });
 
     $('.gifts-item-button-remove').on('click', function (e) {
@@ -188,24 +195,27 @@ $(function() {
 
 		$activeGift = $(this).parents('.gifts-item');
 
-    	var $modal		= $('.gifts-modal');
-    	var $content 	= $activeGift.find('.row');
+		var $modal = $('.gifts-modal');
+		var $content = $activeGift.find('.row');
 
     	$modal.removeClass('hidden');
     	$modal.find('.gifts-modal-frame').html($content.html());
     });
 
-    $('.gifts-modal-button-cancel').on('click', closeGiftModal);
-
-    $('.gifts-modal-button-remove').on('click', function (e) {
+	$('.gifts-modal-button-remove').on('click', function (e) {
     	e.preventDefault();
 
-    	var $total = $('.gifts-box-number-header-total');
+		var $list = $('.gifts-list');
+		var $total = $('.gifts-box-number-header-total');
 
-    	$activeGift.removeClass('selected');
-    	$total.text(parseInt($total.text()) - 1);
-    	closeGiftModal();
+		$activeGift.removeClass('selected');
+		$total.text(parseInt($total.text()) - 1);
+		closeGiftModal();
+
+		$.post(baseUrl + '/api/presentes/remover', { produto: $activeGift.data('id'), festa: $list.data('festaId')})
     });
+
+    $('.gifts-modal-button-cancel').on('click', closeGiftModal);
 
     $('.form-birthday-sex-label').on('click', function () {
     	$('.form-birthday-avatar').attr('src', $(this).data('image'));
@@ -286,4 +296,14 @@ $(function() {
 
 function closeGiftModal() {
 	$('.gifts-modal').addClass('hidden');
+}
+
+function createCookie(name, value, days) {
+	var expires = "";
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime() + (days*24*60*60*1000));
+		expires = "; expires=" + date.toUTCString();
+	}
+	document.cookie = name + "=" + value + expires + "; path=/";
 }
