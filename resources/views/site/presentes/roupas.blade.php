@@ -24,10 +24,17 @@
 							<p><img src="{{ asset('assets/site/images/presentinho-icone.png') }}"> <span class="gifts-box-number-header-total">{{ count($selected) }}</span> selecionados</p>
 						</div>
 					</div>
-					<a href="#" class="gifts-box-number-middle dados-container">
-						<p class="gifts-box-number-middle-view">Ver lista</p>
-						<p class="gifts-box-number-middle-selected">selecionados</p>
-					</a>
+					@if ($request->selecionados)
+						<a href="{{ route('usuario.meus-aniversarios.presentes.roupas', [ $party->id ]) }}" class="gifts-box-number-middle dados-container">
+							<p class="gifts-box-number-middle-view">Ver lista</p>
+							<p class="gifts-box-number-middle-selected">sugestões</p>
+						</a>
+					@else
+						<a href="{{ route('usuario.meus-aniversarios.presentes.roupas', [ $party->id, 'selecionados' => 1 ]) }}" class="gifts-box-number-middle dados-container">
+							<p class="gifts-box-number-middle-view">Ver lista</p>
+							<p class="gifts-box-number-middle-selected">selecionados</p>
+						</a>
+					@endif
 					<div class="gifts-box-number-footer dados-container">
 						<a class="gifts-box-number-submit" href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}">Finalizar lista</a>
 						<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
@@ -44,6 +51,9 @@
 								gifts-filter-categories-clothes"></i> <span>roupas</span></a></li><li class="gifts-filter-categories-item"><a href="#"><i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i> <span>cotas</span></a></li>
 							</ul>
 							<form method="get" action="#">
+								@if ($request->selecionados)
+									<input type="hidden" name="selecionados" value="1">
+								@endif
 								<div class="input-group gifts-filter-search pull-right" method="get">
 									<span class="input-group-addon"><i class="fa fa-search"></i></span>
 									<input type="search" class="form-control gifts-filter-search-input" name="busca" placeholder="presente que está procurando" value="{{ $request->busca }}">

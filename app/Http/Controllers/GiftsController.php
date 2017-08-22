@@ -62,6 +62,10 @@ class GiftsController extends Controller {
 		}
 
 		$selected = $party->produto->pluck('id')->toArray();
+		if ($request->selecionados) {
+			$products = $products->whereIn('id', $selected);
+		}
+
 		$products = $products->get();
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
