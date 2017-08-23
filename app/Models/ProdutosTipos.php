@@ -13,4 +13,8 @@ class ProdutosTipos extends Model {
         'created_at',
         'updated_at',
     ];
+
+    public function produtos() {
+        return $this->hasMany('App\Models\Produtos', 'tipo_id');
+    }
 }

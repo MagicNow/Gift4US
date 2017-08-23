@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Clientes;
 use App\Models\Festas;
 use App\Models\FestasLayouts;
+use App\Models\ProdutosTipos;
 use App\Models\Produtos;
 use XmlParser;
 
@@ -70,6 +71,29 @@ class GiftsController extends Controller {
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
 		return view('site.presentes.roupas', compact('request', 'titulo', 'client', 'products', 'party', 'selected'));
+	}
+
+	public function toys(Request $request, $festa_id)
+	{
+		$party = Festas::find($festa_id);
+		$categories = ProdutosTipos::with('produtos');
+		$client = $this->cliente;
+		$selected = $party->tipo->pluck('id')->toArray();
+
+		if ($request->ordenacao) {
+			switch ($request->ordenacao) {
+				case 'AZ':
+					$categories = $categories->orderBy('nome', 'ASC');
+					break;
+				case 'ZA':
+					$categories = $categories->orderBy('nome', 'DESC');
+					break;
+			}
+		}
+		$categories = $categories->get();
+
+		$titulo = 'ÁREA DO USUÁRIO';
+		return view('site.presentes.brinquedos', compact('request', 'titulo', 'client', 'party', 'categories', 'selected'));
 	}
 
 	public function preview($festa_id, $layout_id)

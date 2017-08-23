@@ -20,3 +20,4 @@ Route::get('/user', function (Request $request) {
 Route::get('produtos', ['as' => 'produtos', 'uses' => 'ApiController@produtos']);
 Route::post('presentes/adicionar', ['as' => 'presentes.adicionar', 'uses' => 'ApiController@presentesAdicionar']);
 Route::post('presentes/remover', ['as' => 'presentes.remover', 'uses' => 'ApiController@presentesRemover']);
+Route::post('categorias/adicionar', ['as' => 'categorias.adicionar', 'uses' => 'ApiController@categoriasAdicionar']);

@@ -15,15 +15,19 @@ class Festas extends Model {
 		'updated_at',
 	];
 
-    public function cliente() {
-        return $this->hasOne('App\Models\Clientes');
-    }
+	public function cliente() {
+		return $this->hasOne('App\Models\Clientes');
+	}
 
-    public function layout() {
-        return $this->belongsTo('App\Models\FestasLayouts');
-    }
+	public function layout() {
+		return $this->belongsTo('App\Models\FestasLayouts');
+	}
 
-    public function produto() {
-        return $this->belongsToMany('App\Models\Produtos');
-    }
+	public function produto() {
+		return $this->belongsToMany('App\Models\Produtos');
+	}
+
+	public function tipo() {
+		return $this->belongsToMany('App\Models\ProdutosTipos');
+	}
 }

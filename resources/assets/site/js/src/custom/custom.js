@@ -166,7 +166,7 @@ $(function() {
     $('.gifts-item-button-select').on('click', function (e) {
     	e.preventDefault();
 
-    	var $self = $(this);
+		var $self = $(this);
 		var $list = $self.parents('.gifts-list');
 		var $item = $self.parents('.gifts-item');
     	var $total = $('.gifts-box-number-header-total');
@@ -291,6 +291,16 @@ $(function() {
 		}
 
 		$('.form-birthday-layout-id').val(id);
+	});
+
+	$('.gifts-categories-item').on('click', function (e) {
+		var $self = $(this);
+		var $list = $self.parents('.gifts-categories-list');
+		var status = 0;
+
+		$self.toggleClass('active');
+		status = $self.hasClass('active') ? 1 : 0;
+		$.post(baseUrl + '/api/categorias/adicionar', { tipo: $self.data('id'), festa: $list.data('festaId'), status: status})
 	});
 });
 

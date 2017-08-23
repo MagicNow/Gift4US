@@ -26,10 +26,11 @@ class ApiController extends Controller {
 			$tipo 	= ProdutosTipos::firstOrCreate(['nome' => $value['product_type']]);
 			$marca 	= ProdutosMarcas::firstOrCreate(['nome' => $value['brand']]);
 			$data 	= [
+						'categoria'		=> 'brinquedo',
 						'titulo'		=> $value['title'],
-						'descricao'		=> $value['description'],
-						'preco'			=> $value['price'],
-						'preco_venda'	=> $value['sale_price'],
+						'descricao'		=> strip_tags($value['description']),
+						'preco'			=> preg_replace('/[^0-9.,]/', '', $value['price']),
+						'preco_venda'	=> preg_replace('/[^0-9.,]/', '', $value['sale_price']),
 						'imagem'		=> $value['image_link'],
 						'tipo_id'		=> $tipo->id,
 						'marca_id'		=> $marca->id
@@ -71,5 +72,21 @@ class ApiController extends Controller {
 		}
 
 		$festa->produto()->detach($request->produto);
+	}
+
+	public function categoriasAdicionar(Request $request) {
+		if(!$request->ajax()) {
+			abort(404, 'Page not found.');
+		}
+
+		$festa = Festas::find($request->festa);
+		$cliente = Clientes::find(session('client_id'));
+		$tipo = ProdutosTipos::find($request->tipo);
+
+		if ($festa->clientes_id != $cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$festa->tipo()->attach($tipo);
 	}
 }

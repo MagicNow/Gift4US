@@ -37,6 +37,7 @@ Route::group(['prefix' => 'usuario'], function() {
         Route::post('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir-post','uses' => 'BirthdayController@destroy'])->where(['id' => '[0-9]+']);
         Route::get('festa/{festa_id}/preview/{layout_id}', ['as' => 'usuario.meus-aniversarios.preview','uses' => 'GiftsController@preview'])->where(['festa_id' => '[0-9]+', 'layout_id' => '[0-9]+']);
         Route::get('festa/{festa_id?}/presentes/roupas', ['as' => 'usuario.meus-aniversarios.presentes.roupas','uses' => 'GiftsController@index'])->where(['festa_id' => '[0-9]+']);
+        Route::get('festa/{festa_id?}/presentes/brinquedos', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos','uses' => 'GiftsController@toys'])->where(['festa_id' => '[0-9]+']);
     });
 });
 

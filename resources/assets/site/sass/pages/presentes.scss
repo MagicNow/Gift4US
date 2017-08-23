@@ -378,4 +378,68 @@
 			}
 		}
 	}
+
+	&-categories {
+		&-row {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+
+		&-column {
+			padding: 0 0 12px;
+		}
+
+		&-list {
+			list-style-type: none;
+			text-align: center;
+		}
+
+		&-intro {
+			color: #4d5053;
+			font: 18px 'HelveticaNeueStd_CN';
+			margin: 0 0 20px;
+		}
+
+		&-item {
+			vertical-align: top;
+			color: #4d5053;
+			font: 15px 'HelveticaNeueStd_CN';
+			cursor: pointer;
+			text-align: center;
+
+			&.active {
+				.gifts-categories-icon {
+					&.orange {
+						display: block;
+					}
+
+					&.red {
+						display: none;
+					}
+				}
+			}
+		}
+
+		&-icon {
+			margin: 0 auto 3px;
+
+			&.orange {
+				display: none;
+			}
+
+			&.red {
+				display: block;
+			}
+		}
+
+		&-submit {
+			@extend .btn-blue;
+			@extend .reset-btn;
+
+			margin: 0 auto 5px;
+			display: block;
+			line-height: 34px !important;
+			text-align: center;
+		}
+	}
 }

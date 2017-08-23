@@ -19,7 +19,7 @@
 							<p class="text-center my-birthday-title">Quais tipos de presente você quer listar?</p>
 							<div class="row">
 								<div class="col-md-4 form-birthday-gift-column">
-									<a href="#" class="form-birthday-gift-link"><span class="icon form-birthday-gift-toy">BRINQUEDOS</span>Crie uma lista de interesses e a partir dela uma lista de brinquedos que o aniversariante gostaria de ganhar.</a>
+									<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos', $festa->id) }}" class="form-birthday-gift-link"><span class="icon form-birthday-gift-toy">BRINQUEDOS</span>Crie uma lista de interesses e a partir dela uma lista de brinquedos que o aniversariante gostaria de ganhar.</a>
 									<span class="form-birthday-gift-count {{ $gifts['toys'] > 0 ? 'active' : '' }}"><i></i>{{ sprintf("%02d", $gifts['toys']) }} na lista de presentes</span>
 								</div>
 								<div class="col-md-4 form-birthday-gift-column">
