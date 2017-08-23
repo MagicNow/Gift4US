@@ -62,7 +62,8 @@ class GiftsController extends Controller {
 			}
 		}
 
-		$selected = $party->produto->pluck('id')->toArray();
+		$selected = $party->produto->where('categoria', 'roupa')->pluck('id')->toArray();
+
 		if ($request->selecionados) {
 			$products = $products->whereIn('id', $selected);
 		}
@@ -94,6 +95,59 @@ class GiftsController extends Controller {
 
 		$titulo = 'ÁREA DO USUÁRIO';
 		return view('site.presentes.brinquedos', compact('request', 'titulo', 'client', 'party', 'categories', 'selected'));
+	}
+
+	public function toysList(Request $request, $festa_id)
+	{
+		$party = Festas::find($festa_id);
+		$categories = $party->tipo->pluck('id')->toArray();
+		$products = Produtos::where('categoria', 'brinquedo')
+							->whereIn('tipo_id', $categories);
+							// ->where('status', 1);
+
+		if (!isset($party) || empty($party)) {
+			abort(404, 'Page not found.');
+		}
+
+		if ($party->clientes_id != $this->cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		if ($request->busca) {
+			$products = $products->where('titulo', 'LIKE', '%' . $request->busca . '%');
+		}
+
+		if ($request->ordenacao) {
+			switch ($request->ordenacao) {
+				case 'maiorPreco':
+					$products = $products->orderBy('preco_venda', 'DESC');
+					break;
+				case 'menorPreco':
+					$products = $products->orderBy('preco_venda', 'ASC');
+					break;
+				case 'AZ':
+					$products = $products->orderBy('titulo', 'ASC');
+					break;
+				case 'ZA':
+					$products = $products->orderBy('titulo', 'DESC');
+					break;
+				case 'MaisVendidos':
+					break;
+				case 'Lancamentos':
+					break;
+			}
+		}
+
+		$selected = $party->produto->where('categoria', 'brinquedo')->pluck('id')->toArray();
+
+		if ($request->selecionados) {
+			$products = $products->whereIn('id', $selected);
+		}
+
+		$products = $products->paginate(30);
+		$client = $this->cliente;
+		$titulo = 'ÁREA DO USUÁRIO';
+		return view('site.presentes.brinquedos-lista', compact('request', 'titulo', 'client', 'products', 'party', 'selected'));
 	}
 
 	public function preview($festa_id, $layout_id)

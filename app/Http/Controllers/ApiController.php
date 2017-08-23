@@ -87,6 +87,10 @@ class ApiController extends Controller {
 			abort(403, 'Unauthorized action.');
 		}
 
-		$festa->tipo()->attach($tipo);
+		if ($request->status == "1") {
+			$festa->tipo()->attach($tipo);
+		} else {
+			$festa->tipo()->detach($request->tipo);
+		}
 	}
 }
