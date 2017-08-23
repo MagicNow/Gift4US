@@ -77,6 +77,11 @@ class BirthdayController extends Controller {
 	public function create(Request $request, $festa_id = NULL, $passo = NULL) {
 		$client = $this->cliente;
 		$method = $request->method();
+		$gifts = [
+			'toys' => 0,
+			'clothes' => 0,
+			'quotas' => 0
+		];
 
 		if (isset($festa_id) && !empty($festa_id)) {
 			$festa = Festas::find($festa_id);
@@ -86,6 +91,22 @@ class BirthdayController extends Controller {
 
 		if (isset($request->passo) && !empty($request->passo)) {
 			$view = 'site.criar-aniversario.' . $request->passo;
+
+			if ($request->passo == '5') {
+				foreach ($festa->produto()->get() as $produto) {
+					switch ($produto->categoria) {
+						case 'roupa':
+							$gifts['clothes'] = $gifts['clothes'] + 1;
+							break;
+						case 'brinquedo':
+							$gifts['toys'] = $gifts['toys'] + 1;
+							break;
+						case 'cotas':
+							$gifts['quotas'] = $gifts['quotas'] + 1;
+							break;
+					}
+				}
+			}
 		} else {
 			$view = 'site.criar-aniversario.1';
 		}
@@ -94,7 +115,7 @@ class BirthdayController extends Controller {
 			return view($view, compact('client', 'festa'));
 		} else {
 			$titulo = 'ÁREA DO USUÁRIO';
-			return view('site.usuarios', compact('view', 'titulo', 'client', 'festa'));
+			return view('site.usuarios', compact('view', 'titulo', 'client', 'festa', 'gifts'));
 		}
 	}
 

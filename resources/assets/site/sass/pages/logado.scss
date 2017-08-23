@@ -126,6 +126,10 @@ input {
 			padding-top: 100px;
 			background-color: #fff;
 
+			&.step5 {
+				padding-top: 0;
+			}
+
 			&.financeiro{
 				padding-top:0;
 			}
@@ -134,10 +138,6 @@ input {
 				font-family: 'HelveticaNeueStd';
 				font-size: 17px;
 				color: #525353;
-				// span{
-				// 	clear: both;
-				// 	display: block;
-				// }
 			}
 
 			&-container {

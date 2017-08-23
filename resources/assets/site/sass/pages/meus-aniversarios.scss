@@ -646,6 +646,102 @@ $layout-color-blue: #019ee3;
 			margin-left: 30px;
 		}
 	}
+
+	&-gift {
+		&-column {
+			border-right: 1px solid #b0b3b4;
+			min-height: 260px;
+			position: relative;
+
+			&:last-child {
+				border-right: 0 none;
+			}
+		}
+
+		&-link {
+			text-align: center;
+			width: 100%;
+			display: inline-block;
+			color: #4d5053;
+			font: 18px 'HelveticaNeueStd_CN';
+			padding: 0 25px;
+
+			&:hover {
+				text-decoration: none;
+			}
+
+			.icon {
+				&:before {
+					content: "";
+					display: inline-block;
+					background: url(../images/passo_5_icones.png) no-repeat;
+					width: 60px;
+					height: 50px;
+					position: absolute;
+					top: 36px;
+					transform: translate(-50%, 0);
+					left: 50%;
+				}
+
+				position: relative;
+				background: url(../images/passo_5_icone_presente.png) no-repeat center 0;
+				width: 100%;
+				display: block;
+				margin: 0 auto;
+				padding-top: 100px;
+				font: 20px dk_astromonkeyregular;
+				color: #ee4949;
+				text-align: center;
+
+				&.form-birthday-gift {
+					&-toy {
+						&:before {
+							background-position: 8px 0;
+						}
+					}
+
+					&-clothes {
+						&:before {
+							background-position: -286px 0;
+						}
+					}
+
+					&-quotas {
+						&:before {
+							background-position: -578px 0;	
+						}
+					}
+				}
+			}
+		}
+
+		&-count {
+			font: 16px HelveticaNeueStd_CN;
+			color: #b2b5b8;
+			text-align: center;
+			width: calc(100% - 30px);
+			display: inline-block;
+			position: absolute;
+			bottom: 0;
+
+			&.active {
+				color: #ee4949;
+
+				i {
+					background-color: #ee4949;
+				}
+			}
+
+			i {
+				mask: url(../images/passo_5_icone_presente.png) no-repeat center top / contain;
+				width: 18px;
+				height: 17px;
+				display: inline-block;
+				margin-right: 4px;
+				background-color: #b2b5b8;
+			}
+		}
+	}
 }
 
 .form-inline .form-birthday {
