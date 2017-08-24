@@ -229,9 +229,14 @@
 						<p>Insira aqui o código único<br/>ou o nome do(a) aniversariante</p>
 					</div>
 					<!-- /m_editable -->
-					<div class="grpelem" id="u9186">
-						<!-- simple frame -->
-					</div>
+					<form method="post" action="{{ route('convidado.login') }}">
+						@if (session('status'))
+							<div class="form-login-message">
+								{{ session('status') }}
+							</div>
+						@endif
+						<input type="text" name="name" id="u9186" class="clearfix grpelem" required>
+					</form>
 					<div class="clearfix grpelem" id="u9630">
 						<!-- column -->
 						<img class="colelem" id="u9220-4" alt="Entrar:" width="444" height="34" src="{{ asset('assets/home/images/u9220-4.png?crc=247824620') }}"/><!-- rasterized frame -->

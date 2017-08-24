@@ -42,6 +42,11 @@ Route::group(['prefix' => 'usuario'], function() {
     });
 });
 
+Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
+    Route::post('login', ['as'=> 'convidado.login', 'uses' => 'HomeController@login']);
+    Route::get('{festa_id}', ['as'=> 'convidado.index', 'uses' => 'HomeController@index'])->where(['festa_id' => '[0-9]+']);
+});
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 	Route::get('/', ['as'=> 'admin.index','uses' => 'AdminController@index']);
     Route::get('login', ['as'=> 'admin.login','uses' => 'AdminController@index']);
