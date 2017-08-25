@@ -82,21 +82,6 @@
 									<button type="button" class="form-birthday-layouts-choise-modal-button form-birthday-choise-modal-cancel blue">CANCELAR</button>
 								</div>
 							</div>
-
-							<div class="form-birthday-layouts-dashboard form-inline">
-								<p class="form-birthday-layouts-text">Gostaria que os convidados vissem os recados que receber em um mural de recados na página do aniversariante?</p>
-
-								<div class="radio">
-									<label class="form-birthday-sex-label">
-										<input type="radio" name="receber_recados" value="1" {{ isset($festa->receber_recados) && $festa->receber_recados == '1' ? 'checked="checked"' : '' }}><span></span> Sim
-									</label>
-								</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<div class="radio">
-									<label class="form-birthday-sex-label">
-										<input type="radio" name="receber_recados" value="0" {{ isset($festa->receber_recados) && $festa->receber_recados == '0' ? 'checked="checked"' : '' }}><span></span> Não
-									</label>
-								</div>
-							</div>
 						</fieldset>
 					</div>
 					<nav class="form-birthday-paginate-nav text-center">
