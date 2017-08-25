@@ -302,6 +302,28 @@ $(function() {
 		status = $self.hasClass('active') ? 1 : 0;
 		$.post(baseUrl + '/api/categorias/adicionar', { tipo: $self.data('id'), festa: $list.data('festaId'), status: status})
 	});
+
+	$('[type="number"]').on('keypress', function (e) {
+		return e.charCode >= 48 && e.charCode <= 57;
+	});
+
+	var setTimePicker = function( currentDateTime ){
+		$('.form-birthday-date-day').val(currentDateTime.getDate());
+		$('.form-birthday-date-month').val(currentDateTime.getMonth() + 1);
+		$('.form-birthday-date-year').val(currentDateTime.getFullYear());
+	};
+
+	var maxDate = new Date(new Date().setFullYear(new Date().getFullYear() + 3));
+	$.datetimepicker.setLocale('pt-BR');
+
+	$('.form-birthday-calendar').datetimepicker({
+		onSelectDate: setTimePicker,
+		minDate: 0,
+		maxDate: maxDate,
+		timepicker: false,
+		yearStart: new Date().getFullYear(),
+		yearEnd: new Date().getFullYear() + 3
+	});
 });
 
 function closeGiftModal() {

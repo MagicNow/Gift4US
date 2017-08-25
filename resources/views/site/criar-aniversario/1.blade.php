@@ -34,7 +34,7 @@
 								<input type="text" class="form-control form-input" id="aniver-nome" name="nome" maxlength="100" value="{{ old('nome', $festa->nome) }}" tabindex="1">
 							</div>
 							<div class="form-group">
-								<p class="defaut-text">Qual o sexo do aniversáriante?</p>
+								<p class="defaut-text">Qual o gênero do aniversáriante?</p>
 								<label class="checkbox-inline pd0">
 									<input type="radio" id="sexo-sim" value="masculino" name="sexo" {{ $festa->sexo == 'masculino' ? 'checked' : '' }}> Masculino
 								</label>
