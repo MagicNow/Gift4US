@@ -24,8 +24,7 @@ class StoreBirthdayStep4 extends FormRequest
 	public static function rules()
 	{
 		return [
-			'layout_id' => 'required|exists:festas_layouts,id',
-			'receber_recados' => 'required'
+			'layout_id' => 'required|exists:festas_layouts,id'
 		];
 	}
 
@@ -38,8 +37,7 @@ class StoreBirthdayStep4 extends FormRequest
 	public function messages()
 	{
 		return [
-			'layout_id.required' => 'Escolha de layout obrigatória',
-			'receber_recados.required' => 'Campo para receber recados obrigatório',
+			'layout_id.required' => 'Escolha de layout obrigatória'
 		];
 	}
 }

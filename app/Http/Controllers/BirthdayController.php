@@ -80,7 +80,8 @@ class BirthdayController extends Controller {
 		$gifts = [
 			'toys' => 0,
 			'clothes' => 0,
-			'quotas' => 0
+			'quotas' => 0,
+			'total' => 0
 		];
 
 		if (isset($festa_id) && !empty($festa_id)) {
@@ -106,6 +107,8 @@ class BirthdayController extends Controller {
 							break;
 					}
 				}
+
+				$gifts['total'] = $gifts['clothes'] + $gifts['toys'] + $gifts['quotas'];
 			}
 		} else {
 			$view = 'site.criar-aniversario.1';

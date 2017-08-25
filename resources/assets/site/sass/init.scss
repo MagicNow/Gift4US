@@ -151,3 +151,21 @@
 	-moz-transition:background-color 0.4s linear;
 	transition:background-color 0.4s linear;
 }
+
+.usuario-meus-aniversarios-novo-festa {
+	footer {
+		margin-top: 25px;
+
+		&:before {
+			display: inline-block;
+			content: "";
+			background: url(../images/presentinho_rodape.png);
+			width: 116px;
+			height: 82px;
+			position: absolute;
+			top: -82px;
+			left: 50%;
+			margin: 0 0 0 58px;
+		}
+	}
+}
