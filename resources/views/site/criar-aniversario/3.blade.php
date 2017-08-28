@@ -48,18 +48,22 @@
 										<label for="aniver-tamanho-camiseta" class="form-birthday-size-label">Camiseta, regata, camisa e etc.</label>
 										<select name="tamanho_camiseta" class="form-control form-birthday-size-input" id="aniver-tamanho-camiseta">
 											<option value="" disabled>Clique para escolher o tamanho</option>
+											<option value="PP" {{ $festa->tamanho_camiseta == 'PP' ? 'selected' : '' }}>PP</option>
 											<option value="P" {{ $festa->tamanho_camiseta == 'P' ? 'selected' : '' }}>P</option>
 											<option value="M" {{ $festa->tamanho_camiseta == 'M' ? 'selected' : '' }}>M</option>
 											<option value="G" {{ $festa->tamanho_camiseta == 'G' ? 'selected' : '' }}>G</option>
+											<option value="GG" {{ $festa->tamanho_camiseta == 'GG' ? 'selected' : '' }}>GG</option>
 										</select>
 									</div>
 									<div class="form-group form-birthday-size-container">
 										<label for="aniver-tamanho-calca" class="form-birthday-size-label">Calça, bermuda, shorts e etc.</label>
 										<select name="tamanho_calca" class="form-control form-birthday-size-input" id="aniver-tamanho-calca">
 											<option value="" disabled>Clique para escolher o tamanho</option>
+											<option value="PP" {{ $festa->tamanho_camiseta == 'PP' ? 'selected' : '' }}>PP</option>
 											<option value="P" {{ $festa->tamanho_calca == 'P' ? 'selected' : '' }}>P</option>
 											<option value="M" {{ $festa->tamanho_calca == 'M' ? 'selected' : '' }}>M</option>
 											<option value="G" {{ $festa->tamanho_calca == 'G' ? 'selected' : '' }}>G</option>
+											<option value="GG" {{ $festa->tamanho_camiseta == 'GG' ? 'selected' : '' }}>GG</option>
 										</select>
 									</div>
 									<div class="form-group form-birthday-size-container">
@@ -91,7 +95,7 @@
 					<div class="clearfix">
 						<div class="col-md-8">
 							<div class="form-group">
-								<label for="aniver-observacoes">Observações gerais (opcional)</label>
+								<label for="aniver-observacoes">Observações gerais sobre o aniversariante (opcional)</label>
 								<input type="text" class="form-control form-input" id="aniver-observacoes" name="observacoes_2" value="{{ old('nome', $festa->observacoes_2) }}">
 							</div>
 						</div>
