@@ -12,10 +12,12 @@ header{
 	height: 119px;
 	background:url(../images/bg_menu.jpg);
 	font-size:17px;
+
 	.navbar{
 		border:0;
 		margin-top: 20px;
 		margin-bottom: 0;
+
 		&.navbar-default{
 			.navbar-collapse {
 			  	text-align: center;
@@ -25,14 +27,27 @@ header{
 					vertical-align: top;
 					li{
 						border-bottom: 3px solid #FFF;
+
 						&.logout{
 							border-bottom:0;
-							margin-left: -16px;
-							margin-top: -10px;
+							margin-left: -5px;
+							margin-top: -15px;
+
+							a {
+								background: url(../images/sair.png) no-repeat;
+								background-size: contain;
+								width: 68px;
+								height: 82px;
+								color: #f59324;
+								font: 30px/80px HelveticaNeueStd_BDCN;
+								text-align: center;
+							}
 						}
+
 						&.divisor{
 							border-right:3px solid #FFF;
 						}
+
 						a{
 							padding: 0 15px 5px;
 							color:#FFF;

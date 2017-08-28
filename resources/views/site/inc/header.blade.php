@@ -34,13 +34,12 @@
                             <li><a class="{!! (Route::currentRouteName() == 'usuario.meus-aniversarios') ? 'active': ''!!}" href="{{ route('usuario.meus-aniversarios') }}" alt="">meus aniversários</a></li>
                             <li class="divisor"><a class="{!! (Route::currentRouteName() == 'fitoterapiconatural') ? 'active': ''!!}" href="{!! route('home')!!}" alt="">lista de presentes</a></li>
                             <li><a class="{!! (Route::currentRouteName() == 'transferencia.index') ? 'active': ''!!}" href="{{ route('transferencia.index') }}" alt="">resgatar valores</a></li>
-                            <li class="logout"><a href="{{ route('usuario.logout') }}" alt="">{{ Html::image('assets/site/images/sair.png', '', array('class' => 'img-responsive')) }}</a></li>
+                            <li class="logout"><a href="{{ route('usuario.logout') }}" alt="">{{ mb_substr($client->nome, 0, 1) }}</a></li>
                         </ul>
                     </nav>
                 </div>
                 <h2>{{ isset($titulo) ? $titulo : '' }}</h2>
             </div>
-
         </header>
         <!--END HEADER-->
        
