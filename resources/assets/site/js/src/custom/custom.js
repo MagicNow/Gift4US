@@ -170,11 +170,16 @@ $(function() {
 		var $list = $self.parents('.gifts-list');
 		var $item = $self.parents('.gifts-item');
     	var $total = $('.gifts-box-number-header-total');
+    	var total = parseInt($total.text()) + 1;
 
     	$item.addClass('selected');
-    	$total.text(parseInt($total.text()) + 1);
+    	$total.text(total);
 
-    	$.post(baseUrl + '/api/presentes/adicionar', { produto: $item.data('id'), festa: $list.data('festaId')})
+		if (total > 0) {
+			$('.gifts-box-number-submit').show();
+		}
+
+    	$.post(baseUrl + '/api/presentes/adicionar', { produto: $item.data('id'), festa: $list.data('festaId')});
     });
 
     $('.gifts-filter-select').select2({
@@ -207,10 +212,15 @@ $(function() {
 
 		var $list = $('.gifts-list');
 		var $total = $('.gifts-box-number-header-total');
+		var total = parseInt($total.text()) - 1;
 
 		$activeGift.removeClass('selected');
-		$total.text(parseInt($total.text()) - 1);
+		$total.text(total);
 		closeGiftModal();
+
+		if (total <= 0) {
+			$('.gifts-box-number-submit').hide();
+		}
 
 		$.post(baseUrl + '/api/presentes/remover', { produto: $activeGift.data('id'), festa: $list.data('festaId')})
     });

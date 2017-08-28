@@ -139,6 +139,7 @@ class GiftsController extends Controller {
 		}
 
 		$selected = $party->produto->where('categoria', 'brinquedo')->pluck('id')->toArray();
+		$add = [];
 
 		if ($request->selecionados) {
 			$products = $products->whereIn('id', $selected);
@@ -147,7 +148,7 @@ class GiftsController extends Controller {
 		$products = $products->paginate(30);
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
-		return view('site.presentes.brinquedos-lista', compact('request', 'titulo', 'client', 'products', 'party', 'selected'));
+		return view('site.presentes.brinquedos-lista', compact('request', 'titulo', 'client', 'products', 'party', 'selected', 'add'));
 	}
 
 	public function preview($festa_id, $layout_id)
