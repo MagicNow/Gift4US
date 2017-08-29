@@ -27,18 +27,20 @@
                             <span class="icon-bar"></span>
                         </div>            
                     </div>
-                    <nav id="navbar" role="navigation" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="divisor"><a class="{!! (Route::currentRouteName() == 'home') ? 'active': ''!!}" href="{!! route('home')!!}" alt=""><i class="fa fa-search" aria-hidden="true"></i> aniversário convidado</a></li>
-                            <li><a class="{!! (Route::currentRouteName() == 'cadastro.edit') ? 'active': ''!!}" href="{!! route('cadastro.edit', $client->id)!!}" alt="">dados do usuário</a></li>
-                            <li><a class="{!! (Route::currentRouteName() == 'usuario.meus-aniversarios') ? 'active': ''!!}" href="{{ route('usuario.meus-aniversarios') }}" alt="">meus aniversários</a></li>
-                            <li class="divisor"><a class="{!! (Route::currentRouteName() == 'fitoterapiconatural') ? 'active': ''!!}" href="{!! route('home')!!}" alt="">lista de presentes</a></li>
-                            <li><a class="{!! (Route::currentRouteName() == 'transferencia.index') ? 'active': ''!!}" href="{{ route('transferencia.index') }}" alt="">resgatar valores</a></li>
-                            <li class="logout"><a href="{{ route('usuario.logout') }}" alt="">{{ mb_substr($client->nome, 0, 1) }}</a></li>
-                        </ul>
-                    </nav>
+                    @if (isset($client))
+                        <nav id="navbar" role="navigation" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="divisor"><a class="{!! (Route::currentRouteName() == 'home') ? 'active': ''!!}" href="{!! route('home')!!}" alt=""><i class="fa fa-search" aria-hidden="true"></i> aniversário convidado</a></li>
+                                <li><a class="{!! (Route::currentRouteName() == 'cadastro.edit') ? 'active': ''!!}" href="{!! route('cadastro.edit', $client->id)!!}" alt="">dados do usuário</a></li>
+                                <li><a class="{!! (Route::currentRouteName() == 'usuario.meus-aniversarios') ? 'active': ''!!}" href="{{ route('usuario.meus-aniversarios') }}" alt="">meus aniversários</a></li>
+                                <li class="divisor"><a class="{!! (Route::currentRouteName() == 'fitoterapiconatural') ? 'active': ''!!}" href="{!! route('home')!!}" alt="">lista de presentes</a></li>
+                                <li><a class="{!! (Route::currentRouteName() == 'transferencia.index') ? 'active': ''!!}" href="{{ route('transferencia.index') }}" alt="">resgatar valores</a></li>
+                                <li class="logout"><a href="{{ route('usuario.logout') }}" alt="">{{ mb_substr($client->nome, 0, 1) }}</a></li>
+                            </ul>
+                        </nav>
+                    @endif
                 </div>
-                <h2>{{ isset($titulo) ? $titulo : '' }}</h2>
+                <h2 class="navbar-title {{ isset($client) ? '' : 'no-menu' }}">{{ isset($titulo) ? $titulo : '' }}</h2>
             </div>
         </header>
         <!--END HEADER-->

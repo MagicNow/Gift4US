@@ -18,6 +18,12 @@ header{
 		margin-top: 20px;
 		margin-bottom: 0;
 
+		&-title {
+			&.no-menu {
+				margin-top: 25px;
+			}
+		}
+
 		&.navbar-default{
 			.navbar-collapse {
 			  	text-align: center;
