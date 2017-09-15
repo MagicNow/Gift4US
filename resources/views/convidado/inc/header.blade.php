@@ -14,7 +14,7 @@
 	 {{-- {!! Html::style('assets/site/styles/bootstrap.min.css') !!} --}}
 	 {!! Html::style('assets/site/styles/styles.css') !!}
 </head>
-<body class="{!! Route::currentRouteName() !!}">
+<body class="{!! Route::currentRouteName() !!} {{ $party->layout()->first()->class }}">
 		<!--HEADER-->
 		<header>
 			<div class="navbar navbar-default col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -25,21 +25,22 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
-						</div>            
+						</div>
 					</div>
 					<nav id="navbar" role="navigation" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li class="divisor"><a href="#" alt=""><i class="fa fa-search" aria-hidden="true"></i> procurar aniversário</a></li>
-							<li><a href="#" alt="">como funciona</a></li>
-							<li><a href="#" alt="">passo a passo</a></li>
-							<li class="divisor"><a href="#" alt="">novo usuário</a></li>
+							<li class="divisor"><a href="#" alt="">como funciona</a></li>
+							<li class="divisor"><a href="#" alt="">passo a passo</a></li>
+              <li><a href="#" alt="">novo usuário</a></li>
+							<li class="login-do"><a href="#" alt=""><img src="{{ url('assets/site/images/small_logo.png') }}" class="header-logo">fazer login</a></li>
 						</ul>
 					</nav>
 				</div>
-				<h2>{{ isset($titulo) ? $titulo : '' }}</h2>
+				<h2 class="title">{{ isset($titulo) ? $titulo : 'ÁREA DO CONVIDADO' }}</h2>
 			</div>
 
 		</header>
 		<!--END HEADER-->
-	   
-	 
+
+
