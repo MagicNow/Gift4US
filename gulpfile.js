@@ -18,7 +18,7 @@ var gulp			= require('gulp'),
 
 //compressing images & handle SVG files
 gulp.task('images', function() {
-    gulp.src(['resources/assets/site/images/*.jpg', 'public/assets/site/images/*.png'])
+    gulp.src(['resources/assets/site/images/*.jpg','resources/assets/site/images/**/*.jpg', 'public/assets/site/images/*.png'])
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
         // .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))

@@ -17,8 +17,7 @@
       <div class="preview-header-name">{{ $party->nome }}</div>
       <div class="preview-header-image-container text-center">
         <div class="preview-header-image-mask">&nbsp;</div>
-        <!-- <img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image"></div> -->
-        <img src="http://ec2-54-213-100-241.us-west-2.compute.amazonaws.com/version1.1/public/storage/birthdays/mask/zRw9wP62mvTp64hAIyGK32VIUs7quC4g1MKQHf5Y.png" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+        <img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image"></div>
       </div>
      <div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
       <div class="preview-header-decor preview-header-decor-right"></div>
@@ -61,8 +60,7 @@
         <div class="preview-header-name">{{ $party->nome }}</div>
         <div class="preview-header-image-container text-center">
           <div class="preview-header-image-mask">&nbsp;</div>
-          <!-- <img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image"></div> -->
-          <img src="http://ec2-54-213-100-241.us-west-2.compute.amazonaws.com/version1.1/public/storage/birthdays/mask/zRw9wP62mvTp64hAIyGK32VIUs7quC4g1MKQHf5Y.png" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+          <img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image"></div>
         </div>
         <div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
         <div class="preview-header-decor preview-header-decor-right"></div>
@@ -105,8 +103,7 @@
         <div class="preview-header-name">{{ $party->nome }}</div>
         <div class="preview-header-image-container text-center">
           <div class="preview-header-image-mask">&nbsp;</div>
-          <!-- <img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image"></div> -->
-          <img src="http://ec2-54-213-100-241.us-west-2.compute.amazonaws.com/version1.1/public/storage/birthdays/mask/zRw9wP62mvTp64hAIyGK32VIUs7quC4g1MKQHf5Y.png" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+          <img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image"></div>
         </div>
         <div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
         <div class="preview-header-decor preview-header-decor-right"></div>
@@ -145,8 +142,7 @@
         <div class="preview-header-name">{{ $party->nome }}</div>
         <div class="preview-header-image-container text-center">
           <div class="preview-header-image-mask">&nbsp;</div>
-          <!-- <img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image"></div> -->
-          <img src="http://ec2-54-213-100-241.us-west-2.compute.amazonaws.com/version1.1/public/storage/birthdays/mask/zRw9wP62mvTp64hAIyGK32VIUs7quC4g1MKQHf5Y.png" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+          <img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image"></div>
         </div>
         <div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
         <div class="preview-header-decor preview-header-decor-right"></div>
@@ -185,8 +181,7 @@
         <div class="preview-header-name">{{ $party->nome }}</div>
         <div class="preview-header-image-container text-center">
           <div class="preview-header-image-mask">&nbsp;</div>
-          <!-- <img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image"></div> -->
-          <img src="http://ec2-54-213-100-241.us-west-2.compute.amazonaws.com/version1.1/public/storage/birthdays/mask/zRw9wP62mvTp64hAIyGK32VIUs7quC4g1MKQHf5Y.png" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+          <img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image"></div>
         </div>
         <div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
         <div class="preview-header-decor preview-header-decor-right"></div>
