@@ -37,6 +37,10 @@ $layout-color-blue: #019ee3;
     position: relative;
     z-index: 1;
 
+    &-first {
+    	margin-top: 0;
+    }
+
     &-actions {
 		width: 100%;
 		margin: 20px 0 10px;

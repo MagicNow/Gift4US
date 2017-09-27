@@ -230,9 +230,9 @@
 					</div>
 					<!-- /m_editable -->
 					<form method="post" action="{{ route('convidado.login') }}">
-						@if (session('status'))
+						@if (session('convidado'))
 							<div class="form-login-message">
-								{{ session('status') }}
+								{{ session('convidado') }}
 							</div>
 						@endif
 						<input type="text" name="name" id="u9186" class="clearfix grpelem" required>

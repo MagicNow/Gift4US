@@ -26,7 +26,12 @@ class HomeController extends Controller {
 	{
 		$name = $request->input('name');
 		$party = Festas::where('nome', 'LIKE', '%' . $name . '%')->first();
-		return redirect()->route('convidado.index', $party->id);
+		if (isset($party) && !empty($party)) {
+			return redirect()->route('convidado.index', $party->id);
+		} else {
+			session()->flash('convidado', 'Código da festa não existe.');
+			return redirect('/');
+		}
 	}
 
 	/**

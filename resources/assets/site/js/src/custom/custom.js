@@ -53,9 +53,17 @@ $(function() {
 		});
 	});
 
-	$('.my-birthday-checkbox').radiobutton({
+	var $checkbox = $('.my-birthday-checkbox');
+	$checkbox.radiobutton({
 		className: 'jquery-switch',
 		checkedClass: 'jquery-switch-on'
+	});
+
+	$checkbox.on('click', function (e) {
+		var $self = $(this);
+		var checked = $self.is(':checked') ? $self.val() : null;
+
+		$.post(baseUrl + '/api/festas/ativar', { ativar: checked, festa: $self.data('festaId')});
 	});
 
 	$('.password-form').validate({

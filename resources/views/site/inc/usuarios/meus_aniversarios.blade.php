@@ -1,19 +1,25 @@
-<div class="col-md-12 my-birthday" data-presente="{{ asset('assets/site/images/presentinho_aniversario_novo.png') }}">
+<div class="col-md-12 my-birthday my-birthday-first" data-presente="{{ asset('assets/site/images/presentinho_aniversario_novo.png') }}">
 	@if (count($festas['festas_ativas']) > 0)
 		<h3 class="my-birthday-title">Meus aniversários</h3>
 		<a href="{{ route('usuario.meus-aniversarios.novo') }}" class="my-birthday-create-button-small">Criar novo aniversário</a>
-		{{-- <a href="{{ route('aniversario.criar') }}" class="my-birthday-create-button-small">Criar novo aniversário</a> --}}
 		<div class="my-birthday-list">
 			@foreach ($festas['festas_ativas'] as $festa)
 				<div class="my-birthday-item">
 					<div class="row">
-						<div class="col-md-4 my-birthday-item-input">
-							<input type="radio" name="name" id="my-birthday-1" class="my-birthday-checkbox" value="1" checked="checked" disabled="disabled" />
-						</div>
+						@if (isset($festa->layout_id) && !empty($festa->layout_id))
+							<div class="col-md-4 my-birthday-item-input">
+								<input type="checkbox" name="active[{{ $festa->id }}]" id="my-birthday-{{ $festa->id }}" class="my-birthday-checkbox" value="1" {{ $festa->active ? 'checked="checked"' : '' }} data-festa-id="{{ $festa->id }}" />
+							</div>
+						@else
+							<div class="col-md-4 my-birthday-item-input">
+								<span class="my-birthday-item-unfinished">Inacabado</span>
+							</div>
+						@endif
+
 						<div class="col-md-8 my-birthday-item-text text-right">
 							<span class="my-birthday-item-name">{{ $festa->nome }}</span>
 							<span class="my-birthday-item-date">{{ $festa->festa_dia }}/{{ $festa->festa_mes }}/{{ $festa->festa_ano }}</span>
-							<span class="my-birthday-item-presente">33</span>
+							<span class="my-birthday-item-presente">{{ $festa->produto()->count() }}</span>
 						</div>
 					</div>
 					<a href="{{ route('usuario.meus-aniversarios.editar', $festa->id) }}" class="row col-md-12 text-center my-birthday-item-enter">Entrar no aniversário</a>

@@ -164,4 +164,16 @@ class GiftsController extends Controller {
 		$titulo = 'CRIANDO ANIVERSÁRIO';
 		return view('site.criar-aniversario.preview', compact('festa', 'client', 'titulo', 'layout'));
 	}
+
+
+	public function toysAdd(Request $request, $festa_id)
+	{
+		$party = Festas::find($festa_id);
+		$client = $this->cliente;
+		$titulo = 'ÁREA DO USUÁRIO';
+		$selected = $party->produto->where('categoria', 'brinquedo')->pluck('id')->toArray();
+		$add = [];
+
+		return view('site.presentes.brinquedos-adicionar', compact('request', 'titulo', 'client', 'party', 'selected', 'add'));
+	}
 }
