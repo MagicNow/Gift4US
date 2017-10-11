@@ -18,7 +18,7 @@ var gulp			= require('gulp'),
 
 //compressing images & handle SVG files
 gulp.task('images', function() {
-    gulp.src(['resources/assets/site/images/*.jpg','resources/assets/site/images/**/*.jpg', 'public/assets/site/images/*.png', 'public/assets/site/images/**/.png'])
+    gulp.src(['resources/assets/site/images/**/*'])
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
         // .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
@@ -28,14 +28,6 @@ gulp.task('images', function() {
 gulp.task('copy', function() {
     gulp.src(['resources/assets/site/json/*'])
         .pipe(gulp.dest('public/assets/site/json'));
-});
-
-//compressing images & handle SVG files
-gulp.task('images-deploy', function() {
-    gulp.src(['resources/assets/site/images/**/*', '!resources/assets/site/images/README'])
-        //prevent pipe breaking caused by errors from gulp plugins
-        .pipe(plumber())
-        .pipe(gulp.dest('public/assets/site/images'));
 });
 
 //compiling our Javascripts
@@ -163,7 +155,7 @@ gulp.task('watch', ['scripts', 'styles', 'images'], function() {
 });
 
 //this is our deployment task, it will set everything for deployment-ready files
-gulp.task('deploy', gulpSequence( ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy', 'copy'));
+gulp.task('deploy', gulpSequence( ['scripts-deploy', 'styles-deploy', 'images'], 'html-deploy', 'copy'));
 
 gulp.task('admin-fonts', function() {
     gulp.src(['resources/assets/admin/fonts/**/*'])
