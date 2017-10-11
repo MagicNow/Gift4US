@@ -22,6 +22,12 @@ class HomeController extends Controller {
 		return view('convidado.home', compact('party'));
 	}
 
+	public function brinquedos(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('convidado.brinquedos', compact('party'));
+	}
+
 	public function login(Request $request)
 	{
 		$name = $request->input('name');
