@@ -3,11 +3,12 @@ header h2{
 }
 
 .preview{
+  margin-top:20px;
   margin-bottom:-49px
 }
 
 .box-preview:first-child{
-  background:url(/public/assets/site/images/img-festa.png) no-repeat;
+  background:url(../images/img-festa.png) no-repeat;
   background-position:right;
   text-align:right;
   padding-top:155px;
@@ -16,9 +17,9 @@ header h2{
   text-transform:uppercase;
 }
 
-.box-preview:last-child img{
+.box-preview:last-child img{ 
   margin-left: 80px
-}
+} 
 
 .box-preview{
   width:50%;
@@ -30,6 +31,10 @@ header h2{
   display:block
 }
 
+.preview-header{
+  height:180px;
+}
+
 .preview-header-decor{
   width:100%;
   height:87px;
@@ -38,6 +43,8 @@ header h2{
 
 .preview-header-decor img{
   margin-top:-75px;
+  z-index:1;
+  position:relative;
 }
 .preview-header-name{
   top:53px;
@@ -64,7 +71,7 @@ header h2{
 .boxfR fieldset{
   margin-top:40px;
   padding:40px 84px 40px 61px;
-  background:url(/public/assets/site/images/bg-box-confirmacao.png) no-repeat;
+  background:url(../images/bg-box-confirmacao.png) no-repeat;
   width:567px;
   height:404px;
 }
@@ -122,15 +129,15 @@ header h2{
 }
 
 .presente .preview-item-toys{
-  background:url(/public/assets/site/images/img-brinquedo.png) no-repeat;
+  background:url(../images/img-brinquedo.png) no-repeat;
 }
 
 .presente .preview-item-clothes{
-  background:url(/public/assets/site/images/img-roupa.png) no-repeat;
+  background:url(../images/img-roupa.png) no-repeat;
 }
 
 .presente .preview-item-quota{
-  background:url(/public/assets/site/images/img-cotas.png) no-repeat;
+  background:url(../images/img-cotas.png) no-repeat;
 }
 
 .presente ul li p.desc{
@@ -162,7 +169,7 @@ header h2{
 }
 
 .mensagem fieldset{
-  background:url(/public/assets/site/images/bg-mensagem.png) no-repeat;
+  background:url(../images/bg-mensagem.png) no-repeat;
   width:564px;
   height:460px;
   padding:35px 67px 20px 48px;
@@ -192,12 +199,12 @@ header h2{
   width:444px;
   height:221px;
 }
-
+ 
 .maps{
   padding:40px;
   width:1174px;
   height: 495px;
-  background:#FFF url(/public/assets/site/images/bg-mapa.png) no-repeat 69px 72px;
+  background:#FFF url(../images/bg-mapa.png) no-repeat 69px 72px;
   margin:30px auto;
 }
 
@@ -227,4 +234,37 @@ header h2{
 .maps .where p{
   color:#245667;
   font-size:15px
+}
+
+.brinquedosLista .dados-container{
+  padding-top:50px;
+}
+
+.brinquedosLista .gifts-box-number{
+  padding:175px 0 0 40px;
+}
+
+.brinquedosLista .porcentagem{
+  margin:20px 22px 35px 22px;
+  border:5px solid #1e9bd7;
+  width:140px;
+  height:20px;
+  display:inline-block;
+}
+
+.brinquedosLista .porcentagem span {
+  float:left;
+  background-color:#f09121;
+  height:10px;
+}
+
+.brinquedosLista .porcentagem strong {
+  display: block;
+  margin: 15px 0;
+  font-size: 15px;
+  font-weight: normal;
+  text-align: center;
+}
+.brinquedosLista .gifts-filter-search{
+  width:220px;
 }

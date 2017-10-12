@@ -30,26 +30,26 @@
     </div>
 
     <div class="control-panel" style="clear:both">
-      <img src="{{ url('assets/site/images/presentinho-preview-1.png') }}" class="preview-presentinho">
+      <img src="{{ asset('assets/site/images/presentinho-preview-1.png') }}" class="preview-presentinho">
       <div class="preview-header-address">{{ $party->endereco }}</div>
 
       <div class="preview-container">
-        <img src="{{ url('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
+        <img src="{{ asset('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
         <ul class="preview-list row">
           <li class="col-md-3 preview-item-container">
-            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check.png') }}"></div>
+            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check-box.png') }}"></div>
             <p class="preview-item-text text-center">CONFIRMAR PRESENÇA</p>
           </li>
           <li class="col-md-3 text-center preview-item-container">
-            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check.png') }}"></div>
+            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check-box.png') }}"></div>
             <p class="preview-item-text text-center">LISTA DE PRESENTES DISPONÍVEIS</p>
           </li>
           <li class="col-md-3 text-center preview-item-container ">
-            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check.png') }}"></div>
+            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check-box.png') }}"></div>
             <p class="preview-item-text text-center">ESCREVA UM RECADO</p>
           </li>
           <li class="col-md-3 text-right preview-item-container ">
-            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check.png') }}"></div>
+            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check-box.png') }}"></div>
             <p class="preview-item-text text-center">CLIQUE PARA VER O MAPA</p>
           </li>
         </ul>

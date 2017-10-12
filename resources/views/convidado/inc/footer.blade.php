@@ -10,7 +10,6 @@
 	footer .placa ul li.facebook{margin-left:17px;}
 	footer .placa ul li.instagram{margin-left:12px;}
 	footer .placa ul li a{display:inline-block;text-indent:-1500px;width:59px;height:44px}
-}
 </style>
 <div class="container">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
