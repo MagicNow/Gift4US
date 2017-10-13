@@ -12,7 +12,7 @@ header h2{
   background-position:right;
   text-align:right;
   padding-top:155px;
-  font:Bold 28px Arial;
+  font:bold 28px Arial;
   color:#FFF;
   text-transform:uppercase;
 }
@@ -113,7 +113,7 @@ header h2{
   position: absolute;
   top: -115px;
   left: -209px;
-}
+} 
 
 .presente ul{
   margin:auto;
@@ -282,6 +282,47 @@ header h2{
   font-weight: normal;
   text-align: center;
 }
+
 .brinquedosLista .gifts-filter-search{
   width:220px;
+}
+
+.brinquedosLista .gifts-item-button-show-cota{
+  border-right:0;
+  border-left:0;
+}
+
+.brinquedosLista .gifts-item-detalhe .row p.gifts-item-title{
+  font-size:27px;
+  font-weight:bold;
+  padding-left:15px;
+}
+
+.brinquedosLista .gifts-item-detalhe h5.gifts-item-title{
+height:auto;
+padding:3px;
+}
+
+.brinquedosLista .gifts-item-detalhe p{
+  padding:3px;
+}
+
+.brinquedosLista .gifts-item-detalhe .bgC{
+  background-color:#eaeaea;
+}
+
+.brinquedosLista .gifts-item-detalhe .gifts-item-content div{
+  margin:20px 0;
+  padding:0;
+}
+
+
+.brinquedosLista .gifts-item-detalhe .gifts-item-content div:last-child{
+  padding-left:20px;
+}
+
+.brinquedosLista .gifts-item-detalhe .my-birthday-create-button-small{
+  width:100%;
+  margin:0;
+  text-align:center;
 }

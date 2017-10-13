@@ -37,7 +37,7 @@
 										@endif
 											<div class="col-md-3 gifts-categories-item {{ in_array($category->id, $selected) ? 'active' : '' }}" data-id="{{ $category->id }}">
 												<img src="{{ asset('assets/site/images/passo_5_icone_presente.png') }}" alt="{{ $category->nome }}" width="62" class="gifts-categories-icon red">
-												<img src="{{ asset('assets/site/images/passo_5_icone_presente_laranja.png') }}" alt="{{ $category->nome }}" width="62" class="gifts-categories-icon orange">
+												<img src="{{ asset('assets/site/images/img-presente-out.png.png') }}" alt="{{ $category->nome }}" width="62" class="gifts-categories-icon orange">
 												<p class="gifts-categories-text">{{ $category->nome }}</p>
 											</div>
 										@if ($x == 4)

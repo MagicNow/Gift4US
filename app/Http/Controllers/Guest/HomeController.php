@@ -28,6 +28,18 @@ class HomeController extends Controller {
 		return view('convidado.brinquedos', compact('party'));
 	}
 
+	public function cotas(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('convidado.cotas', compact('party'));
+	}
+
+	public function cotasdetalhe(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('convidado.cotasdetalhe', compact('party'));
+	}
+
 	public function login(Request $request)
 	{
 		$name = $request->input('name');

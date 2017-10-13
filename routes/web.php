@@ -48,6 +48,8 @@ Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
     Route::get('{festa_id}', ['as'=> 'convidado.index', 'uses' => 'HomeController@index'])->where(['festa_id' => '[
         0-9]+']);
     Route::get('{festa_id}/brinquedos', ['as'=> 'convidado.brinquedos', 'uses' => 'HomeController@brinquedos'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/cotas', ['as'=> 'convidado.cotas', 'uses' => 'HomeController@cotas'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/cotasdetalhe', ['as'=> 'convidado.cotasdetalhe', 'uses' => 'HomeController@cotasdetalhe'])->where(['festa_id' => '[0-9]+']);
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {

@@ -59,8 +59,7 @@
 						<li>
 							<div class="col-md-6 gifts-categories-column">
 								<div class="col-md-3 gifts-categories-item active" data-id="1">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon red">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente_laranja.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon orange">
+									<img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="ACESSÓRIOS" width="70" class="gifts-categories-icon orange">
 									<p class="gifts-categories-text">ACESSÓRIOS</p>
 								</div>
 							</div>
@@ -68,8 +67,7 @@
 						<li>
 							<div class="col-md-6 gifts-categories-column">
 								<div class="col-md-3 gifts-categories-item active" data-id="1">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon red">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente_laranja.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon orange">
+									<img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="ACESSÓRIOS" width="70" class="gifts-categories-icon orange">
 									<p class="gifts-categories-text">ACESSÓRIOS</p>
 								</div>
 							</div>
@@ -77,8 +75,7 @@
 						<li>
 							<div class="col-md-6 gifts-categories-column">
 								<div class="col-md-3 gifts-categories-item active" data-id="1">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon red">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente_laranja.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon orange">
+									<img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="ACESSÓRIOS" width="70" class="gifts-categories-icon orange">
 									<p class="gifts-categories-text">ACESSÓRIOS</p>
 								</div>
 							</div>
@@ -86,8 +83,7 @@
 						<li>
 							<div class="col-md-6 gifts-categories-column">
 								<div class="col-md-3 gifts-categories-item active" data-id="1">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon red">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente_laranja.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon orange">
+									<img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="ACESSÓRIOS" width="70" class="gifts-categories-icon orange">
 									<p class="gifts-categories-text">ACESSÓRIOS</p>
 								</div>
 							</div>
@@ -95,8 +91,7 @@
 						<li>
 							<div class="col-md-6 gifts-categories-column">
 								<div class="col-md-3 gifts-categories-item active" data-id="1">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon red">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente_laranja.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon orange">
+									<img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="ACESSÓRIOS" width="70" class="gifts-categories-icon orange">
 									<p class="gifts-categories-text">ACESSÓRIOS</p>
 								</div>
 							</div>
@@ -104,8 +99,7 @@
 						<li>
 							<div class="col-md-6 gifts-categories-column">
 								<div class="col-md-3 gifts-categories-item active" data-id="1">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon red">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente_laranja.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon orange">
+									<img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="ACESSÓRIOS" width="70" class="gifts-categories-icon orange">
 									<p class="gifts-categories-text">ACESSÓRIOS</p>
 								</div>
 							</div>
@@ -113,8 +107,7 @@
 						<li>
 							<div class="col-md-6 gifts-categories-column">
 								<div class="col-md-3 gifts-categories-item active" data-id="1">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon red">
-									<img src="{{ asset('assets/site/images/passo_5_icone_presente_laranja.png') }}" alt="ACESSÓRIOS" width="62" class="gifts-categories-icon orange">
+									<img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="ACESSÓRIOS" width="70" class="gifts-categories-icon orange">
 									<p class="gifts-categories-text">ACESSÓRIOS</p>
 								</div>
 							</div>
@@ -125,8 +118,24 @@
 					<div class="row">
 						<div class="gifts-filter col-md-12">
 							<ul class="gifts-filter-categories">
-								<li class="gifts-filter-categories-item active"><a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos"><i class="gifts-filter-categories-icon gifts-filter-categories-toys"></i> <span>brinquedos</span></a></li><li class="gifts-filter-categories-item"><a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/roupas"><i class="gifts-filter-categories-icon
-								gifts-filter-categories-clothes"></i> <span>roupas</span></a></li><li class="gifts-filter-categories-item"><a href="#"><i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i> <span>cotas</span></a></li>
+								<li class="gifts-filter-categories-item active">
+									<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos">
+										<i class="gifts-filter-categories-icon gifts-filter-categories-toys"></i>
+										<span>brinquedos</span>
+									</a>
+								</li>
+								<li class="gifts-filter-categories-item">
+									<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/roupas">
+										<i class="gifts-filter-categories-icon gifts-filter-categories-clothes"></i>
+										<span>roupas</span>
+									</a>
+								</li>
+								<li class="gifts-filter-categories-item">
+									<a href="#">
+										<i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i>
+										<span>cotas</span>
+									</a>
+								</li>
 							</ul>
 						</div>
 					</div>
