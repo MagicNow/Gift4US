@@ -30,7 +30,9 @@ header h2{
 .box-preview span,.box-preview small{
   display:block
 }
-
+.preview-presentinho{
+  top:718px;
+}
 .preview-header{
   height:180px;
 }
@@ -63,10 +65,19 @@ header h2{
 }
 
 .boxfL,.boxfR{
-  float:left;width:50%
+  float:left;
+  width:50%;
+  position:relative;
 }
 
 .boxfL img{margin:-41px 112px}
+
+.boxfL img.preview-presentinho-vermelho{
+    position: absolute;
+    left: 0;
+    top: 70px;
+    margin-left: 0;
+}
 
 .boxfR fieldset{
   margin-top:40px;
@@ -120,6 +131,12 @@ header h2{
 .presente ul li:first-child,.presente ul li:last-child{
   border-left:none;
   border-right:none;
+}
+
+.presente ul li p a{
+  position:relative;
+  z-index:1;
+  color:#000;
 }
 
 .presente .preview-item-toys,.presente .preview-item-clothes,.presente .preview-item-quota{

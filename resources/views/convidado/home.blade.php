@@ -25,7 +25,7 @@
       <div class="preview-header-image-container text-center">
         <div class="preview-header-image-mask">&nbsp;</div>
         <img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image"></div>
-        <div class="preview-header-info">30.10 | 16:30<br>5 ANOS<br /><img src="{{ asset('assets/site/images/img-festa-chegando.png') }}" alt="" style="margin:-138px -370px 0 0" /></div>
+        <div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
       </div>
     </div>
 
@@ -37,20 +37,20 @@
         <img src="{{ asset('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
         <ul class="preview-list row">
           <li class="col-md-3 preview-item-container">
-            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check-box.png') }}"></div>
-            <p class="preview-item-text text-center">CONFIRMAR PRESENÇA</p>
+            <div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-check.png') }}"></div>
+           <p class="preview-item-text text-center">CONFIRMAR PRESENÇA</p>
           </li>
           <li class="col-md-3 text-center preview-item-container">
-            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check-box.png') }}"></div>
+            <div class="preview-item text-center">57%</div>
             <p class="preview-item-text text-center">LISTA DE PRESENTES DISPONÍVEIS</p>
           </li>
-          <li class="col-md-3 text-center preview-item-container ">
-            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check-box.png') }}"></div>
-            <p class="preview-item-text text-center">ESCREVA UM RECADO</p>
+            <li class="col-md-3 text-center preview-item-container ">
+            <div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-pin.png') }}"></div>
+          <p class="preview-item-text text-center">ESCREVA UM RECADO</p>
           </li>
-          <li class="col-md-3 text-right preview-item-container ">
-            <div class="text-center"><img src="{{ asset('assets/site/images/preview-icon-check-box.png') }}"></div>
-            <p class="preview-item-text text-center">CLIQUE PARA VER O MAPA</p>
+            <li class="col-md-3 text-right preview-item-container ">
+            <div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-map.png') }}"></div>
+          <p class="preview-item-text text-center">CLIQUE PARA VER O MAPA</p>
           </li>
         </ul>
         <div class="preview-advertising">
@@ -76,7 +76,10 @@
           <a class="map-btn" href="#"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
         </div>
       </div>
-      <div class="boxfL"><img src="{{ asset('assets/site/images/img-balao-check.png') }}" align="right" /></div>
+      <div class="boxfL">
+        <img src="{{ asset('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
+        <img src="{{ asset('assets/site/images/img-balao-check.png') }}" align="right" />
+      </div>
       <div class="boxfR">
         <fieldset class="col-md-12">
           <div class="form-group">
@@ -121,7 +124,7 @@
             <img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" />
             <div class="preview-item-toys"></div>
             <p class="preview-item-text text-center">BRINQUEDOS</p>
-            <p class="text-center desc">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</p>
+            <p class="text-center desc"><a href="#">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
             <div class="porcentagem">
               <span style="width:25%"></span>
               <strong>25% disponivel</strong>
@@ -130,7 +133,7 @@
           <li class="col-md-4 text-center preview-item-container">
             <div class="preview-item-clothes text-center"></div>
             <p class="preview-item-text text-center">ROUPAS</p>
-            <p class="text-center desc">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</p>
+            <p class="text-center desc"><a href="#">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
             <div class="porcentagem">
               <span style="width:50%"></span>
               <strong>50% disponivel</strong>
@@ -139,7 +142,7 @@
           <li class="col-md-4 text-center preview-item-container ">
             <div class="preview-item-quota text-center"></div>
             <p class="preview-item-text text-center">COTAS</p>
-            <p class="text-center desc">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</p>
+            <p class="text-center desc"><a href="#">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</a></p>
             <div class="porcentagem">
               <span style="width:75%"></span>
               <strong>75% disponivel</strong>
@@ -167,6 +170,7 @@
       
         <div class="mensagem">
           <div class="boxfL">
+
             <fieldset class="col-md-12">
               <p class="text-left">Escreva uma mensagem</p>
               <div class="form-group">
