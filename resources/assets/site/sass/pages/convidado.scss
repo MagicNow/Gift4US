@@ -47,9 +47,15 @@ header h2{
 
 .preview-header-decor img{
   margin-top:-75px;
-  z-index:1;
+  z-index:2;
   position:relative;
 }
+
+.preview-header-decor img.preview-banner-item-foto{
+  z-index:1;
+  margin-top:-124px;
+}
+
 .preview-header-name{
   top:53px;
 }
@@ -435,4 +441,10 @@ padding:3px;
 .brinquedosLista .formOnline .col-md-2{
   margin:0 20px 20px 0!important;
   float:right!important;
+}
+
+.brinquedosLista .gifts-item .gifts-item-buttons a{
+  color:#000;
+  text-align:center;
+  padding:2px 0 3px;
 }

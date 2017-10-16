@@ -20,7 +20,10 @@
     </div>
     
     <div class="preview-header">
-      <div class="preview-header-decor"><img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image"></div>
+      <div class="preview-header-decor">
+        <img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
+        <img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
+      </div>
       <div class="preview-header-name">{{ $party->nome }}</div>
       <div class="preview-header-image-container text-center">
         <div class="preview-header-image-mask">&nbsp;</div>
@@ -36,21 +39,29 @@
       <div class="preview-container">
         <img src="{{ asset('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
         <ul class="preview-list row">
-          <li class="col-md-3 preview-item-container">
-            <div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-check.png') }}"></div>
-           <p class="preview-item-text text-center">CONFIRMAR PRESENÇA</p>
+          <li class="col-md-3 text-right preview-item-container">
+            <a href="#confirmar">
+              <div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-check.png') }}"></div>
+              <p class="preview-item-text text-center">CONFIRMAR PRESENÇA</p>
+            </a>
           </li>
-          <li class="col-md-3 text-center preview-item-container">
-            <div class="preview-item text-center">57%</div>
-            <p class="preview-item-text text-center">LISTA DE PRESENTES DISPONÍVEIS</p>
-          </li>
-            <li class="col-md-3 text-center preview-item-container ">
-            <div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-pin.png') }}"></div>
-          <p class="preview-item-text text-center">ESCREVA UM RECADO</p>
+          <li class="col-md-3 text-right preview-item-container">
+            <a href="#lista">
+              <div class="preview-item text-center">57%</div>
+              <p class="preview-item-text text-center">LISTA DE PRESENTES DISPONÍVEIS</p>
+            </a>
           </li>
             <li class="col-md-3 text-right preview-item-container ">
-            <div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-map.png') }}"></div>
-          <p class="preview-item-text text-center">CLIQUE PARA VER O MAPA</p>
+              <a href="#recado">
+                <div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-pin.png') }}"></div>
+                <p class="preview-item-text text-center">ESCREVA UM RECADO</p>
+              </a>
+          </li>
+            <li class="col-md-3 text-right preview-item-container ">
+              <a href="#mapa">
+                <div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-map.png') }}"></div>
+                <p class="preview-item-text text-center">CLIQUE PARA VER O MAPA</p>
+              </a>
           </li>
         </ul>
         <div class="preview-advertising">
@@ -61,8 +72,12 @@
 
 
     <div class="rsvp">
-        <div class="preview-header">
-      <div class="preview-header-decor"><img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image"></div>
+      <a name="confirmar"></a>
+      <div class="preview-header">
+      <div class="preview-header-decor">
+        <img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
+        <img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
+      </div>
       <div class="preview-header-name">{{ $party->nome }}</div>
       <div class="preview-header-image-container text-center">
         <div class="preview-header-image-mask">&nbsp;</div>
@@ -70,10 +85,10 @@
         <div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
       </div>
         <div class="sub-menu text-center">
-          <a class="confirm-btn active" href="#"><img src="{{ asset('assets/site/images/img-check-in.png') }}" alt="" /></a>
-          <a class="gifts-btn" href="#"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
-          <a class="message-btn" href="#"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
-          <a class="map-btn" href="#"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
+          <a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-in.png') }}" alt="" /></a>
+          <a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
+          <a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
+          <a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
         </div>
       </div>
       <div class="boxfL">
@@ -103,8 +118,12 @@
     </div>
     <br clear="all" />
     <div class="rsvp">
-        <div class="preview-header">
-      <div class="preview-header-decor"><img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image"></div>
+      <a name="lista"></a>
+      <div class="preview-header">
+      <div class="preview-header-decor">
+        <img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
+        <img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
+      </div>
       <div class="preview-header-name">{{ $party->nome }}</div>
       <div class="preview-header-image-container text-center">
         <div class="preview-header-image-mask">&nbsp;</div>
@@ -112,10 +131,10 @@
         <div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
       </div>
         <div class="sub-menu text-center">
-          <a class="confirm-btn active" href="#"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
-          <a class="gifts-btn" href="#"><img src="{{ asset('assets/site/images/img-presente-in.png') }}" alt="" /></a>
-          <a class="message-btn" href="#"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
-          <a class="map-btn" href="#"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
+          <a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
+          <a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-in.png') }}" alt="" /></a>
+          <a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
+          <a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
         </div>
       </div>
       <div class="presente">
@@ -124,7 +143,7 @@
             <img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" />
             <div class="preview-item-toys"></div>
             <p class="preview-item-text text-center">BRINQUEDOS</p>
-            <p class="text-center desc"><a href="#">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
+            <p class="text-center desc"><a href="{{ url('brinquedos') }}">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
             <div class="porcentagem">
               <span style="width:25%"></span>
               <strong>25% disponivel</strong>
@@ -133,7 +152,7 @@
           <li class="col-md-4 text-center preview-item-container">
             <div class="preview-item-clothes text-center"></div>
             <p class="preview-item-text text-center">ROUPAS</p>
-            <p class="text-center desc"><a href="#">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
+            <p class="text-center desc"><a href="4/roupas/">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
             <div class="porcentagem">
               <span style="width:50%"></span>
               <strong>50% disponivel</strong>
@@ -142,7 +161,7 @@
           <li class="col-md-4 text-center preview-item-container ">
             <div class="preview-item-quota text-center"></div>
             <p class="preview-item-text text-center">COTAS</p>
-            <p class="text-center desc"><a href="#">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</a></p>
+            <p class="text-center desc"><a href="4/cotas/">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</a></p>
             <div class="porcentagem">
               <span style="width:75%"></span>
               <strong>75% disponivel</strong>
@@ -152,8 +171,12 @@
       </div>
       <br clear="all" />
       <div class="rsvp">
+        <a name="recado"></a>
         <div class="preview-header">
-        <div class="preview-header-decor"><img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image"></div>
+      <div class="preview-header-decor">
+        <img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
+        <img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
+      </div>
         <div class="preview-header-name">{{ $party->nome }}</div>
         <div class="preview-header-image-container text-center">
           <div class="preview-header-image-mask">&nbsp;</div>
@@ -161,10 +184,10 @@
           <div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
         </div>
           <div class="sub-menu text-center">
-            <a class="confirm-btn active" href="#"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
-            <a class="gifts-btn" href="#"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
-            <a class="message-btn" href="#"><img src="{{ asset('assets/site/images/img-mensagem-in.png') }}" alt="" /></a>
-            <a class="map-btn" href="#"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
+            <a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
+            <a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
+            <a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-in.png') }}" alt="" /></a>
+            <a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
           </div>
         </div>
       
@@ -191,8 +214,12 @@
 
       <br clear="all" />
       <div class="rsvp">
+        <a name="mapa"></a>
         <div class="preview-header">
-        <div class="preview-header-decor"><img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image"></div>
+      <div class="preview-header-decor">
+        <img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
+        <img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
+      </div>
         <div class="preview-header-name">{{ $party->nome }}</div>
         <div class="preview-header-image-container text-center">
           <div class="preview-header-image-mask">&nbsp;</div>
@@ -200,10 +227,10 @@
           <div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
         </div>
           <div class="sub-menu text-center">
-            <a class="confirm-btn active" href="#"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
-            <a class="gifts-btn" href="#"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
-            <a class="message-btn" href="#"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
-            <a class="map-btn" href="#"><img src="{{ asset('assets/site/images/img-maps-in.png') }}" alt="" /></a>
+            <a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
+            <a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
+            <a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
+            <a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-in.png') }}" alt="" /></a>
           </div>
         </div>
 

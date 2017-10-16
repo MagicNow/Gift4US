@@ -4,13 +4,16 @@
 
 	<div class="preview dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="preview-header">
-			<div class="preview-header-decor"><img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image"></div>
+			<div class="preview-header-decor">
+				<img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
+				<img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
+			</div>
 			<div class="preview-header-name">Heitor</div>
 			<div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
 		</div>
 		<div class="sub-menu text-center">
-			<a class="confirm-btn active" href="#"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
-			<a class="gifts-btn" href="#"><img src="{{ asset('assets/site/images/img-presente-in.png') }}" alt="" /></a>
+			<a class="confirm-btn" href="#"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
+			<a class="gifts-btn active" href="#"><img src="{{ asset('assets/site/images/img-presente-in.png') }}" alt="" /></a>
 			<a class="message-btn" href="#"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
 			<a class="map-btn" href="#"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
 		</div>
@@ -159,19 +162,19 @@
 						<div class="gifts-filter col-md-12">
 							<ul class="gifts-filter-categories">
 								<li class="gifts-filter-categories-item">
-									<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos">
+									<a href="brinquedos">
 										<i class="gifts-filter-categories-icon gifts-filter-categories-toys"></i>
 										<span>brinquedos</span>
 									</a>
 								</li>
 								<li class="gifts-filter-categories-item active">
-									<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/roupas">
+									<a href="roupas">
 										<i class="gifts-filter-categories-icon gifts-filter-categories-clothes"></i>
 										<span>roupas</span>
 									</a>
 								</li>
 								<li class="gifts-filter-categories-item">
-									<a href="#">
+									<a href="cotas">
 										<i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i>
 										<span>cotas</span>
 									</a>
@@ -193,7 +196,7 @@
 									<p class="gifts-item-color-description">Cor</p>
 									<p class="gifts-item-color-value bgC">Vermelha</p>
 									<div class="col-md-6">
-										<a href="#" class="my-birthday-create-button-small">Voltar para<br />a lista de Roupas</a>
+										<a href="javascript:history.back();" class="my-birthday-create-button-small">Voltar para<br />a lista de Roupas</a>
 									</div>
 									<div class="col-md-6">
 										<a href="#" class="my-birthday-create-button-small">Quero comprar online agora</a>
