@@ -30,7 +30,7 @@
     </div>
 
     <div class="control-panel" style="clear:both">
-      <img src="{{ asset('assets/site/images/presentinho-preview-1.png') }}" class="preview-presentinho">
+      <img src="{{ asset('assets/site/images/presentinho-preview-1.png') }}" class="preview-presentinho preview-presentinhoHome">
       <div class="preview-header-address">{{ $party->endereco }}</div>
 
       <div class="preview-container">

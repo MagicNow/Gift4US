@@ -30,9 +30,11 @@ header h2{
 .box-preview span,.box-preview small{
   display:block
 }
-.preview-presentinho{
+
+.preview-presentinhoHome{
   top:718px;
 }
+
 .preview-header{
   height:180px;
 }
@@ -308,6 +310,7 @@ padding:3px;
 }
 
 .brinquedosLista .gifts-item-detalhe .bgC{
+  margin-bottom:2px;
   background-color:#eaeaea;
 }
 
@@ -325,4 +328,111 @@ padding:3px;
   width:100%;
   margin:0;
   text-align:center;
+}
+
+.brinquedosLista .mensagem-interna{
+  margin:0 0 50px 74px;
+  width:569px;
+  height:374px;
+  background:url(../images/bg-mensagem-interna.png) no-repeat;
+  position:relative;
+}
+
+.brinquedosLista .mensagem-interna fieldset{
+  padding:39px 156px 0 75px;
+}
+
+.brinquedosLista .mensagem-interna textarea.form-control,.brinquedosLista .mensagem-interna input.form-input{
+  padding:5px;
+}
+
+.brinquedosLista .mensagem-interna textarea.form-control{
+  height:88px;
+}
+
+.brinquedosLista .mensagem-interna button.msg-form-enviar{
+  padding:5px 10px;
+  text-transform:uppercase;
+  border:1px solid #bebec0;
+  background:#FFF;
+  font-size:12px;
+  color:#bebec0;
+  position:absolute;
+  bottom:5px;
+  right:76px;
+}
+
+.brinquedosLista .mensagem-interna .my-birthday-create-button-small{
+  margin:0;
+  padding:0;
+  background:none;
+}
+
+.brinquedosLista .mensagem-interna p{
+  font-size:14px;
+  color:#FFF;
+}
+
+.brinquedosLista .mensagem-interna .presentinho-azul{
+    position: absolute;
+    bottom: 0;
+    right: -148px;
+}
+
+.brinquedosLista .roupaMedidas{
+  position: absolute;
+  background: #FFF;
+  z-index: 2222;
+  width: 100%;
+  opacity:0.95;
+  padding:20px 63px;
+}
+
+.brinquedosLista .roupaMedidas .my-birthday-create-button-small{
+  font-size:22px;
+}
+
+.brinquedosLista .select2-obs{
+    margin:10px 0 0 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    color: #a0a3a5 !important;
+    font: 16px HelveticaNeueStd_CN;
+    display:block;
+}
+
+.brinquedosLista .linkLojaOnline{
+  background:#019ee3;
+  color:#FFF;
+  font:17px Arial;
+  float:left;
+  padding:26px 10px!important;
+  margin-right:24px;
+  margin-bottom:15px;
+}
+
+.brinquedosLista .formOnline{
+  padding:0;
+}
+
+.brinquedosLista .formOnline input,.brinquedosLista .formOnline textarea{
+  padding:5px;
+  border-bottom:0;
+}
+
+.brinquedosLista .formOnline textarea{
+  height: 200px;
+}
+
+.brinquedosLista .formOnline .gifts-item-price-value{
+  font-size:14px;
+}
+
+.brinquedosLista .formOnline .form-group{
+  margin:10px 0 0!important;
+}
+
+.brinquedosLista .formOnline .col-md-2{
+  margin:0 20px 20px 0!important;
+  float:right!important;
 }

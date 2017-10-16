@@ -48,8 +48,15 @@ Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
     Route::get('{festa_id}', ['as'=> 'convidado.index', 'uses' => 'HomeController@index'])->where(['festa_id' => '[
         0-9]+']);
     Route::get('{festa_id}/brinquedos', ['as'=> 'convidado.brinquedos', 'uses' => 'HomeController@brinquedos'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/brinquedoscompraonline', ['as'=> 'convidado.brinquedoscompraonline', 'uses' => 'HomeController@brinquedoscompraonline'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/brinquedosdetalhe', ['as'=> 'convidado.brinquedosdetalhe', 'uses' => 'HomeController@brinquedosdetalhe'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/brinquedosreserva', ['as'=> 'convidado.brinquedosreserva', 'uses' => 'HomeController@brinquedosreserva'])->where(['festa_id' => '[0-9]+']);
     Route::get('{festa_id}/cotas', ['as'=> 'convidado.cotas', 'uses' => 'HomeController@cotas'])->where(['festa_id' => '[0-9]+']);
     Route::get('{festa_id}/cotasdetalhe', ['as'=> 'convidado.cotasdetalhe', 'uses' => 'HomeController@cotasdetalhe'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/cotasmensagem', ['as'=> 'convidado.cotasmensagem', 'uses' => 'HomeController@cotasmensagem'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/roupas', ['as'=> 'convidado.roupas', 'uses' => 'HomeController@roupas'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/roupasmensagem', ['as'=> 'convidado.roupasmensagem', 'uses' => 'HomeController@roupasmensagem'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/roupasdetalhe', ['as'=> 'convidado.roupasdetalhe', 'uses' => 'HomeController@roupasdetalhe'])->where(['festa_id' => '[0-9]+']);
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
