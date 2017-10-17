@@ -122,19 +122,19 @@
 						<div class="gifts-filter col-md-12">
 							<ul class="gifts-filter-categories">
 								<li class="gifts-filter-categories-item active">
-									<a href="brinquedos">
+									<a href="{{ url('convidado/4/brinquedos') }}">
 										<i class="gifts-filter-categories-icon gifts-filter-categories-toys"></i>
 										<span>brinquedos</span>
 									</a>
 								</li>
 								<li class="gifts-filter-categories-item">
-									<a href="roupas">
+									<a href="{{ url('convidado/4/roupas') }}">
 										<i class="gifts-filter-categories-icon gifts-filter-categories-clothes"></i>
 										<span>roupas</span>
 									</a>
 								</li>
 								<li class="gifts-filter-categories-item">
-									<a href="cotas">
+									<a href="{{ url('convidado/4/cotas') }}">
 										<i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i>
 										<span>cotas</span>
 									</a>
@@ -165,11 +165,11 @@
 										<a href="javascript:history.back();" class="my-birthday-create-button-small">Voltar para<br />a lista de Brinquedos</a>
 									</div>
 									<div class="col-md-6">
-										<a href="brinquedoscompraonline" class="my-birthday-create-button-small">Quero comprar online agora</a>
+										<a href="{{ url('convidado/4/brinquedoscompraonline') }}" class="my-birthday-create-button-small">Quero comprar online agora</a>
 									</div>
 								</div>
 								<div class="col-md-5" style="margin:0 0 0 320px">
-									<a href="brinquedosreserva" class="my-birthday-create-button-small">Quero dar este presente mas comprarei em loja física</a>
+									<a href="{{ url('convidado/4/brinquedosreserva') }}" class="my-birthday-create-button-small">Quero dar este presente mas comprarei em loja física</a>
 								</div>
 							</div>
 						</li>

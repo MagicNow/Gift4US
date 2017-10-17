@@ -143,7 +143,7 @@
             <img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" />
             <div class="preview-item-toys"></div>
             <p class="preview-item-text text-center">BRINQUEDOS</p>
-            <p class="text-center desc"><a href="{{ url('brinquedos') }}">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
+            <p class="text-center desc"><a href="{{ url('convidado/4/brinquedos') }}">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
             <div class="porcentagem">
               <span style="width:25%"></span>
               <strong>25% disponivel</strong>
@@ -152,7 +152,7 @@
           <li class="col-md-4 text-center preview-item-container">
             <div class="preview-item-clothes text-center"></div>
             <p class="preview-item-text text-center">ROUPAS</p>
-            <p class="text-center desc"><a href="4/roupas/">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
+            <p class="text-center desc"><a href="{{ url('convidado/4/roupas') }}">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
             <div class="porcentagem">
               <span style="width:50%"></span>
               <strong>50% disponivel</strong>
@@ -161,7 +161,7 @@
           <li class="col-md-4 text-center preview-item-container ">
             <div class="preview-item-quota text-center"></div>
             <p class="preview-item-text text-center">COTAS</p>
-            <p class="text-center desc"><a href="4/cotas/">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</a></p>
+            <p class="text-center desc"><a href="{{ url('convidado/4/cotas') }}">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</a></p>
             <div class="porcentagem">
               <span style="width:75%"></span>
               <strong>75% disponivel</strong>

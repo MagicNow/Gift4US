@@ -122,19 +122,19 @@
 						<div class="gifts-filter col-md-12">
 							<ul class="gifts-filter-categories">
 								<li class="gifts-filter-categories-item active">
-									<a href="brinquedos">
+									<a href="{{ url('convidado/4/brinquedos') }}">
 										<i class="gifts-filter-categories-icon gifts-filter-categories-toys"></i>
 										<span>brinquedos</span>
 									</a>
 								</li>
 								<li class="gifts-filter-categories-item">
-									<a href="roupas">
+									<a href="{{ url('convidado/4/roupas') }}">
 										<i class="gifts-filter-categories-icon gifts-filter-categories-clothes"></i>
 										<span>roupas</span>
 									</a>
 								</li>
 								<li class="gifts-filter-categories-item">
-									<a href="cotas">
+									<a href="{{ url('convidado/4/cotas') }}">
 										<i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i>
 										<span>cotas</span>
 									</a>
@@ -158,7 +158,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -177,7 +177,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -196,7 +196,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -215,7 +215,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -234,7 +234,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -253,7 +253,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -272,7 +272,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -291,7 +291,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -310,7 +310,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -329,7 +329,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -348,7 +348,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -367,7 +367,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -386,7 +386,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -405,7 +405,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -424,7 +424,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -443,7 +443,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -462,7 +462,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -481,7 +481,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -500,7 +500,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -519,7 +519,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -538,7 +538,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -557,7 +557,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -576,7 +576,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -595,7 +595,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -614,7 +614,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -633,7 +633,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -652,7 +652,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -671,7 +671,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -690,7 +690,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
@@ -709,7 +709,7 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="brinquedosdetalhe" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
+								<a href="{{ url('convidado/4/brinquedosdetalhe') }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 								<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 							</div>
 							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
