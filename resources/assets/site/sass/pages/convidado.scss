@@ -301,7 +301,7 @@ header h2{
 }
 
 .brinquedosLista .gifts-item-detalhe .row p.gifts-item-title{
-  font-size:27px;
+  font-size:17px;
   font-weight:bold;
   padding-left:15px;
 }
@@ -447,4 +447,101 @@ padding:3px;
   color:#000;
   text-align:center;
   padding:2px 0 3px;
+}
+
+.criarPresentes .gifts-box-number{
+  padding:4px 16px 0;
+}
+
+.criarPresentes .dados-container{
+  padding:8px 0;
+}
+
+.criarPresentes .gifts-box-toys-add{
+  width:206px;
+}
+
+.criarPresentes .gifts-item-price-description:first-child{
+  margin-bottom:10px;
+}
+
+.criarPresentes .gifts-item-price-description-cota{
+  font:15px 'HelveticaNeueStd_CN';
+  color:#bebec0;
+  margin:-30px 0 20px 12px;
+}
+
+.criarPresentes .gifts-item-price-description-upload{
+  font:15px 'HelveticaNeueStd_CN';
+  color:#000;
+  padding:64px!important;
+  text-align:center;
+}
+
+.criarPresentes .gifts-item-price-description-upload:hover{
+  cursor:pointer
+}
+
+.criarPresentes .upload-image{
+  display:none;
+}
+
+.criarPresentes .gifts-item-buttons{
+  padding:0!important;
+}
+
+.criarPresentes .gifts-item-buttons button:last-child{
+  padding-top:10px!important;
+}
+
+.criarPresentes .bt-editar{
+  text-indent:-15000px;
+  background:url(../images/bt-edit.png) no-repeat;
+  width:16px;
+  height:16px;
+  float:right;
+}
+
+.criarPresentes .gifts-item-price-value span.gifts-item-price-description,.criarPresentes .gifts-item-price-value span.gifts-item-price-value{
+  padding:0 3px;
+}
+
+.criarPresentes .gifts-item-price-value p.radio{
+  padding:3px!important;
+  margin:0!important;
+}
+
+.criarPresentes .gifts-item-price-value .form-birthday-size-container{
+  margin:5px 3px 10px!important;
+  display:block;
+  clear:both;
+}
+
+.criarPresentes .alerta{
+  background-color:#f1dc85;
+  display:inline-block;
+  text-align:center;
+  padding:37px;
+  position:absolute;
+  top:103px;
+  right:0;
+  z-index:2;
+  opacity:0.9;
+}
+.criarPresentes .alerta a{
+  font-size:18px;
+  color:#f59324;
+  position:absolute;
+  top:1px;
+  right:8px;
+}
+.criarPresentes .alerta p{
+  font:15px 'HelveticaNeueStd_CN';
+  margin-bottom:10px;
+}
+.criarPresentes .alerta small{
+  font:13px 'HelveticaNeueStd_CN';
+}
+.criarPresentes .gifts-item-content-preview .iframeEcommerce{
+  margin:-20px 0!important;
 }

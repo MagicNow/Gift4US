@@ -46,6 +46,24 @@ class HomeController extends Controller {
 		return view('convidado.brinquedosreserva', compact('party'));
 	}
 
+	/* PAGINAS CRIAR ANIVERSÁRIO */
+	public function criarbrinquedosdetalhe(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('convidado.criarbrinquedosdetalhe', compact('party'));
+	}
+	public function criarbrinquedosadicionarnovo(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('convidado.criarbrinquedosadicionarnovo', compact('party'));
+	}
+	public function criarbrinquedosecommerce(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('convidado.criarbrinquedosecommerce', compact('party'));
+	}
+
+
 	public function cotas(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
