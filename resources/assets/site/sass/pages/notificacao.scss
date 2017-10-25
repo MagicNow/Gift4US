@@ -1,0 +1,199 @@
+/* COLUNA DETALHES FESTA */
+.detalhes-festa{
+	margin-top:35px;
+}
+.detalhes-festa:last-child{
+	margin-bottom:35px;
+}
+.detalhes-festa p,.detalhes-festa span,.detalhes-festa .gifts-box-number-footer a,.dados-container .social .gifts-box-number-footer a{
+	font-family:'HelveticaNeueStd_CN';
+}
+.detalhes-festa p{
+  font-size:17px;
+  line-height:15px;
+}
+.detalhes-festa div span{
+  font-size:14px;
+  line-height:18px;
+  display:block;
+  color:#b2b5b8;
+}
+.detalhes-festa div small{
+	position:relative;
+	width:29px;
+ 	height:29px;
+ 	margin-top:-9px;
+}
+.detalhes-festa div small img{
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+  width:29px;
+  height:29px;
+}
+.detalhes-festa div small span{
+  position:absolute;
+  top:10px;
+  z-index:2;
+  width:29px;
+  text-align:center;
+  color:#FFF;
+}
+.detalhes-festa .gifts-box-number-footer a{
+	font-size:12px;
+	letter-spacing:0.10em;
+}
+
+/* COLUNA DETALHES CONVITE */
+.header-convite{
+	position:relative;
+	background:#109dd9;
+	height:61px;
+	margin:36px 0 52px;
+}
+.header-convite img{
+	position:absolute;
+	top:-19px;
+	left:38px;
+}
+.header-convite img:first-child{
+	z-index:2;
+}
+.header-convite img:last-child{
+	z-index:1;
+}
+.header-convite p{
+	position:absolute;
+	top:8px;
+    right:33px;
+	width:335px;
+	font:18px 'HelveticaNeueStd_CN';
+	color:#fff;
+	letter-spacing:1px;
+	text-align:center
+}
+.dados-container .social a{
+	display:block;
+	font:19px 'HelveticaNeueStd_CN';
+	color:#FFF;
+	height:35px;
+}
+.dados-container .social a.btn-print{
+	background:#109dd9 url(../images/btn-print.png) no-repeat 154px 0;
+	width:216px;
+	padding:6px 0 0 24px;
+	margin-left:81px;
+}
+.dados-container .social a.btn-invite{
+	background:#109dd9 url(../images/btn-invite.png) no-repeat 126px 2px;
+	width:246px;
+	padding:6px 0 0 13px
+}
+.dados-container .convite{
+	background: url(../images/bg.jpg);
+	width:558px;
+	height:527px;
+	clear:both;
+	margin:20px 59px 20px 0;
+}
+.dados-container .passos{
+	position:relative;
+	margin:0 0 0 20px;
+}
+.dados-container .passos .bg,.dados-container .local-festa .bg{
+	background:#109dd9;
+	width:172px;
+	height:368px;
+	opacity:0.2;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1;
+}
+.dados-container .passos div{
+	position:relative;
+	z-index:2;
+	font:17px 'HelveticaNeueStd_CN';
+	line-height:17px;
+	color:#19434c;
+	width:172px;
+	text-align:center;
+	padding:13px 19px;
+}
+.dados-container .passos div span{
+	padding-top:2px;
+	display:block;
+}
+.dados-container .passos div.bg-presente{
+	background: url(../images/gifts-btn.png);
+	font:17px 'dk_astromonkeyregular';
+	width:50px;
+	height:50px;
+	color:#FFF;
+	padding-top:22px;
+	margin:auto;
+}
+.dados-container .data-festa{
+	position:relative;
+	background: url(../images/bg-convite-data.png);
+	width:355px;
+	height:220px;
+	margin-top:-42px;
+}
+.dados-container .data-festa span{
+	font:21px 'HelveticaNeueStd_CN';
+	color:#FFF;
+	position:absolute;
+    top:18px;
+    left:85px;
+}
+.dados-container .local-festa{
+	position:relative;
+	width:355px;
+	height:138px;
+	margin-top:10px;
+}
+.dados-container .local-festa .bg{
+	width:355px;
+	height:180px;
+}
+.dados-container .local-festa .endereco{
+	width:355px;
+	height:180px;
+	z-index:1;
+	padding:18px;
+}
+.dados-container .local-festa .endereco h5,.dados-container .local-festa .endereco h6{
+	font-family:'HelveticaNeueStd_CN';
+}
+.dados-container .local-festa .endereco h5{
+	font-size:16px;
+	color:#19434c;
+	padding:5px 0;
+}
+.dados-container .local-festa .endereco h6{
+	font-size:18px;
+	color:#f59324;
+}
+/* AJUSTES GERAIS */
+.detalhes-festa .row{
+	margin-left:0;
+	margin-right:0;
+}
+.detalhes-festa.lista-presentes{
+	margin-top:15px;
+}
+.detalhes-festa.lista-presentes .pD{
+	padding:3px 0;
+}
+.detalhes-festa.lista-presentes p{
+	margin-bottom:5px;
+}
+.detalhes-festa a.toys{
+	padding:7px 0 4px !important;
+}
+.detalhes-festa a.toys p{
+  font-size:16px;
+  margin-bottom:0!important;
+}
