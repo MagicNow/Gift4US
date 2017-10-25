@@ -86,7 +86,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-8 dados-container">
+				<div class="col-md-7 dados-container dados-container-imprimirconvite">
 					<div class="social col-md-12">
 						<div class="gifts-box-number-footer">
 							<div class="pull-left col-md-5">
@@ -97,8 +97,73 @@
 							</div>
 						</div>
 					</div>
-					<div>
-					CONTEUDO
+					<div class="conteudo-zoom">
+					<div class="pull-left">
+					  <div class="convite-imprimirconvite">
+						  <img src="{{ asset('assets/site/images/logo-rodape.png') }}" class="imglogo">
+                  
+                          <div class="texto">
+							  <img src="{{ asset('assets/site/images/um.png') }}">
+                          
+                            <br/>
+                                <b>acesse:GIFT4US.COM.BR</b>
+                               <br/>
+                         <img src="{{ asset('assets/site/images/dois.png') }}">
+                            <br/>
+                      <span>Insira o nome do aniversariante
+                         ou o código AR265AL17
+                          </span>
+                      <br/>
+                       <img src="{{ asset('assets/site/images/tres.png') }}">
+                                <br/>
+                      <span>Confirme sua presença
+                         e encontre a lista de presentes</span>
+         
+                        </div>
+         
+                 </div> 
+                 </div> 
+				</div> 
+				   <div class="conteudo-zoom">
+	  <div class="convite pull-right" >
+		
+						<div class="header-convite">
+							<img src="{{ asset('assets/site/images/bg-header-convite.png') }}" alt="Festa">
+							<img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" width="114px" height="112" alt="Heitor">
+							<p>
+								Festa de 3 anos do<br /><span>Arthurzinho Albuquerque</span>
+							</p>
+						</div>
+						<div class="passos pull-left">
+							<div class="bg"></div>
+							<div class="passo1">
+								<div class="bg-presente">1</div>
+								<span>entre no site www.gift4us.com</span>
+							</div>
+							<div class="passo2">
+								<div class="bg-presente">2</div>
+								<span>insira o aniversário ou o código <strong>AR265AL17</strong></span>
+							</div>
+							<div class="passo3">
+								<div class="bg-presente">3</div>
+								<span>confira a lista de presentes e confirme sua presença</span>
+							</div>
+						</div>
+						<div class="data-festa pull-right">
+							<span>30/10/2017, 16h30</span>
+						</div>
+						<div class="local-festa pull-right">
+							<div class="bg"></div>
+							<div class="endereco">
+								<h6>Onde?</h6>
+								<h5>Rua Taquari, 941 - ap12, Bloco1- Mooca<br />São Paulo - SP</h5>
+								<h5>Próximo a Padaria Cassandoca</h5>
+								<h6>Observações:</h6>
+								<h5>Levar 1 litro de leite para doação.</h5>
+							</div>
+						</div>
+					</div>
+					</div>
 					</div>
 				</div>
 			</div>
