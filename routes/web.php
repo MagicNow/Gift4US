@@ -61,6 +61,8 @@ Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
     Route::get('{festa_id}/criarbrinquedosdetalhe', ['as'=> 'convidado.criarbrinquedosdetalhe', 'uses' => 'HomeController@criarbrinquedosdetalhe'])->where(['festa_id' => '[0-9]+']);
     Route::get('{festa_id}/criarbrinquedosadicionarnovo', ['as'=> 'convidado.criarbrinquedosadicionarnovo', 'uses' => 'HomeController@criarbrinquedosadicionarnovo'])->where(['festa_id' => '[0-9]+']);
     Route::get('{festa_id}/criarbrinquedosecommerce', ['as'=> 'convidado.criarbrinquedosecommerce', 'uses' => 'HomeController@criarbrinquedosecommerce'])->where(['festa_id' => '[0-9]+']);
+    /* PAGINA NOTIFICACAO */
+    Route::get('{festa_id}/notificacaoaniversario', ['as'=> 'convidado.notificacaoaniversario', 'uses' => 'HomeController@notificacaoaniversario'])->where(['festa_id' => '[0-9]+']);
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {

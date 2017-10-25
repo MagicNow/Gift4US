@@ -63,6 +63,12 @@ class HomeController extends Controller {
 		return view('convidado.criarbrinquedosecommerce', compact('party'));
 	}
 
+	/* PAGINAS NOTIFICACAO */
+	public function notificacaoaniversario(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('convidado.notificacaoaniversario', compact('party'));
+	}
 
 	public function cotas(Request $request, $festa_id = null)
 	{
