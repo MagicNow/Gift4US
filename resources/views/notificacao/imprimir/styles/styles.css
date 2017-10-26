@@ -1,0 +1,250 @@
+ @charset "UTF-8";
+  @font-face {
+  font-family: 'HelveticaNeueStd';
+  src: url("../fonts/helveticaneueltstd-cn-webfont.eot");
+  src: url("../fonts/helveticaneueltstd-cn-webfont.eot") format("embedded-opentype"), url("../fonts/helveticaneueltstd-cn-webfont.woff") format("woff"), url("../fonts/helveticaneueltstd-cn-webfont.ttf") format("truetype");
+  font-weight: normal; }
+
+    .convite{
+      border:2px solid #6BBCE3;
+      width:7.5cm;
+      float: left;
+      position: relative;
+      margin: 0.1cm;
+      zoom:89%;
+    }
+    .imglogo{
+      width:50px;
+      float:left;
+      padding: 10px;
+      margin-top: 40px;
+    }
+.texto{
+      border-left:3px solid #F09024;
+      float:left;
+      width:165px;
+      font-family: 'HelveticaNeueStd';
+      font-size:12px;
+      text-align: center;
+      padding-left: 12px;
+      margin-top:5px;
+      margin-bottom:5px;
+      margin-left: 10px;
+    }
+body {
+  background: rgb(204,204,204); 
+  font-family: 'HelveticaNeueStd';
+}
+table{
+  color:#BDBEBF;
+  width:100%;
+  text-align: left;
+  margin-top: 100px;
+  border-collapse: collapse;
+}
+td{
+  padding-top:5px;
+  padding-bottom:5px; 
+}
+.arrow-esquerda{
+  background-image: url('../images/arrow-esquerda.png');
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 36px;
+  padding-left:8px;
+  font-size:11px; 
+  color:#fff;
+  font-weight: 600;
+  padding-top: 11px;
+  margin-top:10px;
+  float:left;
+  margin-left: 8px;
+}
+.arrow-direita{
+  background-image: url('../images/arrow-direita.png');
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 36px;
+  padding-left:8px;
+  font-size:11px; 
+  color:#fff;
+  font-weight: 600;
+  padding-top: 11px;
+  margin-top:10px;
+  float:right;
+}
+.preview-banner-item-image {
+
+    z-index: 3;
+    position:absolute;
+   
+}
+.tira{
+   background-color:#1e9bd7; 
+   height:8px;
+   width:100%;
+   max-width:794px; 
+   margin-top: 48px;
+   z-index:0;
+   position: absolute;
+}
+.preview-header-decor{
+  padding-top:10px;
+}
+.preview-header-decor img.preview-banner-item-foto {
+    z-index: 2;
+    height:99px;
+    position: absolute;
+}
+.nome{
+  margin-left: 130px;
+  position:absolute;
+  width: 650px;
+}
+.nome span{
+  color:#BDBEBF;
+  
+}
+.nome .ico{
+  padding-top: 10px;
+  color:#565657;
+  font-weight: 600;
+  position: absolute;
+}
+.nome h1{
+  font-size:18px;
+  color:#565657;
+  margin-top:5px;
+  margin-bottom:2px;
+}
+.nome b{
+  color:#565657;
+  padding-top:12px;
+  position: absolute;
+}
+.direita{
+float: right;
+margin-top: -60px;
+}
+.direita span{
+   padding-top:30px;
+   position: absolute;
+}
+tr:nth-child(even) {background: #E9E9E9}
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+page[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm;
+  
+}
+/*/// Presença confirmada  ///*/
+.presenca{
+  width:600px;
+}
+.presenca .tira{
+  max-width:600px; 
+}
+.presenca .nome{
+  text-align: left;
+  width: 465px;
+}
+.presenca .direita{
+  width: 300px;
+  text-align: right;
+  margin-top: -20px;
+}
+.presenca .preview-header-decor{
+  text-align: left;
+}
+.presenca .direita span{
+  position: relative;
+}
+.presenca .direita img{
+  padding-bottom:15px;
+}
+.presenca table{
+     margin-top: 0px;
+     
+}
+.presenca table td{
+  width:50%;
+  border-left:15px solid #fff;
+  
+}
+.radio label, .checkbox label {
+    min-height: 20px;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+.radio, .checkbox {
+    position: relative;
+    display: block;
+
+}
+.radio input + span, .radio input:checked + span {
+    -webkit-transition: background-color 0.4s linear;
+    transition: background-color 0.4s linear;
+    float:right;
+}
+fieldset{
+  border:none;
+  padding:0px;
+}
+.radio input:checked + span {
+    background-color: #4d5053;
+    float:right;
+    border: 2px solid #4d5053;
+}
+.dashboard form fieldset label input {
+    border: 0;
+    border-bottom: 1px solid #525353;
+    color: #bebfc2;
+}
+.dashboard .container .dados label {
+    font-family: 'HelveticaNeueStd';
+    font-size: 17px;
+    color: #525353;
+}
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+    position: absolute;
+    margin-left: -20px;
+    display: none;
+    margin-top: 4px \9;
+}
+.radio label span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 2px solid #aeb0b2;
+}
+.presenca .titulo{
+  border-top: 2px solid #9EA2A4;
+  width:100%;
+  position: relative;
+  text-align: left;
+  margin-top:130px;
+  font-size:25px; 
+  color:#4E5053;
+  padding-top:10px;
+}
+.presenca .arrow-direita{
+  padding-left:0px;
+}
+@media print {
+  body, page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}

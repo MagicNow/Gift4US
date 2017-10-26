@@ -236,7 +236,7 @@
 									</div>
 								</div>
 								<div class="col-md-5">
-									<img src="http://vagrant.gift4us/public/assets/site/images/avatar/crianca-masculino.png" class="form-birthday-avatar">
+									<img src="{{ asset('assets/site/images/avatar/crianca-masculino.png') }}" class="form-birthday-avatar">
 								</div>
 							</div>
 							<div class="form-group form-birthday-size-container">
