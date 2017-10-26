@@ -64,6 +64,9 @@ Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
     /* PAGINA NOTIFICACAO */
     Route::get('{festa_id}/notificacaoaniversario', ['as'=> 'convidado.notificacaoaniversario', 'uses' => 'HomeController@notificacaoaniversario'])->where(['festa_id' => '[0-9]+']);
     Route::get('{festa_id}/notificacaoimprimirconvite', ['as'=> 'convidado.notificacaoimprimirconvite', 'uses' => 'HomeController@notificacaoimprimirconvite'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/notificacaoconvitedigital', ['as'=> 'convidado.notificacaoconvitedigital', 'uses' => 'HomeController@notificacaoconvitedigital'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/notificacaoenviaremail', ['as'=> 'convidado.notificacaoenviaremail', 'uses' => 'HomeController@notificacaoenviaremail'])->where(['festa_id' => '[0-9]+']);
+    Route::get('{festa_id}/notificacaoenviarconvite', ['as'=> 'convidado.notificacaoenviarconvite', 'uses' => 'HomeController@notificacaoenviarconvite'])->where(['festa_id' => '[0-9]+']);
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {

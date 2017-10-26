@@ -74,6 +74,21 @@ class HomeController extends Controller {
 		$party = Festas::find($festa_id);
 		return view('convidado.notificacaoimprimirconvite', compact('party'));
 	}
+	public function notificacaoconvitedigital(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('convidado.notificacaoconvitedigital', compact('party'));
+	}
+	public function notificacaoenviaremail(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('convidado.notificacaoenviaremail', compact('party'));
+	}
+	public function notificacaoenviarconvite(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('convidado.notificacaoenviarconvite', compact('party'));
+	}
 
 	public function cotas(Request $request, $festa_id = null)
 	{
