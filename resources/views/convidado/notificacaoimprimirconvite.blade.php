@@ -2,13 +2,19 @@
 
 @section('content')
 
-	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="dashboard imprimir-convite-geral col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container brinquedosLista criarPresentes">
-			<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_ent11.png') }}" class="presentinho col-xs-12 col-sm-12 col-md-6" alt="">
+			<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_convite.png') }}" class="presentinho col-xs-12 col-sm-12 col-md-6" alt="">
 
 			<div class="gifts-container row col-md-offset-2">
 				<div class="gifts-box-number col-md-4">
 					<div class="detalhes-festa">
+					<div class="col-md-12 my-birthday-item-input" style="overflow: hidden;">
+					<div class="jquery-switch-wrapper">
+					<a class="jquery-switch jquery-switch-on" href="#" name="my-birthday-3" rel="active[3]"></a></div>
+
+					</div>
+							
 						<p>Heitor</p>
 						<div class="row">
 							<span>30/07/2017</span>
@@ -93,12 +99,21 @@
 								<a href="#" class="btn-print">Imprimir convite</a>
 							</div>
 							<div class="pull-right col-md-6">
-								<a href="#" class="btn-invite">Enviar convites</a>
+								<a href="#" class="btn-invite">Voltar</a>
 							</div>
 						</div>
 					</div>
-					<div class="conteudo-zoom">
-					<div class="pull-left">
+					<div class="clearfix"></div>
+					<div class="detalhes-imprimir-festa">
+					<p>Escolha abaixo o layout do convite que quer imprimir para os seus convidados</p>
+					</div>
+					
+					<div class="pull-left zoom">
+							<div class="detalhes-imprimir-festa">
+								<h1>Convite complementar</h1>
+					<p class="cm">6,5cm x 3,5 cm</p>
+					</div>
+					<center>
 					  <div class="convite-imprimirconvite">
 						  <img src="{{ asset('assets/site/images/logo-rodape.png') }}" class="imglogo">
                   
@@ -120,13 +135,24 @@
                          e encontre a lista de presentes</span>
          
                         </div>
-         
+                   
+                 </div>
+				 
+				 </center>
+				 <div class="gifts-box-number-footer">
+							<a href="#" class="gifts-box-number-submit imprimir-btn">IMPRIMIR</a>
+						</div>
+				  <p class="detalhes-imprimir-festa">Cada folha formato A4 contém 24 convites</p> 
                  </div> 
-                 </div> 
-				</div> 
-				   <div class="conteudo-zoom">
-	  <div class="convite pull-right" >
-		
+				<div class="pull-left zoom" style="border:none;"> 
+					  <div class="detalhes-imprimir-festa">
+								<h1>Convite Gift4us</h1>
+					<p class="cm">16 cm x 9 cm</p>
+
+					</div>
+					<div class="imprimir-zoom"> 
+	              <div class="imprimir-zoom convite">
+			     
 						<div class="header-convite">
 							<img src="{{ asset('assets/site/images/bg-header-convite.png') }}" alt="Festa">
 							<img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" width="114px" height="112" alt="Heitor">
@@ -164,7 +190,13 @@
 						</div>
 					</div>
 					</div>
+					<div class="gifts-box-number-footer">
+							<a href="#" class="gifts-box-number-submit imprimir-btn">IMPRIMIR</a>
+						</div>
+				  <p class="detalhes-imprimir-festa">Cada folha formato A4 contém 4 convites</p> 
+					</div>	
 					</div>
+					
 				</div>
 			</div>
 		</div>

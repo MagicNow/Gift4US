@@ -484,11 +484,11 @@
 }
  .gifts-container .dados-container .convite-imprimirconvite{
       border:2px solid #6BBCE3;
-      width:300px;
+      width:340px;
 	  height:205px;
 	  background-color:#fff;
-      float: left;
-      zoom:75%;
+      zoom:50%;
+	  margin: 163px 0px;
     }
     .imglogo{
       width: 80px;
@@ -496,10 +496,10 @@
     padding: 10px;
     margin-top: 55px;
     }
-.texto{
+.imprimir-convite-geral .texto{
       border-left:3px solid #F09024;
       float:left;
-      width:165px;
+      width:205px;
       font-family: 'HelveticaNeueStd';
       font-size:12px;
       text-align: center;
@@ -511,6 +511,50 @@
 	.texto b {
 		display: block;
 	}
+.imprimir-convite-geral h1{
+    font-weight: 600;
+}
+.imprimir-convite-geral .detalhes-imprimir-festa .cm{
+	  font-family: 'HelveticaNeueStd_CN';
+	  color:#b2b5b8;
+	  padding-top:5px;
+}
 .conteudo-zoom{
 	zoom:50%;
+}
+.imprimir-convite-geral .my-birthday-item-input{
+padding: 0px;
+padding-bottom: 10px;
+}
+.detalhes-imprimir-festa{
+    font-size: 16px;
+    line-height: 15px;
+    font-family: 'HelveticaNeueStd_CN';
+}
+.imprimir-convite-geral .detalhes-imprimir-festa{
+	text-align: center;
+	width: 100%;
+	padding:15px 0px;
+
+}
+.pull-left.zoom{
+	border-right:2px solid #D5D6D7;
+	padding: 10px;
+	text-align: center;
+	width: 50%;
+}
+.imprimir-zoom{
+	zoom:65%;
+	text-align: center;
+}
+.dados-container .imprimir-zoom .convite{
+margin:0px 0px 0px 0px;
+}
+
+.imprimir-convite-geral .imprimir-btn {
+	font-family: 'HelveticaNeueStd_CN';
+    text-decoration-line:none;
+	color:#fff;
+	font-size: 12px;
+	max-width: 120px;
 }
