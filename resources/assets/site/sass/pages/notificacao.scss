@@ -45,6 +45,7 @@
 	letter-spacing:0.10em;
 }
 
+
 /* COLUNA DETALHES CONVITE */
 .header-convite{
 	position:relative;
@@ -89,6 +90,24 @@
 	background:#109dd9 url(../images/btn-invite.png) no-repeat 126px 2px;
 	width:246px;
 	padding:6px 0 0 13px
+}
+.dados-container .social a.btn-back{
+	background:#109dd9;
+	width:246px;
+	padding:6px 30px 0 13px;
+	text-align:right;
+}
+.dados-container .social a.convites-email{
+	background:#109dd9 url(../images/btn-invite.png) no-repeat 263px 2px;
+	text-align:right;
+	padding-right:50px;
+	width:307px;
+}
+.dados-container .social a.convites-enviar{
+	background:#109dd9 url(../images/btn-invite.png) no-repeat 198px 2px;
+	text-align:right;
+	padding-right:118px;
+	width:307px;
 }
 .dados-container .convite{
 	background: url(../images/bg.jpg);
@@ -175,6 +194,311 @@
 .dados-container .local-festa .endereco h6{
 	font-size:18px;
 	color:#f59324;
+}
+/* PAGINA EMAIL */
+.lista-email{
+	margin-left:30px;
+}
+.lista-email h5{
+	font:18px 'HelveticaNeueStd_CN';
+	margin:15px 0 0;
+}
+.lista-email h5.title{
+	background:url(../images/bg-email.png) no-repeat 44px 0;
+	display:inline-block;
+	height:27px;
+	line-height:27px;
+	width:100px;
+}
+.lista-email fieldset{
+	padding:0;
+	width:550px;
+	margin:10px 0;
+}
+.lista-email fieldset.border{
+	border-bottom:2px solid #a5a8aa;
+	padding-bottom:10px;
+}
+.lista-email fieldset input.texto,.lista-email fieldset label{
+	font:16px 'HelveticaNeueStd_CN';
+	color:#a5a8aa;
+	border-bottom:2px solid #a5a8aa;
+	border-top:0;
+	border-left:0;
+	border-right:0;
+	padding:2px 0 1px;
+	margin-right:3px;
+	width:363px;
+}
+.lista-email fieldset button{
+	font:18px 'HelveticaNeueStd_CN';
+	color:#fff;
+	background:#109dd9;
+	border:none;
+	padding:2px 0;
+}
+.lista-email fieldset label{
+	border-bottom:0;
+}
+.lista-email fieldset .bgC{
+	background:#b2b5b8;
+}
+.lista-email ul{
+	list-style:none;
+	padding:0;
+}
+.lista-email ul li{
+	font:16px 'HelveticaNeueStd_CN';
+	color:#a5a8aa;
+	line-height:30px;
+}
+.lista-email ul li a{
+	width:23px;
+	height:28px;
+	background:url(../images/bg-excluir.png) no-repeat;
+	text-indent:-15000px;
+	display:inline-block;
+	position:relative;
+	z-index:22;
+}
+.lista-email fieldset.bottom{
+	margin-top:-60px;
+}
+.lista-email fieldset.bottom div{
+	width:245px;
+	margin:auto
+}
+.lista-email fieldset.bottom label{
+	text-align:center;
+	color:#000;
+}
+.lista-email fieldset.bottom button{
+	padding:6px 0;
+}
+/* PAGINA ENVIAR CONVITE */
+.enviar-convite{
+	margin-left:29px;
+	width:554px;
+}
+.enviar-convite .row{
+	border-bottom:2px solid #a5a8aa;
+	padding-bottom:20px;
+}
+.enviar-convite h5{
+	font:18px 'HelveticaNeueStd_CN';
+	margin:15px 0 5px;
+}
+.enviar-convite h5.facebook{
+	background:url(../images/img-facebook.png) 181px 0 no-repeat; 
+	line-height:26px;
+}
+.enviar-convite h5.whatsapp{
+	background:url(../images/img-whatsapp.png) 181px 0 no-repeat; 
+	line-height:26px;
+}
+.enviar-convite h5.email{
+	background:url(../images/img-email.png) 46px 0 no-repeat; 
+	line-height:26px;
+}
+.enviar-convite h5.download{
+	background:url(../images/img-download.png) 74px 0 no-repeat; 
+	line-height:42px;
+	margin-top:7px;
+}
+.enviar-convite span{
+	font:16px 'HelveticaNeueStd_CN';
+	color:#b2b5b8;
+	display:block;
+}
+.enviar-convite a{
+	font:18px 'HelveticaNeueStd_CN';
+	color:#fff;
+	background:#109dd9;
+	padding:2px 0;
+	margin:10px auto 0;
+	width:114px;
+	display:block;
+	text-align:center;
+}
+.enviar-convite .compartilhe{
+	margin-top:20px;
+}
+.enviar-convite .compartilhe a{
+	width:125px;
+}
+.enviar-convite .compartilhe a.bgC{
+	background:#b2b5b8;
+}
+.enviar-convite .compartilhe div.col-md-12{
+	padding:0!important;
+}
+.enviar-convite .compartilhe div.col-md-6:first-child{
+	border-right:2px solid #a5a8aa;
+}
+.enviar-convite .compartilhe div.col-md-12 a:first-child{
+	margin-right:10px;
+}
+.enviar-convite .pull-left,.enviar-convite .pull-right{
+    width: 131px;
+    text-align:center;
+}
+
+/* MODAL LISTAS */
+.modal-lista-presentes{
+	width:1151px;
+	height:627px;
+	background:#fff;
+	z-index:222;
+	position:absolute;
+}
+.modal-lista-presentes .modal-lista-header{
+	height:52px;
+	background:#109dd9;
+}
+.modal-lista-presentes .modal-lista-header a{
+	float:right;
+	font:44px Verdana;
+	color:#fff;
+	margin-right:10px;
+}
+.modal-lista-presentes .lista-ferramentas{
+	margin:12px -32px;
+}
+.modal-lista-presentes .lista-ferramentas h5{
+    font: 18px 'HelveticaNeueStd_CN';
+    margin: 0 0;
+    text-align:right;
+}
+.modal-lista-presentes .lista-ferramentas .modal-img-print h5{
+	margin-top:-10px;
+    background: url(../images/img-print.png) 200px 6px no-repeat
+}
+.modal-lista-presentes .lista-ferramentas .modal-img-print h5 a{
+	line-height: 41px;
+    padding-right: 70px;
+}
+.modal-lista-presentes .lista-ferramentas span{
+    font: 16px 'HelveticaNeueStd_CN';
+    color: #b2b5b8;
+    display: block;
+    text-align:right;
+}
+.modal-lista-presentes .lista-ferramentas a{
+    color:#4d5053;
+}
+.modal-lista-presentes .lista-ferramentas a.modal-lista-botao{
+	font: 18px 'HelveticaNeueStd_CN';
+	color:#fff;
+	padding:9px 0 9px 62px;
+	background:#109dd9 url(../images/img-presente.png) 265px 6px no-repeat; 
+}
+.modal-lista-presentes .lista-ferramentas a.modal-lista-presenca{
+	font: 18px 'HelveticaNeueStd_CN';
+	color:#f49224;
+	text-align:right;
+}
+.modal-lista-presentes .modal-lista-letras{
+	text-align:right;
+}
+.modal-lista-presentes .modal-lista-letras a{
+	font: 18px 'HelveticaNeueStd_CN';
+	color:#4e5154;
+	padding:8px 1px 0;
+	display:inline-block;
+}
+.modal-lista-presentes .modal-lista-letras a:hover,.modal-lista-presentes .modal-lista-letras a.active{
+	font: 18px 'HelveticaNeueStd_CN';
+	color:#f49224;
+}
+.modal-lista-presentes .lista-descricao{
+	border-top:2px solid #a5a8aa;
+	border-bottom:2px solid #a5a8aa;
+	padding:4px 10px 0;
+}
+.modal-lista-presentes .lista-descricao div{
+	padding:0!important
+}
+.modal-lista-presentes .lista-descricao strong{
+	font: 20px 'HelveticaNeueStd_BDCN';
+	letter-spacing:1px;
+	color:#4d5053;
+	line-height:35px;
+}
+.modal-lista-presentes .lista-descricao .gifts-filter{
+	zoom:110%;
+	margin-bottom:0;
+}
+.modal-lista-presentes .lista-descricao .form-birthday-size-container{
+	margin-top:6px;
+	margin-bottom:0;
+}
+.modal-lista-presentes .lista-descricao .bt-search{
+	background:url(../images/bg-search.png) 0 6px no-repeat; 
+}
+.modal-lista-presentes .lista-descricao .bt-search .form-group{
+	margin-left:25px; 
+}
+.modal-lista-presentes .lista-descricao label{
+	font:18px 'HelveticaNeueStd_CN';
+    margin:0 0;
+    padding:0 5px 0 0;
+    line-height:25px;
+    text-align:right;
+}
+.modal-lista-presentes table tr td:first-child{
+	padding-left:5px
+}
+.modal-lista-presentes table tr.bgC{
+	background:#e3e4e3;
+}
+.modal-lista-presentes table tr.active td{
+	color:#b2b5b8!important;
+}
+.modal-lista-presentes table tr td{
+	font:18px 'HelveticaNeueStd_CN';
+	color:#8f9192;
+    margin:0 0;
+    padding:2px 5px 2px 0;
+    line-height:25px;
+}
+.modal-lista-presentes table tr td a.editar{
+	background:url(../images/aniversario-edit-icone.png) no-repeat;
+	background-size: 27px 27px;
+	width:27px;
+	height:27px;
+	text-indent:-15000px;
+	float:left;
+}
+.modal-lista-presentes table tr td a.remover{
+	background:url(../images/aniversarios_trash_icone.png) no-repeat;
+	width:27px;
+	height:27px;
+	text-indent:-15000px;
+	float:right;
+}
+.modal-lista-presentes .lista-descricao.noBD{
+	border:0;
+}
+.modal-lista-presentes .lista-descricao.bdBottom{
+	border-bottom:0;
+}
+.modal-lista-presentes .lista-descricao .gifts-filter ul li{
+	border-bottom:0;
+}
+.modal-lista-presentes .modal-lista-footer{
+	height:35px;
+	background:#109dd9;
+	padding-top:5px;
+}
+.modal-lista-presentes .modal-lista-footer a,.modal-lista-presentes .modal-lista-footer div{
+	font:18px 'HelveticaNeueStd_CN';
+	color:#fff;
+}
+.modal-lista-presentes .modal-lista-footer span:last-child{
+	text-align:right;
+}
+.modal-lista-presentes .modal-lista-footer div{
+	text-align:center;
 }
 /* AJUSTES GERAIS */
 .detalhes-festa .row{
