@@ -10,26 +10,42 @@ class NotificationsController extends Controller
 	public function aniversario(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.notificacaoaniversario', compact('party'));
+		return view('notificacao.aniversario', compact('party'));
 	}
-	public function imprimirConvite(Request $request, $festa_id = null)
-	{
-		$party = Festas::find($festa_id);
-		return view('convidado.notificacaoimprimirconvite', compact('party'));
-	}
+
 	public function conviteDigital(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.notificacaoconvitedigital', compact('party'));
+		return view('notificacao.convite-digital', compact('party'));
 	}
+
 	public function enviarEmail(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.notificacaoenviaremail', compact('party'));
+		return view('notificacao.enviar-email', compact('party'));
 	}
+
 	public function enviarConvite(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.notificacaoenviarconvite', compact('party'));
+		return view('notificacao.enviar-convite', compact('party'));
+	}
+
+	public function imprimirConvite(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('notificacao.imprimir.convite', compact('party'));
+	}
+
+	public function imprimirListaPresentes(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('notificacao.imprimir.lista-presentes', compact('party'));
+	}
+
+	public function imprimirPresencas(Request $request, $festa_id = null)
+	{
+		$party = Festas::find($festa_id);
+		return view('notificacao.imprimir.presencas-confirmadas', compact('party'));
 	}
 }

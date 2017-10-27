@@ -1,4 +1,4 @@
-@extends('convidado/master')
+@extends('site/master')
 
 @section('content')
 

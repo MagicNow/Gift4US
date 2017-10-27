@@ -55,11 +55,16 @@ Route::group(['prefix' => 'usuario'], function() {
 });
 
 Route::group(['prefix' => 'notificacoes'], function() {
-    Route::get('{festa_id}/aniversario', ['as'=> 'notificacoes.aniversario', 'uses' => 'NotificationsController@aniversario'])->where(['festa_id' => '[0-9]+']);
-    Route::get('{festa_id}/imprimir-convite', ['as'=> 'notificacoes.imprimirconvite', 'uses' => 'NotificationsController@imprimirConvite'])->where(['festa_id' => '[0-9]+']);
-    Route::get('{festa_id}/convite-digital', ['as'=> 'notificacoes.convitedigital', 'uses' => 'NotificationsController@conviteDigital'])->where(['festa_id' => '[0-9]+']);
-    Route::get('{festa_id}/enviar-email', ['as'=> 'notificacoes.enviaremail', 'uses' => 'NotificationsController@enviarEmail'])->where(['festa_id' => '[0-9]+']);
-    Route::get('{festa_id}/enviar-convite', ['as'=> 'notificacoes.enviarconvite', 'uses' => 'NotificationsController@enviarConvite'])->where(['festa_id' => '[0-9]+']);
+    Route::get('aniversario', ['as'=> 'notificacoes.aniversario', 'uses' => 'NotificationsController@aniversario']);
+    Route::get('convite-digital', ['as'=> 'notificacoes.convitedigital', 'uses' => 'NotificationsController@conviteDigital']);
+    Route::get('enviar-email', ['as'=> 'notificacoes.enviaremail', 'uses' => 'NotificationsController@enviarEmail']);
+    Route::get('enviar-convite', ['as'=> 'notificacoes.enviarconvite', 'uses' => 'NotificationsController@enviarConvite']);
+
+    Route::group(['prefix' => 'imprimir'], function() {
+        Route::get('convite', ['as'=> 'notificacoes.impimir.convite', 'uses' => 'NotificationsController@imprimirConvite']);
+        Route::get('lista-presentes', ['as'=> 'notificacoes.impimir.listaPresentes', 'uses' => 'NotificationsController@imprimirListaPresentes']);
+        Route::get('presencas-confirmadas', ['as'=> 'notificacoes.impimir.presencas', 'uses' => 'NotificationsController@imprimirPresencas']);
+    });
 });
 
 Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
@@ -68,20 +73,20 @@ Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
         0-9]+']);
 
     /** BRINQUEDOS */
-    Route::group(['prefix' => '{festa_id}/brinquedos'], function () {
+    Route::group(['prefix' => 'brinquedos'], function () {
         Route::get('/', ['as'=> 'convidado.brinquedos.index', 'uses' => 'ToysController@index']);
         Route::get('compra-online', ['as'=> 'convidado.brinquedos.compraOnline', 'uses' => 'ToysController@compraOnline']);
         Route::get('detalhe', ['as'=> 'convidado.brinquedos.detalhe', 'uses' => 'ToysController@detalhe']);
         Route::get('reserva', ['as'=> 'convidado.brinquedos.reserva', 'uses' => 'ToysController@reserva']);
     });
 
-    Route::group(['prefix' => '{festa_id}/cotas'], function () {
+    Route::group(['prefix' => 'cotas'], function () {
         Route::get('/', ['as'=> 'convidado.cotas.index', 'uses' => 'QuotasController@index']);
         Route::get('detalhe', ['as'=> 'convidado.cotas.detalhe', 'uses' => 'QuotasController@detalhe']);
         Route::get('mensagem', ['as'=> 'convidado.cotas.mensagem', 'uses' => 'QuotasController@mensagem']);
     });
 
-    Route::group(['prefix' => '{festa_id}/roupas'], function () {
+    Route::group(['prefix' => 'roupas'], function () {
         Route::get('/', ['as'=> 'convidado.roupas.index', 'uses' => 'ClothesController@index']);
         Route::get('mensagem', ['as'=> 'convidado.roupas.mensagem', 'uses' => 'ClothesController@mensagem']);
         Route::get('detalhe', ['as'=> 'convidado.roupas.detalhe', 'uses' => 'ClothesController@detalhe']);

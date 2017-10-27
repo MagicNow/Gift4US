@@ -14,7 +14,7 @@
 	 {{-- {!! Html::style('assets/site/styles/bootstrap.min.css') !!} --}}
 	 {!! Html::style('assets/site/styles/styles.css') !!}
 </head>
-<body class="{!! Route::currentRouteName() !!} {{ $party->layout()->first()->class }}">
+<body class="{!! Route::currentRouteName() !!} {{ $party ? $party->layout()->first()->class : NULL }}">
 		<!--HEADER-->
 		<header>
 			<div class="navbar navbar-default col-xs-12 col-sm-12 col-md-12 col-lg-12">
