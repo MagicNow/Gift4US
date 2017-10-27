@@ -119,28 +119,7 @@
 				</div>
 				<div class="col-md-9 dados-container">
 					<div class="row">
-						<div class="gifts-filter col-md-12">
-							<ul class="gifts-filter-categories">
-								<li class="gifts-filter-categories-item active">
-									<a href="{{ url('convidado/4/brinquedos') }}">
-										<i class="gifts-filter-categories-icon gifts-filter-categories-toys"></i>
-										<span>brinquedos</span>
-									</a>
-								</li>
-								<li class="gifts-filter-categories-item">
-									<a href="{{ url('convidado/4/roupas') }}">
-										<i class="gifts-filter-categories-icon gifts-filter-categories-clothes"></i>
-										<span>roupas</span>
-									</a>
-								</li>
-								<li class="gifts-filter-categories-item">
-									<a href="{{ url('convidado/4/cotas') }}">
-										<i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i>
-										<span>cotas</span>
-									</a>
-								</li>
-							</ul>
-						</div>
+						@include('convidado.inc.filtro-categorias', ['filter' => 'brinquedos'])
 					</div>
 					<ul class="gifts-list" data-festa-id="3">
 						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="1">
@@ -162,14 +141,14 @@
 									<p class="gifts-item-price-value bgC">B-Mart</p>
 									<p class="gifts-item-price-value bgC">Hi-Happy</p>
 									<div class="col-md-6">
-										<a href="javascript:history.back();" class="my-birthday-create-button-small">Voltar para<br />a lista de Brinquedos</a>
+										<a href="{{ route('convidado.brinquedos.index', $party) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de Brinquedos</a>
 									</div>
 									<div class="col-md-6">
-										<a href="{{ url('convidado/4/brinquedoscompraonline') }}" class="my-birthday-create-button-small">Quero comprar online agora</a>
+										<a href="{{ route('convidado.brinquedos.compraOnline', $party) }}" class="my-birthday-create-button-small">Quero comprar online agora</a>
 									</div>
 								</div>
 								<div class="col-md-5" style="margin:0 0 0 320px">
-									<a href="{{ url('convidado/4/brinquedosreserva') }}" class="my-birthday-create-button-small">Quero dar este presente mas comprarei em loja física</a>
+									<a href="{{ route('convidado.brinquedos.reserva', $party) }}" class="my-birthday-create-button-small">Quero dar este presente mas comprarei em loja física</a>
 								</div>
 							</div>
 						</li>

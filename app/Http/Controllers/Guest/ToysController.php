@@ -15,40 +15,40 @@ class ToysController extends Controller {
 	public function index(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.index', compact('party'));
+		return view('convidado.brinquedos.index', compact('party'));
 	}
 
 	public function detalhe(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.detalhe', compact('party'));
+		return view('convidado.brinquedos.detalhe', compact('party'));
 	}
 
 	public function compraOnline(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.compra-online', compact('party'));
+		return view('convidado.brinquedos.compra-online', compact('party'));
 	}
 
 	public function reserva(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.reserva', compact('party'));
+		return view('convidado.brinquedos.reserva', compact('party'));
 	}
 
 	public function criarDetalhe(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.criar-detalhe', compact('party'));
+		return view('convidado.brinquedos.criar-detalhe', compact('party'));
 	}
 	public function criarAdicionarNovo(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.criar-adicionar-novo', compact('party'));
+		return view('convidado.brinquedos.criar-adicionar-novo', compact('party'));
 	}
 	public function criarEcommerce(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.criar-ecommerce', compact('party'));
+		return view('convidado.brinquedos.criar-ecommerce', compact('party'));
 	}
 }

@@ -159,49 +159,35 @@
 				</div>
 				<div class="col-md-9 dados-container">
 					<div class="row">
-						<div class="gifts-filter col-md-12">
-							<ul class="gifts-filter-categories">
-								<li class="gifts-filter-categories-item">
-									<a href="{{ url('convidado/4/brinquedos') }}">
-										<i class="gifts-filter-categories-icon gifts-filter-categories-toys"></i>
-										<span>brinquedos</span>
-									</a>
-								</li>
-								<li class="gifts-filter-categories-item active">
-									<a href="{{ url('convidado/4/roupas') }}">
-										<i class="gifts-filter-categories-icon gifts-filter-categories-clothes"></i>
-										<span>roupas</span>
-									</a>
-								</li>
-								<li class="gifts-filter-categories-item">
-									<a href="{{ url('convidado/4/cotas') }}">
-										<i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i>
-										<span>cotas</span>
-									</a>
-								</li>
-							</ul>
-						</div>
+						@include('convidado.inc.filtro-categorias', ['filter' => 'roupas'])
 					</div>
-					<div class="mensagem-interna">
-						<form>
-							<fieldset class="col-md-12">
-								<strong class="my-birthday-create-button-small">Eba</strong>
-								<p class="text-left">Com certeza vou adorar o presente! Você receberá um e-mail com os detalhes da festa! Não esqueça de deixar uma mensagem!</p>
-								<div class="form-group">
-									<input type="text" name="nome" id="msg-nome" class="form-control form-input" placeholder="nome">
+					<ul class="gifts-list" data-festa-id="3">
+						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="1">
+							<div class="row">
+								<p class="gifts-item-title">Ver Detalhes</p>
+								<div class="col-md-4">
+									<img src="https://http2.mlstatic.com/camiseta-personalizada-vermelha-baby-looney-tunes-D_NQ_NP_686121-MLB20708538469_052016-F.jpg" class="gifts-item-image" width="100%">
 								</div>
-								<div class="form-group">
-									<textarea name="mensagem" id="msg-mensagem" class="form-control form-input" placeholder="Escreva aqui uma mensagem bem legal e divertida para o aniversariante"></textarea>
+								<div class="gifts-item-content col-md-8">
+									<h5 class="gifts-item-title bgC">CAMISETA - Looney Tunes Frajola</h5>
+									<p class="gifts-item-price-description">Preço aproximado</p>
+									<p class="gifts-item-price-value bgC">R$ 113,00</p>
+									<p class="gifts-item-color-description">Cor</p>
+									<p class="gifts-item-color-value bgC">Vermelha</p>
+									<div class="col-md-6">
+										<a href="{{ route('convidado.roupas.index', $party) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de Roupas</a>
+									</div>
+									<div class="col-md-6">
+										<a href="#" class="my-birthday-create-button-small">Quero comprar online agora</a>
+									</div>
 								</div>
-								<button type="submit" class="enviar msg-form-enviar"> Enviar</button>
-							</fieldset>
-						</form>
-						<img src="{{ asset('assets/site/images/presentinho-blue-02.png') }}" class="presentinho-azul" alt="">
-					</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
-	</div> 
+	</div>
 @endsection
 
 @section('scripts')

@@ -36,28 +36,7 @@
 						<small>*As cotas adquiridas pelos convidados serão automaticamente convertidas em crédito na sua conta bancária. Não cadastrou seu conta bancária ainda? Não esqueça de cadastra-la a qualquer momento no painel de controle assim que finalizar a criação do aniversário.</small>
 					</div>
 					<div class="row">
-						<div class="gifts-filter col-md-12">
-							<ul class="gifts-filter-categories">
-								<li class="gifts-filter-categories-item">
-									<a href="{{ url('convidado/4/brinquedos') }}">
-										<i class="gifts-filter-categories-icon gifts-filter-categories-toys"></i>
-										<span>brinquedos</span>
-									</a>
-								</li>
-								<li class="gifts-filter-categories-item">
-									<a href="{{ url('convidado/4/roupas') }}">
-										<i class="gifts-filter-categories-icon gifts-filter-categories-clothes"></i>
-										<span>roupas</span>
-									</a>
-								</li>
-								<li class="gifts-filter-categories-item active">
-									<a href="{{ url('convidado/4/cotas') }}">
-										<i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i>
-										<span>cotas</span>
-									</a>
-								</li>
-							</ul>
-						</div>
+						@include('convidado.inc.filtro-categorias', ['filter' => 'brinquedos'])
 					</div>
 					<ul class="gifts-list" data-festa-id="3">
 						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="1">
