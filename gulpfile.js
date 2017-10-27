@@ -60,7 +60,15 @@ gulp.task('scripts-deploy', function() {
 
 //compiling our SCSS files
 gulp.task('styles', function() {
-    //the initializer / master SCSS file, which will just be a file that imports everything
+    gulp.src('resources/assets/site/sass/pages/convidado.scss')
+            .pipe(sass({
+                  errLogToConsole: true,
+                  includePaths: [
+                      'resources/assets/site/sass/'
+                  ]
+            }))
+            .pipe(gulp.dest('public/assets/site/styles'));
+
     return gulp.src('resources/assets/site/sass/init.scss')
             //prevent pipe breaking caused by errors from gulp plugins
             .pipe(plumber({

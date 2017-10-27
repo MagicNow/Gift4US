@@ -11,8 +11,8 @@
 	<meta name="csrf-token" content="{!! csrf_token() !!}">
 	<meta http-equiv="content-language" content="pt-br" />
 
-	 {{-- {!! Html::style('assets/site/styles/bootstrap.min.css') !!} --}}
 	 {!! Html::style('assets/site/styles/styles.css') !!}
+	 {!! Html::style('assets/site/styles/convidado.css') !!}
 </head>
 <body class="{!! Route::currentRouteName() !!} {{ $party ? $party->layout()->first()->class : NULL }}">
 		<!--HEADER-->
