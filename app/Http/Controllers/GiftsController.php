@@ -165,7 +165,6 @@ class GiftsController extends Controller {
 		return view('site.criar-aniversario.preview', compact('festa', 'client', 'titulo', 'layout'));
 	}
 
-
 	public function toysAdd(Request $request, $festa_id)
 	{
 		$party = Festas::find($festa_id);
@@ -175,5 +174,15 @@ class GiftsController extends Controller {
 		$add = [];
 
 		return view('site.presentes.brinquedos-adicionar', compact('request', 'titulo', 'client', 'party', 'selected', 'add'));
+	}
+
+	public function quotasAdd(Request $request, $festa_id)
+	{
+		$party = Festas::find($festa_id);
+		$client = $this->cliente;
+		$titulo = 'ÁREA DO USUÁRIO';
+		$add = [];
+
+		return view('site.presentes.cotas-adicionar', compact('request', 'titulo', 'client', 'party', 'add'));
 	}
 }

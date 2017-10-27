@@ -36,10 +36,19 @@ Route::group(['prefix' => 'usuario'], function() {
         Route::get('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir','uses' => 'BirthdayController@aviso'])->where(['id' => '[0-9]+']);
         Route::post('excluir/{id}', ['as' => 'usuario.meus-aniversarios.excluir-post','uses' => 'BirthdayController@destroy'])->where(['id' => '[0-9]+']);
         Route::get('festa/{festa_id}/preview/{layout_id}', ['as' => 'usuario.meus-aniversarios.preview','uses' => 'GiftsController@preview'])->where(['festa_id' => '[0-9]+', 'layout_id' => '[0-9]+']);
+
+        /** ROUPAS **/
         Route::get('festa/{festa_id?}/presentes/roupas', ['as' => 'usuario.meus-aniversarios.presentes.roupas','uses' => 'GiftsController@index'])->where(['festa_id' => '[0-9]+']);
+
+        /** BRINQUEDOS **/
         Route::get('festa/{festa_id?}/presentes/brinquedos', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos','uses' => 'GiftsController@toys'])->where(['festa_id' => '[0-9]+']);
         Route::get('festa/{festa_id?}/presentes/brinquedos/adicionar', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos.adicionar','uses' => 'GiftsController@toysAdd'])->where(['festa_id' => '[0-9]+']);
         Route::get('festa/{festa_id?}/presentes/brinquedos/lista', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos.lista','uses' => 'GiftsController@toysList'])->where(['festa_id' => '[0-9]+']);
+
+        /** COTAS **/
+        Route::get('festa/{festa_id?}/presentes/cotas/adicionar', ['as'=> 'usuario.meus-aniversarios.presentes.cotas.adicionar', 'uses' => 'GiftsController@quotasAdd']);
+        Route::get('festa/{festa_id?}/presentes/cotas/criar-detalhe', ['as'=> 'convidado.brinquedos.criarDetalhe', 'uses' => 'ToysController@criarDetalhe']);
+        Route::get('festa/{festa_id?}/presentes/cotas/criar-ecommerce', ['as'=> 'convidado.brinquedos.criarEcommerce', 'uses' => 'ToysController@criarEcommerce']);
     });
 });
 
@@ -62,9 +71,6 @@ Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
         Route::get('compra-online', ['as'=> 'convidado.brinquedos.compraOnline', 'uses' => 'ToysController@compraOnline']);
         Route::get('detalhe', ['as'=> 'convidado.brinquedos.detalhe', 'uses' => 'ToysController@detalhe']);
         Route::get('reserva', ['as'=> 'convidado.brinquedos.reserva', 'uses' => 'ToysController@reserva']);
-        Route::get('criar-detalhe', ['as'=> 'convidado.brinquedos.criarDetalhe', 'uses' => 'ToysController@criarDetalhe']);
-        Route::get('criar-adicionar-novo', ['as'=> 'convidado.brinquedos.criarAdicionarNovo', 'uses' => 'ToysController@criarAdicionarNovo']);
-        Route::get('criar-ecommerce', ['as'=> 'convidado.brinquedos.criarEcommerce', 'uses' => 'ToysController@criarEcommerce']);
     });
 
     Route::group(['prefix' => '{festa_id}/cotas'], function () {
