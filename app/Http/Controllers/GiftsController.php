@@ -176,6 +176,15 @@ class GiftsController extends Controller {
 		return view('site.presentes.brinquedos-adicionar', compact('request', 'titulo', 'client', 'party', 'selected', 'add'));
 	}
 
+	public function toysDetail(Request $request, $festa_id)
+	{
+		$party = Festas::find($festa_id);
+		$client = $this->cliente;
+		$titulo = 'ÁREA DO USUÁRIO';
+
+		return view('site.presentes.brinquedos-detalhe', compact('request', 'titulo', 'client', 'party'));
+	}
+
 	public function quotasAdd(Request $request, $festa_id)
 	{
 		$party = Festas::find($festa_id);

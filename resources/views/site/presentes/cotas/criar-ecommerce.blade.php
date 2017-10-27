@@ -24,13 +24,34 @@
 						</a>
 					</div>
 					<div class="gifts-box-number-footer dados-container">
-						<a class="gifts-box-number-submit" href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/passo/5">Finalizar lista</a>
+						<a class="gifts-box-number-submit" href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}">Finalizar lista</a>
 						<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos" class="gifts-box-number-back">voltar a etapa anterior</a>
 					</div>
 				</div>
 				<div class="col-md-9 dados-container">
 					<div class="row">
-						@include('convidado.inc.filtro-categorias', ['filter' => 'brinquedos'])
+						<div class="gifts-filter col-md-12">
+							<ul class="gifts-filter-categories">
+								<li class="gifts-filter-categories-item">
+									<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos', $party->id) }}">
+										<i class="gifts-filter-categories-icon gifts-filter-categories-toys"></i>
+										<span>brinquedos</span>
+									</a>
+								</li>
+								<li class="gifts-filter-categories-item">
+									<a href="{{ route('usuario.meus-aniversarios.presentes.roupas', $party->id) }}">
+										<i class="gifts-filter-categories-icon gifts-filter-categories-clothes"></i>
+										<span>roupas</span>
+									</a>
+								</li>
+								<li class="gifts-filter-categories-item active">
+									<a href="{{ route('usuario.meus-aniversarios.presentes.cotas', $party->id) }}">
+										<i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i>
+										<span>cotas</span>
+									</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 					<ul class="gifts-list" data-festa-id="3">
 						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="1">

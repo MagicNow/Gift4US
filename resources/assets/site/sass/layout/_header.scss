@@ -10,12 +10,8 @@ body {
 
 header{
 	height: 119px;
-  background-image: url(../images/bg.png);
-  background-size: cover;
-  background-repeat: repeat;
+	background:url(../images/bg_menu.jpg);
 	font-size:17px;
-  background-color:#fff;
-
 
 	.navbar{
 		border:0;
@@ -36,7 +32,7 @@ header{
 					float: none;
 					vertical-align: top;
 					li{
-						border-bottom: 3px solid #666;
+						border-bottom: 3px solid #FFF;
 
 						&.logout{
 							border-bottom:0;
@@ -54,25 +50,13 @@ header{
 							}
 						}
 
-            &.login-do {
-              border: none;
-              .header-logo {
-                display: block;
-                max-width: 100%;
-                margin: -13px auto 0;
-              }
-              a {
-                margin-left: -30px;
-              }
-            }
-
 						&.divisor{
-							border-right:3px solid #666;
+							border-right:3px solid #FFF;
 						}
 
 						a{
-							padding: 0 30px 5px;
-							color:#666;
+							padding: 0 15px 5px;
+							color:#FFF;
 							font: 18px 'HelveticaNeueStd';
 						}
 					}
@@ -83,10 +67,10 @@ header{
 	}
 	h2{
 		font-family: 'dk_astromonkeyregular';
-		color: #666;
+		color: #FFF;
 		font-size:26px;
 		text-align:center;
-		margin-top: -25px;
+		margin-top: -15px;
     letter-spacing: 5px;
 	}
 	img{
