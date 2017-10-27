@@ -203,4 +203,13 @@ class GiftsController extends Controller {
 
 		return view('site.presentes.cotas-adicionar', compact('request', 'titulo', 'client', 'party', 'add'));
 	}
+
+	public function quotasDetail(Request $request, $festa_id)
+	{
+		$party = Festas::find($festa_id);
+		$client = $this->cliente;
+		$titulo = 'ÁREA DO USUÁRIO';
+
+		return view('site.presentes.cotas-detalhe', compact('request', 'titulo', 'client', 'party'));
+	}
 }

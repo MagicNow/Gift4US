@@ -18,13 +18,13 @@
 						</div>
 					</div>
 					<div class="row"> 
-						<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos/lista?selecionados=1" class="gifts-box-number-middle toys col-md-12 dados-container" style="width:100%">
+						<a href="{{ route('usuario.meus-aniversarios.presentes.cotas', [ $party->id, 'selecionados' => 1 ]) }}" class="gifts-box-number-middle toys col-md-12 dados-container" style="width:100%">
 							<p class="gifts-box-number-middle-view">Ver lista</p>
 							<p class="gifts-box-number-middle-selected">selecionados</p>
 						</a>
 					</div>
 					<div class="gifts-box-number-footer dados-container">
-						<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos" class="gifts-box-number-back">voltar a etapa anterior</a>
+						<a href="{{ route('usuario.meus-aniversarios.presentes.cotas', $party->id) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
 					</div>
 				</div>
 				<div class="col-md-9 dados-container">
@@ -66,14 +66,14 @@
 									<p class="gifts-item-price-description">Quer dívidir em mais cotas ou deixar cota única?</p>
 									<div class="gifts-item-price-value bgC col-md-12">
 										<p class="radio col-md-4">
-											<label data-image="http://vagrant.gift4us/public/assets/site/images/avatar/crianca-masculino.png" class="form-birthday-sex-label">
+											<label data-image="{{ asset('assets/site/images/avatar/crianca-masculino.png') }}" class="form-birthday-sex-label">
 												<input type="radio" name="ciclo_vida" value="Criança" checked="checked">
 												<span></span>
 												Dívidir cota
 											</label>
 										</p>
 										<p class="radio col-md-4">
-											<label data-image="http://vagrant.gift4us/public/assets/site/images/avatar/adolescente-masculino.png" class="form-birthday-sex-label">
+											<label data-image="{{ asset('assets/site/images/avatar/adolescente-masculino.png') }}" class="form-birthday-sex-label">
 												<input type="radio" name="ciclo_vida" value="unica"><span></span>
 												Cota única 
 											</label>

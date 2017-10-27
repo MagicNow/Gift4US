@@ -22,25 +22,25 @@
 						</div>
 					</div>
 					<div class="row"> 
-						<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos/lista?adicionados=1" class="gifts-box-number-middle toys dados-container col-md-6">
+						<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos', [ $party->id, 'adicionados' => 1 ]) }}" class="gifts-box-number-middle toys dados-container col-md-6">
 							<p class="gifts-box-number-middle-view">Ver lista</p>
 							<p class="gifts-box-number-middle-selected">adicionados</p>
 						</a>
-						<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos/lista?selecionados=1" class="gifts-box-number-middle toys col-md-6 dados-container">
+						<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos', [ $party->id, 'selecionados' => 1 ]) }}" class="gifts-box-number-middle toys col-md-6 dados-container">
 							<p class="gifts-box-number-middle-view">Ver lista</p>
 							<p class="gifts-box-number-middle-selected">selecionados</p>
 						</a>
 					</div>
 					<div class="gifts-box-toys-add">
-						<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos/adicionar" class="dados-container">
+						<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos.adicionar', $party->id) }}" class="dados-container">
 							<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_add.png') }}" class="" alt="">
 							<p class="gifts-box-toys-add-text">Adicionar brinquedos</p>
 						</a>
 						<p class="gifts-box-toys-add-legend">Adicione presentes que não achou na nossa lista de sugestões ao lado</p>
 					</div>
 					<div class="gifts-box-number-footer dados-container">
-						<a class="gifts-box-number-submit" href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/passo/5">Finalizar lista</a>
-						<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos" class="gifts-box-number-back">voltar a etapa anterior</a>
+						<a class="gifts-box-number-submit" href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}">Finalizar lista</a>
+						<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
 					</div>
 				</div>
 				<div class="col-md-9 dados-container">

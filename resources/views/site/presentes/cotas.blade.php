@@ -18,21 +18,21 @@
 						</div>
 					</div>
 					<div class="row"> 
-						<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos/lista?selecionados=1" class="gifts-box-number-middle toys col-md-12 dados-container" style="width:100%">
+						<a href="{{ route('usuario.meus-aniversarios.presentes.cotas', [ $party->id, 'selecionados' => 1 ]) }}" class="gifts-box-number-middle toys col-md-12 dados-container" style="width:100%">
 							<p class="gifts-box-number-middle-view">Ver lista</p>
 							<p class="gifts-box-number-middle-selected">selecionados</p>
 						</a>
 					</div>
 					<div class="gifts-box-toys-add">
-						<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos/adicionar" class="dados-container">
+						<a href="{{ route('usuario.meus-aniversarios.presentes.cotas.adicionar', $party->id) }}" class="dados-container">
 							<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_add.png') }}" class="" alt="">
 							<p class="gifts-box-toys-add-text">Adicionar cotas</p>
 						</a>
 						<p class="gifts-box-toys-add-legend">Lembrou de alguma cota que ficou faltando? Clique no botão acima para adionar mais cotas!</p>
 					</div>
 					<div class="gifts-box-number-footer dados-container">
-						<a class="gifts-box-number-submit" href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/passo/5">Finalizar lista</a>
-						<a href="http://vagrant.gift4us/public/usuario/meus-aniversarios/festa/3/presentes/brinquedos" class="gifts-box-number-back">voltar a etapa anterior</a>
+						<a class="gifts-box-number-submit" href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}">Finalizar lista</a>
+						<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
 					</div>
 				</div>
 				<div class="col-md-9 dados-container">
@@ -100,7 +100,7 @@
 						<h6>Lista de Cotas</h6>
 						<span>Parabéns! Você está perto de finalizar sua lista de cotas!</span>
 						<p>
-							<img src="http://vagrant.gift4us/public/assets/site/images/presentinho-icone.png">
+							<img src="{{ asset('assets/site/images/presentinho-icone.png') }}">
 							<small class="gifts-box-number-header-total">99</small> selecionados
 						</p>
 						<div class="gifts-box-number-footer dados-container">

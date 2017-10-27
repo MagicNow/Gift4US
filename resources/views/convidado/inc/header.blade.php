@@ -32,7 +32,7 @@
 							<li class="divisor"><a href="#" alt=""><i class="fa fa-search" aria-hidden="true"></i> procurar aniversário</a></li>
 							<li class="divisor"><a href="#" alt="">como funciona</a></li>
 							<li class="divisor"><a href="#" alt="">passo a passo</a></li>
-              <li><a href="#" alt="">novo usuário</a></li>
+              				<li><a href="#" alt="">novo usuário</a></li>
 							<li class="login-do"><a href="#" alt=""><img src="{{ url('assets/site/images/small_logo.png') }}" class="header-logo"><br/>fazer login</a></li>
 						</ul>
 					</nav>
