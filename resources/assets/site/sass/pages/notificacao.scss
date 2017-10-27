@@ -1,3 +1,65 @@
+/* FUNDO BRANCO INTERNAS NOTIFICACAO */
+.gifts-container.row.col-md-offset-2{background:#fff;}
+
+.brinquedosLista .add-brinquedo{
+	font:23px 'HelveticaNeueStd_BDCN'!important;
+	color:#ee4949;
+}
+.brinquedosLista .pL30{
+	padding-left:30px;
+}
+.brinquedosLista .bg-presente-lista{
+	background:url(../images/presentinho_aniversario_presente_roupas_add.png) 0 6px no-repeat;
+	padding:9px 0 9px 84px!important;
+	margin-top:-20px;
+}
+.brinquedosLista .textR{
+	text-align:right;
+}
+.brinquedosLista .textR a{
+	color:#333333;
+}
+
+.brinquedosLista .modal-lista-item{
+	width:350px;
+    height:300px;
+    padding-top:10px;
+    position:absolute;
+    top:0;
+    left:0;
+    background:#fff;
+    z-index:2;
+}
+.brinquedosLista .modal-lista-item h6{
+	font:23px 'HelveticaNeueStd_BDCN';
+	color:#333;
+	text-align:center;
+}
+.brinquedosLista .modal-lista-item span{
+	font: 15px 'HelveticaNeueStd_CN';
+	color: #b2b5b8;
+	text-align:center;
+	display:block;
+}
+.brinquedosLista .modal-lista-item .gifts-box-number-footer{
+	margin-top:17px!important;
+}
+.brinquedosLista .modal-lista-item .gifts-box-number-footer a{
+	margin:0 -15px!important;
+}
+.brinquedosLista .modal-lista-concluir{
+	width:209px;
+	height:162px;
+}
+.brinquedosLista .modal-lista-concluir p{
+	font:16px 'HelveticaNeueStd_CN';
+    margin:10px 0 0 0;
+    color:#555557;
+    text-align:center;
+}
+.brinquedosLista .modal-lista-concluir .gifts-box-number-footer a{
+	margin:0!important;
+}
 /* COLUNA DETALHES FESTA */
 .detalhes-festa{
 	margin-top:35px;
