@@ -7,18 +7,18 @@
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
-    "gulp-imagemin": "^3.0.3",
+    "gulp-imagemin": "^3.4.0",
     "gulp-util": "^3.0.7",
     "jquery": "^3.1.0",
-    "laravel-elixir": "^6.0.0-9",
+    "laravel-elixir": "^6.0.0-16",
     "laravel-elixir-vue-2": "^0.2.0",
     "laravel-elixir-webpack-official": "^1.0.2",
     "lodash": "^4.16.2",
-    "vue": "^2.0.1",
+    "vue": "^2.5.2",
     "vue-resource": "^1.0.3"
   },
   "dependencies": {
-    "browser-sync": "^2.17.5",
+    "browser-sync": "^2.18.13",
     "gulp-autoprefixer": "^3.0.2",
     "gulp-concat": "^2.6.0",
     "gulp-less": "^3.1.0",
