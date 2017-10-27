@@ -31,7 +31,7 @@
 									<span class="form-birthday-gift-count {{ $gifts['clothes'] > 0 ? 'active' : '' }}"><i></i>{{ sprintf("%02d", $gifts['clothes']) }} na lista de presentes</span>
 								</div>
 								<div class="col-md-4 form-birthday-gift-column">
-									<a href="#" class="form-birthday-gift-link"><span class="icon form-birthday-gift-quotas">COTAS</span>Os convidados podem presentear financiando pequenas partes de um valor total. Pode ser a própria festa por exemplo!</a>
+									<a href="{{ route('usuario.meus-aniversarios.presentes.cotas', $festa->id) }}" class="form-birthday-gift-link"><span class="icon form-birthday-gift-quotas">COTAS</span>Os convidados podem presentear financiando pequenas partes de um valor total. Pode ser a própria festa por exemplo!</a>
 									<span class="form-birthday-gift-count {{ $gifts['quotas'] > 0 ? 'active' : '' }}"><i></i>{{ sprintf("%02d", $gifts['quotas']) }} na lista de presentes</span>
 								</div>
 							</div>
