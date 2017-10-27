@@ -1,7 +1,30 @@
-//header h2{
-  //margin-top:11px
-//}
 
+header.area-convidado {
+background: none;
+}
+
+header.area-convidado .navbar.navbar-default .navbar-collapse .navbar-nav li a {
+    padding: 0 15px 5px;
+    color: #6B6C6A;
+    font: 18px 'HelveticaNeueStd';
+}
+header.area-convidado .navbar.navbar-default .navbar-collapse .navbar-nav li.divisor {
+    border-right: 3px solid #6B6C6A;
+}
+header.area-convidado .navbar.navbar-default .navbar-collapse .navbar-nav li {
+    border-bottom: 3px solid #6B6C6A;
+}
+header.area-convidado .navbar.navbar-default .navbar-collapse .navbar-nav li.login-do{
+  border:none;
+}
+header.area-convidado h2 {
+    font-family: 'dk_astromonkeyregular';
+    color: #6B6C6A;
+    font-size: 26px;
+    text-align: center;
+    margin-top: -15px;
+    letter-spacing: 5px;
+}
 .preview{
   margin-top:20px;
   margin-bottom:-49px

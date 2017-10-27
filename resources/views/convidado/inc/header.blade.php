@@ -16,7 +16,7 @@
 </head>
 <body class="{!! Route::currentRouteName() !!} {{ $party ? $party->layout()->first()->class : NULL }}">
 		<!--HEADER-->
-		<header>
+		<header class="area-convidado">
 			<div class="navbar navbar-default col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="container">
 					<div class="navbar-header ">
@@ -33,7 +33,7 @@
 							<li class="divisor"><a href="#" alt="">como funciona</a></li>
 							<li class="divisor"><a href="#" alt="">passo a passo</a></li>
               <li><a href="#" alt="">novo usuário</a></li>
-							<li class="login-do"><a href="#" alt=""><img src="{{ url('assets/site/images/small_logo.png') }}" class="header-logo">fazer login</a></li>
+							<li class="login-do"><a href="#" alt=""><img src="{{ url('assets/site/images/small_logo.png') }}" class="header-logo"><br/>fazer login</a></li>
 						</ul>
 					</nav>
 				</div>
