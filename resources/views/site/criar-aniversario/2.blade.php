@@ -170,6 +170,6 @@
 			});
 		}
 	</script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCY5TMTVCp_l_QRxOTt37mkrCkDUeg2JQ&libraries=places&callback=initMap&language=pt-BR">
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5mG8Db_ESKNyncRp8IajDSn5fC3CGLfU&libraries=places&callback=initMap&language=pt-BR">
 	</script>
 @endsection
