@@ -7,7 +7,11 @@ use App\Models\Festas;
 use App\Models\FestasLayouts;
 use App\Models\ProdutosTipos;
 use App\Models\Produtos;
+use App\Models\Cotas;
+use App\Http\Requests\StoreQuotas;
+use Intervention\Image\ImageManagerStatic as Image;
 use XmlParser;
+use Validator;
 
 class GiftsController extends Controller {
 	private $cliente;
@@ -185,7 +189,7 @@ class GiftsController extends Controller {
 		return view('site.presentes.brinquedos-detalhe', compact('request', 'titulo', 'client', 'party'));
 	}
 
-	public function quotas (Request $request, $festa_id)
+	public function quotas(Request $request, $festa_id)
 	{
 		$party = Festas::find($festa_id);
 		$client = $this->cliente;
@@ -204,6 +208,33 @@ class GiftsController extends Controller {
 		return view('site.presentes.cotas-adicionar', compact('request', 'titulo', 'client', 'party', 'add'));
 	}
 
+	public function quotasStore(StoreQuotas $request, $festa_id)
+	{
+		$input = $request->all();
+
+        $rules = StoreQuotas::rules();
+		$festa = Festas::find($festa_id);
+
+		if ($festa->clientes_id != $this->cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+ 		$input['festas_id'] = $festa_id;
+ 		$input['valor_total'] = str_replace(',', '.', str_replace('.', '', $input['valor_total']));
+ 		$input['foto'] = $this->upload($request);
+
+		$cota = new Cotas();
+		$cota->fill($input);
+
+		$festa->cotas()->save($cota);
+
+		if ($input['salvar'] === 'salvar') {
+			return redirect()->route('usuario.meus-aniversarios.presentes.cotas', $festa->id);
+		} else {
+			return redirect()->route('usuario.meus-aniversarios.presentes.cotas.adicionar', $festa->id);
+		}
+	}
+
 	public function quotasDetail(Request $request, $festa_id)
 	{
 		$party = Festas::find($festa_id);
@@ -211,5 +242,22 @@ class GiftsController extends Controller {
 		$titulo = 'ÁREA DO USUÁRIO';
 
 		return view('site.presentes.cotas-detalhe', compact('request', 'titulo', 'client', 'party'));
+	}
+
+	private function upload(Request $request)
+	{
+		$path = basename($request->foto->store('public/quotas'));
+
+		if (!\File::exists(storage_path('app/public/quotas/mask'))) {
+			$folder = \File::makeDirectory(storage_path('app/public/quotas/mask'), 0775, true);
+		}
+
+		$img = Image::make(storage_path('app/public/quotas/' . $path));
+		$img->resize(780, null, function ($constraint) {
+				$constraint->aspectRatio();
+			})
+			->save(storage_path('app/public/quotas/' . $path));
+
+		return $path;
 	}
 }

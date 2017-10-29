@@ -258,8 +258,8 @@
 			&-show {
 				border-left: 0 none;
 				border-right: 1px solid #cfcfd1;
-				padding-top: 1px;
-                padding-bottom: 1px;
+				// padding-top: 1px;
+                // padding-bottom: 1px;
 			}
 
 			&-select {
@@ -477,86 +477,119 @@
 			text-align: center;
 		}
 	}
+
+	&-input-icon {
+		line-height: 22px;
+		margin-bottom: 3px;
+
+		input {
+			border-radius: 0;
+			border: 0 none;
+			box-shadow: none;
+			margin-bottom: 0;
+			height: 26px;
+		}
+
+		.input-group-addon {
+			border: 0 none;
+			background-color: #eaeaea;
+		}
+	}
 }
 
-.dados-container-imprimirconvite{
-			background-color: #fff;
-			margin-left: 20px;
-		    z-index: 0 !important;
+.brinquedosLista {
+	
 }
- .gifts-container .dados-container .convite-imprimirconvite{
-      border:2px solid #6BBCE3;
-      width:340px;
-	  height:205px;
-	  background-color:#fff;
-      zoom:50%;
-	  margin: 163px 0px;
-    }
-    .imglogo{
-      width: 80px;
-    float: left;
-    padding: 10px;
-    margin-top: 55px;
-    }
-.imprimir-convite-geral .texto{
-      border-left:3px solid #F09024;
-      float:left;
-      width:205px;
-      font-family: 'HelveticaNeueStd';
-      font-size:12px;
-      text-align: center;
-      padding-left: 12px;
-      margin-top:5px;
-      margin-bottom:5px;
-      margin-left: 10px;
-    }
-	.texto b {
-		display: block;
+
+.criar-presentes {
+	&-errors {
+		list-style-type: none;
 	}
-.imprimir-convite-geral h1{
-    font-weight: 600;
+
+	.bgC {
+		background-color:#eaeaea;
+	}
+
+	.gifts-item {
+		&-title {
+			height: auto;
+			margin-bottom: 10px;
+		}
+
+		&-price {
+			&-description {
+				&-upload, &-cota {
+					font: 15px 'HelveticaNeueStd_CN';
+					color: #bebec0;
+					margin: 0 0 20px 0;
+				}
+
+				&-upload {
+					padding: 64px;
+					cursor: pointer;
+				}
+			}
+
+			&-value {
+
+			}
+		}
+
+		&-quotas-box {
+			margin: 0 0 15px;
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+	}
+
+	.upload-image{
+		display:none;
+	}
+
+	&-form {
+		padding-bottom: 15px;
+
+		p {
+			padding: 3px;
+		}
+		
+		.select2-selection {
+			background-color: transparent;
+		}
+
+		.form-birthday-size-container.form-group {
+			margin-bottom: 5px;
+		}
+
+		.gifts-item-price-description {
+
+		}
+	}
+
+	&-save-continue {
+		border-left: 0 none;
+		border-right: 0 none;
+	}
 }
-.imprimir-convite-geral .detalhes-imprimir-festa .cm{
-	  font-family: 'HelveticaNeueStd_CN';
-	  color:#b2b5b8;
-	  padding-top:5px;
+
+.imglogo{
+	width: 80px;
+	float: left;
+	padding: 10px;
+	margin-top: 55px;
 }
-.conteudo-zoom{
+
+.texto b {
+	display: block;
+}
+
+.conteudo-zoom {
 	zoom:50%;
 }
-.imprimir-convite-geral .my-birthday-item-input{
-padding: 0px;
-padding-bottom: 10px;
-}
-.detalhes-imprimir-festa{
-    font-size: 16px;
-    line-height: 15px;
-    font-family: 'HelveticaNeueStd_CN';
-}
-.imprimir-convite-geral .detalhes-imprimir-festa{
-	text-align: center;
-	width: 100%;
-	padding:15px 0px;
 
-}
 .pull-left.zoom{
-	border-right:2px solid #D5D6D7;
+	border-right: 2px solid #D5D6D7;
 	padding: 10px;
 	text-align: center;
 	width: 50%;
-}
-.imprimir-zoom{
-	zoom:65%;
-	text-align: center;
-}
-.dados-container .imprimir-zoom .convite{
-margin:0px 0px 0px 0px;
-}
-
-.imprimir-convite-geral .imprimir-btn {
-	font-family: 'HelveticaNeueStd_CN';
-    text-decoration-line:none;
-	color:#fff;
-	font-size: 12px;
-	max-width: 120px;
 }

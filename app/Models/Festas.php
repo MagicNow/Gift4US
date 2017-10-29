@@ -30,4 +30,8 @@ class Festas extends Model {
 	public function tipo() {
 		return $this->belongsToMany('App\Models\ProdutosTipos');
 	}
+
+    public function cotas() {
+        return $this->hasMany('App\Models\Cotas');
+    }
 }

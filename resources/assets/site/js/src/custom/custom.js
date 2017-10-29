@@ -200,7 +200,7 @@ $(function() {
     	e.preventDefault();
     	$('.gifts-list-message').remove();
 
-    	createCookie('closeModalGift', true, 1);
+    	createCookie($(this).data('cookie'), true, 1);
     });
 
     $('.gifts-item-button-remove').on('click', function (e) {
@@ -249,8 +249,6 @@ $(function() {
 			if(typeof $self.attr('max') !== undefined && inputVal > inputMax && e.keyCode != 8) $self.val('');
 			if(typeof $self.attr('min') !== undefined && inputVal < inputMin && e.keyCode != 8) $self.val(0);
 		});
-
-	$('.form-birthday-size-input').select2();
 
 	$('.form-birthday-layouts-swap').on('click', function (e) {
 		e.preventDefault();
@@ -342,7 +340,42 @@ $(function() {
 		yearStart: new Date().getFullYear(),
 		yearEnd: new Date().getFullYear() + 3
 	});
+
+	$('[name="dividir_cota"').on('change', function (e) {
+		var $self = $(this);
+		if ($self.val() == 1) {
+			$('.gifts-item-quotas-split').show();
+		} else {
+			$('.gifts-item-quotas-split').hide();
+			$('[name="quantidade_cotas"]').prop('selectedIndex', 0).trigger('change');
+			$('.criar-presentes-cota-valor').text('0,00');
+		}
+	});
+
+	$('.money').mask("#.##0,00", {
+		reverse: true,
+		onKeyPress: changeQuotaSplit,
+	});
+
+	$('.criar-presentes .form-birthday-size-input')
+		.select2({
+			placeholder: 'Quantidade de cotas',
+			allowClear: true
+		})
+		.on('change', changeQuotaSplit);
 });
+
+function changeQuotaSplit() {
+	let quotaTotal = $('.criar-presentes').find('[name="valor_total"]').val().replace(/\./g, '').replace(',', '.');
+	let quotaNumber = $('.criar-presentes .form-birthday-size-input').val();
+	let quotaCost = quotaTotal / quotaNumber;
+
+	if (quotaNumber !== '') {
+		$('.criar-presentes-cota-valor').text(quotaCost.toFixed(2).toString().replace(".", ","));
+	} else {
+		$('.criar-presentes-cota-valor').text('0,00');
+	}
+}
 
 function closeGiftModal() {
 	$('.gifts-modal').addClass('hidden');

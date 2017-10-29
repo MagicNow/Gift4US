@@ -73,9 +73,9 @@
 						</div>
 					</div>
 					<ul class="gifts-list" data-festa-id="{{ $party->id }}">
-						@if(!isset($_COOKIE['closeModalGift']) || empty($_COOKIE['closeModalGift']))
+						@if(!isset($_COOKIE['closeModalClothes']) || empty($_COOKIE['closeModalClothes']))
 							<div class="gifts-list-message">
-								<button class="gifts-list-message-remove"></button>
+								<button class="gifts-list-message-remove" data-cookie="closeModalClothes"></button>
 								<p class="gifts-list-message-first">Selecione as roupas que possuam a personalidade do aniversariante! É bem fácil! Você pode selecionar os produtos sugeridos abaixo, procurar algum modelo específico pelo nome e filtrar por diversas formas! </p>
 								<p class="gifts-list-message-secound">*As roupas adquiridas pelos convidados serão automaticamente convertidas em crédito na sua conta bancária. Não cadastrou seu conta bancária ainda? Não esqueça de cadastra-la a qualquer momento no painel de controle assim que finalizar a criação do aniversário.</p>
 							</div>
