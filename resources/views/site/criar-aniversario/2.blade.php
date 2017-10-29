@@ -121,7 +121,7 @@
 
 			$.getJSON(baseUrl + '/assets/site/json/map.json', function(style) {
 				var map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 4,
+					zoom: 5,
 					draggable: false,
 					center: position,
 					zoomControl: false,
