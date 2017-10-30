@@ -1,9 +1,9 @@
-@extends('convidado/master')
+@extends('site/master')
 
 @section('content')
 
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<div class="container brinquedosLista criarPresentes">
+		<div class="container brinquedosLista criar-presentes">
 			<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_ent03.png') }}" class="presentinho col-xs-12 col-sm-12 col-md-6" alt="">
 			
 			<div class="gifts-container row col-md-offset-2">
@@ -45,22 +45,22 @@
 				</div>
 				<div class="col-md-9 dados-container">
 					<div class="row">
-						@include('convidado.inc.filtro-categorias', ['filter' => 'brinquedos'])
+						@include('site.inc.filtro-categorias', ['filter' => 'brinquedos'])
 					</div>
 					<ul class="gifts-list" data-festa-id="3">
 						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="1">
 							<div class="row">
 								<p class="gifts-item-title">Ver Detalhes</p>
 								<div class="col-md-4">
-									<img src="http://www.pontofrio-imagens.com.br/brinquedos/BlocosdeMontar/Lego/8833974/647472444/LEGO---Mascotes-Olimpiadas-Rio-2016---Tom-e-Vinicius---40225-8833974.jpg" class="gifts-item-image" width="100%">
+									<img src="{{ $product->imagem }}" class="gifts-item-image" width="100%">
 								</div>
 								<div class="gifts-item-content col-md-8">
 									<p class="gifts-item-price-description">Como nosso portal é colaborativo, caso tenha alguma informação desatualizada você poderá atualizá-la clicando no botão de edição ao final de cada linha.</p>
-									<h5 class="gifts-item-title bgC">LEGO Mascotes Olimpíadas Rio 2016 - Tom e Vincíus<a href="#" class="bt-editar">Editar</a></h5>
+									<h5 class="gifts-item-title bgC">{{ $product->titulo }}<a href="#" class="bt-editar">Editar</a></h5>
 									<p class="gifts-item-price-description">Preço aproximado:</p>
-									<p class="gifts-item-price-value bgC">R$ 49,00<a href="#" class="bt-editar">Editar</a></p>
+									<p class="gifts-item-price-value bgC">R$ {{ str_replace('.', ',', $product->preco_venda) }}<a href="#" class="bt-editar">Editar</a></p>
 									<p class="gifts-item-price-description">Observação</p>
-									<p class="gifts-item-price-value bgC">Para crianças maiores de 7 anos<a href="#" class="bt-editar">Editar</a></p>
+									<p class="gifts-item-price-value bgC">{{ $product->descricao }}<a href="#" class="bt-editar">Editar</a></p>
 									<p class="gifts-item-price-description">Lojas disponiveis</p>
 									<p class="gifts-item-price-value bgC">PBKids<a href="#" class="bt-editar">Editar</a></p>
 									<p class="gifts-item-price-value bgC">Americanas<a href="#" class="bt-editar">Editar</a></p>
