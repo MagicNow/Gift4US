@@ -390,3 +390,21 @@ function createCookie(name, value, days) {
 	}
 	document.cookie = name + "=" + value + expires + "; path=/";
 }
+
+function formAddGift() {
+	$('form .bgC').prop('readonly',true);
+	$('form .fa-pencil-square-o').click(function() {
+	  $('form .bgC').prop('readonly',false);
+	});
+	$('form .textR a').click(function() {
+	  $(this).replaceWith('<div class="input-group gifts-input-icon"><input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas" value=""><span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></div>');
+	});
+
+	$('.gifts-item-price-description-upload').click(function(){
+		$('.upload-image').click();
+	});
+	$('.criarPresentes .alerta a').click(function(){
+			$('.criarPresentes .alerta').hide();
+	});
+}
+formAddGift();

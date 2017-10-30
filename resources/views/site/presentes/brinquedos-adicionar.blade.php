@@ -3,7 +3,7 @@
 @section('content')
 
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<div class="container brinquedosLista criarPresentes">
+		<div class="container brinquedosLista criar-presentes">
 			<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_ent12.png') }}" class="presentinho col-xs-12 col-sm-12 col-md-6" alt="">
 			
 			<div class="gifts-container row col-md-offset-2">
@@ -54,36 +54,43 @@
 								<p class="gifts-item-price-description-cota bg-presente-lista">
 									Adicionar presente é muito fácil! Só precisará preeencher algumas informações básicas descritas abaixo e inserir uma foto do produto e pronto! Ao salvar ele estará automaticamente na sua lista de adicionados.
 								</p>
-								<div class="col-md-4">
-									<p class="gifts-item-price-description-upload bgC">Adicionar imagem do produto</p>
-									<input type="file" name="arquivos" class="upload-image"  accept="image/png, image/jpeg" />
-									<script>
-										setTimeout(function(){ 
-											$('.gifts-item-price-description-upload').click(function(){
-		  										$('.upload-image').click();
-											});
-										}, 300);
-									</script>
-								</div>
-								<div class="gifts-item-content col-md-8">
-									<p class="gifts-item-price-value bgC">Escreva aqui o nome do presente<a href="#" class="bt-editar">Editar</a></p>
-									<p class="gifts-item-price-description">Preço aproximado</p>
-									<p class="gifts-item-price-value bgC">Escreva aqui o preço aproximado<a href="#" class="bt-editar">Editar</a></p>
-									<p class="gifts-item-price-description">Observação</p>
-									<p class="gifts-item-price-value bgC">Escreva aqui alguma observação caso haja necessidade<a href="#" class="bt-editar">Editar</a></p>
-									<p class="gifts-item-price-description">Lojas disponíveis</p>
-									<p class="gifts-item-price-value bgC">Escreva aqui o nome da loja em que o produto encontra-se disponível<a href="#" class="bt-editar">Editar</a></p>
-									<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
-									<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
-									<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
-									<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
-									<div class="gifts-item-buttons">
-										<button class="col-md-6 gifts-item-button gifts-item-button-show">Salvar</button>
-										<button class="col-md-6 gifts-item-button gifts-item-button-select">Voltar</button>
-										<button class="col-md-12 gifts-item-button gifts-item-button-select">Salvar e adicionar um novo presente</button>
+								<form class="row criar-presentes-form" action="" method="post" enctype="multipart/form-data">
+									<div class="col-md-4">
+										<p class="gifts-item-price-description-upload bgC">Adicionar imagem do produto</p>
+										<input type="file" name="arquivos" class="upload-image"  accept="image/png, image/jpeg" />
 									</div>
-									<fieldset class="">
-								</div>
+									<div class="gifts-item-content col-md-8">
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome do presente" aria-describedby="gifts-name" name="nome" maxlength="100" value="{{ old('nome') }}">
+											<span class="input-group-addon" id="gifts-name"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<p class="gifts-item-price-description">Observação</p>
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui alguma observação caso haja necessidade" aria-describedby="gifts-obs" maxlength="255" name="observacao" value="{{ old('observacao') }}">
+											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<p class="gifts-item-price-description">Valor total</p>
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="money form-control gifts-item-price-value bgC" placeholder="0,00" aria-describedby="gifts-total-price" name="valor_total" value="{{ old('valor_total') }}">
+											<span class="input-group-addon" id="gifts-total-price"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<p class="gifts-item-price-description">Lojas disponíveis</p>
+										<p class="gifts-item-price-description">Observação</p>
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
+											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
+										<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
+										<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
+										<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
+										<div class="gifts-item-buttons">
+											<button class="col-md-6 gifts-item-button gifts-item-button-show">Salvar</button>
+											<button class="col-md-6 gifts-item-button gifts-item-button-select">Voltar</button>
+											<button class="col-md-12 gifts-item-button gifts-item-button-select">Salvar e adicionar um novo presente</button>
+										</div>
+									</div>
+								</form>
 							</div>
 						</li>
 					</ul>
