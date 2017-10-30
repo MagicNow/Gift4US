@@ -88,7 +88,8 @@
 
 				map.setOptions({
 					zoomControl: true,
-					draggable: true
+					draggable: true,
+					// zoom: 16,
 				});
 
 				if (place.address_components) {

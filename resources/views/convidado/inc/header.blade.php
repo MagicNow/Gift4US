@@ -14,7 +14,7 @@
 	 {!! Html::style('assets/site/styles/styles.css') !!}
 	 {!! Html::style('assets/site/styles/convidado.css') !!}
 </head>
-<body class="{!! Route::currentRouteName() !!} {{ $party ? $party->layout()->first()->class : NULL }}">
+<body class="{!! Route::currentRouteName() !!} {{ $party && $party->layout()->count() > 0 ? $party->layout()->first()->class : NULL }}">
 		<!--HEADER-->
 		<header class="area-convidado">
 			<div class="navbar navbar-default col-xs-12 col-sm-12 col-md-12 col-lg-12">
