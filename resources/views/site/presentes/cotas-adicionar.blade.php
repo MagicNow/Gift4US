@@ -26,6 +26,7 @@
 						<a href="{{ route('usuario.meus-aniversarios.presentes.cotas', $party->id) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
 					</div>
 				</div>
+				
 				<div class="col-md-9 dados-container">
 					<div class="row">
 						@include('site.inc.filtro-categorias', ['filter' => 'cotas'])
@@ -129,6 +130,7 @@
 										</div>
 									</div>
 								</form>
+							
 							</div>
 						</div>
 					</div>
@@ -136,6 +138,7 @@
 			</div>
 		</div>
 	</div>
+	
 @endsection
 
 @section('scripts')

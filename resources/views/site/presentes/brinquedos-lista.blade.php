@@ -72,7 +72,7 @@
 
 						@if (isset($products) && count($products) > 0)
 							@foreach ($products as $product)
-								<li class="col-md-6 gifts-item {{ in_array($product->id, $selected) ? 'selected' : '' }}" data-id="{{ $product->id }}">
+								<li class="col-md-6 gifts-item gifts-item-lista {{ in_array($product->id, $selected) ? 'selected' : '' }}" data-id="{{ $product->id }}">
 									<div class="row">
 										<div class="col-md-5">
 											@if (!empty($product->imagem))
