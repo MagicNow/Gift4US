@@ -106,10 +106,14 @@
           <div class="form-group form-rsvp-guests-container">
             <select name="guests" class="form-control form-rsvp-guests-input" id="rsvp-guests">
               <option value="" selected disabled>Quantas pessoas irão na festa?</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
               <option value="5">5</option>
-              <option value="15">15</option>
-              <option value="25">25</option>
-              <option value="35">35</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
             </select>
           </div>
           <p class="text-left">Quero fazer a confirmação de presença <button type="submit" class="enviar rsvp-form-enviar"> Enviar</button></p>
