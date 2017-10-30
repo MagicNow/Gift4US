@@ -65,8 +65,8 @@
 						@if(!isset($_COOKIE['closeModalGift']) || empty($_COOKIE['closeModalGift']))
 							<div class="gifts-list-message">
 								<button class="gifts-list-message-remove"></button>
-								<p class="gifts-list-message-first">Selecione as roupas que possuam a personalidade do aniversariante! É bem fácil! Você pode selecionar os produtos sugeridos abaixo, procurar algum modelo específico pelo nome e filtrar por diversas formas! </p>
-								<p class="gifts-list-message-secound">*As roupas adquiridas pelos convidados serão automaticamente convertidas em crédito na sua conta bancária. Não cadastrou seu conta bancária ainda? Não esqueça de cadastra-la a qualquer momento no painel de controle assim que finalizar a criação do aniversário.</p>
+								<p class="gifts-list-message-first">Comece selecionando os brinquedos que o aniversariante vai adorar ganhar! É bem fácil! Você pode selecionar os produtos sugeridos abaixo, procurar algum presente específico pelo nome, filtrar por diversas formas e ainda consegue adionar algum presente que não esteja no nosso banco de dados!</p>
+							
 							</div>
 						@endif
 
