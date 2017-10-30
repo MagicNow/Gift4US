@@ -121,9 +121,10 @@
 					<div id="u3967">
 						<!-- simple frame -->
 					</div>
-					<div class="rounded-corners" id="u3964">
-						<!-- simple frame -->
-					</div>
+					
+						<input type="text" class="rounded-corners" id="u3964">
+				
+					
 					<div class="clip_frame ose_pre_init" id="u4816">
 						<!-- svg -->
 						<img class="svg" id="u4814" src="{{ asset('assets/home/images/svg-colado-123x125.svg?crc=97497752') }}" width="35" height="36" alt="" data-mu-svgfallback="{{ asset('assets/home/images/svg%20colado%20123x125_poster_.png?crc=4221097519') }}"/>

@@ -354,11 +354,12 @@
 }
 #u3964 {
     z-index: 443;
-    width: 175px;
+    width: 170px;
     height: 21px;
     position: fixed;
     top: 14px;
     left: 50%;
+    padding-left: 5px;
     margin-left: 131px;
 }
 #u4816 {
