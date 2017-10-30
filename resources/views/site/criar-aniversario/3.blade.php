@@ -68,17 +68,8 @@
 									</div>
 									<div class="form-group form-birthday-size-container">
 										<label for="aniver-tamanho-sapato" class="form-birthday-size-label">Sapato, chuteira, chinelo e etc.</label>
-										<select name="tamanho_sapato" class="form-control form-birthday-size-input" id="aniver-tamanho-sapato">
-											<option value="" disabled>Clique para escolher o tamanho</option>
-											<option value="35" {{ $festa->tamanho_sapato == '35' ? 'selected' : '' }}>35</option>
-											<option value="36" {{ $festa->tamanho_sapato == '36' ? 'selected' : '' }}>36</option>
-											<option value="37" {{ $festa->tamanho_sapato == '37' ? 'selected' : '' }}>37</option>
-											<option value="38" {{ $festa->tamanho_sapato == '38' ? 'selected' : '' }}>38</option>
-											<option value="39" {{ $festa->tamanho_sapato == '39' ? 'selected' : '' }}>39</option>
-											<option value="40" {{ $festa->tamanho_sapato == '40' ? 'selected' : '' }}>40</option>
-											<option value="41" {{ $festa->tamanho_sapato == '41' ? 'selected' : '' }}>41</option>
-											<option value="42" {{ $festa->tamanho_sapato == '42' ? 'selected' : '' }}>42</option>
-										</select>
+										<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size=2 maxlength=2 name="tamanho_sapato" placeholder="Digite o tamanho" class="form-control form-birthday-size-input" id="aniver-tamanho-sapato">
+											
 									</div>
 								</div>
 								<div class="col-md-5">

@@ -208,6 +208,8 @@
 
 	&-item {
 		list-style-type: none;
+        height: 150px;
+        margin-top: 10px;
 
 		&.selected {
 			background-color: #def2fb;
