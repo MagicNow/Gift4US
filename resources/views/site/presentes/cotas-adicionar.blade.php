@@ -60,16 +60,6 @@
 									<div class="col-md-4">
 										<p class="gifts-item-price-description-upload bgC text-center">Adicionar imagem do produto</p>
 										<input type="file" name="foto" class="upload-image" accept="image/png, image/jpeg" value="{{ old('foto') }}" />
-										<script>
-											setTimeout(function(){ 
-												$('.gifts-item-price-description-upload').click(function(){
-			  										$('.upload-image').click();
-												});
-												$('.criarPresentes .alerta a').click(function(){
-			  										$('.criarPresentes .alerta').hide();
-												});
-											}, 300);
-										</script>
 									</div>
 									<div class="gifts-item-content col-md-8">
 										<div class="input-group gifts-input-icon">

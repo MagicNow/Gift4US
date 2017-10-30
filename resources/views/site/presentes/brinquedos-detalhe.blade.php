@@ -3,7 +3,7 @@
 @section('content')
 
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<div class="container brinquedosLista criar-presentes">
+		<div class="container brinquedos-lista criar-presentes">
 			<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_ent03.png') }}" class="presentinho col-xs-12 col-sm-12 col-md-6" alt="">
 			
 			<div class="gifts-container row col-md-offset-2">
@@ -56,22 +56,48 @@
 								</div>
 								<div class="gifts-item-content col-md-8">
 									<p class="gifts-item-price-description">Como nosso portal é colaborativo, caso tenha alguma informação desatualizada você poderá atualizá-la clicando no botão de edição ao final de cada linha.</p>
-									<h5 class="gifts-item-title bgC">{{ $product->titulo }}<a href="#" class="bt-editar">Editar</a></h5>
-									<p class="gifts-item-price-description">Preço aproximado:</p>
-									<p class="gifts-item-price-value bgC">R$ {{ str_replace('.', ',', $product->preco_venda) }}<a href="#" class="bt-editar">Editar</a></p>
-									<p class="gifts-item-price-description">Observação</p>
-									<p class="gifts-item-price-value bgC">{{ $product->descricao }}<a href="#" class="bt-editar">Editar</a></p>
-									<p class="gifts-item-price-description">Lojas disponiveis</p>
-									<p class="gifts-item-price-value bgC">PBKids<a href="#" class="bt-editar">Editar</a></p>
-									<p class="gifts-item-price-value bgC">Americanas<a href="#" class="bt-editar">Editar</a></p>
-									<p class="gifts-item-price-value bgC">Submarino<a href="#" class="bt-editar">Editar</a></p>
-									<p class="gifts-item-price-value bgC">B-Mart<a href="#" class="bt-editar">Editar</a></p>
-									<p class="gifts-item-price-value bgC">Hi-Happy<a href="#" class="bt-editar">Editar</a></p>
-									<div class="gifts-item-buttons">
-										<button class="col-md-6 gifts-item-button gifts-item-button-show">Salvar</button>
-										<button class="col-md-6 gifts-item-button gifts-item-button-select">Voltar</button>
-										<button class="col-md-12 gifts-item-button gifts-item-button-select">Salvar e adicionar um novo presente</button>
-									</div>
+									<form class="row criar-presentes-form" action="{{ route('usuario.meus-aniversarios.presentes.cotas.submeter', $party->id) }}" method="post" enctype="multipart/form-data">
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="form-control gifts-item-price-value bgC textB" placeholder="LEGO Mascotes Olimpíadas Rio 2016 - Tom e Vincíus" aria-describedby="gifts-name" name="nome" maxlength="100" value="{{ old('nome') }}">
+											<span class="input-group-addon" id="gifts-name"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<p class="gifts-item-price-description">Preço aproximado:</p>
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="money form-control gifts-item-price-value bgC" placeholder="49,00" aria-describedby="gifts-total-price" name="valor_total" value="{{ old('valor_total') }}">
+											<span class="input-group-addon" id="gifts-total-price"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<p class="gifts-item-price-description">Observação</p>
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Para crianças maiores de 7 anos" aria-describedby="gifts-obs" maxlength="255" name="observacao" value="{{ old('observacao') }}">
+											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<p class="gifts-item-price-description">Lojas disponiveis</p>
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="PBKids" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
+											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Americanas" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
+											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Submarino" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
+											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="B-Mart" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
+											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<div class="input-group gifts-input-icon">
+											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Hi-Happy" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
+											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+										</div>
+										<div class="gifts-item-buttons">
+											<button class="col-md-6 gifts-item-button gifts-item-button-show">Salvar</button>
+											<button class="col-md-6 gifts-item-button gifts-item-button-select">Voltar</button>
+											<button class="col-md-12 gifts-item-button gifts-item-button-select">Salvar e adicionar um novo presente</button>
+										</div>
+									</form>
 								</div>
 							</div>
 						</li>
