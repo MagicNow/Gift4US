@@ -359,9 +359,17 @@
     position: fixed;
     top: 14px;
     left: 50%;
-    padding-left: 5px;
+    font-size:13px;
+    padding: 0px 0px 0px 5px;
     margin-left: 131px;
 }
+.index-input{
+    font-family: Trebuchet, Trebuchet MS, Tahoma, Arial, sans-serif;
+    line-height: 19px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 0 10px;
+}    
 #u4816 {
     z-index: 444;
     width: 35px;

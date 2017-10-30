@@ -23,8 +23,10 @@
 		<![endif]-->
 		<!--HTML Widget code-->
 		<style type="text/css">.foop {transition: all 500ms;}body {opacity: 1;margin-left: 0;transition: all 500ms;transition-timing-function: linear;}#u9576 {top: -4300px;}html {overflow: auto !important;} </style>
+
 	</head>
 	<body>
+		   
 		<!--HTML Widget code-->
 		<div class="clearfix" id="page">
 			<!-- column -->
@@ -105,14 +107,12 @@
 							<!-- vertical box -->
 							<div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u3915">
 								<!-- horizontal box -->
-								<div class="MenuItemLabel NoWrap clearfix grpelem" id="u3916-4">
+								<div onclick="javascript:document.getElementById('u3964').focus();" class="MenuItemLabel NoWrap clearfix grpelem" id="u3916-4">
 									<!-- content -->
 									<p>aniversário</p>
-								</div>
-							</div>
-						</div>
-					</nav>
-					<div id="u3958">
+				
+									
+				   <div id="u3958">
 						<!-- simple frame -->
 					</div>
 					<div id="u3961">
@@ -121,10 +121,15 @@
 					<div id="u3967">
 						<!-- simple frame -->
 					</div>
-					
-						<input type="text" class="rounded-corners" id="u3964">
 				
 					
+						<input type="text" class="rounded-corners" id="u3964" >
+				
+								</div>
+							</div>
+						</div>
+					</nav>
+			
 					<div class="clip_frame ose_pre_init" id="u4816">
 						<!-- svg -->
 						<img class="svg" id="u4814" src="{{ asset('assets/home/images/svg-colado-123x125.svg?crc=97497752') }}" width="35" height="36" alt="" data-mu-svgfallback="{{ asset('assets/home/images/svg%20colado%20123x125_poster_.png?crc=4221097519') }}"/>
@@ -236,7 +241,7 @@
 								{{ session('convidado') }}
 							</div>
 						@endif
-						<input type="text" name="name" id="u9186" class="clearfix grpelem" required>
+						<input type="text" name="name" id="u9186" class="clearfix grpelem index-input" required>
 					</form>
 					<div class="clearfix grpelem" id="u9630">
 						<!-- column -->
