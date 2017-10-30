@@ -180,13 +180,15 @@ class GiftsController extends Controller {
 		return view('site.presentes.brinquedos-adicionar', compact('request', 'titulo', 'client', 'party', 'selected', 'add'));
 	}
 
-	public function toysDetail(Request $request, $festa_id)
+	public function toysDetail(Request $request, $festa_id, $brinquedo_id)
 	{
 		$party = Festas::find($festa_id);
+		$product = Produtos::find($brinquedo_id);
+
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
 
-		return view('site.presentes.brinquedos-detalhe', compact('request', 'titulo', 'client', 'party'));
+		return view('site.presentes.brinquedos-detalhe', compact('request', 'titulo', 'client', 'party', 'product'));
 	}
 
 	public function quotas(Request $request, $festa_id)
