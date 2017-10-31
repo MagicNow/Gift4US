@@ -45,8 +45,8 @@
 							<div class="row">
 								<div class="col-md-7 form-birthday-size-column">
 									<div class="form-group form-birthday-size-container">
-										<label for="aniver-tamanho-camiseta" class="form-birthday-size-label">Camiseta, regata, camisa e etc.</label>
-										<select name="tamanho_camiseta" class="form-control form-birthday-size-input" id="aniver-tamanho-camiseta">
+										<label for="aniver-tamanho-camiseta" class="form-birthday-size-label texto-azul">Camiseta, regata, camisa e etc.</label>
+										<select name="tamanho_camiseta" class="form-control form-usuario form-birthday-size-input" id="aniver-tamanho-camiseta">
 											<option value="" disabled>Clique para escolher o tamanho</option>
 											<option value="PP" {{ $festa->tamanho_camiseta == 'PP' ? 'selected' : '' }}>PP</option>
 											<option value="P" {{ $festa->tamanho_camiseta == 'P' ? 'selected' : '' }}>P</option>
@@ -56,8 +56,8 @@
 										</select>
 									</div>
 									<div class="form-group form-birthday-size-container">
-										<label for="aniver-tamanho-calca" class="form-birthday-size-label">Calça, bermuda, shorts e etc.</label>
-										<select name="tamanho_calca" class="form-control form-birthday-size-input" id="aniver-tamanho-calca">
+										<label for="aniver-tamanho-calca" class="form-birthday-size-label texto-laranja">Calça, bermuda, shorts e etc.</label>
+										<select name="tamanho_calca" class="form-control form-usuario form-birthday-size-input" id="aniver-tamanho-calca">
 											<option value="" disabled>Clique para escolher o tamanho</option>
 											<option value="PP" {{ $festa->tamanho_camiseta == 'PP' ? 'selected' : '' }}>PP</option>
 											<option value="P" {{ $festa->tamanho_calca == 'P' ? 'selected' : '' }}>P</option>
@@ -67,8 +67,8 @@
 										</select>
 									</div>
 									<div class="form-group form-birthday-size-container">
-										<label for="aniver-tamanho-sapato" class="form-birthday-size-label">Sapato, chuteira, chinelo e etc.</label>
-										<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size=2 maxlength=2 name="tamanho_sapato" placeholder="Digite o tamanho" class="form-control form-birthday-size-input" id="aniver-tamanho-sapato">
+										<label for="aniver-tamanho-sapato" class="form-birthday-size-label texto-preto">Sapato, chuteira, chinelo e etc.</label>
+										<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size=2 maxlength=2 name="tamanho_sapato" placeholder="Digite o tamanho" class="form-control form-usuario form-birthday-size-input" id="aniver-tamanho-sapato">
 											
 									</div>
 								</div>

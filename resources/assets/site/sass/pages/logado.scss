@@ -1,7 +1,34 @@
 input {
 	outline: 0;
 }
+.form-group select {
+        -webkit-appearance: none;
+        -moz-appearance:    none;
+        appearance:         none;
+        width: 100%;
+       }
+.form {
+	&-usuario {
+		border: 0px;
+		border-bottom: 1px solid #ccc;
+		border-radius: 0;
+		background: url('../images/seta.png') 99% 50% no-repeat;
+		padding: 0;
+        height: 20px;
+	}
+}
 
+.dashboard .container .dados .texto-azul {
+	color:#009CE3;
+	font-weight: 600;
+}
+.dashboard .container .dados .texto-laranja {
+	color:#F39000;
+	font-weight: 600;
+}
+.dashboard .container .dados .texto-preto {
+	font-weight: 600;
+}
 .usuario {
 	&-ajax {
 		&-content {
