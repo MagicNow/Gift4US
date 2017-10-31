@@ -393,18 +393,39 @@ function createCookie(name, value, days) {
 
 function formAddGift() {
 	$('form .bgC').prop('readonly',true);
+	
 	$('form .fa-pencil-square-o').click(function() {
 	  $('form .bgC').prop('readonly',false);
+	  $(this).parent().parent().find('input.bgC').focus();
 	});
+	
 	$('form .textR a').click(function() {
-	  $(this).replaceWith('<div class="input-group gifts-input-icon"><input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas" value=""><span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></div>');
+	  $('form .textR').prepend('<div class="input-group gifts-input-icon"><input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas" value=""><span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></div>');
 	});
 
 	$('.gifts-item-price-description-upload').click(function(){
 		$('.upload-image').click();
 	});
+
+	$('.upload-image').hide();
+	
 	$('.criarPresentes .alerta a').click(function(){
-			$('.criarPresentes .alerta').hide();
+		$('.criarPresentes .alerta').hide();
+	});
+	$('.lista-email .adicionar-email').click(function() {
+		var emailAdicionar = $('.lista-email .texto').val();
+		$('.lista-email ul.col-md-12').append('<li><a href="#">Excluir</a> '+emailAdicionar+'</li>');
+		var countEmail = $('.lista-email ul.col-md-12 a').length;
+		$('.lista-email fieldset.bottom label.col-md-12').html(countEmail+' emails cadastrados');
+		formEmailDelet();
+	});
+}
+function formEmailDelet() {
+	$('.lista-email ul.col-md-12 a').click(function() {
+	  $(this).parent().remove();
+	  var countEmail = $('.lista-email ul.col-md-12 a').length;
+	  $('.lista-email fieldset.bottom label.col-md-12').html(countEmail+' emails cadastrados');
 	});
 }
 formAddGift();
+formEmailDelet();
