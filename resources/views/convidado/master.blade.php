@@ -2,4 +2,4 @@
 
 @yield('content')
        
-@include('convidado/inc/footer')
+@include('site/inc/footer')
