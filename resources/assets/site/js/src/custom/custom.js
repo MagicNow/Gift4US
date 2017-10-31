@@ -363,6 +363,20 @@ $(function() {
 			allowClear: true
 		})
 		.on('change', changeQuotaSplit);
+
+	$('.rsvp-form').on('submit', function(e) {
+		e.preventDefault();
+
+		var $form = $(this);
+		$.ajax({
+			url: $form.attr('action'),
+			method: $form.attr('method'),
+			data: $form.serialize(),
+			success: function (data) {
+				$form.find('.rsvp-form-content').html('<p class="response text-center">' + data.response + '<p>');
+			}
+		});
+	});
 });
 
 function changeQuotaSplit() {

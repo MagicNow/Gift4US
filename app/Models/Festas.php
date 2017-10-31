@@ -34,4 +34,8 @@ class Festas extends Model {
     public function cotas() {
         return $this->hasMany('App\Models\Cotas');
     }
+
+    public function confirmacaoPresenca() {
+        return $this->hasMany('App\Models\ConfirmacaoPresenca');
+    }
 }

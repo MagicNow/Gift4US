@@ -92,30 +92,32 @@
 		<img src="{{ asset('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
 		<img src="{{ asset('assets/site/images/img-balao-check.png') }}" align="right" />
 	</div>
-	<div class="boxfR">
+	<form class="boxfR rsvp-form" action="{{ route('convidado.confirmar-presenca', $party->id) }}" method="post">
 		<fieldset class="col-md-12">
-			<div class="form-group">
-				<input type="text" name="nome" id="rsvp-nome" class="form-control form-input" placeholder="nome">
+			<div class="rsvp-form-content">
+				<div class="form-group">
+					<input type="text" name="nome" id="rsvp-nome" class="form-control form-input" placeholder="nome" required maxlength="100">
+				</div>
+				<div class="form-group">
+					<input type="email" name="email" id="rsvp-email" class="form-control form-input" placeholder="e-mail" required maxlength="255">
+				</div>
+				<div class="form-group form-rsvp-guests-container">
+					<select name="numero_pessoas" class="form-control form-rsvp-guests-input" id="rsvp-guests" required>
+						<option value="" selected disabled>Quantas pessoas irão na festa?</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+					</select>
+				</div>
+				<p class="text-left">Quero fazer a confirmação de presença <button type="submit" class="enviar rsvp-form-enviar"> Enviar</button></p>
 			</div>
-			<div class="form-group">
-				<input type="email" name="email" id="rsvp-email" class="form-control form-input" placeholder="e-mail">
-			</div>
-			<div class="form-group form-rsvp-guests-container">
-				<select name="guests" class="form-control form-rsvp-guests-input" id="rsvp-guests">
-					<option value="" selected disabled>Quantas pessoas irão na festa?</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-				</select>
-			</div>
-			<p class="text-left">Quero fazer a confirmação de presença <button type="submit" class="enviar rsvp-form-enviar"> Enviar</button></p>
 		</fieldset>
-	</div>
+	</form>
 	</div>
 	<br clear="all" />
 	<div class="rsvp">
