@@ -11,7 +11,11 @@
 				</div>
 				<div class="modal-content-lista col-md-12">
 					<div class="row lista-ferramentas">
-						<div class="col-md-2">BOTAO</div>
+						<div class="col-md-2">
+							<div class="col-md-8 my-birthday-item-input">
+								<input type="checkbox" name="active[3]" id="my-birthday-3" class="my-birthday-checkbox" value="1" data-festa-id="3" />
+							</div>
+						</div>
 						<div class="col-md-3">
 							<h5>Heitor</h5>
 							<span>30/10/2017</span>
@@ -213,7 +217,11 @@
 				</div>
 				<div class="modal-content-lista col-md-12">
 					<div class="row lista-ferramentas">
-						<div class="col-md-2">BOTAO</div>
+						<div class="col-md-2">
+							<div class="col-md-8 my-birthday-item-input">
+								<input type="checkbox" name="active[3]" id="my-birthday-3" class="my-birthday-checkbox" value="1" data-festa-id="3" />
+							</div>
+						</div>
 						<div class="col-md-3">
 							<h5>Heitor</h5>
 							<span>30/10/2017</span>
