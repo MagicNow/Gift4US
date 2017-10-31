@@ -250,20 +250,44 @@ class BirthdayController extends Controller {
 			$folder = \File::makeDirectory(storage_path('app/public/birthdays/mask'), 0775, true);
 		}
 
+		if (!\File::exists(storage_path('app/public/birthdays/mask/guest'))) {
+			$folder = \File::makeDirectory(storage_path('app/public/birthdays/mask/guest'), 0775, true);
+		}
+
+		$img = Image::make(storage_path('app/public/birthdays/' . $path));
+		$this->createMaskFeature($path, $img);
+
+		$img = Image::make(storage_path('app/public/birthdays/' . $path));
+		$this->createMaskGuest($path, $img);
+
 		$img = Image::make(storage_path('app/public/birthdays/' . $path));
 		$img->resize(780, null, function ($constraint) {
 				$constraint->aspectRatio();
 			})
 			->save(storage_path('app/public/birthdays/' . $path));
 
-		$img->resize(166, null, function ($constraint) {
+		return response()
+			->json(['path' => $path]);
+	}
+
+	private function createMaskFeature($path, $img) {
+		$width = 166;
+		$height = 110;
+		$img->fit($width, $height, function ($constraint) {
 				$constraint->aspectRatio();
 			})
 			->mask(public_path('assets/site/images/layout-mask.png'), true)
 			->save(storage_path('app/public/birthdays/mask/' . pathinfo($path, PATHINFO_FILENAME) . '.png'));
+	}
 
-		return response()
-			->json(['path' => $path]);
+	private function createMaskGuest($path, $img) {
+		$width = 240;
+		$height = 233;
+		$img->fit($width, $height, function ($constraint) {
+				$constraint->aspectRatio();
+			})
+			->mask(public_path('assets/site/images/layout-2-mask.png'), true)
+			->save(storage_path('app/public/birthdays/mask/guest/' . pathinfo($path, PATHINFO_FILENAME) . '.png'));
 	}
 
 	/**

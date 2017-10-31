@@ -13,7 +13,8 @@
 			<div class="preview-header-name">{{ $festa->nome }}</div>
 			<div class="preview-header-image-container text-center">
 				<div class="preview-header-image-mask">&nbsp;</div>
-				<img src="{{ url('storage/birthdays/mask/' . pathinfo($festa->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $festa->nome }}" height="111" class="preview-header-image"></div>
+				<img src="{{ url('storage/birthdays/mask/' . pathinfo($festa->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $festa->nome }}" class="preview-header-image">
+			</div>
 			<div class="preview-header-decor preview-header-decor-right"></div>
 		</div>
 		<div class="preview-header-right"></div>

@@ -4,11 +4,12 @@
 		<div class="preview-banner">
 			<div class="preview-banner-item">
 				<div class="box-preview">
-					<span>Arthurzinho</span>
-					<small>Alburquerque</small>
+					@foreach (explode(' ', $party->nome) as $nome)
+						<span>{{ $nome }}</span>
+					@endforeach
 				</div>
 				<div class="box-preview">
-					<img src="{{ asset('assets/site/images/img-festa-01.png') }}" alt="Festa" class="preview-banner-item-image">
+					<img src="{{ asset('storage/birthdays/mask/guest/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="Festa" class="preview-banner-item-image" width="240">
 				</div>
 			</div>
 		</div>
@@ -17,15 +18,16 @@
 		</div>
 		<div class="preview-header">
 			<div class="preview-header-decor">
-				<img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
-				<img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
+				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
 			</div>
 			<div class="preview-header-name">{{ $party->nome }}</div>
 			<div class="preview-header-image-container text-center">
 				<div class="preview-header-image-mask">&nbsp;</div>
-				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
 			</div>
-			<div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
+			<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
+				{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
+				{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
+			</div>
 		</div>
 	</div>
 	<div class="control-panel" style="clear:both">
@@ -68,15 +70,16 @@
 		<a name="confirmar"></a>
 		<div class="preview-header">
 			<div class="preview-header-decor">
-				<img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
-				<img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
+				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
 			</div>
 			<div class="preview-header-name">{{ $party->nome }}</div>
 			<div class="preview-header-image-container text-center">
 				<div class="preview-header-image-mask">&nbsp;</div>
-				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
 			</div>
-			<div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
+			<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
+				{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
+				{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
+			</div>
 		</div>
 		<div class="sub-menu text-center">
 			<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-in.png') }}" alt="" /></a>
@@ -119,15 +122,16 @@
 		<a name="lista"></a>
 		<div class="preview-header">
 			<div class="preview-header-decor">
-				<img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
-				<img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
+				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
 			</div>
 			<div class="preview-header-name">{{ $party->nome }}</div>
 			<div class="preview-header-image-container text-center">
 				<div class="preview-header-image-mask">&nbsp;</div>
-				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
 			</div>
-			<div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
+			<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
+				{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
+				{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
+			</div>
 		</div>
 		<div class="sub-menu text-center">
 			<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
@@ -173,15 +177,16 @@
 		<a name="recado"></a>
 		<div class="preview-header">
 			<div class="preview-header-decor">
-				<img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
-				<img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
+				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
 			</div>
 			<div class="preview-header-name">{{ $party->nome }}</div>
 			<div class="preview-header-image-container text-center">
 				<div class="preview-header-image-mask">&nbsp;</div>
-				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
 			</div>
-			<div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
+			<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
+				{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
+				{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
+			</div>
 		</div>
 		<div class="sub-menu text-center">
 			<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
@@ -214,15 +219,16 @@
 		<a name="mapa"></a>
 		<div class="preview-header">
 			<div class="preview-header-decor">
-				<img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
-				<img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
+				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
 			</div>
 			<div class="preview-header-name">{{ $party->nome }}</div>
 			<div class="preview-header-image-container text-center">
 				<div class="preview-header-image-mask">&nbsp;</div>
-				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
 			</div>
-			<div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
+			<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
+				{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
+				{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
+			</div>
 		</div>
 		<div class="sub-menu text-center">
 			<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
@@ -236,12 +242,14 @@
 			<div class="location">
 				<div class="where">
 					<h3>Onde?</h3>
-					<p>Rua Taquari, 941 - ap12, Bloco1- Mooca, <br>São Paulo - SP<br>Próximo a Padaria Cassandoca</p>
-					<h3>Observações:</h3>
-					<p>Levar 1 litro de leite para doação.</p>
+					<p>{{ $party->endereco }}</p>
+					@if (!empty($party->observacoes))
+						<h3>Observações:</h3>
+						<p>{{ $party->observacoes }}</p>
+					@endif
 				</div>
 				<div class="g-maps">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.5515638523307!2d-46.59742108449097!3d-23.54862608468925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59337d1371fd%3A0xf95eeb1450923bf1!2sRua+Taquari%2C+941+-+Mooca%2C+S%C3%A3o+Paulo+-+SP%2C+03166-001!5e0!3m2!1spt-BR!2sbr!4v1505443246125" width="465" height="360" frameborder="0" style="border:0" allowfullscreen></iframe>
+					<iframe src="http://maps.google.com/maps?q={{ $party->endereco_latitude }},{{ $party->endereco_longitude }}&z=15&output=embed" width="465" height="360" frameborder="0" style="border:0" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>
