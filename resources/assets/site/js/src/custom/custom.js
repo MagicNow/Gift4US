@@ -419,6 +419,15 @@ function formAddGift() {
 		$('.lista-email fieldset.bottom label.col-md-12').html(countEmail+' emails cadastrados');
 		formEmailDelet();
 	});
+	$('.ver-lista-presentes').click(function() {
+		$('#lista-presente').show();
+	});
+	$('.ver-lista-convidados').click(function() {
+		$('#lista-presenca').show();
+	});
+	$('.modal-lista-presentes .modal-lista-header a').click(function() {
+		$('.modal-lista-presentes').hide();
+	});
 }
 function formEmailDelet() {
 	$('.lista-email ul.col-md-12 a').click(function() {
@@ -429,3 +438,4 @@ function formEmailDelet() {
 }
 formAddGift();
 formEmailDelet();
+

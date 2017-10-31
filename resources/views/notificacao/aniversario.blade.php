@@ -5,7 +5,7 @@
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container brinquedosLista criarPresentes">
 			<!-- MODAL LISTA PRESENTES -->
-			<div class="modal-lista-presentes" style="display:none;">
+			<div class="modal-lista-presentes" id="lista-presente" style="display:none;">
 				<div class="modal-lista-header">
 					<a href="#">X</a>
 				</div>
@@ -211,7 +211,7 @@
 				</div>
 			</div>
 			<!-- MODAL LISTA PRESENCA -->
-			<div class="modal-lista-presentes">
+			<div class="modal-lista-presentes" id="lista-presenca" style="display:none;">
 				<div class="modal-lista-header">
 					<a href="#">X</a>
 				</div>
@@ -394,7 +394,7 @@
 							<span class="pull-left">103 / 44 cotas</span>
 						</div>
 						<div class="row"> 
-							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6">
+							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6 ver-lista-presentes">
 								<p class="gifts-box-number-middle-selected">Ver lista</p>
 							</a>
 							<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
@@ -412,7 +412,7 @@
 							</small>
 						</div>
 						<div class="row"> 
-							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6">
+							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6 ver-lista-convidados">
 								<p class="gifts-box-number-middle-selected">Ver lista</p>
 							</a>
 							<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
