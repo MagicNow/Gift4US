@@ -55,41 +55,41 @@
 									<img src="http://www.pontofrio-imagens.com.br/brinquedos/BlocosdeMontar/Lego/8833974/647472444/LEGO---Mascotes-Olimpiadas-Rio-2016---Tom-e-Vinicius---40225-8833974.jpg" class="gifts-item-image" width="100%">
 								</div>
 								<div class="gifts-item-content col-md-8">
-									<p class="gifts-item-price-description">Como nosso portal é colaborativo, caso tenha alguma informação desatualizada você poderá atualizá-la clicando no botão de edição ao final de cada linha.</p>
+									<p class="gifts-item-price-description gifts-item-price-description-detalhe-brinquedo">Como nosso portal é colaborativo, caso tenha alguma informação desatualizada você poderá atualizá-la clicando no botão de edição ao final de cada linha.</p>
 									<form class="row criar-presentes-form" action="{{ route('usuario.meus-aniversarios.presentes.cotas.submeter', $party->id) }}" method="post" enctype="multipart/form-data">
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC textB" placeholder="LEGO Mascotes Olimpíadas Rio 2016 - Tom e Vincíus" aria-describedby="gifts-name" name="nome" maxlength="100" value="{{ old('nome') }}">
+											<input type="text" class="form-control gifts-item-price-value bgC textB" aria-describedby="gifts-name" name="nome" maxlength="100" value="LEGO Mascotes Olimpíadas Rio 2016 - Tom e Vincíus">
 											<span class="input-group-addon" id="gifts-name"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<p class="gifts-item-price-description">Preço aproximado:</p>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="money form-control gifts-item-price-value bgC" placeholder="49,00" aria-describedby="gifts-total-price" name="valor_total" value="{{ old('valor_total') }}">
+											<input type="text" class="money form-control gifts-item-price-value bgC" aria-describedby="gifts-total-price" name="valor_total" value="49,00">
 											<span class="input-group-addon" id="gifts-total-price"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<p class="gifts-item-price-description">Observação</p>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Para crianças maiores de 7 anos" aria-describedby="gifts-obs" maxlength="255" name="observacao" value="{{ old('observacao') }}">
+											<input type="text" class="form-control gifts-item-price-value bgC" aria-describedby="gifts-obs" maxlength="255" name="observacao" value="Para crianças maiores de 7 anos">
 											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<p class="gifts-item-price-description">Lojas disponiveis</p>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="PBKids" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
+											<input type="text" class="form-control gifts-item-price-value bgC" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="PBKids">
 											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Americanas" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
+											<input type="text" class="form-control gifts-item-price-value bgC" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="Americanas">
 											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Submarino" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
+											<input type="text" class="form-control gifts-item-price-value bgC" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="Submarino">
 											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="B-Mart" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
+											<input type="text" class="form-control gifts-item-price-value bgC" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="B-Mart">
 											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Hi-Happy" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
+											<input type="text" class="form-control gifts-item-price-value bgC" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="Hi-Happy">
 											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<div class="gifts-item-buttons">

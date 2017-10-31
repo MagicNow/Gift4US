@@ -75,14 +75,10 @@
 											<span class="input-group-addon" id="gifts-total-price"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<p class="gifts-item-price-description">Lojas disponíveis</p>
-										<p class="gifts-item-price-description">Observação</p>
 										<div class="input-group gifts-input-icon">
 											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas" value="{{ old('lojas') }}">
 											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
-										<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
-										<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
-										<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
 										<p class="gifts-item-price-value bgC textR"><a href="#">+ Adicionar outra loja</a></p>
 										<div class="gifts-item-buttons">
 											<button class="col-md-6 gifts-item-button gifts-item-button-show">Salvar</button>
