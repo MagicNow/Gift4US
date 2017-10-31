@@ -209,9 +209,11 @@ $(function() {
 		$activeGift = $(this).parents('.gifts-item');
 
 		var $modal = $('.gifts-modal');
+		var $modalFinalizar = $('.modal-lista-concluir');
 		var $content = $activeGift.find('.row');
 
     	$modal.removeClass('hidden');
+    	$modalFinalizar.addClass('hidden');
     	$modal.find('.gifts-modal-frame').html($content.html());
     });
 
@@ -441,6 +443,12 @@ function formAddGift() {
 	});
 	$('.modal-lista-presentes .modal-lista-header a').click(function() {
 		$('.modal-lista-presentes').hide();
+	});
+	$('.btn-modal-finalizar').click(function() {
+		var countSelected = $('ul.gifts-list .selected').length;
+		$('.modal-lista-concluir .gifts-modal-subtitle small').html(countSelected);
+		$('.modal-excluir-presente').addClass('hidden');
+		$('.modal-lista-concluir').removeClass('hidden');
 	});
 }
 function formEmailDelet() {
