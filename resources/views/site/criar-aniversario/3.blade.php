@@ -68,7 +68,7 @@
 									</div>
 									<div class="form-group form-birthday-size-container">
 										<label for="aniver-tamanho-sapato" class="form-birthday-size-label texto-preto">Sapato, chuteira, chinelo e etc.</label>
-										<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size=2 maxlength=2 name="tamanho_sapato" placeholder="Digite o tamanho" class="form-control form-usuario form-birthday-size-input" id="aniver-tamanho-sapato">
+										<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size=2 maxlength=2 name="tamanho_sapato" placeholder="Digite o tamanho" class="form-control form-usuario form-birthday-size-input" id="aniver-tamanho-sapato" value="{{ $festa->tamanho_sapato }}">
 											
 									</div>
 								</div>

@@ -62,11 +62,10 @@
 						</div>
 					</div>
 					<ul class="gifts-list" data-festa-id="{{ $party->id }}">
-						@if(!isset($_COOKIE['closeModalGift']) || empty($_COOKIE['closeModalGift']))
+						@if(!isset($_COOKIE['closeModalToysAdd']) || empty($_COOKIE['closeModalToysAdd']))
 							<div class="gifts-list-message">
-								<button class="gifts-list-message-remove"></button>
+								<button class="gifts-list-message-remove" data-cookie="closeModalToysAdd"></button>
 								<p class="gifts-list-message-first">Comece selecionando os brinquedos que o aniversariante vai adorar ganhar! É bem fácil! Você pode selecionar os produtos sugeridos abaixo, procurar algum presente específico pelo nome, filtrar por diversas formas e ainda consegue adionar algum presente que não esteja no nosso banco de dados!</p>
-							
 							</div>
 						@endif
 
