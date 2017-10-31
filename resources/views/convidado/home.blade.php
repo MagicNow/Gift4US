@@ -270,9 +270,9 @@
 				<div class="where">
 					<h3>Onde?</h3>
 					<p>{{ $party->endereco }}</p>
-					@if (!empty($party->observacoes_2))
+					@if (!empty($party->observacoes))
 						<h3>Observações:</h3>
-						<p>{{ $party->observacoes_2 }}</p>
+						<p>{{ $party->observacoes }}</p>
 					@endif
 				</div>
 				<div class="g-maps">
