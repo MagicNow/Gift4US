@@ -8,9 +8,11 @@
 						<span>{{ $nome }}</span>
 					@endforeach
 				</div>
-				<div class="box-preview">
-					<img src="{{ asset('storage/birthdays/mask/guest/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="Festa" class="preview-banner-item-image" width="240">
-				</div>
+				@if ($party->foto)
+					<div class="box-preview">
+						<img src="{{ asset('storage/birthdays/mask/guest/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="Festa" class="preview-banner-item-image" width="240">
+					</div>
+				@endif
 			</div>
 		</div>
 		<div class="text-center">
@@ -18,7 +20,9 @@
 		</div>
 		<div class="preview-header">
 			<div class="preview-header-decor">
-				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+				@if ($party->foto)
+					<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+				@endif
 			</div>
 			<div class="preview-header-name">{{ $party->nome }}</div>
 			<div class="preview-header-image-container text-center">
@@ -36,25 +40,27 @@
 		<div class="preview-container">
 			<img src="{{ asset('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
 			<ul class="preview-list row">
-				<li class="col-md-3 text-right preview-item-container">
-					<a href="#confirmar">
-						<div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-check.png') }}"></div>
-						<p class="preview-item-text text-center">CONFIRMAR PRESENÇA</p>
-					</a>
-				</li>
-				<li class="col-md-3 text-right preview-item-container">
+				@if ($party->confirma_presenca === 1)
+					<li class="col-md-3 text-right preview-item-container">
+						<a href="#confirmar">
+							<div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-check.png') }}"></div>
+							<p class="preview-item-text text-center">CONFIRMAR PRESENÇA</p>
+						</a>
+					</li>
+				@endif
+				<li class="{{ $party->confirma_presenca === 1 ? 'col-md-3' : 'col-md-4' }} text-right preview-item-container">
 					<a href="#lista">
 						<div class="preview-item text-center">57%</div>
 						<p class="preview-item-text text-center">LISTA DE PRESENTES DISPONÍVEIS</p>
 					</a>
 				</li>
-				<li class="col-md-3 text-right preview-item-container ">
+				<li class="{{ $party->confirma_presenca === 1 ? 'col-md-3' : 'col-md-4' }} text-right preview-item-container ">
 					<a href="#recado">
 						<div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-pin.png') }}"></div>
 						<p class="preview-item-text text-center">ESCREVA UM RECADO</p>
 					</a>
 				</li>
-				<li class="col-md-3 text-right preview-item-container ">
+				<li class="{{ $party->confirma_presenca === 1 ? 'col-md-3' : 'col-md-4' }} text-right preview-item-container ">
 					<a href="#mapa">
 						<div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-map.png') }}"></div>
 						<p class="preview-item-text text-center">CLIQUE PARA VER O MAPA</p>
@@ -66,65 +72,74 @@
 			</div>
 		</div>
 	</div>
-	<div class="rsvp">
-		<a name="confirmar"></a>
-		<div class="preview-header">
-			<div class="preview-header-decor">
-				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+
+	@if ($party->confirma_presenca === 1)
+		<div class="rsvp">
+			<a name="confirmar"></a>
+			<div class="preview-header">
+				<div class="preview-header-decor">
+					@if ($party->foto)
+						<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+					@endif
+				</div>
+				<div class="preview-header-name">{{ $party->nome }}</div>
+				<div class="preview-header-image-container text-center">
+					<div class="preview-header-image-mask">&nbsp;</div>
+				</div>
+				<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
+					{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
+					{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
+				</div>
 			</div>
-			<div class="preview-header-name">{{ $party->nome }}</div>
-			<div class="preview-header-image-container text-center">
-				<div class="preview-header-image-mask">&nbsp;</div>
-			</div>
-			<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
-				{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
-				{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
+			<div class="sub-menu text-center">
+				@if ($party->confirma_presenca === 1)
+					<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-in.png') }}" alt="" /></a>
+				@endif
+				<a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
+				<a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
+				<a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
 			</div>
 		</div>
-		<div class="sub-menu text-center">
-			<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-in.png') }}" alt="" /></a>
-			<a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
-			<a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
-			<a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
+		<div class="boxfL">
+			<img src="{{ asset('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
+			<img src="{{ asset('assets/site/images/img-balao-check.png') }}" align="right" />
 		</div>
-	</div>
-	<div class="boxfL">
-		<img src="{{ asset('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
-		<img src="{{ asset('assets/site/images/img-balao-check.png') }}" align="right" />
-	</div>
-	<form class="boxfR rsvp-form" action="{{ route('convidado.confirmar-presenca', $party->id) }}" method="post">
-		<fieldset class="col-md-12">
-			<div class="rsvp-form-content">
-				<div class="form-group">
-					<input type="text" name="nome" id="rsvp-nome" class="form-control form-input" placeholder="nome" required maxlength="100">
+		<form class="boxfR rsvp-form" action="{{ route('convidado.confirmar-presenca', $party->id) }}" method="post">
+			<fieldset class="col-md-12">
+				<div class="rsvp-form-content">
+					<div class="form-group">
+						<input type="text" name="nome" id="rsvp-nome" class="form-control form-input" placeholder="nome" required maxlength="100">
+					</div>
+					<div class="form-group">
+						<input type="email" name="email" id="rsvp-email" class="form-control form-input" placeholder="e-mail" required maxlength="255">
+					</div>
+					<div class="form-group form-rsvp-guests-container">
+						<select name="numero_pessoas" class="form-control form-rsvp-guests-input" id="rsvp-guests" required>
+							<option value="" selected disabled>Quantas pessoas irão na festa?</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</div>
+					<p class="text-left">Quero fazer a confirmação de presença <button type="submit" class="enviar rsvp-form-enviar"> Enviar</button></p>
 				</div>
-				<div class="form-group">
-					<input type="email" name="email" id="rsvp-email" class="form-control form-input" placeholder="e-mail" required maxlength="255">
-				</div>
-				<div class="form-group form-rsvp-guests-container">
-					<select name="numero_pessoas" class="form-control form-rsvp-guests-input" id="rsvp-guests" required>
-						<option value="" selected disabled>Quantas pessoas irão na festa?</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-					</select>
-				</div>
-				<p class="text-left">Quero fazer a confirmação de presença <button type="submit" class="enviar rsvp-form-enviar"> Enviar</button></p>
-			</div>
-		</fieldset>
-	</form>
-	</div>
-	<br clear="all" />
+			</fieldset>
+		</form>
+		<br clear="all" />
+	@endif
+
 	<div class="rsvp">
 		<a name="lista"></a>
 		<div class="preview-header">
 			<div class="preview-header-decor">
-				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+				@if ($party->foto)
+					<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+				@endif
 			</div>
 			<div class="preview-header-name">{{ $party->nome }}</div>
 			<div class="preview-header-image-container text-center">
@@ -136,7 +151,9 @@
 			</div>
 		</div>
 		<div class="sub-menu text-center">
-			<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
+			@if ($party->confirma_presenca === 1)
+				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
+			@endif
 			<a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-in.png') }}" alt="" /></a>
 			<a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
 			<a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
@@ -179,7 +196,9 @@
 		<a name="recado"></a>
 		<div class="preview-header">
 			<div class="preview-header-decor">
-				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+				@if ($party->foto)
+					<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+				@endif
 			</div>
 			<div class="preview-header-name">{{ $party->nome }}</div>
 			<div class="preview-header-image-container text-center">
@@ -191,7 +210,9 @@
 			</div>
 		</div>
 		<div class="sub-menu text-center">
-			<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
+			@if ($party->confirma_presenca === 1)
+				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
+			@endif
 			<a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
 			<a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-in.png') }}" alt="" /></a>
 			<a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
@@ -221,7 +242,9 @@
 		<a name="mapa"></a>
 		<div class="preview-header">
 			<div class="preview-header-decor">
-				<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+				@if ($party->foto)
+					<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+				@endif
 			</div>
 			<div class="preview-header-name">{{ $party->nome }}</div>
 			<div class="preview-header-image-container text-center">
@@ -233,7 +256,9 @@
 			</div>
 		</div>
 		<div class="sub-menu text-center">
-			<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
+			@if ($party->confirma_presenca === 1)
+				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
+			@endif
 			<a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
 			<a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
 			<a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-in.png') }}" alt="" /></a>
@@ -245,9 +270,9 @@
 				<div class="where">
 					<h3>Onde?</h3>
 					<p>{{ $party->endereco }}</p>
-					@if (!empty($party->observacoes))
+					@if (!empty($party->observacoes_2))
 						<h3>Observações:</h3>
-						<p>{{ $party->observacoes }}</p>
+						<p>{{ $party->observacoes_2 }}</p>
 					@endif
 				</div>
 				<div class="g-maps">
