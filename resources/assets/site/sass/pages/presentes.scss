@@ -216,7 +216,13 @@
 	&-item {
 		list-style-type: none;
         margin-top: 10px;
-
+    
+	&-link {
+		color: #555557;
+	    text-align: center;
+        padding: 1px 0px;
+    }
+   
 		&.selected {
 			background-color: #def2fb;
 			background-clip: content-box;
@@ -262,6 +268,7 @@
 			outline: 0;
 			font: 15px 'HelveticaNeueStd_BDCN';
 			position: relative;
+			color: #555557;
 
 			&-show {
 				border-left: 0 none;
@@ -604,4 +611,8 @@
 
 .gifts-item-price-description-detalhe-brinquedo{
 	margin:0 0 10px -15px;
+}
+a:hover, a:focus {
+    color: #555557;
+    text-decoration: inherit;
 }

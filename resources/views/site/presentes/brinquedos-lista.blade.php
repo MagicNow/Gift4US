@@ -88,7 +88,7 @@
 										</div>
 									</div>
 									<div class="gifts-item-buttons">
-										<a class="col-md-6 gifts-item-button gifts-item-button-show" href="{{ route('usuario.meus-aniversarios.presentes.brinquedos.detalhe', [$party->id, $product->id]) }}">Ver detalhes</a>
+										<a class="col-md-6 gifts-item-button gifts-item-link gifts-item-button-show" href="{{ route('usuario.meus-aniversarios.presentes.brinquedos.detalhe', [$party->id, $product->id]) }}">Ver detalhes</a>
 										<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
 									</div>
 									<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
