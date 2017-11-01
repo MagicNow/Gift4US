@@ -46,6 +46,7 @@
 							<li class="form-birthday-paginate-item active"></li>
 						</ul>
 					</nav>
+						<a href="{{ route('usuario.meus-aniversarios') }}" class="form-birthday-finish">concluir aniversário</a>
 					@if ($gifts['total'] > 0)
 						<a href="{{ route('usuario.meus-aniversarios') }}" class="form-birthday-finish">concluir aniversário</a>
 					@endif
