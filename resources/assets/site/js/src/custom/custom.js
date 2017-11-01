@@ -321,6 +321,17 @@ $(function() {
 		$.post(baseUrl + '/api/categorias/adicionar', { tipo: $self.data('id'), festa: $list.data('festaId'), status: status})
 	});
 
+	$('.filter-categories-item').on('click', function (e) {
+		// var $self = $(this);
+		// var $list = $self.parents('.gifts-categories-list');
+		// var status = 0;
+
+		// $self.toggleClass('active');
+		// status = $self.hasClass('active') ? 1 : 0;
+		
+		$(this).parents('form').submit();
+	});
+
 	$('[type="number"]').on('keypress', function (e) {
 		return e.charCode >= 48 && e.charCode <= 57;
 	});

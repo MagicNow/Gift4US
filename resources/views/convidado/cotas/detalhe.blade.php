@@ -3,14 +3,8 @@
 @section('content')
 
 	<div class="preview dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<div class="preview-header">
-			<div class="preview-header-decor">
-				<img src="{{ asset('assets/site/images/img-convidado-1.png') }}" alt="Festa" class="preview-banner-item-image">
-				<img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" alt="Heitor" class="preview-banner-item-image preview-banner-item-foto">
-			</div>
-			<div class="preview-header-name">Heitor</div>
-			<div class="preview-header-info">30.10 | 16:30<br>5 ANOS</div>
-		</div>
+		@include('convidado.inc.header-inner', $party)
+
 		<div class="sub-menu text-center">
 			<a class="confirm-btn" href="#"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
 			<a class="gifts-btn active" href="#"><img src="{{ asset('assets/site/images/img-presente-in.png') }}" alt="" /></a>

@@ -29,12 +29,14 @@
 						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="1">
 							<div class="row">
 								<div class="col-md-4">
-									<img src="http://www.pontofrio-imagens.com.br/brinquedos/BlocosdeMontar/Lego/8833974/647472444/LEGO---Mascotes-Olimpiadas-Rio-2016---Tom-e-Vinicius---40225-8833974.jpg" class="gifts-item-image" width="100%">
+									@if (!empty($product->imagem))
+										<img src="{{ $product->imagem }}" class="gifts-item-image" width="100%">
+									@endif
 								</div>
 								<div class="gifts-item-content col-md-8">
-									<h5 class="gifts-item-title">LEGO<br />Mascotes Olimpíadas Rio 2016 - Tom e Vincíus</h5>
+									<h5 class="gifts-item-title">{{ $product->titulo }}</h5>
 									<p class="gifts-item-price-description">Preço aproximado:</p>
-									<p class="gifts-item-price-value">R$ 49,00</p>
+									<p class="gifts-item-price-value">R$ {{ $product->preco_venda }}</p>
 								</div>
 							</div>
 							<fieldset class="col-md-12 formOnline">
@@ -42,10 +44,10 @@
 									<input type="text" name="nome" id="msg-nome" class="form-control form-input bgC" placeholder="nome">
 								</div>
 								<div class="form-group">
-									<input type="text" name="e-mail" id="msg-nome" class="form-control form-input bgC" placeholder="E-mail">
+									<input type="email" name="e-mail" id="msg-nome" class="form-control form-input bgC" placeholder="E-mail">
 								</div>
 								<div class="form-group">
-									<input type="text" name="rg" id="msg-nome" class="form-control form-input bgC" placeholder="RG">
+									<input type="number" name="rg" id="msg-nome" class="form-control form-input bgC" placeholder="RG">
 								</div>
 								<div class="form-group">
 									<textarea name="mensagem" id="msg-mensagem" class="form-control form-input bgC" placeholder="Escreva aqui uma mensagem bem legal e divertida para o aniversariante"></textarea>
@@ -53,7 +55,7 @@
 								<p class="gifts-item-price-value">Atenção1: A partir do momento que você decidir dar este presente, ele será <cite>removido definitivamente da lista</cite> e não poderá mais ser escolhido por nenhum outro convidado da festa</p>
 								<p class="gifts-item-price-value">Atenção2 : Esta ação não siginifica que você está <cite>adquirindo o presente escolhido</cite>, siginifica apenas que este presente está reservado em seu nome e deve ser adquirido em sua loja de preferência</p>
 								<div class="col-md-2">
-									<a href="#" class="my-birthday-create-button-small">Enviar</a>
+									<input type="submit" class="my-birthday-create-button-small" value="Enviar">
 								</div>
 							</fieldset>
 						</li>
