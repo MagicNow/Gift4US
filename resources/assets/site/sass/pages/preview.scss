@@ -1,9 +1,9 @@
 $decor-height: 83px;
 $decor-margin: 70px 0 0 0;
-$decor-bg-orange: rgba(#f28100, 1);
+$decor-bg-orange: rgba(#EC9001, 1);
 $decor-bg-blue: rgba(#2599d6, 1);
 $decor-bg-light-blue: rgba(#5b99d4, 0.19);
-$decor-bg-light-orange: rgba(#f28100, 0.19);
+$decor-bg-light-orange: rgba(#EC9001, 0.19);
 $decor-bg-light-red: rgba(#df3132, 0.19);
 $decor-bg-red: rgba(#df3132, 1);
 
@@ -23,12 +23,15 @@ $decor-bg-red: rgba(#df3132, 1);
       &-decor {
         background: $decor-bg-orange;
       }
-
+      
       &-image {
         &-mask {
           background-color: #ec9001;
         }
       }
+      &-advertising {
+      background-color: #EC9001;
+    }
       &.fixed {
         .preview-header-decor {
           background: $color-orange;
@@ -770,4 +773,113 @@ $decor-bg-red: rgba(#df3132, 1);
     font: 16px 'dk_astromonkeyregular';
     letter-spacing: 0.26em;
   }
+}
+
+.orange {
+  .preview-container {
+    .preview {
+     &-advertising {
+      background-color: #EC9001;
+  }
+  
+}
+
+}
+.boxfR {
+    .preview {
+     &-advertising {
+      background-color: #EC9001;
+  }
+ }
+}
+
+    .img{
+   &-field {
+    background: url(../images/bg-mensagem-orange.png) no-repeat;
+ }
+}
+
+.presente .preview-item-toys {
+    background: url(../images/img-brinquedo-orange.png) no-repeat;
+   }
+   .presente .preview-item-clothes {
+    background: url(../images/img-roupa-orange.png) no-repeat;
+  }
+  .presente .preview-item-quota {
+    background: url(../images/img-cotas-orange.png) no-repeat;
+  }
+  .img-orange{
+    display: normal;
+  }
+  .img-red{
+    display: none;
+  }
+  .img-blue{
+    display: none;
+  }
+  .presente .porcentagem span {
+    background-color: #ecc229;
+  }
+  .presente .porcentagem {
+    border: 5px solid #EC9001;
+  }
+}
+.blue{
+  .img-orange{
+    display: none;
+  }
+  .img-red{
+    display: none;
+  }
+  .img-blue{
+    display: normal;
+  }
+
+}
+.red{
+    .preview-container {
+    .preview {
+     &-advertising {
+      background-color: #df3132;
+  }
+  
+}
+
+}
+  .img-orange{
+    display: none;
+  }
+  .img-red{
+    display: normal;
+  }
+  .img-blue{
+    display: none;
+  }
+  .presente .preview-item-toys {
+    background: url(../images/img-brinquedo-red.png) no-repeat;
+   }
+   .presente .preview-item-clothes {
+    background: url(../images/img-roupa-red.png) no-repeat;
+   }
+   .presente .preview-item-quota {
+    background: url(../images/img-cotas-red.png) no-repeat;
+   }
+   .presente .porcentagem {
+    border: 5px solid #df3132;
+  }
+   .presente .porcentagem span {
+    background-color: #ecc229;
+  }
+  .boxfR {
+    .preview {
+     &-advertising {
+      background-color: #df3132;
+  }
+ }
+}
+  .img{
+   &-field {
+    background: url(../images/bg-mensagem-red.png) no-repeat;
+ }
+}
 }

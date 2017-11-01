@@ -96,7 +96,8 @@
 					<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-in.png') }}" alt="" /></a>
 				@endif
 				<a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
-				<a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
+				<a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" />
+				</a>
 				<a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
 			</div>
 		</div>
@@ -155,8 +156,16 @@
 				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
 			@endif
 			<a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-in.png') }}" alt="" /></a>
-			<a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
-			<a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
+			<a class="message-btn" href="#recado">
+		    <img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" class="img-blue" alt="" />				
+			<img src="{{ asset('assets/site/images/img-mensagem-out-orange.png') }}" alt="" class="img-orange" />
+			<img src="{{ asset('assets/site/images/img-mensagem-out-red.png') }}" alt="" class="img-red" />
+			</a>
+			<a class="map-btn" href="#mapa">
+		    <img src="{{ asset('assets/site/images/img-maps-out.png') }}" class="img-blue" alt="" />
+			<img src="{{ asset('assets/site/images/img-maps-out-orange.png') }}" class="img-orange" alt="" />
+			<img src="{{ asset('assets/site/images/img-maps-out-red.png') }}" class="img-red" alt="" />
+			</a>
 		</div>
 	</div>
 	<div class="presente">
@@ -213,14 +222,22 @@
 			@if ($party->confirma_presenca === 1)
 				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
 			@endif
-			<a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
+			<a class="gifts-btn" href="#lista">
+			<img src="{{ asset('assets/site/images/img-presente-out.png') }}" class="img-blue" alt="" />
+			<img src="{{ asset('assets/site/images/img-presente-out-orange.png') }}" class="img-orange" alt="" />
+			<img src="{{ asset('assets/site/images/img-presente-out-red.png') }}" class="img-red" alt="" />
+			</a>
 			<a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-in.png') }}" alt="" /></a>
-			<a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
+			<a class="map-btn" href="#mapa">
+		    <img src="{{ asset('assets/site/images/img-maps-out.png') }}" class="img-blue" alt="" />
+			<img src="{{ asset('assets/site/images/img-maps-out-orange.png') }}" class="img-orange" alt="" />
+			<img src="{{ asset('assets/site/images/img-maps-out-red.png') }}" class="img-red" alt="" />
+			</a>
 		</div>
 	</div>
 	<div class="mensagem">
 		<div class="boxfL">
-			<fieldset class="col-md-12">
+			<fieldset class="col-md-12 img-field">
 				<p class="text-left">Escreva uma mensagem</p>
 				<div class="form-group">
 					<input type="text" name="nome" id="msg-nome" class="form-control form-input" placeholder="nome">
@@ -259,8 +276,17 @@
 			@if ($party->confirma_presenca === 1)
 				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
 			@endif
-			<a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
-			<a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
+			
+			<a class="gifts-btn" href="#lista">
+			<img src="{{ asset('assets/site/images/img-presente-out.png') }}" class="img-blue" alt="" />
+			<img src="{{ asset('assets/site/images/img-presente-out-orange.png') }}" class="img-orange" alt="" />
+			<img src="{{ asset('assets/site/images/img-presente-out-red.png') }}" class="img-red" alt="" />
+			</a>
+			<a class="message-btn" href="#recado">
+		    <img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" class="img-blue" alt="" />				
+			<img src="{{ asset('assets/site/images/img-mensagem-out-orange.png') }}" alt="" class="img-orange" />
+			<img src="{{ asset('assets/site/images/img-mensagem-out-red.png') }}" alt="" class="img-red" />
+			</a>
 			<a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-in.png') }}" alt="" /></a>
 		</div>
 	</div>
