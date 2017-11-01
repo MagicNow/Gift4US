@@ -102,6 +102,8 @@
 						</ul>
 					</nav>
 					<button type="submit" name="enviar" class="form-birthday-submit"><img src="{{ asset('assets/site/images/niver-next-step.png') }}" alt="Próxima Etapa"></button>
+					<a href="{{ route('usuario.meus-aniversarios.novo.festa', [$festa->id, 2]) }}" class="form-birthday-submit" style="text-align: center; color: #acacac; font-size: 17px;margin-top: -30px;">voltar a etapa anterior</a>
+			
 				</form>
 			</div>
 		</div>

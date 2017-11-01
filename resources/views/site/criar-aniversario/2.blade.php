@@ -37,7 +37,7 @@
 								<input type="text" class="form-control form-input" id="aniver-referencia" name="referencia" value="{{ old('referencia', $festa->referencia) }}">
 							</div>
 							<div class="form-group">
-								<label for="aniver-observacoes">Observações gerais (opcional)</label>
+								<label for="aniver-observacoes">Observações gerais sobre a festa (opcional)</label>
 								<input type="text" class="form-control form-input" id="aniver-observacoes" name="observacoes" value="{{ old('observacoes', $festa->observacoes) }}">
 							</div>
 						</fieldset>
@@ -55,6 +55,8 @@
 						</ul>
 					</nav>
 					<button type="submit" name="enviar" class="form-birthday-submit"><img src="{{ asset('assets/site/images/niver-next-step.png') }}" alt="Próxima Etapa"></button>
+				<a href="{{ route('usuario.meus-aniversarios.novo.festa', [$festa->id, 1]) }}" class="form-birthday-submit" style="text-align: center; color: #acacac; font-size: 17px; margin-top: -30px;">voltar a etapa anterior</a>
+			
 				</form>
 			</div>
 		</div>
