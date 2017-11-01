@@ -364,6 +364,7 @@ padding:3px;
 	width:100%;
 	margin:0;
 	text-align:center;
+	border: 0;
 }
 
 .brinquedosLista .mensagem-interna{
@@ -567,4 +568,24 @@ padding:3px;
 }
 form .textB{
 	color:#555!important;
+}
+
+.filter-categories {
+	&-input:checked ~ .filter-categories-label {
+		.orange {
+			display: block;
+		}
+
+		.red {
+			display: none;
+		}
+	}
+
+	&-item {
+		vertical-align: top;
+		color: #4d5053;
+		font: 15px 'HelveticaNeueStd_CN';
+		cursor: pointer;
+		text-align: center;
+	}
 }

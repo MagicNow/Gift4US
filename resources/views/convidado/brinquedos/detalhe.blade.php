@@ -54,7 +54,7 @@
 									</div>
 								</div>
 								<div class="col-md-5" style="margin:0 0 0 320px">
-									<a href="{{ route('convidado.brinquedos.reserva', $party) }}" class="my-birthday-create-button-small">Quero dar este presente mas comprarei em loja física</a>
+									<a href="{{ route('convidado.brinquedos.reserva', [$party, $product]) }}" class="my-birthday-create-button-small">Quero dar este presente mas comprarei em loja física</a>
 								</div>
 							</div>
 						</li>

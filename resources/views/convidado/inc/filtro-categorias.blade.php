@@ -7,13 +7,13 @@
 			</a>
 		</li>
 		<li class="gifts-filter-categories-item {{ isset($filter) && $filter == 'roupas' ? 'active' : NULL }}"">
-			<a href="{{ route('convidado.roupas.index', $party) }}">
+			<a href="{{ route('convidado.roupas.index', $party->id) }}">
 				<i class="gifts-filter-categories-icon gifts-filter-categories-clothes"></i>
 				<span>roupas</span>
 			</a>
 		</li>
 		<li class="gifts-filter-categories-item {{ isset($filter) && $filter == 'cotas' ? 'active' : NULL }}"">
-			<a href="{{ route('convidado.cotas.index', $party) }}">
+			<a href="{{ route('convidado.cotas.index', $party->id) }}">
 				<i class="gifts-filter-categories-icon gifts-filter-categories-quotas"></i>
 				<span>cotas</span>
 			</a>
