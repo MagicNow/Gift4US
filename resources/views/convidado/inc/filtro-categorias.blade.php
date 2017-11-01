@@ -1,7 +1,7 @@
 <div class="gifts-filter col-md-12">
 	<ul class="gifts-filter-categories">
 		<li class="gifts-filter-categories-item {{ isset($filter) && $filter == 'brinquedos' ? 'active' : NULL }}">
-			<a href="{{ route('convidado.brinquedos.index', $party) }}">
+			<a href="{{ route('convidado.brinquedos.index', $party->id) }}">
 				<i class="gifts-filter-categories-icon gifts-filter-categories-toys"></i>
 				<span>brinquedos</span>
 			</a>
