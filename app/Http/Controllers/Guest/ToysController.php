@@ -7,14 +7,24 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 
 class ToysController extends Controller {
+	private $party;
+
+	public function __construct(Request $request) {
+		$this->party = Festas::find($request->route('festa_id'));
+		if (empty($this->party)) {
+			abort(404, 'Página não encontrada.');
+		}
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index(Request $request, $festa_id = null)
+	public function index(Request $request, $festa_id)
 	{
-		$party = Festas::find($festa_id);
+		$party = $this->party;
+		$products = $this->party->produto->where('categoria', 'brinquedo');
 		return view('convidado.brinquedos.index', compact('party'));
 	}
 

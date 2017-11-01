@@ -76,7 +76,7 @@ Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
         0-9]+']);
 
     /** BRINQUEDOS */
-    Route::group(['prefix' => 'brinquedos'], function () {
+    Route::group(['prefix' => '{festa_id}/brinquedos'], function () {
         Route::get('/', ['as'=> 'convidado.brinquedos.index', 'uses' => 'ToysController@index']);
         Route::get('compra-online', ['as'=> 'convidado.brinquedos.compraOnline', 'uses' => 'ToysController@compraOnline']);
         Route::get('detalhe', ['as'=> 'convidado.brinquedos.detalhe', 'uses' => 'ToysController@detalhe']);

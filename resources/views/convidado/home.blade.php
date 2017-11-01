@@ -18,21 +18,8 @@
 		<div class="text-center">
 			<a href="#" class="preview-more-btn">Clique e saiba tudo sobre a festa!</a>
 		</div>
-		<div class="preview-header">
-			<div class="preview-header-decor">
-				@if ($party->foto)
-					<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
-				@endif
-			</div>
-			<div class="preview-header-name">{{ $party->nome }}</div>
-			<div class="preview-header-image-container text-center">
-				<div class="preview-header-image-mask">&nbsp;</div>
-			</div>
-			<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
-				{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
-				{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
-			</div>
-		</div>
+
+		@include('convidado.inc.header-inner', $party)
 	</div>
 	<div class="control-panel" style="clear:both">
 		<img src="{{ asset('assets/site/images/presentinho-preview-1.png') }}" class="preview-presentinho preview-presentinhoHome">
@@ -76,21 +63,8 @@
 	@if ($party->confirma_presenca === 1)
 		<div class="rsvp">
 			<a name="confirmar"></a>
-			<div class="preview-header">
-				<div class="preview-header-decor">
-					@if ($party->foto)
-						<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
-					@endif
-				</div>
-				<div class="preview-header-name">{{ $party->nome }}</div>
-				<div class="preview-header-image-container text-center">
-					<div class="preview-header-image-mask">&nbsp;</div>
-				</div>
-				<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
-					{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
-					{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
-				</div>
-			</div>
+			
+			@include('convidado.inc.header-inner', $party)
 			<div class="sub-menu text-center">
 				@if ($party->confirma_presenca === 1)
 					<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-in.png') }}" alt="" /></a>
@@ -135,21 +109,8 @@
 
 	<div class="rsvp">
 		<a name="lista"></a>
-		<div class="preview-header">
-			<div class="preview-header-decor">
-				@if ($party->foto)
-					<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
-				@endif
-			</div>
-			<div class="preview-header-name">{{ $party->nome }}</div>
-			<div class="preview-header-image-container text-center">
-				<div class="preview-header-image-mask">&nbsp;</div>
-			</div>
-			<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
-				{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
-				{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
-			</div>
-		</div>
+
+		@include('convidado.inc.header-inner', $party)
 		<div class="sub-menu text-center">
 			@if ($party->confirma_presenca === 1)
 				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
@@ -165,7 +126,7 @@
 				<img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" />
 				<div class="preview-item-toys"></div>
 				<p class="preview-item-text text-center">BRINQUEDOS</p>
-				<p class="text-center desc"><a href="{{ route('convidado.brinquedos.index') }}">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
+				<p class="text-center desc"><a href="{{ route('convidado.brinquedos.index', $party->id) }}">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
 				<div class="porcentagem">
 					<span style="width:25%"></span>
 					<strong>25% disponivel</strong>
@@ -194,21 +155,8 @@
 	<br clear="all" />
 	<div class="rsvp">
 		<a name="recado"></a>
-		<div class="preview-header">
-			<div class="preview-header-decor">
-				@if ($party->foto)
-					<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
-				@endif
-			</div>
-			<div class="preview-header-name">{{ $party->nome }}</div>
-			<div class="preview-header-image-container text-center">
-				<div class="preview-header-image-mask">&nbsp;</div>
-			</div>
-			<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
-				{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
-				{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
-			</div>
-		</div>
+		@include('convidado.inc.header-inner', $party)
+
 		<div class="sub-menu text-center">
 			@if ($party->confirma_presenca === 1)
 				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
@@ -240,21 +188,8 @@
 	<br clear="all" />
 	<div class="rsvp">
 		<a name="mapa"></a>
-		<div class="preview-header">
-			<div class="preview-header-decor">
-				@if ($party->foto)
-					<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
-				@endif
-			</div>
-			<div class="preview-header-name">{{ $party->nome }}</div>
-			<div class="preview-header-image-container text-center">
-				<div class="preview-header-image-mask">&nbsp;</div>
-			</div>
-			<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
-				{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
-				{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
-			</div>
-		</div>
+		@include('convidado.inc.header-inner', $party)
+
 		<div class="sub-menu text-center">
 			@if ($party->confirma_presenca === 1)
 				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
