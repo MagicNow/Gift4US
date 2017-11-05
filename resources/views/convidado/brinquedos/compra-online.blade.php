@@ -48,24 +48,29 @@
 									<p class="linkLojaOnline">Hi-Happy</p>
 									<h5 class="col-md-12 gifts-item-title">Atenção</h5>
 									<p class="col-md-12 gifts-item-price-description">Antes de sair, que tal avisar o aniversariante que irá dar este presente?<br />Preencha os campos abaixo para concluir!</p>
-									<fieldset class="col-md-12 formOnline">
+									<form action="{{ route('presentes.reservar') }}" method="post" class="col-md-12 formOnline send-form-ajax">
+										<input type="hidden" name="festas_id" value="{{ $party->id }}">
+										<input type="hidden" name="produtos_id" value="{{ $product->id }}">
 										<div class="form-group">
-											<input type="text" name="nome" id="msg-nome" class="form-control form-input bgC" placeholder="nome">
+											<input type="text" name="nome" id="msg-nome" class="form-control form-input bgC" placeholder="nome" maxlenght="100" required>
 										</div>
 										<div class="form-group">
-											<input type="text" name="e-mail" id="msg-nome" class="form-control form-input bgC" placeholder="E-mail">
+											<input type="email" name="email" id="msg-nome" class="form-control form-input bgC" placeholder="E-mail" maxlenght="255" required>
 										</div>
 										<div class="form-group">
-											<input type="text" name="rg" id="msg-nome" class="form-control form-input bgC" placeholder="RG">
+											<input type="text" name="rg" id="msg-nome" class="form-control form-input bgC" placeholder="RG" pattern="\d*" maxlength="10" required>
 										</div>
 										<div class="form-group">
 											<textarea name="mensagem" id="msg-mensagem" class="form-control form-input bgC" placeholder="Escreva aqui uma mensagem bem legal e divertida para o aniversariante"></textarea>
 										</div>
 										<p class="gifts-item-price-value">Atenção1: A partir do momento que você decidir dar este presente, ele será <cite>removido definitivamente da lista</cite> e não poderá mais ser escolhido por nenhum outro convidado da festa</p>
-										<div class="col-md-2">
-											<a href="#" class="my-birthday-create-button-small">Enviar</a>
+										<div class="row">
+											<div class="col-md-8">&nbsp;</div>
+											<div class="col-md-4 text-right">
+												<input type="submit" class="my-birthday-create-button-small" value="Enviar">
+											</div>
 										</div>
-									</fieldset>
+									</form>
 								</div>
 							</div>
 						</li>

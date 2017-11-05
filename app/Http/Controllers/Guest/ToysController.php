@@ -9,12 +9,28 @@ use App\Http\Controllers\Controller;
 
 class ToysController extends Controller {
 	private $party;
+	private $toys;
+	private $toysAvalible;
 
 	public function __construct(Request $request) {
 		$this->party = Festas::find($request->route('festa_id'));
 		if (empty($this->party)) {
 			abort(404, 'Página não encontrada.');
 		}
+
+		$this->toys = $this->party
+						   ->produto()
+						   ->where('categoria', 'brinquedo');
+
+		$toysTotal = $this->toys->count();
+		$this->toysAvalible = $this->toys->whereNull('nome');
+
+		$this->middleware(function ($request, $next) use ($toysTotal) {
+			$percent = round(($this->toysAvalible->count() * 100) / $toysTotal, 0, PHP_ROUND_HALF_EVEN);
+			view()->share('percent', $percent);
+
+			return $next($request);
+		});
 	}
 
 	/**
@@ -25,7 +41,7 @@ class ToysController extends Controller {
 	public function index(Request $request, $festa_id)
 	{
 		$party = $this->party;
-		$products = $party->produto()->where('categoria', 'brinquedo');
+		$products = $this->toysAvalible;
 
 		if ($request->busca) {
 			$products->where('titulo', 'LIKE', '%' . $request->busca . '%');
@@ -57,21 +73,26 @@ class ToysController extends Controller {
 		return view('convidado.brinquedos.index', compact('request', 'party', 'products'));
 	}
 
-	public function detalhe(Request $request, $produto_id)
+	public function detalhe(Request $request, $festa_id, $produto_id)
 	{
 		$party = $this->party;
 		$product = Produtos::find($produto_id);
+
+		if (empty($product)) {
+			abort(404, 'Página não encontrada.');
+		}
+
 		return view('convidado.brinquedos.detalhe', compact('request', 'party', 'product'));
 	}
 
-	public function compraOnline(Request $request, $produto_id)
+	public function compraOnline(Request $request, $festa_id, $produto_id)
 	{
 		$party = $this->party;
 		$product = Produtos::find($produto_id);
 		return view('convidado.brinquedos.compra-online', compact('request', 'party', 'product'));
 	}
 
-	public function reserva(Request $request, $produto_id)
+	public function reserva(Request $request, $festa_id, $produto_id)
 	{
 		$party = $this->party;
 		$product = Produtos::find($produto_id);

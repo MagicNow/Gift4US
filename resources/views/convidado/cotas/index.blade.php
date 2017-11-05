@@ -74,9 +74,8 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-12 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
+								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-7 col-md-offset-5 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
 							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 						<li class="col-md-6 gifts-item " data-id="24">
 							<div class="row">
@@ -94,9 +93,8 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-12 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
+								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-7 col-md-offset-5 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
 							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 						<li class="col-md-6 gifts-item " data-id="24">
 							<div class="row">
@@ -114,9 +112,8 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-12 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
+								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-7 col-md-offset-5 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
 							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 						<li class="col-md-6 gifts-item " data-id="24">
 							<div class="row">
@@ -134,9 +131,8 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-12 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
+								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-7 col-md-offset-5 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
 							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 						<li class="col-md-6 gifts-item " data-id="24">
 							<div class="row">
@@ -154,9 +150,8 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-12 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
+								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-7 col-md-offset-5 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
 							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 						<li class="col-md-6 gifts-item " data-id="24">
 							<div class="row">
@@ -174,9 +169,8 @@
 								</div>
 							</div>
 							<div class="gifts-item-buttons">
-								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-12 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
+								<a href="{{ route('convidado.cotas.detalhe', $party) }}" class="col-md-7 col-md-offset-5 gifts-item-button gifts-item-button-show-cota">Ver detalhes</a>
 							</div>
-							<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 						</li>
 					</ul>
 				</div>

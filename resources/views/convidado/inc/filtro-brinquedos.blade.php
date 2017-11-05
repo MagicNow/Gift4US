@@ -13,8 +13,8 @@
 		</select>
 	</div>
 	<div class="porcentagem">
-		<span style="width:25%"></span>
-		<strong>25% disponivel</strong>
+		<span style="width:{{ $percent }}%"></span>
+		<strong>{{ $percent }}% disponivel</strong>
 	</div>
 	<ul class="gifts-categories-list row" data-festa-id="{{ $party->id }}">
 		@if($party->tipo && count($party->tipo) > 0)

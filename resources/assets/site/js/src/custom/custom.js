@@ -390,6 +390,21 @@ $(function() {
 			}
 		});
 	});
+
+	$('.send-form-ajax').on('submit', function(e) {
+		e.preventDefault();
+
+		var $form = $(this);
+		$.ajax({
+			url: $form.attr('action'),
+			method: $form.attr('method'),
+			data: $form.serialize(),
+			success: function (data) {
+				console.log(data.response, data);
+				$form.html('<p>' + data.response + '</p>');
+			}
+		});
+	});
 });
 
 function changeQuotaSplit() {
@@ -419,15 +434,16 @@ function createCookie(name, value, days) {
 }
 
 function formAddGift() {
-	$('form .bgC').prop('readonly',true);
+	// $('form .bgC').prop('readonly',true);
 	
-	$('form .fa-pencil-square-o').click(function() {
-	  $('form .bgC').prop('readonly',false);
-	  $(this).parent().parent().find('input.bgC').focus();
+	$('form .fa-pencil-square-o').on('click', function() {
+		$('form .bgC').prop('readonly',false);
+		$(this).parent().parent().find('input.bgC').focus();
 	});
 	
-	$('form .textR a').click(function() {
-	  $('form .textR').prepend('<div class="input-group gifts-input-icon"><input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas" value=""><span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></div>');
+	$('form .textR a').on('click', function(e) {
+		e.preventDefault();
+	  	$('form .textR').prepend('<div class="input-group gifts-input-icon"><input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas" value=""><span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></div>');
 	});
 
 	$('.gifts-item-price-description-upload').click(function(){
@@ -462,6 +478,7 @@ function formAddGift() {
 		$('.modal-lista-concluir').removeClass('hidden');
 	});
 }
+
 function formEmailDelet() {
 	$('.lista-email ul.col-md-12 a').click(function() {
 	  $(this).parent().remove();

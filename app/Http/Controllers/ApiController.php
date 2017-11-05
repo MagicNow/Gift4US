@@ -9,6 +9,7 @@ use App\Models\ProdutosTipos;
 use App\Models\ProdutosMarcas;
 use App\Models\Clientes;
 use App\Models\Festas;
+use App\Models\FestasProdutos;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 
 class ApiController extends Controller {
@@ -72,6 +73,23 @@ class ApiController extends Controller {
 		}
 
 		$festa->produto()->detach($request->produto);
+	}
+
+	public function presentesReservar(Request $request) {
+		if(!$request->ajax()) {
+			abort(404, 'Page not found.');
+		}
+
+		$festaProduto = FestasProdutos::where('produtos_id', $request->produtos_id)
+									->where('festas_id', $request->festas_id);
+
+		if ($festaProduto->count() == 0) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$festaProduto->update($request->all());
+		return response()
+			->json(['response' => 'Reserva efetuada com sucesso.']);
 	}
 
 	public function categoriasAdicionar(Request $request) {

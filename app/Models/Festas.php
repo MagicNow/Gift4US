@@ -24,7 +24,8 @@ class Festas extends Model {
 	}
 
 	public function produto() {
-		return $this->belongsToMany('App\Models\Produtos');
+		return $this->belongsToMany('App\Models\Produtos')
+					->withPivot('nome', 'email', 'rg', 'mensagem');
 	}
 
 	public function tipo() {

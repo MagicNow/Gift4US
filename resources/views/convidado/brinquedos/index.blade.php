@@ -34,15 +34,15 @@
 											<h5 class="gifts-item-title">{{ $product->titulo }}</h5>
 											<p class="gifts-item-price-description">Preço aproximado</p>
 											<p class="gifts-item-price-value">R$ {{ $product->preco_venda }}</p>
-											<p class="gifts-item-color-description">Cor</p>
-											<p class="gifts-item-color-value">{{ $product->cor }}</p>
+											@if (!empty($product->cor))
+												<p class="gifts-item-color-description">Cor</p>
+												<p class="gifts-item-color-value">{{ $product->cor }}</p>
+											@endif
 										</div>
 									</div>
 									<div class="gifts-item-buttons">
-										<a href="{{ route('convidado.brinquedos.detalhe', [$party->id, $product->id]) }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
-										<button class="col-md-6 gifts-item-button gifts-item-button-select">Selecionar</button>
+										<a href="{{ route('convidado.brinquedos.detalhe', [$party->id, $product->id]) }}" class="col-md-7 col-md-offset-5 gifts-item-button">Ver detalhes</a>
 									</div>
-									<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 								</li>
 							@endforeach
 						@else
