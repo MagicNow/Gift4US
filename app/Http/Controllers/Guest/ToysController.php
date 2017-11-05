@@ -25,7 +25,35 @@ class ToysController extends Controller {
 	public function index(Request $request, $festa_id)
 	{
 		$party = $this->party;
-		$products = $this->party->produto->where('categoria', 'brinquedo');
+		$products = $party->produto()->where('categoria', 'brinquedo');
+
+		if ($request->busca) {
+			$products->where('titulo', 'LIKE', '%' . $request->busca . '%');
+		}
+
+		if ($request->ordenacao) {
+			switch ($request->ordenacao) {
+				case 'AZ':
+					$products->orderBy('titulo', 'ASC');
+					break;
+				case 'ZA':
+					$products = $products->orderBy('titulo', 'DESC');
+					break;
+				case 'maiorPreco':
+					$products->orderBy('preco_venda', 'DESC');
+					break;
+				case 'menorPreco':
+					$products->orderBy('preco_venda', 'ASC');
+					break;
+			}
+		}
+
+		if ($request->categorias) {
+			$products = $products->whereIn('tipo_id', $request->categorias);
+		}
+
+		$products = $products->get();
+
 		return view('convidado.brinquedos.index', compact('request', 'party', 'products'));
 	}
 
