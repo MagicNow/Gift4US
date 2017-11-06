@@ -45,6 +45,7 @@ Route::group(['prefix' => 'usuario'], function() {
         Route::get('festa/{festa_id?}/presentes/brinquedos/adicionar', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos.adicionar','uses' => 'GiftsController@toysAdd'])->where(['festa_id' => '[0-9]+']);
         Route::get('festa/{festa_id?}/presentes/brinquedos/lista', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos.lista','uses' => 'GiftsController@toysList'])->where(['festa_id' => '[0-9]+']);
         Route::get('festa/{festa_id?}/presentes/brinquedos/{brinquedo_id?}/detalhe', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos.detalhe','uses' => 'GiftsController@toysDetail'])->where(['festa_id' => '[0-9]+', 'brinquedo_id' => '[0-9]+']);
+        Route::post('festa/{festa_id?}/presentes/brinquedos/adicionar', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos.submeter','uses' => 'GiftsController@toysStore']);
 
         /** COTAS **/
         Route::get('festa/{festa_id?}/presentes/cotas', ['as' => 'usuario.meus-aniversarios.presentes.cotas','uses' => 'GiftsController@quotas'])->where(['festa_id' => '[0-9]+']);
@@ -91,8 +92,8 @@ Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
 
     Route::group(['prefix' => '{festa_id}/roupas'], function () {
         Route::get('/', ['as'=> 'convidado.roupas.index', 'uses' => 'ClothesController@index']);
-        Route::get('mensagem', ['as'=> 'convidado.roupas.mensagem', 'uses' => 'ClothesController@mensagem']);
-        Route::get('detalhe', ['as'=> 'convidado.roupas.detalhe', 'uses' => 'ClothesController@detalhe']);
+        Route::get('mensagem/{produto_id}', ['as'=> 'convidado.roupas.mensagem', 'uses' => 'ClothesController@mensagem']);
+        Route::get('detalhe/{produto_id}', ['as'=> 'convidado.roupas.detalhe', 'uses' => 'ClothesController@detalhe']);
     });
 });
 

@@ -102,11 +102,10 @@ class BirthdayController extends Controller {
 						case 'brinquedo':
 							$gifts['toys'] = $gifts['toys'] + 1;
 							break;
-						case 'cotas':
-							$gifts['quotas'] = $gifts['quotas'] + 1;
-							break;
 					}
 				}
+
+				$gifts['quotas'] = $festa->cotas->count();
 
 				$gifts['total'] = $gifts['clothes'] + $gifts['toys'] + $gifts['quotas'];
 			}

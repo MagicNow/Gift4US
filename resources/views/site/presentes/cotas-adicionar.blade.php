@@ -2,30 +2,11 @@
 
 @section('content')
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<div class="container criar-presentes">
+		<div class="container criar-presentes cota">
 			<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_ent09.png') }}" class="presentinho col-xs-12 col-sm-12 col-md-6" alt="">
 			
 			<div class="gifts-container row col-md-offset-2">
-				<div class="gifts-box-number col-md-3">
-					<div class="gifts-box-number-header row">
-						<div class="col-md-11 col-md-offset-1">
-							<h4 class="gifts-box-number-header-title">Lista de Cotas</h4>
-							<p>
-								<img src="{{ asset('assets/site/images/presentinho-icone.png') }}">
-								<span class="gifts-box-number-header-total">0</span> adicionados
-							</p>
-						</div>
-					</div>
-					<div class="row"> 
-						<a href="{{ route('usuario.meus-aniversarios.presentes.cotas', [ $party->id, 'selecionados' => 1 ]) }}" class="gifts-box-number-middle toys col-md-12 dados-container" style="width:100%">
-							<p class="gifts-box-number-middle-view">Ver lista</p>
-							<p class="gifts-box-number-middle-selected">selecionados</p>
-						</a>
-					</div>
-					<div class="gifts-box-number-footer dados-container">
-						<a href="{{ route('usuario.meus-aniversarios.presentes.cotas', $party->id) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
-					</div>
-				</div>
+				@include('site.inc.filtro-cotas')
 				
 				<div class="col-md-9 dados-container">
 					<div class="row">
@@ -58,7 +39,6 @@
 									@endif
 
 									<div class="col-md-4">
-										<p class="gifts-item-price-description-upload bgC text-center">Adicionar imagem do produto</p>
 										<input type="file" name="foto" class="upload-image" accept="image/png, image/jpeg" value="{{ old('foto') }}" />
 									</div>
 									<div class="gifts-item-content col-md-8">
@@ -75,7 +55,7 @@
 
 										<p class="gifts-item-price-description">Valor total</p>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="money form-control gifts-item-price-value bgC" placeholder="0,00" aria-describedby="gifts-total-price" name="valor_total" value="{{ old('valor_total') }}">
+											<input type="text" class="money quota form-control gifts-item-price-value bgC" placeholder="0,00" aria-describedby="gifts-total-price" name="valor_total" value="{{ old('valor_total') }}">
 											<span class="input-group-addon" id="gifts-total-price"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 

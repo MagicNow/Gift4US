@@ -40,7 +40,7 @@
 			@endif
 
 			<div class="gifts-container row col-md-offset-2">
-				@include('site.inc.gifts')
+				@include('site.inc.filtro-brinquedos')
 
 				<div class="col-md-9 dados-container">
 					<div class="row">

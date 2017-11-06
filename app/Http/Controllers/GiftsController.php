@@ -195,9 +195,10 @@ class GiftsController extends Controller {
 	{
 		$party = Festas::find($festa_id);
 		$client = $this->cliente;
+		$quotasTotal = $party->cotas->count();
 
 		$titulo = 'ÁREA DO USUÁRIO';
-		return view('site.presentes.cotas', compact('request', 'titulo', 'client', 'party'));
+		return view('site.presentes.cotas', compact('request', 'titulo', 'client', 'party', 'quotasTotal'));
 	}
 
 	public function quotasAdd(Request $request, $festa_id)
@@ -205,9 +206,10 @@ class GiftsController extends Controller {
 		$party = Festas::find($festa_id);
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
+		$quotasTotal = $party->cotas->count();
 		$add = [];
 
-		return view('site.presentes.cotas-adicionar', compact('request', 'titulo', 'client', 'party', 'add'));
+		return view('site.presentes.cotas-adicionar', compact('request', 'titulo', 'client', 'party', 'add', 'quotasTotal'));
 	}
 
 	public function quotasStore(StoreQuotas $request, $festa_id)

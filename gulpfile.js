@@ -126,7 +126,6 @@ gulp.task('styles-deploy', function() {
 
 //migrating over all HTML files for deployment
 gulp.task('html-deploy', function() {
-
     gulp.src('resources/assets/site/fonts/**/*')
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
@@ -170,12 +169,14 @@ gulp.task('admin-fonts', function() {
         .pipe(plumber())
         .pipe(gulp.dest('public/assets/admin/fonts'));
 });
+
 gulp.task('admin-scripts', function() {
     gulp.src(['resources/assets/admin/js/**/*','resources/assets/admin/plugins/**/*'])
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
         .pipe(gulp.dest('public/assets/admin/js'));
 });
+
 gulp.task('admin-styles', function() {
     return gulp.src(['resources/assets/admin/bootstrap/bootstrap.less','resources/assets/admin/less/AdminLTE.less'])
             .pipe(plumber({

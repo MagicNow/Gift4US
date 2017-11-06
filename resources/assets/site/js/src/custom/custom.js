@@ -125,15 +125,15 @@ $(function() {
     var $modalButton = $(".form-birthday-file");
 
     $modalButton.fileinput({
-    	showUpload: false,
-    	showCaption: false,
-    	showCancel: false,
-    	showRemove: false,
-    	allowedFileExtensions: ['jpg', 'gif', 'png'],
-    	uploadUrl: baseUrl + '/usuario/meus-aniversarios/upload',
-    	uploadAsync: true,
-    	required: true,
-    	uploadExtraData: { id: 100 },
+		showUpload: false,
+		showCaption: false,
+		showCancel: false,
+		showRemove: false,
+		allowedFileExtensions: ['jpg', 'gif', 'png'],
+		uploadUrl: baseUrl + '/usuario/meus-aniversarios/upload',
+		uploadAsync: true,
+		required: true,
+		uploadExtraData: { id: 100 },
 		msgAjaxError: 'Algo deu errado com a operação {operação}. Por favor, tente novamente mais tarde!',
 		msgAjaxProgressError: '{operation} falhou.',
 		msgUploadEnd: 'Sucesso',
@@ -159,6 +159,44 @@ $(function() {
 
 		$('.aniver-photo').val(response.path);
 		$('.form-birthday-photo').html('<img src="' + baseUrl + '/storage/birthdays/' + response.path + '">');
+	});
+
+	var $uploadButton = $(".upload-image");
+
+	$uploadButton.fileinput({
+		showUpload: false,
+		showCaption: false,
+		showRemove: false,
+		allowedFileExtensions: ['jpg', 'gif', 'png'],
+		required: true,
+		msgAjaxError: 'Algo deu errado com a operação {operação}. Por favor, tente novamente mais tarde!',
+		msgAjaxProgressError: '{operation} falhou.',
+		msgUploadEnd: 'Sucesso',
+		msgFileRequired: 'A imagem é obrigatória.',
+		msgSizeTooLarge: 'Arquivo "{name}" ({size} KB) excede o tamanho máximo permitido {maxSize} KB.',
+		maxFileSize: 3000,
+		ajaxOperations: {
+			deleteThumb: 'arquivo excluído',
+			uploadThumb: 'arquivo carregado',
+			uploadBatch: 'carregamento de arquivos em lote',
+			uploadExtra: 'dados do upload'
+		},
+		msgInvalidFileExtension: 'A extensão do arquivo "{name}" não é permitida. Somente arquivos "{extensions}" são permitidos.',
+		browseLabel: 'Adicionar imagem do produto',
+		previewSettings: {
+			image: { width: "auto", height: "auto", 'max-width': "100%", 'max-height': "100%" }
+		},
+		layoutTemplates: {
+			btnBrowse: '<div tabindex="500" class="gifts-item-price-description-upload upload-image-button bgC text-center btn-file "{status}>{label}</div>',
+			actions: '<div class="file-actions">\n' +
+				'{drag}\n' +
+				'<div class="clearfix"></div>\n' +
+			'</div>',
+		}
+	}).on("fileselect", function(event, files) {
+		$('.upload-image-button').hide();
+	}).on("fileclear", function(event, files) {
+		$('.upload-image-button').show();
 	});
 
     $('.form-birthday-modal-close, .form-birthday-modal-text').on('click', function (e) {
@@ -322,13 +360,6 @@ $(function() {
 	});
 
 	$('.filter-categories-item').on('click', function (e) {
-		// var $self = $(this);
-		// var $list = $self.parents('.gifts-categories-list');
-		// var status = 0;
-
-		// $self.toggleClass('active');
-		// status = $self.hasClass('active') ? 1 : 0;
-		
 		$(this).parents('form').submit();
 	});
 
@@ -408,8 +439,8 @@ $(function() {
 });
 
 function changeQuotaSplit() {
-	let quotaTotal = $('.criar-presentes').find('[name="valor_total"]').val().replace(/\./g, '').replace(',', '.');
-	let quotaNumber = $('.criar-presentes .form-birthday-size-input').val();
+	let quotaTotal = $('.criar-presentes.cota').find('[name="valor_total"]').val().replace(/\./g, '').replace(',', '.');
+	let quotaNumber = $('.criar-presentes.cota .form-birthday-size-input').val();
 	let quotaCost = quotaTotal / quotaNumber;
 
 	if (quotaNumber !== '') {
@@ -441,36 +472,43 @@ function formAddGift() {
 		$(this).parent().parent().find('input.bgC').focus();
 	});
 	
-	$('form .textR a').on('click', function(e) {
+	$('.clone-button').on('click', function(e) {
 		e.preventDefault();
-	  	$('form .textR').prepend('<div class="input-group gifts-input-icon"><input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas" value=""><span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></div>');
+		const $self = $(this);
+	  	const $container = $('#' + $self.data('target'));
+	  	const $clone = $container.find('.clone-reference').first();
+
+	  	$clone
+	  		.clone()
+	  		.removeClass('clone-reference')
+	  		.appendTo($container)
+	  		.find('input').val('');
 	});
 
-	$('.gifts-item-price-description-upload').click(function(){
-		$('.upload-image').click();
-	});
-
-	$('.upload-image').hide();
-	
 	$('.criarPresentes .alerta a').click(function(){
 		$('.criarPresentes .alerta').hide();
 	});
+
 	$('.lista-email .adicionar-email').click(function() {
 		var emailAdicionar = $('.lista-email .texto').val();
 		$('.lista-email ul.col-md-12').append('<li><a href="#">Excluir</a> '+emailAdicionar+'</li>');
 		var countEmail = $('.lista-email ul.col-md-12 a').length;
 		$('.lista-email fieldset.bottom label.col-md-12').html(countEmail+' emails cadastrados');
-		formEmailDelet();
+		formEmailDelete();
 	});
+
 	$('.ver-lista-presentes').click(function() {
 		$('#lista-presente').show();
 	});
+
 	$('.ver-lista-convidados').click(function() {
 		$('#lista-presenca').show();
 	});
+
 	$('.modal-lista-presentes .modal-lista-header a').click(function() {
 		$('.modal-lista-presentes').hide();
 	});
+
 	$('.btn-modal-finalizar').click(function() {
 		var countSelected = $('ul.gifts-list .selected').length;
 		$('.modal-lista-concluir .gifts-modal-subtitle small').html(countSelected);
@@ -479,7 +517,7 @@ function formAddGift() {
 	});
 }
 
-function formEmailDelet() {
+function formEmailDelete() {
 	$('.lista-email ul.col-md-12 a').click(function() {
 	  $(this).parent().remove();
 	  var countEmail = $('.lista-email ul.col-md-12 a').length;
@@ -487,5 +525,5 @@ function formEmailDelet() {
 	});
 }
 formAddGift();
-formEmailDelet();
+formEmailDelete();
 
