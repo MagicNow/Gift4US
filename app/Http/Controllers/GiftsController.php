@@ -9,6 +9,7 @@ use App\Models\ProdutosTipos;
 use App\Models\Produtos;
 use App\Models\Cotas;
 use App\Http\Requests\StoreQuotas;
+use App\Http\Requests\StoreToys;
 use Intervention\Image\ImageManagerStatic as Image;
 use XmlParser;
 use Validator;
@@ -191,6 +192,35 @@ class GiftsController extends Controller {
 		return view('site.presentes.brinquedos-detalhe', compact('request', 'titulo', 'client', 'party', 'product'));
 	}
 
+	public function toysStore(StoreToys $request, $festa_id)
+	{
+		$input = $request->all();
+
+		$rules = StoreToys::rules();
+		$festa = Festas::find($festa_id);
+
+		if ($festa->clientes_id != $this->cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+ 		$input['festas_id'] = $festa_id;
+ 		$input['preco_venda'] = str_replace(',', '.', str_replace('.', '', $input['preco_venda']));
+ 		$input['categoria'] = 'brinquedo';
+ 		$input['adicionado'] = 1;
+ 		$input['imagem'] = $this->upload($request, 'toys');
+
+		$produto = new Produtos();
+		$produto->fill($input);
+
+		$festa->produto()->save($produto);
+
+		if ($input['salvar'] === 'salvar') {
+			return redirect()->route('usuario.meus-aniversarios.presentes.brinquedos', $festa->id);
+		} else {
+			return redirect()->route('usuario.meus-aniversarios.presentes.brinquedos.adicionar', $festa->id);
+		}
+	}
+
 	public function quotas(Request $request, $festa_id)
 	{
 		$party = Festas::find($festa_id);
@@ -216,7 +246,7 @@ class GiftsController extends Controller {
 	{
 		$input = $request->all();
 
-        $rules = StoreQuotas::rules();
+		$rules = StoreQuotas::rules();
 		$festa = Festas::find($festa_id);
 
 		if ($festa->clientes_id != $this->cliente->id) {
@@ -225,7 +255,7 @@ class GiftsController extends Controller {
 
  		$input['festas_id'] = $festa_id;
  		$input['valor_total'] = str_replace(',', '.', str_replace('.', '', $input['valor_total']));
- 		$input['foto'] = $this->upload($request);
+ 		$input['foto'] = $this->upload($request, 'quotas');
 
 		$cota = new Cotas();
 		$cota->fill($input);
@@ -248,19 +278,23 @@ class GiftsController extends Controller {
 		return view('site.presentes.cotas-detalhe', compact('request', 'titulo', 'client', 'party'));
 	}
 
-	private function upload(Request $request)
+	private function upload(Request $request, $folder)
 	{
-		$path = basename($request->foto->store('public/quotas'));
-
-		if (!\File::exists(storage_path('app/public/quotas/mask'))) {
-			$folder = \File::makeDirectory(storage_path('app/public/quotas/mask'), 0775, true);
+		if ($request->foto) {
+			$path = basename($request->foto->store('public/' . $folder));
+		} else {
+			$path = basename($request->imagem->store('public/' . $folder));
 		}
 
-		$img = Image::make(storage_path('app/public/quotas/' . $path));
+		if (!\File::exists(storage_path('app/public/' . $folder . '/mask'))) {
+			$folder = \File::makeDirectory(storage_path('app/public/' . $folder . '/mask'), 0775, true);
+		}
+
+		$img = Image::make(storage_path('app/public/' . $folder . '/' . $path));
 		$img->resize(780, null, function ($constraint) {
 				$constraint->aspectRatio();
 			})
-			->save(storage_path('app/public/quotas/' . $path));
+			->save(storage_path('app/public/' . $folder . '/' . $path));
 
 		return $path;
 	}

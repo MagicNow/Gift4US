@@ -439,14 +439,16 @@ $(function() {
 });
 
 function changeQuotaSplit() {
-	let quotaTotal = $('.criar-presentes.cota').find('[name="valor_total"]').val().replace(/\./g, '').replace(',', '.');
-	let quotaNumber = $('.criar-presentes.cota .form-birthday-size-input').val();
-	let quotaCost = quotaTotal / quotaNumber;
+	if ($('.criar-presentes.cota').length > 0) {
+		let quotaTotal = $('.criar-presentes.cota').find('[name="valor_total"]').val().replace(/\./g, '').replace(',', '.');
+		let quotaNumber = $('.criar-presentes.cota .form-birthday-size-input').val();
+		let quotaCost = quotaTotal / quotaNumber;
 
-	if (quotaNumber !== '') {
-		$('.criar-presentes-cota-valor').text(quotaCost.toFixed(2).toString().replace(".", ","));
-	} else {
-		$('.criar-presentes-cota-valor').text('0,00');
+		if (quotaNumber !== '') {
+			$('.criar-presentes-cota-valor').text(quotaCost.toFixed(2).toString().replace(".", ","));
+		} else {
+			$('.criar-presentes-cota-valor').text('0,00');
+		}
 	}
 }
 

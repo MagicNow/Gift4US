@@ -36,7 +36,7 @@
 										</div>
 										<p class="gifts-item-price-description">Valor total</p>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="money form-control gifts-item-price-value bgC" placeholder="0,00" aria-describedby="gifts-total-price" name="preco_venda" value="{{ old('valor_total') }}" required>
+											<input type="text" class="money form-control gifts-item-price-value bgC" placeholder="0,00" aria-describedby="gifts-total-price" name="preco_venda" value="{{ old('preco_venda') }}" required>
 											<span class="input-group-addon" id="gifts-total-price"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<p class="gifts-item-price-description">Lojas disponíveis</p>
