@@ -25,7 +25,7 @@
 							<div class="row">
 								<p class="gifts-item-title">Criar cota</p>
 								<p class="gifts-item-price-description-cota">Preeencha algumas informações básicas descritas abaixo e inserira uma imagem do presente e pronto! Ao salvar ele estará automaticamente na sua lista de adicionados.</p>
-								<form class="row criar-presentes-form" action="{{ route('usuario.meus-aniversarios.presentes.cotas.submeter', $party->id) }}" method="post" enctype="multipart/form-data">
+								<form class="row criar-presentes-form edit-form-pencil" action="{{ route('usuario.meus-aniversarios.presentes.cotas.submeter', $party->id) }}" method="post" enctype="multipart/form-data">
 									@if ($errors->any())
 										<div class="col-md-12">
 											<div class="alert alert-danger">

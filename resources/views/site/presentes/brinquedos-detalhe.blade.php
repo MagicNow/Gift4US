@@ -56,7 +56,7 @@
 								</div>
 								<div class="gifts-item-content col-md-8">
 									<p class="gifts-item-price-description gifts-item-price-description-detalhe-brinquedo">Como nosso portal é colaborativo, caso tenha alguma informação desatualizada você poderá atualizá-la clicando no botão de edição ao final de cada linha.</p>
-									<form class="row criar-presentes-form" action="{{ route('usuario.meus-aniversarios.presentes.cotas.submeter', $party->id) }}" method="post" enctype="multipart/form-data">
+									<form class="row criar-presentes-form edit-form-pencil" action="{{ route('usuario.meus-aniversarios.presentes.cotas.submeter', $party->id) }}" method="post" enctype="multipart/form-data">
 										<div class="input-group gifts-input-icon">
 											<input type="text" class="form-control gifts-item-price-value bgC textB" aria-describedby="gifts-name" name="nome" maxlength="100" value="LEGO Mascotes Olimpíadas Rio 2016 - Tom e Vincíus">
 											<span class="input-group-addon" id="gifts-name"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>

@@ -467,8 +467,8 @@ function createCookie(name, value, days) {
 function formAddGift() {
 	// $('form .bgC').prop('readonly',true);
 	
-	$('form .fa-pencil-square-o').on('click', function() {
-		$('form .bgC').prop('readonly',false);
+	$('form.edit-form-pencil .fa-pencil-square-o').on('click', function() {
+		$('form.edit-form-pencil .bgC').prop('readonly',false);
 		$(this).parent().parent().find('input.bgC').focus();
 	});
 	

@@ -20,7 +20,7 @@
 								<p class="gifts-item-price-description-cota bg-presente-lista">
 									Adicionar presente é muito fácil! Só precisará preeencher algumas informações básicas descritas abaixo e inserir uma foto do produto e pronto! Ao salvar ele estará automaticamente na sua lista de adicionados.
 								</p>
-								<form class="row criar-presentes-form" action="{{ route('usuario.meus-aniversarios.presentes.brinquedos.submeter', $party->id) }}" method="post" enctype="multipart/form-data">
+								<form class="row criar-presentes-form edit-form-pencil" action="{{ route('usuario.meus-aniversarios.presentes.brinquedos.submeter', $party->id) }}" method="post" enctype="multipart/form-data">
 									<div class="col-md-4 upload-image-container">
 										<input type="file" name="imagem" class="upload-image" data-preview-file-type="text" required />
 									</div>
