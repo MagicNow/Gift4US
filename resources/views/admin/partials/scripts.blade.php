@@ -21,7 +21,7 @@
 <script src="{{ asset('/assets/admin/js/jquery.validate.js') }}"></script>
 <script type="text/javascript">
 	var baseUrl = "{{ url('/') }}";
-	var token = "{{ Session::getToken() }}";
+	// var token = "{{ Session::getToken() }}";
 </script>
 <!-- AdminLTE App -->
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->

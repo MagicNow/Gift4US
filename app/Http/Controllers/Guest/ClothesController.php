@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Models\Festas;
+use App\Models\Produtos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
@@ -25,7 +26,7 @@ class ClothesController extends Controller {
 		$this->clothesAvalible = $this->clothes->whereNull('nome');
 
 		$this->middleware(function ($request, $next) use ($clothesTotal) {
-			$percent = round(($this->clothesAvalible->count() * 100) / $clothesTotal, 0, PHP_ROUND_HALF_EVEN);
+			$percent = $this->clothesAvalible->count() > 0 ? round(($this->clothesAvalible->count() * 100) / $clothesTotal, 0, PHP_ROUND_HALF_EVEN) : 0;
 			view()->share('percent', $percent);
 
 			return $next($request);
@@ -63,15 +64,34 @@ class ClothesController extends Controller {
 		return view('convidado.roupas.index', compact('request', 'party', 'products'));
 	}
 
-	public function mensagem(Request $request, $festa_id = null)
+	public function mensagem(Request $request, $party_id)
 	{
-		$party = Festas::find($festa_id);
+		$party = $this->party;
 		return view('convidado.roupas.mensagem', compact('request', 'party'));
 	}
 
-	public function detalhe(Request $request, $festa_id = null)
+	public function detalhe(Request $request, $party_id, $product_id)
 	{
-		$party = Festas::find($festa_id);
-		return view('convidado.roupas.detalhe', compact('request', 'party'));
+		$party = $this->party;
+		$product = Produtos::find($product_id);
+
+		if (empty($product)) {
+			abort(404, 'Página não encontrada.');
+		}
+
+		return view('convidado.roupas.detalhe', compact('request', 'party', 'product'));
+	}
+
+
+	public function compraOnline(Request $request, $festa_id, $product_id)
+	{
+		$party = $this->party;
+		$product = Produtos::find($product_id);
+
+		if (empty($product)) {
+			abort(404, 'Página não encontrada.');
+		}
+
+		return view('convidado.roupas.compra-online', compact('request', 'party', 'product'));
 	}
 }

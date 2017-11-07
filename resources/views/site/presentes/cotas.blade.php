@@ -85,10 +85,9 @@
 										</div>
 									</div>
 									<div class="gifts-item-buttons">
-										<a class="col-md-6 gifts-item-button gifts-item-button-show" href="#">Ver detalhes</a>
+										<a href="{{ route('usuario.meus-aniversarios.presentes.cotas.detalhe', [ $party->id, $cota->id ]) }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
 										<a class="col-md-6 gifts-item-button gifts-item-button-select" href="#">Retirar da lista</a>
 									</div>
-									<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 								</li>
 							@endforeach
 						</ul>
