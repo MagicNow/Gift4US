@@ -3,7 +3,7 @@
 		<div class="col-md-11 col-md-offset-1">
 			<h4 class="gifts-box-number-header-title">Lista de Brinquedos</h4>
 			<p><img src="{{ asset('assets/site/images/presentinho-icone.png') }}"> <span class="gifts-box-number-header-total">{{ count($selected) }}</span> selecionados</p>
-			<p><img src="{{ asset('assets/site/images/presentinho-icone.png') }}"> <span class="gifts-box-number-header-total-add">{{ count($add) }}</span> adicionados</p>
+			<p><img src="{{ asset('assets/site/images/presentinho-icone.png') }}"> <span class="gifts-box-number-header-total-add">{{ $added }}</span> adicionados</p>
 		</div>
 	</div>
 	<div class="row"> 

@@ -42,15 +42,15 @@
 										<p class="gifts-item-price-description">Lojas disponíveis</p>
 										<div class="clone" id="lojas-disponiveis">
 											@if (old('lojas'))
-												@foreach(old('lojas') as $loja)
+												@foreach(old('lojas') as $key => $loja)
 													<div class="input-group gifts-input-icon clone-reference">
-														<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas[]" value="{{ $loja }}">
+														<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas[{{ $key }}][nome]" value="{{ $loja }}">
 														<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 													</div>
 												@endforeach
 											@else
 												<div class="input-group gifts-input-icon clone-reference">
-													<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas[]">
+													<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas[][nome]">
 													<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 												</div>
 											@endif

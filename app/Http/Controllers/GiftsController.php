@@ -6,6 +6,7 @@ use App\Models\Clientes;
 use App\Models\Festas;
 use App\Models\FestasLayouts;
 use App\Models\ProdutosTipos;
+use App\Models\ProdutosLojas;
 use App\Models\Produtos;
 use App\Models\Cotas;
 use App\Http\Requests\StoreQuotas;
@@ -106,9 +107,7 @@ class GiftsController extends Controller {
 	{
 		$party = Festas::find($festa_id);
 		$categories = $party->tipo->pluck('id')->toArray();
-		$products = Produtos::where('categoria', 'brinquedo')
-							->whereIn('tipo_id', $categories);
-							// ->where('status', 1);
+		$products = Produtos::where('categoria', 'brinquedo');
 
 		if (!isset($party) || empty($party)) {
 			abort(404, 'Page not found.');
@@ -144,16 +143,24 @@ class GiftsController extends Controller {
 		}
 
 		$selected = $party->produto->where('categoria', 'brinquedo')->pluck('id')->toArray();
+		$added = $party->produto->where('categoria', 'brinquedo')->where('adicionado', 1)->where('festas_id', $party->id)->count();
 		$add = [];
 
 		if ($request->selecionados) {
 			$products = $products->whereIn('id', $selected);
 		}
 
-		$products = $products->paginate(30);
+		if ($request->adicionados) {
+			$products = $products->where('adicionado', 1)->where('festas_id', $party->id);
+		} else {
+			$products = $products->where('adicionado', 0)
+								->whereIn('tipo_id', $categories);
+		}
+
+		$products = $products->orderBy('id', 'DESC')->paginate(30);
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
-		return view('site.presentes.brinquedos-lista', compact('request', 'titulo', 'client', 'products', 'party', 'selected', 'add'));
+		return view('site.presentes.brinquedos-lista', compact('request', 'titulo', 'client', 'products', 'party', 'selected', 'add', 'added'));
 	}
 
 	public function preview($festa_id, $layout_id)
@@ -176,9 +183,10 @@ class GiftsController extends Controller {
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
 		$selected = $party->produto->where('categoria', 'brinquedo')->pluck('id')->toArray();
+		$added = $party->produto->where('categoria', 'brinquedo')->where('adicionado', 1)->where('festas_id', $party->id)->count();
 		$add = [];
 
-		return view('site.presentes.brinquedos-adicionar', compact('request', 'titulo', 'client', 'party', 'selected', 'add'));
+		return view('site.presentes.brinquedos-adicionar', compact('request', 'titulo', 'client', 'party', 'selected', 'add', 'added'));
 	}
 
 	public function toysDetail(Request $request, $festa_id, $brinquedo_id)
@@ -188,8 +196,12 @@ class GiftsController extends Controller {
 
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
+		$selected = $party->produto->where('categoria', 'brinquedo')->pluck('id')->toArray();
+		$added = $party->produto->where('categoria', 'brinquedo')->where('adicionado', 1)->where('festas_id', $party->id)->count();
 
-		return view('site.presentes.brinquedos-detalhe', compact('request', 'titulo', 'client', 'party', 'product'));
+		$add = [];
+
+		return view('site.presentes.brinquedos-detalhe', compact('request', 'titulo', 'client', 'party', 'product', 'selected', 'add', 'added'));
 	}
 
 	public function toysStore(StoreToys $request, $festa_id)
@@ -207,12 +219,19 @@ class GiftsController extends Controller {
  		$input['preco_venda'] = str_replace(',', '.', str_replace('.', '', $input['preco_venda']));
  		$input['categoria'] = 'brinquedo';
  		$input['adicionado'] = 1;
- 		$input['imagem'] = $this->upload($request, 'toys');
+ 		$input['imagem'] = url('storage/toys/' . $this->upload($request, 'toys'));
 
 		$produto = new Produtos();
 		$produto->fill($input);
 
-		$festa->produto()->save($produto);
+		$brinquedo = $festa->produto()->save($produto);
+
+		$lojas = [];
+		foreach ($input['lojas'] as $key => $loja) {
+			$lojas[$key] = new ProdutosLojas($loja);
+		}
+
+		$brinquedo->lojas()->saveMany($lojas);
 
 		if ($input['salvar'] === 'salvar') {
 			return redirect()->route('usuario.meus-aniversarios.presentes.brinquedos', $festa->id);

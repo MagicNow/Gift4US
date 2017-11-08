@@ -21,4 +21,8 @@ class Produtos extends Model {
 	public function marca() {
 		return $this->belongsTo('App\Models\ProdutosMarcas');
 	}
+
+    public function lojas() {
+        return $this->hasMany('App\Models\ProdutosLojas');
+    }
 }

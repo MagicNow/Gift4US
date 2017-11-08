@@ -7,42 +7,8 @@
 			<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_ent03.png') }}" class="presentinho col-xs-12 col-sm-12 col-md-6" alt="">
 			
 			<div class="gifts-container row col-md-offset-2">
-				<div class="gifts-box-number col-md-3">
-					<div class="gifts-box-number-header row">
-						<div class="col-md-11 col-md-offset-1">
-							<h4 class="gifts-box-number-header-title">Lista de Brinquedos</h4>
-							<p>
-								<img src="{{ asset('assets/site/images/presentinho-icone.png') }}">
-								<span class="gifts-box-number-header-total">2</span> selecionados
-							</p>
-							<p>
-								<img src="{{ asset('assets/site/images/presentinho-icone.png') }}">
-								<span class="gifts-box-number-header-total-add">0</span> adicionados
-							</p>
-						</div>
-					</div>
-					<div class="row"> 
-						<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos', [ $party->id, 'adicionados' => 1 ]) }}" class="gifts-box-number-middle toys dados-container col-md-6">
-							<p class="gifts-box-number-middle-view">Ver lista</p>
-							<p class="gifts-box-number-middle-selected">adicionados</p>
-						</a>
-						<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos', [ $party->id, 'selecionados' => 1 ]) }}" class="gifts-box-number-middle toys col-md-6 dados-container">
-							<p class="gifts-box-number-middle-view">Ver lista</p>
-							<p class="gifts-box-number-middle-selected">selecionados</p>
-						</a>
-					</div>
-					<div class="gifts-box-toys-add">
-						<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos.adicionar', $party->id) }}" class="dados-container">
-							<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_add.png') }}" class="" alt="">
-							<p class="gifts-box-toys-add-text">Adicionar brinquedos</p>
-						</a>
-						<p class="gifts-box-toys-add-legend">Adicione presentes que não achou na nossa lista de sugestões ao lado</p>
-					</div>
-					<div class="gifts-box-number-footer dados-container">
-						<a class="gifts-box-number-submit" href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}">Finalizar lista</a>
-						<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
-					</div>
-				</div>
+				@include('site.inc.filtro-brinquedos')
+
 				<div class="col-md-9 dados-container">
 					<div class="row">
 						@include('site.inc.filtro-categorias', ['filter' => 'brinquedos'])
