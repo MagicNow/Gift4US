@@ -207,8 +207,6 @@ class GiftsController extends Controller {
 	public function toysStore(StoreToys $request, $festa_id)
 	{
 		$input = $request->all();
-
-		$rules = StoreToys::rules();
 		$festa = Festas::find($festa_id);
 
 		if ($festa->clientes_id != $this->cliente->id) {
@@ -238,6 +236,23 @@ class GiftsController extends Controller {
 		} else {
 			return redirect()->route('usuario.meus-aniversarios.presentes.brinquedos.adicionar', $festa->id);
 		}
+	}
+
+	public function toysUpdate(StoreToys $request, $festa_id, $brinquedo_id)
+	{
+		$input = $request->all();
+		$festa = Festas::find($festa_id);
+		$produto = Produtos::find($brinquedo_id);
+
+		if (!isset($festa) || empty($festa) || !isset($produto) || empty($produto)) {
+			abort(404, 'Page not found.');
+		}
+
+		if ($festa->clientes_id != $this->cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		die('teste');
 	}
 
 	public function quotas(Request $request, $festa_id)

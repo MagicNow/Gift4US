@@ -46,6 +46,7 @@ Route::group(['prefix' => 'usuario'], function() {
         Route::get('festa/{festa_id?}/presentes/brinquedos/lista', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos.lista','uses' => 'GiftsController@toysList'])->where(['festa_id' => '[0-9]+']);
         Route::get('festa/{festa_id?}/presentes/brinquedos/{brinquedo_id?}/detalhe', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos.detalhe','uses' => 'GiftsController@toysDetail'])->where(['festa_id' => '[0-9]+', 'brinquedo_id' => '[0-9]+']);
         Route::post('festa/{festa_id?}/presentes/brinquedos/adicionar', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos.submeter','uses' => 'GiftsController@toysStore']);
+        Route::put('festa/{festa_id?}/presentes/brinquedos/{brinquedo_id?}/editar', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos.editar','uses' => 'GiftsController@toysUpdate']);
 
         /** COTAS **/
         Route::get('festa/{festa_id?}/presentes/cotas', ['as' => 'usuario.meus-aniversarios.presentes.cotas','uses' => 'GiftsController@quotas'])->where(['festa_id' => '[0-9]+']);
