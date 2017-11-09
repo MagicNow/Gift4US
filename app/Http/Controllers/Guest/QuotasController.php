@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Models\Festas;
+use App\Models\Cotas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
@@ -58,10 +59,16 @@ class QuotasController extends Controller {
 		return view('convidado.cotas.index', compact('request', 'party', 'products'));
 	}
 
-	public function detalhe(Request $request, $festa_id = null)
+	public function detalhe(Request $request, $festa_id, $produto_id)
 	{
-		$party = Festas::find($festa_id);
-		return view('convidado.cotas.detalhe', compact('party'));
+		$party = $this->party;
+		$product = Cotas::find($produto_id);
+
+		if (empty($product)) {
+			abort(404, 'Página não encontrada.');
+		}
+
+		return view('convidado.cotas.detalhe', compact('request', 'party', 'product'));
 	}
 
 	public function mensagem(Request $request, $festa_id = null)
