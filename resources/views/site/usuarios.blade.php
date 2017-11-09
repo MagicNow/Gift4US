@@ -10,6 +10,7 @@
 						<p class="usuario-menu-texto usuario-nome">{{ $client->nome }}</p>
 						<p class="usuario-menu-texto">{{ $client->email }}</p>
 						<div class="usuario-menu-dados">
+						    <a href="{{ route('usuario.meus-aniversarios') }}" class="{{ Route::currentRouteName() == 'usuario.meus-aniversarios' }} usuario-menu-primeiro"><span class="usuario-menu-texto">Meus aniversários</span></a>
 							<a href="{{ route('cadastro.edit', $client->id) }}" class="{{ Route::currentRouteName() == 'usuario.editar-dados' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Editar informações do cadastro</span></a>            
 							<a href="{{ URL::to('usuario/nova-senha') }}" class="{{ Route::currentRouteName() == 'usuario.nova-senha' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Mudar senha</span></a>
 

@@ -83,6 +83,7 @@ input {
 	}
 
 	&-menu {
+
 		font-family: 'HelveticaNeueStd';
 		font-size: 17px;
 		display: block;
@@ -91,7 +92,7 @@ input {
 		text-decoration: none;
 		margin-bottom: 5px;
 
-		&:active, &:hover, &:focus {
+        &:active, &:hover, &:focus {
 			text-decoration: none;
 		}
 
@@ -109,6 +110,39 @@ input {
 				top: 0;
 			}
 		}
+	  
+		
+		&-primeiro {
+
+		font-family: 'HelveticaNeueStd';
+		font-size: 17px;
+		display: block;
+		color: #525353;
+		clear: both;
+		text-decoration: none;
+		margin-bottom: 5px;
+
+        &:active, &:hover, &:focus {
+			text-decoration: none;
+		}
+
+		&.active{
+			color: #FFF;
+			position: relative;
+
+			&:before {
+				content: "";
+				position: absolute;
+				background:url(../images/sidemenu_hover.png);
+				width: 360px;
+				height: 36px;
+				left: 0;
+				top: 0;
+			}
+		}
+		
+		}
+	  
 
 		&-texto {
 			position: relative;
