@@ -291,6 +291,10 @@ class GiftsController extends Controller {
  		$input['valor_total'] = str_replace(',', '.', str_replace('.', '', $input['valor_total']));
  		$input['foto'] = $this->upload($request, 'quotas');
 
+ 		if ($input['dividir_cota'] == 0) {
+			$input['quantidade_cotas'] = 1;
+ 		}
+
 		$cota = new Cotas();
 		$cota->fill($input);
 

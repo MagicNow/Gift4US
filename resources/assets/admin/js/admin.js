@@ -5,34 +5,31 @@ $(function() {
         }
     });
 
-
-    
-
     $("#telefone").mask("(99) 9999.9999?9");
     $("#cep").mask("99.999-999");
 
     $('textarea').wysihtml5();
-    $('#datatables').DataTable({
-          "paging": true,
-          "pageLength": 15,
-          "language": {
-            "sSearch": "Buscar",
-            "oPaginate":{
-              "sNext":"Próximo",
-              "sPrevious":"Anterior",
-            },
-            "sInfo":"Mostrando _START_ de _END_ do total de _TOTAL_ registros",
-            "sEmptyTable":"Nenhum registro",
-            "sInfoEmpty":"Mostrando 0 to 0 de 0 registros",
-          },
+    // $('#datatables').DataTable({
+    //       "paging": true,
+    //       "pageLength": 15,
+    //       "language": {
+    //         "sSearch": "Buscar",
+    //         "oPaginate":{
+    //           "sNext":"Próximo",
+    //           "sPrevious":"Anterior",
+    //         },
+    //         "sInfo":"Mostrando _START_ de _END_ do total de _TOTAL_ registros",
+    //         "sEmptyTable":"Nenhum registro",
+    //         "sInfoEmpty":"Mostrando 0 to 0 de 0 registros",
+    //       },
           
-          "fixedColumns": false,
-          "lengthChange": false,
-          "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": true
-    });
+    //       "fixedColumns": false,
+    //       "lengthChange": false,
+    //       "searching": true,
+    //       "ordering": true,
+    //       "info": true,
+    //       "autoWidth": true
+    // });
     //Date range picker
     $('#reservation').daterangepicker({
         timePicker: false, 
@@ -69,18 +66,8 @@ $(function() {
         $(this).append($element);
         $(this).trigger("change");
     });
-    $(".colorpicker").colorpicker();
-    
-    
 
-    
-    
-    
-    $( document ).ready(function() {
-    
-        
-    });
-        
+    $(".colorpicker").colorpicker();
 });
 
 

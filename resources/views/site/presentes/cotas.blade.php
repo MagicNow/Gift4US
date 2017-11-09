@@ -75,12 +75,12 @@
 										<div class="gifts-item-content col-md-7">
 											<h5 class="gifts-item-title">{{ $cota->nome }}</h5>
 											<p class="gifts-item-price-description">Valor total do presente:</p>
-											<p class="gifts-item-price-value">R$ {{ $cota->valor_total }}</p>
+											<p class="gifts-item-price-value">R$ {{ number_format($cota->valor_total, 2) }}</p>
 											@if ($cota->dividir_cota == 1)
 												<p class="gifts-item-price-description">nº de cotas</p>
 												<p class="gifts-item-price-value">{{ $cota->quantidade_cotas }} cotas</p>
 												<p class="gifts-item-price-description">Valor da cota para presente</p>
-												<p class="gifts-item-price-value">R$ {{ $cota->valor_total / $cota->quantidade_cotas }}</p>
+												<p class="gifts-item-price-value">R$ {{ number_format($cota->valor_total / $cota->quantidade_cotas, 2) }}</p>
 											@endif
 										</div>
 									</div>

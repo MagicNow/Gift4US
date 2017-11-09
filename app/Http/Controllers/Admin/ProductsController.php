@@ -20,10 +20,16 @@ class ProductsController extends Controller
         }
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $section = 'produtos';
-        $produtos = Produtos::orderBy('id','desc')->simplePaginate(30);
+        $produtos = Produtos::orderBy('id', 'desc');
+
+        if ($request->titulo) {
+            $produtos = $produtos->where('titulo', 'LIKE', '%' . $request->titulo . '%');
+        }
+
+        $produtos = $produtos->simplePaginate(30);
 
         return view('admin.produtos.list', compact('produtos', 'section'));
     }

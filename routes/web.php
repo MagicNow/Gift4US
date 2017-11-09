@@ -87,7 +87,7 @@ Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
 
     Route::group(['prefix' => '{festa_id}/cotas'], function () {
         Route::get('/', ['as'=> 'convidado.cotas.index', 'uses' => 'QuotasController@index']);
-        Route::get('detalhe', ['as'=> 'convidado.cotas.detalhe', 'uses' => 'QuotasController@detalhe']);
+        Route::get('detalhe/{product_id}', ['as'=> 'convidado.cotas.detalhe', 'uses' => 'QuotasController@detalhe']);
         Route::get('mensagem', ['as'=> 'convidado.cotas.mensagem', 'uses' => 'QuotasController@mensagem']);
     });
 

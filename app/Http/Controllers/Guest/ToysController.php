@@ -44,22 +44,22 @@ class ToysController extends Controller {
 		$products = $this->toysAvalible;
 
 		if ($request->busca) {
-			$products->where('titulo', 'LIKE', '%' . $request->busca . '%');
+			$products = $products->where('titulo', 'LIKE', '%' . $request->busca . '%');
 		}
 
 		if ($request->ordenacao) {
 			switch ($request->ordenacao) {
 				case 'AZ':
-					$products->orderBy('titulo', 'ASC');
+					$products = $products->orderBy('titulo', 'ASC');
 					break;
 				case 'ZA':
 					$products = $products->orderBy('titulo', 'DESC');
 					break;
 				case 'maiorPreco':
-					$products->orderBy('preco_venda', 'DESC');
+					$products = $products->orderBy('preco_venda', 'DESC');
 					break;
 				case 'menorPreco':
-					$products->orderBy('preco_venda', 'ASC');
+					$products = $products->orderBy('preco_venda', 'ASC');
 					break;
 			}
 		}

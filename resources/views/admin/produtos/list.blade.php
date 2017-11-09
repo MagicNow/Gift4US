@@ -23,6 +23,16 @@
 					{{ session('status') }}
 				</div>
 			@endif
+			<form action="{{ route('admin.products.index') }}" class="row" method="get">
+				<div class="col-md-7">
+				</div>
+				<div class="col-md-4 text-right">
+					<input type="text" name="titulo" class="form-control">
+				</div>
+				<div class="col-md-1 text-right">
+					<button type="submit" class="btn btn-secondary">Buscar</button>
+				</div>
+			</form>
 		</div><!-- /.box-header -->
 		<div class="box-body">
 			<table id="datatables" class="table table-bordered table-striped" data-order="[[ 0, &quot;desc&quot; ]]">
