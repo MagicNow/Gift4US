@@ -7,7 +7,7 @@
 				<ul class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
 					<li><a href="{{ route('home') . '#convidado_aniversariante' }}">aniversário convidado</a></li>
 					<li><a href="{{ route('home') . '#convidado_aniversariante' }}">área do usuário</a></li>
-					@if (Auth::user()->name)
+					@if (Auth::user())
 						<li><a href="{{ route('usuario.meus-aniversarios') }}">meus aniversários</a></li>
 						<li><a href="#">listas de presentes</a></li>
 						<li><a href="{{ URL::to('usuario/transferencia') }}">resgatar valores</a></li>
