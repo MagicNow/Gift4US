@@ -41,11 +41,12 @@
 									<p class="gifts-item-price-description">Observação</p>
 									<p class="gifts-item-price-value bgC">{{ $product->descricao }}</p>
 									<p class="gifts-item-price-description">Lojas disponiveis</p>
-									<p class="gifts-item-price-value bgC">PBKids</p>
-									<p class="gifts-item-price-value bgC">Americanas</p>
-									<p class="gifts-item-price-value bgC">Submarino</p>
-									<p class="gifts-item-price-value bgC">B-Mart</p>
-									<p class="gifts-item-price-value bgC">Hi-Happy</p>
+									@if ($product->lojas->count() > 0)
+										@foreach ($product->lojas as $key => $loja)
+											<p class="gifts-item-price-value bgC">{{ $loja->nome }}</p>
+										@endforeach
+									@endif
+
 									<div class="col-md-6">
 										<a href="{{ route('convidado.brinquedos.index', $party) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de Brinquedos</a>
 									</div>
