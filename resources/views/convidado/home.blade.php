@@ -137,8 +137,8 @@
 				<p class="preview-item-text text-center">BRINQUEDOS</p>
 				<p class="text-center desc"><a href="{{ route('convidado.brinquedos.index', $party->id) }}">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
 				<div class="porcentagem">
-					<span style="width:25%"></span>
-					<strong>25% disponivel</strong>
+					<span style="width:{{ $percent['toys'] }}%"></span>
+					<strong>{{ $percent['toys'] }}% disponivel</strong>
 				</div>
 			</li>
 			<li class="col-md-4 text-center preview-item-container">
@@ -146,8 +146,8 @@
 				<p class="preview-item-text text-center">ROUPAS</p>
 				<p class="text-center desc"><a href="{{ route('convidado.cotas.index', $party->id) }}">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
 				<div class="porcentagem">
-					<span style="width:50%"></span>
-					<strong>50% disponivel</strong>
+					<span style="width:{{ $percent['clothes'] }}%"></span>
+					<strong>{{ $percent['clothes'] }}% disponivel</strong>
 				</div>
 			</li>
 			<li class="col-md-4 text-center preview-item-container ">
@@ -155,8 +155,8 @@
 				<p class="preview-item-text text-center">COTAS</p>
 				<p class="text-center desc"><a href="{{ route('convidado.roupas.index', $party->id) }}">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</a></p>
 				<div class="porcentagem">
-					<span style="width:75%"></span>
-					<strong>75% disponivel</strong>
+					<span style="width:{{ $percent['quotas'] }}%"></span>
+					<strong>{{ $percent['quotas'] }}% disponivel</strong>
 				</div>
 			</li>
 		</ul>

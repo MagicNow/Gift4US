@@ -11,10 +11,6 @@ use App\Http\Requests\StoreConfirmPresence;
 use App\Http\Requests\StoreMessage;
 
 class HomeController extends Controller {
-	public function __construct () {
-
-	}
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -23,7 +19,42 @@ class HomeController extends Controller {
 	public function index(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.home', compact('party'));
+
+		if (!$party) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$percent = [
+			'clothes' => $this->calcClothes($party),
+			'quotas' => $this->calcQuotas($party),
+			'toys' => $this->calcToys($party)
+		];
+
+		return view('convidado.home', compact('party', 'percent'));
+	}
+
+	private function calcClothes ($party) {
+		$this->clothes = $party->produto()->where('categoria', 'roupa');
+		$clothesTotal = $this->clothes->count();
+		$this->clothesAvalible = $this->clothes->whereNull('nome');
+
+		return $this->clothesAvalible->count() > 0 ? round(($this->clothesAvalible->count() * 100) / $clothesTotal, 0, PHP_ROUND_HALF_EVEN) : 0;
+	}
+
+	private function calcQuotas ($party) {
+		$this->quotas = $party->cotas();
+		$quotasTotal = $this->quotas->sum('quantidade_cotas');
+		$this->quotasAvalible = $this->quotas;
+
+		return $this->quotasAvalible->sum('quantidade_cotas') > 0 ? round(($this->quotasAvalible->sum('quantidade_cotas') * 100) / $quotasTotal, 0, PHP_ROUND_HALF_EVEN) : 0;
+	}
+
+	private function calcToys ($party) {
+		$this->toys = $party->produto()->where('categoria', 'brinquedo');
+		$toysTotal = $this->toys->count();
+		$this->toysAvalible = $this->toys->whereNull('nome');
+
+		return round(($this->toysAvalible->count() * 100) / $toysTotal, 0, PHP_ROUND_HALF_EVEN);
 	}
 
 	public function login(Request $request)
