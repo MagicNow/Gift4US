@@ -37,7 +37,7 @@
 				@endif
 				<li class="{{ $party->confirma_presenca === 1 ? 'col-md-3' : 'col-md-4' }} text-right preview-item-container">
 					<a href="#lista">
-						<div class="preview-item text-center">57%</div>
+						<div class="preview-item text-center">{{ round(($percent['toys'] + $percent['clothes'] + $percent['quotas']) / 3) }}%</div>
 						<p class="preview-item-text text-center">LISTA DE PRESENTES DISPONÍVEIS</p>
 					</a>
 				</li>
