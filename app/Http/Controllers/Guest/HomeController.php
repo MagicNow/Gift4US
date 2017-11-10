@@ -3,10 +3,12 @@ namespace App\Http\Controllers\Guest;
 
 use App\Models\Festas;
 use App\Models\ConfirmacaoPresenca;
+use App\Models\Mensagem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreConfirmPresence;
+use App\Http\Requests\StoreMessage;
 
 class HomeController extends Controller {
 	public function __construct () {
@@ -44,12 +46,29 @@ class HomeController extends Controller {
 			abort(403, 'Unauthorized action.');
 		}
 
-		$cota = new ConfirmacaoPresenca();
-		$cota->fill($request->all());
+		$convidado = new ConfirmacaoPresenca();
+		$convidado->fill($request->all());
 
-		$festa->confirmacaoPresenca()->save($cota);
+		$festa->confirmacaoPresenca()->save($convidado);
 
 		return response()
 			->json(['response' => 'Confirmação de presença efetuada com sucesso.']);
+	}
+
+	public function escreverMensagem(StoreMessage $request, $festa_id)
+	{
+		$festa = Festas::find($festa_id);
+
+		if (!$festa) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$mensagem = new Mensagem();
+		$mensagem->fill($request->all());
+
+		$festa->mensagem()->save($mensagem);
+
+		return response()
+			->json(['response' => 'Mensagem enviada com sucesso.']);
 	}
 }

@@ -184,18 +184,20 @@
 		</div>
 	</div>
 	<div class="mensagem">
-		<div class="boxfL">
+		<form class="boxfL rsvp-form" action="{{ route('convidado.escrever-mensagem', $party->id) }}" method="post">
 			<fieldset class="col-md-12 img-field">
-				<p class="text-left">Escreva uma mensagem</p>
-				<div class="form-group">
-					<input type="text" name="nome" id="msg-nome" class="form-control form-input" placeholder="nome">
+				<div class="rsvp-form-content">
+					<p class="text-left">Escreva uma mensagem</p>
+					<div class="form-group">
+						<input type="text" name="nome" id="msg-nome" class="form-control form-input" placeholder="nome">
+					</div>
+					<div class="form-group">
+						<textarea name="mensagem" id="msg-mensagem" class="form-control form-input" placeholder="Escreva aqui uma mensagem bem legal e divertida para o aniversariante"></textarea>
+					</div>
+					<button type="submit" class="enviar msg-form-enviar"> Enviar</button>
 				</div>
-				<div class="form-group">
-					<textarea name="mensagem" id="msg-mensagem" class="form-control form-input" placeholder="Escreva aqui uma mensagem bem legal e divertida para o aniversariante"></textarea>
-				</div>
-				<button type="submit" class="enviar msg-form-enviar"> Enviar</button>
 			</fieldset>
-		</div>
+		</form>
 		<div class="boxfR">
 			<div class="preview-advertising">
 				<span class="preview-advertising-btn">Publicidade</span>
