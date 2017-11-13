@@ -37,7 +37,7 @@
 				@endif
 				<li class="{{ $party->confirma_presenca === 1 ? 'col-md-3' : 'col-md-4' }} text-right preview-item-container">
 					<a href="#lista">
-						<div class="preview-item text-center">57%</div>
+						<div class="preview-item text-center">{{ round(($percent['toys'] + $percent['clothes'] + $percent['quotas']) / 3) }}%</div>
 						<p class="preview-item-text text-center">LISTA DE PRESENTES DISPONÍVEIS</p>
 					</a>
 				</li>
@@ -137,8 +137,8 @@
 				<p class="preview-item-text text-center">BRINQUEDOS</p>
 				<p class="text-center desc"><a href="{{ route('convidado.brinquedos.index', $party->id) }}">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
 				<div class="porcentagem">
-					<span style="width:25%"></span>
-					<strong>25% disponivel</strong>
+					<span style="width:{{ $percent['toys'] }}%"></span>
+					<strong>{{ $percent['toys'] }}% disponivel</strong>
 				</div>
 			</li>
 			<li class="col-md-4 text-center preview-item-container">
@@ -146,8 +146,8 @@
 				<p class="preview-item-text text-center">ROUPAS</p>
 				<p class="text-center desc"><a href="{{ route('convidado.cotas.index', $party->id) }}">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
 				<div class="porcentagem">
-					<span style="width:50%"></span>
-					<strong>50% disponivel</strong>
+					<span style="width:{{ $percent['clothes'] }}%"></span>
+					<strong>{{ $percent['clothes'] }}% disponivel</strong>
 				</div>
 			</li>
 			<li class="col-md-4 text-center preview-item-container ">
@@ -155,8 +155,8 @@
 				<p class="preview-item-text text-center">COTAS</p>
 				<p class="text-center desc"><a href="{{ route('convidado.roupas.index', $party->id) }}">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</a></p>
 				<div class="porcentagem">
-					<span style="width:75%"></span>
-					<strong>75% disponivel</strong>
+					<span style="width:{{ $percent['quotas'] }}%"></span>
+					<strong>{{ $percent['quotas'] }}% disponivel</strong>
 				</div>
 			</li>
 		</ul>
@@ -184,18 +184,20 @@
 		</div>
 	</div>
 	<div class="mensagem">
-		<div class="boxfL">
+		<form class="boxfL rsvp-form" action="{{ route('convidado.escrever-mensagem', $party->id) }}" method="post">
 			<fieldset class="col-md-12 img-field">
-				<p class="text-left">Escreva uma mensagem</p>
-				<div class="form-group">
-					<input type="text" name="nome" id="msg-nome" class="form-control form-input" placeholder="nome">
+				<div class="rsvp-form-content">
+					<p class="text-left">Escreva uma mensagem</p>
+					<div class="form-group">
+						<input type="text" name="nome" id="msg-nome" class="form-control form-input" placeholder="nome">
+					</div>
+					<div class="form-group">
+						<textarea name="mensagem" id="msg-mensagem" class="form-control form-input" placeholder="Escreva aqui uma mensagem bem legal e divertida para o aniversariante"></textarea>
+					</div>
+					<button type="submit" class="enviar msg-form-enviar"> Enviar</button>
 				</div>
-				<div class="form-group">
-					<textarea name="mensagem" id="msg-mensagem" class="form-control form-input" placeholder="Escreva aqui uma mensagem bem legal e divertida para o aniversariante"></textarea>
-				</div>
-				<button type="submit" class="enviar msg-form-enviar"> Enviar</button>
 			</fieldset>
-		</div>
+		</form>
 		<div class="boxfR">
 			<div class="preview-advertising">
 				<span class="preview-advertising-btn">Publicidade</span>

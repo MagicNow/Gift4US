@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 
 class QuotasController extends Controller {
+	var $party;
+
 	public function __construct(Request $request) {
 		$this->party = Festas::find($request->route('festa_id'));
 		if (empty($this->party)) {

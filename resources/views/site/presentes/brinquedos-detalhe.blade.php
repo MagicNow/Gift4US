@@ -57,7 +57,7 @@
 												@php
 												$lojas = old('lojas') ? old('lojas') : $product->lojas;
 												@endphp
-												@foreach ($lojas => $key as $loja)
+												@foreach ($lojas as $key => $loja)
 													<div class="input-group gifts-input-icon clone-reference">
 														<input type="text" class="form-control gifts-item-price-value bgC" aria-describedby="gifts-obs" maxlength="255" name="lojas[{{ $key }}][nome]" value="{{ $loja->nome }}">
 														<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>

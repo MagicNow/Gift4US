@@ -3,16 +3,14 @@ namespace App\Http\Controllers\Guest;
 
 use App\Models\Festas;
 use App\Models\ConfirmacaoPresenca;
+use App\Models\Mensagem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreConfirmPresence;
+use App\Http\Requests\StoreMessage;
 
 class HomeController extends Controller {
-	public function __construct () {
-
-	}
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -21,7 +19,42 @@ class HomeController extends Controller {
 	public function index(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('convidado.home', compact('party'));
+
+		if (!$party) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$percent = [
+			'clothes' => $this->calcClothes($party),
+			'quotas' => $this->calcQuotas($party),
+			'toys' => $this->calcToys($party)
+		];
+
+		return view('convidado.home', compact('party', 'percent'));
+	}
+
+	private function calcClothes ($party) {
+		$this->clothes = $party->produto()->where('categoria', 'roupa');
+		$clothesTotal = $this->clothes->count();
+		$this->clothesAvalible = $this->clothes->whereNull('nome');
+
+		return $this->clothesAvalible->count() > 0 ? round(($this->clothesAvalible->count() * 100) / $clothesTotal, 0, PHP_ROUND_HALF_EVEN) : 0;
+	}
+
+	private function calcQuotas ($party) {
+		$this->quotas = $party->cotas();
+		$quotasTotal = $this->quotas->sum('quantidade_cotas');
+		$this->quotasAvalible = $this->quotas;
+
+		return $this->quotasAvalible->sum('quantidade_cotas') > 0 ? round(($this->quotasAvalible->sum('quantidade_cotas') * 100) / $quotasTotal, 0, PHP_ROUND_HALF_EVEN) : 0;
+	}
+
+	private function calcToys ($party) {
+		$this->toys = $party->produto()->where('categoria', 'brinquedo');
+		$toysTotal = $this->toys->count();
+		$this->toysAvalible = $this->toys->whereNull('nome');
+
+		return round(($this->toysAvalible->count() * 100) / $toysTotal, 0, PHP_ROUND_HALF_EVEN);
 	}
 
 	public function login(Request $request)
@@ -44,12 +77,29 @@ class HomeController extends Controller {
 			abort(403, 'Unauthorized action.');
 		}
 
-		$cota = new ConfirmacaoPresenca();
-		$cota->fill($request->all());
+		$convidado = new ConfirmacaoPresenca();
+		$convidado->fill($request->all());
 
-		$festa->confirmacaoPresenca()->save($cota);
+		$festa->confirmacaoPresenca()->save($convidado);
 
 		return response()
 			->json(['response' => 'Confirmação de presença efetuada com sucesso.']);
+	}
+
+	public function escreverMensagem(StoreMessage $request, $festa_id)
+	{
+		$festa = Festas::find($festa_id);
+
+		if (!$festa) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$mensagem = new Mensagem();
+		$mensagem->fill($request->all());
+
+		$festa->mensagem()->save($mensagem);
+
+		return response()
+			->json(['response' => 'Mensagem enviada com sucesso.']);
 	}
 }

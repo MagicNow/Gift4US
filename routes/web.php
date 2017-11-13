@@ -74,6 +74,7 @@ Route::group(['prefix' => 'notificacoes'], function() {
 Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
     Route::post('login', ['as'=> 'convidado.login', 'uses' => 'HomeController@login']);
     Route::post('{festa_id}/confirmar-presenca', ['as'=> 'convidado.confirmar-presenca', 'uses' => 'HomeController@confirmarPresenca'])->where(['festa_id' => '[0-9]+']);
+    Route::post('{festa_id}/escrever-mensagem', ['as'=> 'convidado.escrever-mensagem', 'uses' => 'HomeController@escreverMensagem'])->where(['festa_id' => '[0-9]+']);
     Route::get('{festa_id}', ['as'=> 'convidado.index', 'uses' => 'HomeController@index'])->where(['festa_id' => '[
         0-9]+']);
 
