@@ -20,6 +20,9 @@
 							<span class="my-birthday-item-name">{{ $festa->nome }}</span>
 							<span class="my-birthday-item-date">{{ $festa->festa_dia }}/{{ $festa->festa_mes }}/{{ $festa->festa_ano }}</span>
 							<span class="my-birthday-item-presente">{{ $festa->produto()->count() }}</span>
+							<span>
+							<a href="{{ route('usuario.meus-aniversarios.excluir', $festa->id) }}" class="my-birthday-item-lixeira">&nbsp;</a>
+				            </span>
 						</div>
 					</div>
 					<a href="{{ route('usuario.meus-aniversarios.editar', $festa->id) }}" class="row col-md-12 text-center my-birthday-item-enter">Entrar no aniversário</a>
