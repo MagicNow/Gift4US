@@ -45,7 +45,7 @@
 				<div class="col-md-9 dados-container">
 					<div class="row">
 						<div class="col-md-4">
-							<h4 class="gifts-title">Sugestões</h4>
+							<h4 class="gifts-title">Selecionados</h4>
 						</div>
 						<div class="gifts-filter col-md-8">
 							<ul class="gifts-filter-categories">
