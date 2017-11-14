@@ -7,83 +7,7 @@
 
 			<div class="gifts-container row col-md-offset-2">
 				<div class="gifts-box-number col-md-4">
-					<div class="detalhes-festa">
-						<p>Heitor</p>
-						<div class="row">
-							<span>30/07/2017</span>
-						</div>
-						<div class="row"> 
-							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6">
-								<p class="gifts-box-number-middle-selected">Editar</p>
-							</a>
-							<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
-								<p class="gifts-box-number-middle-selected">Excluir</p>
-							</a>
-						</div>
-					</div>
-					<div class="detalhes-festa lista-presentes">
-						<p>Lista de presentes</p>
-						<div class="row pD">
-							<span class="pull-left">103 / 44 brinquedos</span>
-							<small class="pull-left">
-								<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
-								<span>33</span>
-							</small>
-						</div>
-						<div class="row pD">
-							<span class="pull-left">103 / 44 roupas</span>
-							<small class="pull-left">
-								<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
-								<span>33</span>
-							</small>
-						</div>
-						<div class="row pD">
-							<span class="pull-left">103 / 44 cotas</span>
-						</div>
-						<div class="row"> 
-							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6">
-								<p class="gifts-box-number-middle-selected">Ver lista</p>
-							</a>
-							<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
-								<p class="gifts-box-number-middle-selected">Editar</p>
-							</a>
-						</div>
-					</div>
-					<div class="detalhes-festa lista-presentes">
-						<p>Presenças confirmadas</p>
-						<div class="row pD">
-							<span class="pull-left">43 pessoas confirmadas</span>
-							<small class="pull-left">
-								<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
-								<span>43</span>
-							</small>
-						</div>
-						<div class="row"> 
-							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6">
-								<p class="gifts-box-number-middle-selected">Ver lista</p>
-							</a>
-							<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
-								<p class="gifts-box-number-middle-selected">Editar</p>
-							</a>
-						</div>
-					</div>
-					<div class="detalhes-festa lista-presentes">
-						<p>Recados recebidos</p>
-						<div class="row">
-							<span>02 recados</span>
-						</div>
-						<div class="row"> 
-							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6">
-								<p class="gifts-box-number-middle-selected">Ver lista</p>
-							</a>
-							<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
-								<p class="gifts-box-number-middle-selected">Download</p>
-							</a>
-						</div>
-						<div class="gifts-box-number-footer">
-							<a href="#" class="gifts-box-number-submit">ver página do aniversariante</a>
-						</div>
-					</div>
+					@include('notificacao.inc.menu')
 				</div>
 				<div class="col-md-8 dados-container">
 					<div class="social col-md-12">
@@ -97,53 +21,53 @@
 						</div>
 					</div>
 					<div class="enviar-convite">
-						<div class="row">
+						<div class="row enviar-convite-secao">
 							<div class="col-md-7">
 								<h5>Link da página do aniversáriante</h5>
-								<span>http://gift4us.com.br/arthurzinhoalbuquerque</span>
-								<a href="#">Copiar</a>
+								<span id="convite-url">{{ route('convidado.index', $party->id) }}</span>
+								<button type="button" class="copy-button enviar-convite-button" data-clipboard-target="#convite-url">Copiar</button>
 							</div>
 							<div class="col-md-5">
 								<h5>Código único do aniversário</h5>
-								<span>AR265AL17</span>
-								<a href="#">Copiar</a>
+								<span id="convite-codigo">{{ $party->codigo }}</span>
+								<btton type="button" class="copy-button enviar-convite-button" data-clipboard-target="#convite-codigo">Copiar</button>
 							</div>
 						</div>
-						<div class="row compartilhe">
-							<div class="col-md-6">
+						<div class="row compartilhe enviar-convite-secao">
+							<div class="col-md-6 enviar-convite-coluna">
 								<h5 class="facebook">Compartilhar no Facebook</h5>
 								<div class="col-md-12">
-									<a href="#" class="col-md-6">Compartilhar em evento</a>
-									<a href="#" class="col-md-6">Compartilhar no perfil</a>
+									<a href="#" class="col-md-6 enviar-convite-button">Compartilhar em evento</a>
+									<a href="#" class="col-md-6 enviar-convite-button">Compartilhar no perfil</a>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-6 enviar-convite-coluna">
 								<h5 class="whatsapp">Compartilhar no Whatsapp</h5>
 								<div class="col-md-12">
-									<a href="#" class="col-md-6">Compartilhar convite</a>
-									<a href="#" class="col-md-6">Compartilhar link da pagina</a>
+									<a href="#" class="col-md-6 enviar-convite-button">Compartilhar convite</a>
+									<a href="whatsapp://send?text={{ route('convidado.index', $party->id) }}" class="col-md-6 enviar-convite-button">Compartilhar link da pagina</a>
 								</div>
 							</div>
 						</div>
-						<div class="row compartilhe">
-							<div class="col-md-6">
+						<div class="row compartilhe enviar-convite-secao">
+							<div class="col-md-6 enviar-convite-coluna">
 								<h5 class="email">Email</h5>
 								<h5>Lista emails</h5>
 								<div class="col-md-12">
-									<a href="#" class="col-md-6">Criar<br />nova lista</a>
-									<a href="#" class="col-md-6 bgC">Resgatar lista antiga</a>
+									<a href="#" class="col-md-6 enviar-convite-button">Criar<br />nova lista</a>
+									<a href="#" class="col-md-6 bgC enviar-convite-button">Resgatar lista antiga</a>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-6 enviar-convite-coluna">
 								<h5 class="download">Download</h5>
-								<div class="col-md-12">
-									<div class="pull-left">
+								<div class="row">
+									<div class="col-md-6">
 										<img src="{{ asset('assets/site/images/img-convite.png') }}" />
-										<a href="#" class="col-md-12">Baixar</a>
+										<a href="#" class="col-md-12 enviar-convite-button">Baixar</a>
 									</div>
-									<div class="pull-right">
+									<div class="col-md-6">
 										<img src="{{ asset('assets/site/images/img-qrcode.png') }}" />
-										<a href="#" class="col-md-12">Baixar</a>
+										<a href="#" class="col-md-12 enviar-convite-button">Baixar</a>
 									</div>
 								</div>
 							</div>

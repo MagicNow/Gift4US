@@ -58,16 +58,16 @@ Route::group(['prefix' => 'usuario'], function() {
     });
 });
 
-Route::group(['prefix' => 'notificacoes'], function() {
+Route::group(['prefix' => 'notificacoes/{festa_id}'], function() {
     Route::get('aniversario', ['as'=> 'notificacoes.aniversario', 'uses' => 'NotificationsController@aniversario']);
     Route::get('convite-digital', ['as'=> 'notificacoes.convitedigital', 'uses' => 'NotificationsController@conviteDigital']);
     Route::get('enviar-email', ['as'=> 'notificacoes.enviaremail', 'uses' => 'NotificationsController@enviarEmail']);
     Route::get('enviar-convite', ['as'=> 'notificacoes.enviarconvite', 'uses' => 'NotificationsController@enviarConvite']);
 
     Route::group(['prefix' => 'imprimir'], function() {
-        Route::get('convite', ['as'=> 'notificacoes.impimir.convite', 'uses' => 'NotificationsController@imprimirConvite']);
-        Route::get('lista-presentes', ['as'=> 'notificacoes.impimir.listaPresentes', 'uses' => 'NotificationsController@imprimirListaPresentes']);
-        Route::get('presencas-confirmadas', ['as'=> 'notificacoes.impimir.presencas', 'uses' => 'NotificationsController@imprimirPresencas']);
+        Route::get('convite', ['as'=> 'notificacoes.imprimir.convite', 'uses' => 'NotificationsController@imprimirConvite']);
+        Route::get('lista-presentes', ['as'=> 'notificacoes.imprimir.listaPresentes', 'uses' => 'NotificationsController@imprimirListaPresentes']);
+        Route::get('presencas-confirmadas', ['as'=> 'notificacoes.imprimir.presencas', 'uses' => 'NotificationsController@imprimirPresencas']);
     });
 });
 

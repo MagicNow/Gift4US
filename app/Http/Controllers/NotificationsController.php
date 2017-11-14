@@ -3,14 +3,62 @@
 namespace App\Http\Controllers;
 
 use App\Models\Festas;
+use App\Models\Clientes;
 use Illuminate\Http\Request;
 
 class NotificationsController extends Controller
 {
-	public function aniversario(Request $request, $festa_id = null)
+	private $cliente;
+
+	public function __construct () {
+		$this->middleware(function ($request, $next) {
+			if (!session('client_id') && request()->path() !== '/' && request()->path() !== '/') {
+				return redirect()->route('home');
+			}
+
+			$this->cliente = Clientes::find(session('client_id'));
+
+			return $next($request);
+		});
+	}
+
+	public function aniversario(Request $request, $festa_id)
 	{
 		$party = Festas::find($festa_id);
-		return view('notificacao.aniversario', compact('party'));
+		$client = $this->cliente;
+		$titulo = 'ÁREA DO USUÁRIO';
+
+		$percent = [
+			'clothes' => $this->calcClothes($party),
+			'quotas' => $this->calcQuotas($party),
+			'toys' => $this->calcToys($party)
+		];
+
+		return view('notificacao.aniversario', compact('party', 'titulo', 'client'));
+	}
+
+	private function calcClothes ($party) {
+		$this->clothes = $party->produto()->where('categoria', 'roupa');
+		$clothesTotal = $this->clothes->count();
+		$this->clothesAvalible = $this->clothes->whereNull('nome');
+
+		return $this->clothesAvalible->count() > 0 ? round(($this->clothesAvalible->count() * 100) / $clothesTotal, 0, PHP_ROUND_HALF_EVEN) : 0;
+	}
+
+	private function calcQuotas ($party) {
+		$this->quotas = $party->cotas();
+		$quotasTotal = $this->quotas->sum('quantidade_cotas');
+		$this->quotasAvalible = $this->quotas;
+
+		return $this->quotasAvalible->sum('quantidade_cotas') > 0 ? round(($this->quotasAvalible->sum('quantidade_cotas') * 100) / $quotasTotal, 0, PHP_ROUND_HALF_EVEN) : 0;
+	}
+
+	private function calcToys ($party) {
+		$this->toys = $party->produto()->where('categoria', 'brinquedo');
+		$toysTotal = $this->toys->count();
+		$this->toysAvalible = $this->toys->whereNull('nome');
+
+		return round(($this->toysAvalible->count() * 100) / $toysTotal, 0, PHP_ROUND_HALF_EVEN);
 	}
 
 	public function conviteDigital(Request $request, $festa_id = null)

@@ -519,6 +519,8 @@ function formAddGift() {
 	});
 }
 
+new Clipboard('.copy-button');
+
 function formEmailDelete() {
 	$('.lista-email ul.col-md-12 a').click(function() {
 	  $(this).parent().remove();

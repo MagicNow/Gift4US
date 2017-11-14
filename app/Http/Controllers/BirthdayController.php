@@ -121,16 +121,18 @@ class BirthdayController extends Controller {
 		}
 	}
 
-    /**
+	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
- 	public function store(Request $request) {
- 		$input = $request->all();
- 		$input['clientes_id'] = $this->cliente->id;
+	public function store(Request $request) {
+		$input = $request->all();
+		$input['clientes_id'] = $this->cliente->id;
 
- 		switch ($request->step) {
+		$party = Festas::firstOrNew(['id' => $request->id]);
+
+		switch ($request->step) {
 			case '1':
 				$rules = StoreBirthdayStep1::rules();
 				break;
@@ -164,23 +166,28 @@ class BirthdayController extends Controller {
 				break;
 			case '4':
 				$rules = StoreBirthdayStep4::rules();
+				$slug = $this->createSlug($party->nome, $party->id);
+
+				if (empty($party->codigo)) {
+					$input['codigo'] = strtoupper(substr(md5($slug), 0, 7));
+				}
+
+				if (empty($party->slug)) {
+					$input['slug'] = $slug;
+				}
 				break;
-			case '5':
-				$rules = StoreBirthdayStep5::rules();
-				break;
- 		}
+		}
 
-        $validator = Validator::make($request->all(), $rules);
+		$validator = Validator::make($request->all(), $rules);
 
-        if ($validator->fails()) {
-            return back()
-                        ->withErrors($validator)
-                        ->withInput();
-        }
+		if ($validator->fails()) {
+			return back()
+						->withErrors($validator)
+						->withInput();
+		}
 
- 		$next = (int)$request->step + 1;
+		$next = (int)$request->step + 1;
 
-		$party = Festas::firstOrNew(['id' => $request->id]);
 		$party->fill($input);
 		$party->save();
 
@@ -236,8 +243,8 @@ class BirthdayController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-    public function update(Request $request, $id)
-    {
+	public function update(Request $request, $id)
+	{
 
 	}
 
@@ -330,5 +337,31 @@ class BirthdayController extends Controller {
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
 		return view('site.presentes.roupas', compact('titulo', 'client'));
+	}
+
+
+	/**
+	 * @param $text
+	 * @param int $id
+	 * @return string
+	 * @throws \Exception
+	 */
+	private function createSlug($text, $id = 0)
+	{
+		$slug = str_slug($text);
+		$allSlugs = Festas::select('slug')->where('slug', 'like', $slug.'%')->where('id', '<>', $id)->get();
+
+		if (! $allSlugs->contains('slug', $slug)){
+			return $slug;
+		}
+
+		for ($i = 1; $i <= 10; $i++) {
+			$newSlug = $slug.'-'.$i;
+			if (! $allSlugs->contains('slug', $newSlug)) {
+				return $newSlug;
+			}
+		}
+
+		throw new \Exception('Can not create a unique slug');
 	}
 }

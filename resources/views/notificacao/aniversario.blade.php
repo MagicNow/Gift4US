@@ -17,8 +17,8 @@
 							</div>
 						</div>
 						<div class="col-md-3">
-							<h5>Heitor</h5>
-							<span>30/10/2017</span>
+							<h5>{{ $party->nome }}</h5>
+							<span>{{ $party->festa_dia }}/{{ $party->festa_mes }}/{{ $party->festa_ano }}</span>
 						</div>
 						<div class="col-md-3 modal-img-print">
 							<h5>
@@ -223,8 +223,8 @@
 							</div>
 						</div>
 						<div class="col-md-3">
-							<h5>Heitor</h5>
-							<span>30/10/2017</span>
+							<h5>{{ $party->nome }}</h5>
+							<span>{{ $party->festa_dia }}/{{ $party->festa_mes }}/{{ $party->festa_ano }}</span>
 						</div>
 						<div class="col-md-3 modal-img-print">
 							<h5>
@@ -360,89 +360,13 @@
 
 			<div class="gifts-container row col-md-offset-2">
 				<div class="gifts-box-number col-md-4">
-					<div class="detalhes-festa">
-						<p>Heitor</p>
-						<div class="row">
-							<span>30/07/2017</span>
-						</div>
-						<div class="row"> 
-							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6">
-								<p class="gifts-box-number-middle-selected">Editar</p>
-							</a>
-							<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
-								<p class="gifts-box-number-middle-selected">Excluir</p>
-							</a>
-						</div>
-					</div>
-					<div class="detalhes-festa lista-presentes">
-						<p>Lista de presentes</p>
-						<div class="row pD">
-							<span class="pull-left">103 / 44 brinquedos</span>
-							<small class="pull-left">
-								<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
-								<span>33</span>
-							</small>
-						</div>
-						<div class="row pD">
-							<span class="pull-left">103 / 44 roupas</span>
-							<small class="pull-left">
-								<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
-								<span>33</span>
-							</small>
-						</div>
-						<div class="row pD">
-							<span class="pull-left">103 / 44 cotas</span>
-						</div>
-						<div class="row"> 
-							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6 ver-lista-presentes">
-								<p class="gifts-box-number-middle-selected">Ver lista</p>
-							</a>
-							<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
-								<p class="gifts-box-number-middle-selected">Editar</p>
-							</a>
-						</div>
-					</div>
-					<div class="detalhes-festa lista-presentes">
-						<p>Presenças confirmadas</p>
-						<div class="row pD">
-							<span class="pull-left">43 pessoas confirmadas</span>
-							<small class="pull-left">
-								<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
-								<span>43</span>
-							</small>
-						</div>
-						<div class="row"> 
-							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6 ver-lista-convidados">
-								<p class="gifts-box-number-middle-selected">Ver lista</p>
-							</a>
-							<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
-								<p class="gifts-box-number-middle-selected">Editar</p>
-							</a>
-						</div>
-					</div>
-					<div class="detalhes-festa lista-presentes">
-						<p>Recados recebidos</p>
-						<div class="row">
-							<span>02 recados</span>
-						</div>
-						<div class="row"> 
-							<a href="#" class="gifts-box-number-middle toys dados-container col-md-6">
-								<p class="gifts-box-number-middle-selected">Ver lista</p>
-							</a>
-							<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
-								<p class="gifts-box-number-middle-selected">Download</p>
-							</a>
-						</div>
-						<div class="gifts-box-number-footer">
-							<a href="#" class="gifts-box-number-submit">ver página do aniversariante</a>
-						</div>
-					</div>
+					@include('notificacao.inc.menu')
 				</div>
 				<div class="col-md-8 dados-container">
 					<div class="social col-md-12">
 						<div class="gifts-box-number-footer">
 							<div class="pull-left col-md-5">
-								<a href="#" class="btn-print">Imprimir convite</a>
+								<a href="{{ route('notificacoes.imprimir.convite' , $party->id) }}" class="btn-print">Imprimir convite</a>
 							</div>
 							<div class="pull-right col-md-6">
 								<a href="#" class="btn-invite">Enviar convites</a>
@@ -452,9 +376,9 @@
 					<div class="convite pull-right">
 						<div class="header-convite">
 							<img src="{{ asset('assets/site/images/bg-header-convite.png') }}" alt="Festa">
-							<img src="{{ asset('assets/site/images/img-convidado-heitor.png') }}" width="114px" height="112" alt="Heitor">
+							<div class="header-convite-foto" style="background-image: url({{ asset('storage/birthdays/' . $party->foto) }})"></div>
 							<p>
-								Festa de 3 anos do<br /><span>Arthurzinho Albuquerque</span>
+								Festa de {{ isset($party->idade_anos) && $party->idade_anos > 0 ? $party->idade_anos . ' anos' : NULL }} {{ isset($party->idade_meses) && $party->idade_meses > 0 ? $party->idade_meses . ' meses' : NULL }} do<br /><span>{{ $party->nome }}</span>
 							</p>
 						</div>
 						<div class="passos pull-left">
@@ -465,7 +389,7 @@
 							</div>
 							<div class="passo2">
 								<div class="bg-presente">2</div>
-								<span>insira o aniversário ou o código <strong>AR265AL17</strong></span>
+								<span>insira o aniversário ou o código <strong>{{ $party->codigo }}</strong></span>
 							</div>
 							<div class="passo3">
 								<div class="bg-presente">3</div>
@@ -473,16 +397,18 @@
 							</div>
 						</div>
 						<div class="data-festa pull-right">
-							<span>30/10/2017, 16h30</span>
+							<span>{{ $party->festa_dia }}/{{ $party->festa_mes }}/{{ $party->festa_ano }} {{ sprintf('%02d', $party->festa_hora) }}h{{ sprintf('%02d', $party->festa_minuto) }}</span>
 						</div>
 						<div class="local-festa pull-right">
 							<div class="bg"></div>
 							<div class="endereco">
 								<h6>Onde?</h6>
-								<h5>Rua Taquari, 941 - ap12, Bloco1- Mooca<br />São Paulo - SP</h5>
-								<h5>Próximo a Padaria Cassandoca</h5>
-								<h6>Observações:</h6>
-								<h5>Levar 1 litro de leite para doação.</h5>
+								<h5>{{ $party->endereco }}</h5>
+								<h5>Próximo a {{ $party->referencia }}</h5>
+								@if (!empty($party->observacoes))
+									<h6>Observações:</h6>
+									<h5>{{ $party->observacoes }}</h5>
+								@endif
 							</div>
 						</div>
 					</div>
