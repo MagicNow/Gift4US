@@ -280,6 +280,10 @@
 											@endphp
 										@endif
 									@endforeach
+
+									@if ($i <= 2)
+										</tr>
+									@endif
 								</tbody>
 							</table>
 						</div>

@@ -115,6 +115,19 @@ class NotificationsController extends Controller
 	public function imprimirPresencas(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('notificacao.imprimir.presencas-confirmadas', compact('party'));
+
+		$porpagina = 48;
+		$paginas = round($party->confirmacaoPresenca->count() / $porpagina) === 0.0 ? 1 : round($party->confirmacaoPresenca->count() / $porpagina);
+		$presencas = [];
+		
+		for ($i = 0; $i < $paginas; $i++) {
+			$presencas[$i] = $party
+								->confirmacaoPresenca()
+								->skip($porpagina * $i)
+								->take($porpagina)
+								->get();
+		}
+
+		return view('notificacao.imprimir.presencas-confirmadas', compact('party', 'presencas', 'paginas', 'porpagina'));
 	}
 }

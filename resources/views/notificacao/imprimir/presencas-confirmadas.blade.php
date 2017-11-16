@@ -5,305 +5,78 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/notificacoes/css/styles.css') }}"/>
 	</head>
 	<body>
-		<page size="A4">
-			<center>
-				<div class="presenca">
-					<div class="topo">
-						<div class="preview-header-decor">
-							<img src="{{ asset('assets/notificacoes/images/moldura.png') }}" alt="Festa" class="preview-banner-item-image">
-							<div class="nome">
-								<h1>Arthurzinho Albuquerque</h1>
-								<span>20/12/2016</span>
-								<div class="direita">
-									<img src="{{ asset('assets/notificacoes/images/logohorizontal.png') }}">
-									<div>
-										<span>Responsável: Marlene Albuquerque
-										<br>
-										marlene@albuquerque.com.br
-										<br>
-										(11) 99792-4356</span>
+		@if (count($presencas) > 0)
+			@foreach ($presencas as $key => $presenca)
+				<page size="A4">
+					<center>
+						<div class="presenca">
+							<div class="topo">
+								<div class="preview-header-decor">
+									<img src="{{ asset('assets/notificacoes/images/moldura.png') }}" alt="Festa" class="preview-banner-item-image">
+									<div class="nome">
+										<h1>{{ $party->nome }}</h1>
+										<span>{{ $party->festa_dia }}/{{ $party->festa_mes }}/{{ $party->festa_ano }} {{ sprintf('%02d', $party->festa_hora) }}h{{ sprintf('%02d', $party->festa_minuto) }}</span>
+										<div class="direita">
+											<img src="{{ asset('assets/notificacoes/images/logohorizontal.png') }}">
+											{{-- <div>
+												<span>Responsável: Marlene Albuquerque
+												<br>
+												marlene@albuquerque.com.br
+												<br>
+												(11) 99792-4356</span>
+											</div> --}}
+										</div>
+									</div>
+									<div class="tira"></div>
+									<div class="preview-banner-item-foto-container">
+										<img src="{{ asset('storage/birthdays/' . $party->foto) }}" alt="Heitor" class="preview-banner-item-foto">
 									</div>
 								</div>
 							</div>
-							<div class="tira"></div>
-							<img src="{{ asset('assets/notificacoes/images/convidado.png') }}" alt="Heitor" class="preview-banner-item-foto">
+							<h1 class="titulo">Presenças Confirmadas {{ $party->confirmacaoPresenca->count() }}</h1>
+							<table>
+								@php
+								$i = 0;
+								@endphp
+								@foreach ($presenca as $item)
+									@if ($i === 0)
+										<tr>
+									@endif
+										<td>
+											<fieldset class="form-birthday-first col-xs-4 col-sm-4">
+												<div class="radio">
+													<label data-image="" class="form-birthday-sex-label">
+													{{ $item->nome }}
+													<input type="radio" name="ciclo_vida"><span></span>
+													</label>
+												</div>
+											</fieldset>
+										</td>
+									@if ($i === 1)
+										</tr>
+										@php
+										$i = 0;
+										@endphp
+									@else
+										@php
+										$i++;
+										@endphp
+									@endif
+								@endforeach
+
+								@if ($i === 1)
+										<td></td>
+									</tr>
+								@endif
+							</table>
+
+							<div class="arrow-direita">
+								{{ $key + 1 }}/{{ $paginas }}
+							</div>
 						</div>
-					</div>
-					<h1 class="titulo">Presenças Confirmadas 400</h1>
-					<table>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										ABIGAIL RODRIGUES
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-							<td>
-								<fieldset class="form-birthday-first col-xs-4 col-sm-4">
-									<div class="radio">
-										<label data-image="" class="form-birthday-sex-label">
-										AGOSTINHO VALDEMIRO DA POIAN
-										<input type="radio" name="ciclo_vida" value="Bebê" ><span></span>
-										</label>
-									</div>
-								</fieldset>
-							</td>
-						</tr>
-					</table>
-					<div class="arrow-esquerda">
-						1/2
-					</div>
-					<div class="arrow-direita">
-						1/14
-					</div>
-				</div>
-			</center>
-		</page>
+					</center>
+				</page>
+			@endforeach
+		@endif
 	</body>
 </html>
