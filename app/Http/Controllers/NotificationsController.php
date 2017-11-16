@@ -27,6 +27,9 @@ class NotificationsController extends Controller
 		$party = Festas::find($festa_id);
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
+		$porpagina = 15;
+
+		$pagina = $request->pagina ? $request->pagina : 1;
 
 		$percent = [
 			'clothes' => $this->calcClothes($party),
@@ -34,7 +37,25 @@ class NotificationsController extends Controller
 			'toys' => $this->calcToys($party)
 		];
 
-		return view('notificacao.aniversario', compact('party', 'titulo', 'client'));
+		$presencas = $party->confirmacaoPresenca();
+		$presencasTotal = $presencas->count();
+
+		if ($request->busca && !empty($request->busca)) {
+			$presencas = $presencas->where('nome', 'like', '%' . $request->busca . '%');
+		} else {
+			if ($request->inicial) {
+				$presencas = $presencas->where('nome', 'like', $request->inicial . '%');
+			}
+		}
+
+		$paginas = round($presencas->count() / $porpagina) === 0.0 ? 1 : round($presencas->count() / $porpagina);
+
+		$presencas = $presencas
+						->skip($porpagina * ($pagina - 1))
+						->take($porpagina)
+						->orderBy('nome')->get();
+
+		return view('notificacao.aniversario', compact('request', 'party', 'titulo', 'client', 'presencas', 'presencasTotal', 'paginas', 'pagina'));
 	}
 
 	private function calcClothes ($party) {

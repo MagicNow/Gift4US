@@ -50,7 +50,7 @@
 		</small>
 	</div>
 	<div class="row"> 
-		<a href="#" class="gifts-box-number-middle toys dados-container col-md-6">
+		<a href="{{ route('notificacoes.aniversario', [ $party->id, 'modal' => 'lista-de-aniversarios' ]) }}" class="gifts-box-number-middle toys dados-container col-md-6">
 			<p class="gifts-box-number-middle-selected">Ver lista</p>
 		</a>
 		<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">

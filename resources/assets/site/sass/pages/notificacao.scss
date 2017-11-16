@@ -514,14 +514,29 @@
 	}
 	.modal-lista-letras{
 		text-align:right;
+
+		&-item {
+			display: inline-block;
+		}
+
+		&-input:checked {
+			~ .modal-lista-letras-botao {
+				font: 18px 'HelveticaNeueStd_CN';
+				color:#f49224;
+			}
+		}
 	
-		a{
+		&-botao {
 			font: 18px 'HelveticaNeueStd_CN';
 			color:#4e5154;
 			padding:8px 1px 0;
 			display:inline-block;
+			border: 0;
+			background-color: transparent;
+			margin:0 0;
+			line-height:25px;
 
-			&:hover,&.active{
+			&:hover, &.active{
 				font: 18px 'HelveticaNeueStd_CN';
 				color:#f49224;
 			}
@@ -555,13 +570,6 @@
 		}
 		.bt-search .form-group{
 			margin-left:25px; 
-		}
-		label{
-			font:18px 'HelveticaNeueStd_CN';
-			margin:0 0;
-			padding:0 5px 0 0;
-			line-height:25px;
-			text-align:right;
 		}
 	}
 

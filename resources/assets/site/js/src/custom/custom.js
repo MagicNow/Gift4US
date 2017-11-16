@@ -517,6 +517,11 @@ function formAddGift() {
 		$('.modal-excluir-presente').addClass('hidden');
 		$('.modal-lista-concluir').removeClass('hidden');
 	});
+
+	$('.modal-lista-letras-input').on('change', function (e) {
+		const $self = $(this);
+		$self.parents('form').submit();
+	});
 }
 
 new Clipboard('.copy-button');
