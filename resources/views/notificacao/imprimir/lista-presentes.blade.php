@@ -10,8 +10,8 @@
 				<div class="preview-header-decor">
 					<img src="{{ asset('assets/notificacoes/images/moldura.png') }}" alt="Festa" class="preview-banner-item-image">
 					<div class="nome">
-						<h1>Arthurzinho Albuquerque</h1>
-						<span>20/12/2016</span>
+						<h1>{{ $party->nome }}</h1>
+						<span>{{ $party->festa_dia }}/{{ $party->festa_mes }}/{{ $party->festa_ano }}</span>
 						<div>
 							<b>Lista de presentes</b>
 							<br>
@@ -26,7 +26,9 @@
 						</div>
 					</div>
 					<div class="tira"></div>
-					<img src="{{ asset('assets/notificacoes/images/convidado.png') }}" alt="Heitor" class="preview-banner-item-foto">
+					<div class="preview-banner-item-foto-container">
+						<img src="{{ asset('storage/birthdays/' . $party->foto) }}" alt="Heitor" class="preview-banner-item-foto">
+					</div>
 				</div>
 			</div>
 			<table>

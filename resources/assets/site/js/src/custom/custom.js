@@ -522,6 +522,12 @@ function formAddGift() {
 		const $self = $(this);
 		$self.parents('form').submit();
 	});
+
+	$('.convite-medidas-modal-fechar').on('click', function (e) {
+		$('.roupaMedidas').hide();
+
+		createCookie($(this).data('cookie'), true, 1);
+	});
 }
 
 new Clipboard('.copy-button');
