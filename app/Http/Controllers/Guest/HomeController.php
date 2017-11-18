@@ -24,6 +24,10 @@ class HomeController extends Controller {
 			abort(403, 'Unauthorized action.');
 		}
 
+		if ($party->step != 4) {
+			abort(404, 'Página não encontrada.');
+		}
+
 		$percent = [
 			'clothes' => $this->calcClothes($party),
 			'quotas' => $this->calcQuotas($party),
