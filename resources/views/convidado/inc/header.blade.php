@@ -29,11 +29,11 @@
 					</div>
 					<nav id="navbar" role="navigation" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
-							<li class="divisor"><a href="#" alt=""><i class="fa fa-search" aria-hidden="true"></i> procurar aniversário</a></li>
-							<li class="divisor"><a href="#" alt="">como funciona</a></li>
-							<li class="divisor"><a href="#" alt="">passo a passo</a></li>
-              				<li><a href="#" alt="">novo usuário</a></li>
-							<li class="login-do"><a href="#" alt=""><img src="{{ url('assets/site/images/small_logo.png') }}" class="header-logo"><br/>fazer login</a></li>
+							<li class="divisor"><a href="{{ route('home') . '#convidado_aniversariante' }}" alt=""><i class="fa fa-search" aria-hidden="true"></i> procurar aniversário</a></li>
+							<li class="divisor"><a href="{{ route('home') . '#como_funciona' }}" alt="">como funciona</a></li>
+							<li class="divisor"><a href="{{ route('home') . '#passoapasso' }}" alt="">passo a passo</a></li>
+              				<li><a href="{{ route('cadastro.create') }}" alt="">novo usuário</a></li>
+							<li class="login-do"><a href="{{ route('home') . '#convidado_aniversariante' }}" alt=""><img src="{{ url('assets/site/images/small_logo.png') }}" class="header-logo"><br/>fazer login</a></li>
 						</ul>
 					</nav>
 				</div>
