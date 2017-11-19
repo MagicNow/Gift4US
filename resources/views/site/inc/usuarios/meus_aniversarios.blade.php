@@ -6,9 +6,9 @@
 			@foreach ($festas['festas_ativas'] as $festa)
 				<div class="my-birthday-item">
 					<div class="row">
-						@if (isset($festa->layout_id) && !empty($festa->layout_id))
+						@if ($festa->step == '4')
 							<div class="col-md-4 my-birthday-item-input">
-								<input type="checkbox" name="active[{{ $festa->id }}]" id="my-birthday-{{ $festa->id }}" class="my-birthday-checkbox" value="1" {{ $festa->active ? 'checked="checked"' : '' }} data-festa-id="{{ $festa->id }}" />
+								<input type="checkbox" name="ativo[{{ $festa->id }}]" id="my-birthday-{{ $festa->id }}" class="my-birthday-checkbox" value="1" {{ $festa->ativo ? 'checked="checked"' : '' }} data-festa-id="{{ $festa->id }}" />
 							</div>
 						@else
 							<div class="col-md-4 my-birthday-item-input">

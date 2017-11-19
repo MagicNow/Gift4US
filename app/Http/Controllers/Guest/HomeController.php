@@ -24,7 +24,7 @@ class HomeController extends Controller {
 			abort(403, 'Unauthorized action.');
 		}
 
-		if ($party->step != 4) {
+		if ($party->ativo == 0) {
 			abort(404, 'Página não encontrada.');
 		}
 

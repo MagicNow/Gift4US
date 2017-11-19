@@ -111,4 +111,21 @@ class ApiController extends Controller {
 			$festa->tipo()->detach($request->tipo);
 		}
 	}
+
+	public function festasAtivar(Request $request) {
+		if(!$request->ajax()) {
+			abort(404, 'Page not found.');
+		}
+
+		$festa = Festas::find($request->festa);
+		$cliente = Clientes::find(session('client_id'));
+
+		if ($festa->clientes_id != $cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$festa->update([
+			'ativo' => $request->ativar
+		]);
+	}
 }
