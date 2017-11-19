@@ -178,7 +178,7 @@
 	display:block;
 	font:19px 'HelveticaNeueStd_CN';
 	color:#FFF;
-	height:35px;
+	line-height:35px;
 }
 .dados-container .social a.btn-print{
 	background:#109dd9 url(../images/btn-print.png) no-repeat 154px 0;
@@ -186,29 +186,41 @@
 	padding:6px 0 0 24px;
 	margin-left:81px;
 }
-.dados-container .social a.btn-invite{
-	background:#109dd9 url(../images/btn-invite.png) no-repeat 126px 2px;
-	width:246px;
-	padding:6px 0 0 13px
+
+.dados-container .social .convites {
+	&-texto {
+		font: 19px 'HelveticaNeueStd_CN';
+		color: #FFF;
+		line-height: 35px;
+	}
+
+	&-enviar{
+		background:#109dd9 url(../images/btn-invite.png) no-repeat 0 0;
+		height: 35px;
+		width: 42px;
+		text-indent: -9999em;
+		display: inline-block;
+		text-align: left;
+		vertical-align: top;
+
+		&-bg {
+			background-color: #109dd9;
+		}
+
+		&.email {
+			background-position: 0 2px;
+		}
+
+		&.fb {
+			background-position: -36px 2px;
+		}
+
+		&.whats {
+			background-position: -72px 2px;
+		}
+	}
 }
-.dados-container .social a.btn-back{
-	background:#109dd9;
-	width:246px;
-	padding:6px 30px 0 13px;
-	text-align:right;
-}
-.dados-container .social a.convites-email{
-	background:#109dd9 url(../images/btn-invite.png) no-repeat 263px 2px;
-	text-align:right;
-	padding-right:50px;
-	width:307px;
-}
-.dados-container .social a.convites-enviar{
-	background:#109dd9 url(../images/btn-invite.png) no-repeat 198px 2px;
-	text-align:right;
-	padding-right:118px;
-	width:307px;
-}
+
 .dados-container .convite{
 	background: url(../images/bg.jpg);
 	width:558px;
@@ -534,7 +546,7 @@
 			border: 0;
 			background-color: transparent;
 			margin:0 0;
-			line-height:25px;
+			line-height:25px;onvites-envia
 
 			&:hover, &.active{
 				font: 18px 'HelveticaNeueStd_CN';
