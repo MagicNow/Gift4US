@@ -79,10 +79,9 @@
 						<th>Id</th>
 						<th>Nome</th>
 						<th>Descrição</th>
-						<th>Tipo</th>
 						<th>Imagem</th>
 						<th>Data</th>
-						<th>Ações</th>
+						<th width="100">Ações</th>
 					</tr>
 				</tfoot>
 			</table>

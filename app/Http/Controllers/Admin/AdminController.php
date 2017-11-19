@@ -11,10 +11,8 @@ use Illuminate\Support\Facades\Input;
 use Redirect;
 use App\Models\User;
 use Validator;
+
 class AdminController extends Controller {
-
-   
-
     public function index() {
         if (Auth::check()) {
             if(Auth::user()->first_access == 0){

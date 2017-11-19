@@ -6,12 +6,9 @@
 
 @section('contentheader_title')
 	<h1 class="col-md-6">
-		Roupas
+		Brinquedos
 		<small></small>
 	</h1>
-	<div class="col-md-6 text-right">
-		<a href="{{ route('admin.products.clothes.create') }}" class="btn btn-primary">Adicionar</a>
-	</div>
 @endsection
 
 
@@ -23,7 +20,7 @@
 					{{ session('status') }}
 				</div>
 			@endif
-			<form action="{{ route('admin.products.clothes.index') }}" class="row" method="get">
+			<form action="{{ route('admin.products.quotas.index') }}" class="row" method="get">
 				<div class="col-md-7">
 				</div>
 				<div class="col-md-4 text-right">
@@ -40,8 +37,10 @@
 					<tr>
 						<th>Id</th>
 						<th>Nome</th>
-						<th>Descrição</th>
+						<th>Observações</th>
 						<th>Imagem</th>
+						<th>Valor Total</th>
+						<th>Quantidade</th>
 						<th>Data</th>
 						<th width="100">Ações</th>
 					</tr>
@@ -50,26 +49,27 @@
 					@foreach($produtos as $prod)
 						<tr>
 							<td>{{ $prod->id }}</td>
-							<td>{{ $prod->titulo }}</td>
-							<td style="word-wrap: break-word !important;float: left; max-width: 300px;">{{ str_limit($prod->descricao, $limit = 150, $end = '...') }}</td>
+							<td>{{ $prod->nome }}</td>
+							<td style="word-wrap: break-word !important;float: left; max-width: 300px;">{{ str_limit($prod->observacao, $limit = 150, $end = '...') }}</td>
 							<td>
-								<img src="{{ $prod->imagem }}" width="100">
-							</td>
-							<td>{{ date('d/m/Y H:i:s',strtotime($prod->created_at)) }}</td>
-							<td>	
-								@if($prod->status == 1)		
-									<a href="{{ route('admin.products.clothes.status', [ $prod->id, 0 ]) }}" class="btn btn-danger" title="Reprovar"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
-								@else
-									<a href="{{ route('admin.products.clothes.status', [ $prod->id, 1 ]) }}" class="btn btn-default" title="Aprovar"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
+								@if (!empty($prod->foto))
+									<img src="{{ url('storage/quotas/' . $prod->foto) }}" width="100"></td>
 								@endif
-								<form method="post" action="{{ route('admin.products.clothes.destroy', $prod->id) }}" style="display: inline-block;">
+							<td>R$ {{ number_format($prod->valor_total, 2) }}</td>
+							<td>{{ $prod->quantidade_cotas == 0 ? 1 : $prod->quantidade_cotas }}</td>
+							<td>{{ date('d/m/Y H:i:s',strtotime($prod->created_at)) }}</td>
+							<td>
+								<form method="post" action="{{ route('admin.products.quotas.destroy', $prod->id) }}" style="display: inline-block;">
 
-									{{ Form::open(['method' => 'DELETE', 'route' => [ 'admin.products.clothes.destroy', $prod->id ]]) }}
+									{{ Form::open(['method' => 'DELETE', 'route' => [ 'admin.products.quotas.destroy', $prod->id ]]) }}
 										{{ Form::hidden('id', $prod->id) }}
 
 										<button type="submit" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
 									{{ Form::close() }}
 								</form>
+								@if ($prod->festa->ativo == 1)
+									<a href="{{ route('convidado.index', $prod->festa_id) }}" target="_blank" class="btn btn-default" title="Ver página do convidado"><i class="fa fa-eye" aria-hidden="true"></i></a>
+								@endif
 							</td>
 						</tr>
 					@endforeach
@@ -80,8 +80,10 @@
 						<th>Nome</th>
 						<th>Descrição</th>
 						<th>Imagem</th>
+						<th>Valor Total</th>
+						<th>Quantidade</th>
 						<th>Data</th>
-						<th width="100">Ações</th>
+						<th>Ações</th>
 					</tr>
 				</tfoot>
 			</table>

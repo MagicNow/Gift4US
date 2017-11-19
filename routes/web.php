@@ -143,5 +143,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 				'destroy' => 'admin.products.clothes.destroy'
 			]
 		]);
+
+		Route::resource('cotas', 'QuotasController', [
+			'names' => [
+				'index'   => 'admin.products.quotas.index',
+				'destroy' => 'admin.products.quotas.destroy'
+			]
+		]);
 	});
 });
