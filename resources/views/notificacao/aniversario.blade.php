@@ -310,17 +310,18 @@
 					@include('notificacao.inc.menu')
 				</div>
 				<div class="col-md-8 dados-container">
-					<div class="social col-md-12">
-						<div class="gifts-box-number-footer">
-							<div class="pull-left col-md-5">
-								<a target="_blank" href="{{ route('notificacoes.imprimir.convite' , $party->id) }}" class="btn-print">Imprimir convite</a>
+					<div class="social gifts-box-number-footer clearfix" style="width: 558px">
+						<div class="convites-enviar-bg clearfix">
+							<div class="col-md-8 text-right">
+								<span class="convites-texto">Enviar convites</span>
+								<a href="#" class="convites-enviar email">E-mail</a><a href="#" class="convites-enviar fb">Facebook</a><a href="#" class="convites-enviar whats">Whatsapp</a>
 							</div>
-							<div class="pull-right col-md-6">
-								<a href="#" class="btn-invite">Enviar convites</a>
+							<div class="col-md-4 text-right">
+								<a href="#" class="btn-back">Voltar</a>
 							</div>
 						</div>
 					</div>
-					<div class="convite pull-right">
+					<div class="convite">
 						<div class="header-convite">
 							<img src="{{ asset('assets/site/images/bg-header-convite.png') }}" alt="Festa">
 							<div class="header-convite-foto" style="background-image: url({{ asset('storage/birthdays/' . $party->foto) }})"></div>

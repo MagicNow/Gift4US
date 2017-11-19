@@ -57,7 +57,7 @@
 								<h5 class="email">Email</h5>
 								<h5>Lista emails</h5>
 								<div class="col-md-12">
-									<a href="#" class="col-md-6 enviar-convite-button">Criar<br />nova lista</a>
+									<a href="{{ route('notificacoes.enviaremail', $party->id) }}" class="col-md-6 enviar-convite-button">Criar<br />nova lista</a>
 									<a href="#" class="col-md-6 bgC enviar-convite-button">Resgatar lista antiga</a>
 								</div>
 							</div>

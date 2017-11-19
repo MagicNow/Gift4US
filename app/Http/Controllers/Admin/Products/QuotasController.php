@@ -25,7 +25,7 @@ class QuotasController extends Controller
 						->with('festa');
 
 		if ($request->titulo) {
-			$produtos = $produtos->where('titulo', 'LIKE', '%' . $request->titulo . '%');
+			$produtos = $produtos->where('nome', 'LIKE', '%' . $request->titulo . '%');
 		}
 
 		$produtos = $produtos->simplePaginate(30);
