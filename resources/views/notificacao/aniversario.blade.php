@@ -317,7 +317,7 @@
 								<a href="#" class="convites-enviar email">E-mail</a><a href="#" class="convites-enviar fb">Facebook</a><a href="#" class="convites-enviar whats">Whatsapp</a>
 							</div>
 							<div class="col-md-4 text-right">
-								<a href="#" class="btn-back">Voltar</a>
+								<a href="{{ url()->previous() }}" class="btn-back">Voltar</a>
 							</div>
 						</div>
 					</div>
