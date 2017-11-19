@@ -11,7 +11,7 @@ use Redirect;
 use App\Http\Requests\StoreAdminProducts;
 
 
-class ToysController extends Controller
+class ClothesController extends Controller
 {
     public function __construct()
     {
@@ -24,7 +24,7 @@ class ToysController extends Controller
     {
         $section = 'produtos';
         $produtos = Produtos::orderBy('id', 'desc')
-                            ->where('categoria', 'brinquedo');
+                            ->where('categoria', 'roupa');
 
         if ($request->titulo) {
             $produtos = $produtos->where('titulo', 'LIKE', '%' . $request->titulo . '%');
@@ -32,7 +32,7 @@ class ToysController extends Controller
 
         $produtos = $produtos->simplePaginate(30);
 
-        return view('admin.produtos.brinquedos.list', compact('produtos', 'section'));
+        return view('admin.produtos.roupas.list', compact('produtos', 'section'));
     }
 
     public function status($id,$status)
@@ -41,13 +41,13 @@ class ToysController extends Controller
         
         $entity->status = $status;
         $entity->save();
-        return Redirect::route('admin.products.toys.index')->with('sucess', 'Registro alterado com sucesso!');;
+        return Redirect::route('admin.products.clothes.index')->with('sucess', 'Registro alterado com sucesso!');;
     }
 
     public function create()
     {
         $section = 'produtos';
-        return view('admin.produtos.brinquedos.create', compact('section'));
+        return view('admin.produtos.roupas.create', compact('section'));
     }
 
     public function store(StoreAdminProducts $request)
@@ -65,12 +65,12 @@ class ToysController extends Controller
         $product = new Produtos($input);
         $product->save();
 
-        return redirect()->route('admin.products.toys.index')->with('status', 'Produto cadastrado com sucesso!');
+        return redirect()->route('admin.products.clothes.index')->with('status', 'Produto cadastrado com sucesso!');
     }
 
     public function destroy (Request $request) {
         Produtos::destroy($request->id);
 
-        return redirect()->route('admin.products.toys.index')->with('status', 'Produto removido com sucesso!');
+        return redirect()->route('admin.products.clothes.index')->with('status', 'Produto removido com sucesso!');
     }
 }

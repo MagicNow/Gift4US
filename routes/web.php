@@ -117,7 +117,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 	//POSTS
 
 	Route::group(['prefix' => 'produtos', 'namespace' => 'Products'], function() {
-		Route::get('status/{id}/{status}', ['as'=> 'admin.products.toys.status', 'uses' => 'ToysController@status']);
+		Route::get('brinquedos/status/{id}/{status}', ['as'=> 'admin.products.toys.status', 'uses' => 'ToysController@status']);
+		Route::get('roupas/status/{id}/{status}', ['as'=> 'admin.products.clothes.status', 'uses' => 'ClothesController@status']);
 
 		Route::resource('brinquedos', 'ToysController', [
 			'names' => [
@@ -128,6 +129,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 				'edit'    => 'admin.products.toys.edit',
 				'update'  => 'admin.products.toys.update',
 				'destroy' => 'admin.products.toys.destroy'
+			]
+		]);
+
+		Route::resource('roupas', 'ClothesController', [
+			'names' => [
+				'index'   => 'admin.products.clothes.index',
+				'create'  => 'admin.products.clothes.create',
+				'store'   => 'admin.products.clothes.store',
+				'show'    => 'admin.products.clothes.show',
+				'edit'    => 'admin.products.clothes.edit',
+				'update'  => 'admin.products.clothes.update',
+				'destroy' => 'admin.products.clothes.destroy'
 			]
 		]);
 	});

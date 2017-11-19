@@ -6,7 +6,7 @@
 
 @section('contentheader_title')
     <h1 class="col-md-6">
-        Brinquedos
+        Roupas
         <small></small>
     </h1>
 @endsection
@@ -26,8 +26,9 @@
         </div>
     @endif
 
-    {!! Form::open(['route' => [ 'admin.products.toys.store', isset($product->id) ? $product->id : ''], 'id' => 'form-products', 'method' => 'POST', 'files' => true ]) !!}
-        {!! Form::hidden('categoria', 'brinquedo') !!}
+    {!! Form::open(['route' => [ 'admin.products.clothes.store', isset($product->id) ? $product->id : ''], 'id' => 'form-products', 'method' => 'POST', 'files' => true ]) !!}
+
+        {!! Form::hidden('categoria', 'roupa') !!}
 
         <div class="form-group">
             <label for="titulo" class="form-title">Título</label>

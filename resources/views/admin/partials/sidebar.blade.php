@@ -8,7 +8,7 @@
 			<li class="{{ Route::current()->getName() == 'admin.users.create' || Route::current()->getName() == 'admin.users' || Route::current()->getName() == 'admin.users.edit' ? 'active' : ''}}">
 				<a href="{{ route('admin.users') }}"><i class='fa fa-user'></i> <span>Usuários</span></a>
 			</li>
-			<li class="{{ Route::current()->getName() == 'admin.products.toys.create' || Route::current()->getName() == 'admin.products.toys.index' ? 'active' : ''}} treeview menu-open">
+			<li class="{{ Route::current()->getName() == 'admin.products.toys.create' || Route::current()->getName() == 'admin.products.toys.index' || Route::current()->getName() == 'admin.products.clothes.create' || Route::current()->getName() == 'admin.products.clothes.index' ? 'active' : ''}} treeview menu-open">
 				<a href="#">
 					<i class="fa fa-archive"></i> <span>Produtos</span>
 					<span class="pull-right-container">
@@ -17,8 +17,8 @@
 				</a>
 				<ul class="treeview-menu">
 					<li class="{{ Route::current()->getName() == 'admin.products.toys.create' || Route::current()->getName() == 'admin.products.toys.index' ? 'active' : ''}}"><a href="{{ route('admin.products.toys.index') }}"><i class="fa fa-circle-o"></i> Brinquedos</a></li>
+					<li class="{{ Route::current()->getName() == 'admin.products.clothes.create' || Route::current()->getName() == 'admin.products.clothes.index' ? 'active' : ''}}"><a href="{{ route('admin.products.clothes.index') }}"><i class="fa fa-circle-o"></i> Roupas</a></li>
 					<li><a href="#"><i class="fa fa-circle-o"></i> Cotas</a></li>
-					<li><a href="#"><i class="fa fa-circle-o"></i> Roupas</a></li>
 				</ul>
 			</li>
 
