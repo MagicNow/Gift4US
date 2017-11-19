@@ -7,34 +7,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 @include('admin.partials.htmlheader')
 <body class="skin-blue sidebar-mini {!!$section!!}">
-<div class="wrapper">
+	<div class="wrapper">
+		@include('admin.partials.mainheader')
 
-    @include('admin.partials.mainheader')
+		@include('admin.partials.sidebar')
 
-    @if(Auth::user()->id != 3)
-        @include('admin.partials.sidebar')
-    @endif
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
 
+			@include('admin.partials.contentheader')
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+			<!-- Main content -->
+			<section class="content">
+				<!-- Your Page Content Here -->
+				@yield('main-content')
+			</section><!-- /.content -->
+		</div><!-- /.content-wrapper -->
 
-        @include('admin.partials.contentheader')
+		@include('admin.partials.footer')
+	</div><!-- ./wrapper -->
 
-        <!-- Main content -->
-        <section class="content">
-            <!-- Your Page Content Here -->
-            @yield('main-content')
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
-
-   
-
-    @include('admin.partials.footer')
-
-</div><!-- ./wrapper -->
-
-@include('admin.partials.scripts')
+	@include('admin.partials.scripts')
 
 </body>
 </html>

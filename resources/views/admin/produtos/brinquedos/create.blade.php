@@ -26,7 +26,7 @@
         </div>
     @endif
 
-    {!! Form::open(['route' => [ 'admin.products.store', isset($product->id) ? $product->id : ''], 'id' => 'form-products', 'method' => 'POST', 'files' => true ]) !!}
+    {!! Form::open(['route' => [ 'admin.products.toys.store', isset($product->id) ? $product->id : ''], 'id' => 'form-products', 'method' => 'POST', 'files' => true ]) !!}
 
         <div class="row">
             <div class="col-md-4 form-group">

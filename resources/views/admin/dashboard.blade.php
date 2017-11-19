@@ -1,4 +1,4 @@
-    @extends('admin.app')
+@extends('admin.app')
 
 @section('contentheader_title')
     Dashboard

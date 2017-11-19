@@ -44,7 +44,9 @@
 								<td>{!! date('d/m/Y H:i:s',strtotime($user->created_at)) !!}</td>
 								<td>
 									<a href="{{ route('admin.users.edit',$user->id) }}" class="btn btn-primary">Editar</a>
-									<a href="{{ route('admin.users.destroy',$user->id) }}" class="btn btn-primary" data-toggle="modal" data-target="#confirm-delete">Excluir</a>
+									@if (Auth::user()->id !== $user->id)
+										<a href="{{ route('admin.users.destroy',$user->id) }}" class="btn btn-primary" data-toggle="modal" data-target="#confirm-delete">Excluir</a>
+									@endif
 								</td>
 							</tr>
 						@endforeach

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Products;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request as Req;
 use Auth;
@@ -11,7 +11,7 @@ use Redirect;
 use App\Http\Requests\StoreAdminProducts;
 
 
-class ProductsController extends Controller
+class ToysController extends Controller
 {
     public function __construct()
     {
@@ -31,7 +31,7 @@ class ProductsController extends Controller
 
         $produtos = $produtos->simplePaginate(30);
 
-        return view('admin.produtos.list', compact('produtos', 'section'));
+        return view('admin.produtos.brinquedos.list', compact('produtos', 'section'));
     }
 
     public function status($id,$status)
@@ -40,13 +40,13 @@ class ProductsController extends Controller
         
         $entity->status = $status;
         $entity->save();
-        return Redirect::route('admin.products.index')->with('sucess', 'Registro alterado com sucesso!');;
+        return Redirect::route('admin.products.toys.index')->with('sucess', 'Registro alterado com sucesso!');;
     }
 
     public function create()
     {
         $section = 'produtos';
-        return view('admin.produtos.create', compact('section'));
+        return view('admin.produtos.brinquedos.create', compact('section'));
     }
 
     public function store(StoreAdminProducts $request)
@@ -64,12 +64,12 @@ class ProductsController extends Controller
         $product = new Produtos($input);
         $product->save();
 
-        return redirect()->route('admin.products.index')->with('status', 'Produto cadastrado com sucesso!');
+        return redirect()->route('admin.products.toys.index')->with('status', 'Produto cadastrado com sucesso!');
     }
 
     public function destroy (Request $request) {
         Produtos::destroy($request->id);
 
-        return redirect()->route('admin.products.index')->with('status', 'Produto removido com sucesso!');
+        return redirect()->route('admin.products.toys.index')->with('status', 'Produto removido com sucesso!');
     }
 }
