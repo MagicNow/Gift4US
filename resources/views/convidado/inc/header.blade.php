@@ -11,8 +11,17 @@
 	<meta name="csrf-token" content="{!! csrf_token() !!}">
 	<meta http-equiv="content-language" content="pt-br" />
 
-	 {!! Html::style('assets/site/styles/styles.css') !!}
-	 {!! Html::style('assets/site/styles/convidado.css') !!}
+	<meta property="og:locale" content="pt_BR">
+	<meta property="og:url" content="{{ url()->current() }}">
+	<meta property="og:title" content="Gift4US">
+	<meta property="og:site_name" content="Gift4US">
+	<meta property="og:description" content="Acesse a página do meu aniversário :)">
+	<meta property="og:image" content="{{ url('storage/birthdays/' . $party->foto) }}">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:type" content="website">
+
+	{!! Html::style('assets/site/styles/styles.css') !!}
+	{!! Html::style('assets/site/styles/convidado.css') !!}
 </head>
 <body class="{!! Route::currentRouteName() !!} {{ $party && $party->layout()->count() > 0 ? $party->layout()->first()->class : NULL }}">
 		<!--HEADER-->

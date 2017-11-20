@@ -27,28 +27,31 @@
 						<div class="row enviar-convite-secao">
 							<div class="col-md-7">
 								<h5>Link da página do aniversáriante</h5>
-								<span id="convite-url">{{ route('convidado.index', $party->id) }}</span>
-								<button type="button" class="copy-button enviar-convite-button" data-clipboard-target="#convite-url">Copiar</button>
+								<span class="enviar-convite-texto" id="convite-url">{{ route('convidado.index', $party->id) }}</span>
+								<div class="row">
+									<button type="button" class="copy-button enviar-convite-button col-md-6" data-clipboard-target="#convite-url"><span class="button">Copiar</span></button>
+								</div>
 							</div>
 							<div class="col-md-5">
 								<h5>Código único do aniversário</h5>
-								<span id="convite-codigo">{{ $party->codigo }}</span>
-								<btton type="button" class="copy-button enviar-convite-button" data-clipboard-target="#convite-codigo">Copiar</button>
+								<span class="enviar-convite-texto" id="convite-codigo">{{ $party->codigo }}</span>
+								<div class="row">
+									<button type="button" class="copy-button enviar-convite-button col-md-7" data-clipboard-target="#convite-codigo"><span class="button">Copiar</span></button>
+								</div>
 							</div>
 						</div>
 						<div class="row compartilhe enviar-convite-secao">
 							<div class="col-md-6 enviar-convite-coluna">
 								<h5 class="facebook">Compartilhar no Facebook</h5>
-								<div class="col-md-12">
-									<a href="#" class="col-md-6 enviar-convite-button">Compartilhar em evento</a>
-									<a href="#" class="col-md-6 enviar-convite-button">Compartilhar no perfil</a>
+								<div class="row">
+									<a href="https://www.facebook.com/sharer/sharer.php?u={{ route('convidado.index', $party->id) }}" target="_blank" class="col-md-12 enviar-convite-button"><span class="button">Compartilhar<br>no perfil</span></a>
 								</div>
 							</div>
 							<div class="col-md-6 enviar-convite-coluna">
 								<h5 class="whatsapp">Compartilhar no Whatsapp</h5>
-								<div class="col-md-12">
-									<a href="#" class="col-md-6 enviar-convite-button">Compartilhar convite</a>
-									<a href="whatsapp://send?text={{ route('convidado.index', $party->id) }}" class="col-md-6 enviar-convite-button">Compartilhar link da pagina</a>
+								<div class="row">
+									<a href="#" class="col-md-6 enviar-convite-button"><span class="button">Compartilhar convite</span></a>
+									<a href="whatsapp://send?text={{ route('convidado.index', $party->id) }}" class="col-md-6 enviar-convite-button"><span class="button">Compartilhar <br>link da página</span></a>
 								</div>
 							</div>
 						</div>
@@ -56,9 +59,8 @@
 							<div class="col-md-6 enviar-convite-coluna">
 								<h5 class="email">Email</h5>
 								<h5>Lista emails</h5>
-								<div class="col-md-12">
-									<a href="{{ route('notificacoes.enviaremail', $party->id) }}" class="col-md-6 enviar-convite-button">Criar<br />nova lista</a>
-									<a href="#" class="col-md-6 bgC enviar-convite-button">Resgatar lista antiga</a>
+								<div class="row">
+									<a href="{{ route('notificacoes.enviaremail', $party->id) }}" class="col-md-12 enviar-convite-button"><span class="button">Criar<br />nova lista</span></a>
 								</div>
 							</div>
 							<div class="col-md-6 enviar-convite-coluna">
@@ -66,11 +68,11 @@
 								<div class="row">
 									<div class="col-md-6">
 										<img src="{{ asset('assets/site/images/img-convite.png') }}" />
-										<a href="#" class="col-md-12 enviar-convite-button">Baixar</a>
+										<a href="#" class="enviar-convite-button"><span class="button">Baixar</span></a>
 									</div>
 									<div class="col-md-6">
 										<img src="{{ asset('assets/site/images/img-qrcode.png') }}" />
-										<a href="#" class="col-md-12 enviar-convite-button">Baixar</a>
+										<a href="#" class="enviar-convite-button"><span class="button">Baixar</span></a>
 									</div>
 								</div>
 							</div>

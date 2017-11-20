@@ -396,16 +396,23 @@
 	}
 
 	&-button {
-		font:18px 'HelveticaNeueStd_CN';
-		color:#fff;
-		background:#109dd9;
-		padding:2px 0;
-		margin:10px auto 0;
-		width:114px;
+		margin-top: 10px;
 		display:block;
 		text-align:center;
 		border: 0;
 		cursor: pointer;
+		border-radius: 0;
+
+		.button {
+			background: #109dd9;
+			font: 16px 'HelveticaNeueStd_CN';
+			padding: 2px 0;
+			color: #fff;
+			width: 100%;
+			display: block;
+			border: 0;
+			min-width: 0;
+		}
 	}
 
 	&-coluna:first-child{
@@ -415,16 +422,6 @@
 	h5{
 		font:18px 'HelveticaNeueStd_CN';
 		margin:15px 0 5px;
-
-		&.facebook{
-			background:url(../images/img-facebook.png) 181px 0 no-repeat; 
-			line-height:26px;
-		}
-
-		&.whatsapp{
-			background:url(../images/img-whatsapp.png) 181px 0 no-repeat; 
-			line-height:26px;
-		}
 
 		&.email{
 			background:url(../images/img-email.png) 46px 0 no-repeat; 
@@ -438,7 +435,7 @@
 		}
 	}
 
-	span{
+	&-texto {
 		font:16px 'HelveticaNeueStd_CN';
 		color:#b2b5b8;
 		display:block;
@@ -447,20 +444,8 @@
 	.compartilhe{
 		margin-top:20px;
 
-		a{
-			width:125px;
-		}
-
 		a.bgC{
 			background:#b2b5b8;
-		}
-
-		div.col-md-12{
-			padding:0!important;
-		}
-
-		div.col-md-12 a:first-child{
-			margin-right:10px;
 		}
 	}
 
