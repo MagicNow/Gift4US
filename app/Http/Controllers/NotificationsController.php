@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Festas;
 use App\Models\Clientes;
 use Illuminate\Http\Request;
+use App\Http\Requests\ScrapsExport;
 
 class NotificationsController extends Controller
 {
@@ -130,4 +131,15 @@ class NotificationsController extends Controller
 
 		return view('notificacao.imprimir.presencas-confirmadas', compact('party', 'presencas', 'paginas', 'porpagina'));
 	}
+
+    public function exportaRecados(Request $request, $festa_id, ScrapsExport $export)
+    {
+    	$scraps = Festas::find($festa_id)->mensagem()->select('nome', 'mensagem')->get(); //->toArray();
+
+        // work on the export
+        return $export->sheet('Recados', function($sheet) use($scraps) {
+			$sheet->fromArray($scraps);
+			$sheet->freezeFirstRow();
+        })->export('xls');
+    }
 }

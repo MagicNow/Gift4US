@@ -182,6 +182,7 @@ return [
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -234,7 +235,8 @@ return [
         'Excel'        => Maatwebsite\Excel\Facades\Excel::class,
         'XmlParser'    => Orchestra\Parser\Xml\Facade::class,
         'Image'        => Intervention\Image\Facades\Image::class,
-        'Helper'       => App\Helper::class
+        'Helper'       => App\Helper::class,
+        'Excel'        => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

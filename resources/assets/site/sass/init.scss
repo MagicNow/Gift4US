@@ -146,6 +146,12 @@
 	}
 }
 
+.color {
+	&-black {
+		color: #000;
+	}
+}
+
 .radio input + span,
 .radio input:checked + span {
 	-webkit-transition:background-color 0.4s linear;

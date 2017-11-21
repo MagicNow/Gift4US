@@ -64,6 +64,10 @@ Route::group(['prefix' => 'notificacoes/{festa_id}'], function() {
 	Route::get('enviar-email', ['as'=> 'notificacoes.enviaremail', 'uses' => 'NotificationsController@enviarEmail']);
 	Route::get('enviar-convite', ['as'=> 'notificacoes.enviarconvite', 'uses' => 'NotificationsController@enviarConvite']);
 
+	Route::group(['prefix' => 'exportar'], function() {
+		Route::get('recados', ['as'=> 'notificacoes.exportar.recados', 'uses' => 'NotificationsController@exportaRecados']);
+	});
+
 	Route::group(['prefix' => 'imprimir'], function() {
 		Route::get('convite', ['as'=> 'notificacoes.imprimir.convite', 'uses' => 'NotificationsController@imprimirConvite']);
 		Route::get('lista-presentes', ['as'=> 'notificacoes.imprimir.listaPresentes', 'uses' => 'NotificationsController@imprimirListaPresentes']);
