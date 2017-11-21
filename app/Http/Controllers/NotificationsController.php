@@ -79,7 +79,7 @@ class NotificationsController extends Controller
 		$toysTotal = $this->toys->count();
 		$this->toysAvalible = $this->toys->whereNull('nome');
 
-		return round(($this->toysAvalible->count() * 100) / $toysTotal, 0, PHP_ROUND_HALF_EVEN);
+		return $this->toysAvalible->count() > 0 ? round(($this->toysAvalible->count() * 100) / $toysTotal, 0, PHP_ROUND_HALF_EVEN);
 	}
 
 	public function conviteDigital(Request $request, $festa_id = null)
