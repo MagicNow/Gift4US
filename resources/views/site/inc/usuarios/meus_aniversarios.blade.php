@@ -25,7 +25,12 @@
 				            </span>
 						</div>
 					</div>
-					<a href="{{ route('usuario.meus-aniversarios.editar', $festa->id) }}" class="row col-md-12 text-center my-birthday-item-enter">Entrar no aniversário</a>
+
+					@if ($festa->step == '4')
+						<a href="{{ route('notificacoes.aniversario', $festa->id) }}" class="row col-md-12 text-center my-birthday-item-enter">Entrar no aniversário</a>
+					@else
+						<a href="{{ route('usuario.meus-aniversarios.editar', $festa->id) }}" class="row col-md-12 text-center my-birthday-item-enter">Entrar no aniversário</a>
+					@endif
 				</div>
 			@endforeach
 		</div>

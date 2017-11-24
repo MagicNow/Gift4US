@@ -47,7 +47,7 @@
 						</ul>
 					</nav>
 					@if ($gifts['total'] > 0)
-						<a href="{{ route('usuario.meus-aniversarios') }}" class="form-birthday-finish">concluir aniversário</a>
+						<a href="{{ route('notificacoes.aniversario', $festa->id) }}" class="form-birthday-finish">concluir aniversário</a>
 					@endif
 					<a href="{{ route('usuario.meus-aniversarios.novo.festa', [$festa->id, 4]) }}" class="form-birthday-submit" style="text-align: center; color: #acacac; font-size: 17px;">voltar a etapa anterior</a>
 				</form>
