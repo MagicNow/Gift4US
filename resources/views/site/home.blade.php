@@ -244,8 +244,6 @@
 						<input type="text" name="name" id="u9186" class="clearfix grpelem index-input" required>
 					</form>
 					<div class="clearfix grpelem" id="u9630">
-						<!-- column -->
-						<img class="colelem" id="u9220-4" alt="Entrar:" width="444" height="34" src="{{ asset('assets/home/images/u9220-4.png?crc=247824620') }}"/><!-- rasterized frame -->
 						<form method="post" action="{{ route('usuario.login') }}" class="clearfix colelem" id="pu9606">
 							@if (session('status'))
 								<div class="form-login-message">
