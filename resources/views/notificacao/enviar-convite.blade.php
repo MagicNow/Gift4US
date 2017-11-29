@@ -15,7 +15,7 @@
 							<div class="convites-enviar-bg clearfix">
 								<div class="col-md-8 text-right">
 									<span class="convites-texto">Enviar convites</span>
-									<a href="#" class="convites-enviar email">E-mail</a><a href="#" class="convites-enviar fb">Facebook</a><a href="#" class="convites-enviar whats">Whatsapp</a>
+									<a href="{{ route('notificacoes.enviarconvite', $party->id) }}" class="convites-enviar email">E-mail</a><a href="{{ route('notificacoes.enviarconvite', $party->id) }}" class="convites-enviar fb">Facebook</a><a href="{{ route('notificacoes.enviarconvite', $party->id) }}" class="convites-enviar whats">Whatsapp</a>
 								</div>
 								<div class="col-md-4 text-right">
 									<a href="{{ url()->previous() }}" class="btn-back">Voltar</a>
@@ -66,10 +66,12 @@
 							<div class="col-md-6 enviar-convite-coluna">
 								<h5 class="download">Download</h5>
 								<div class="row">
-									<div class="col-md-6">
-										<img src="{{ asset('assets/site/images/img-convite.png') }}" />
-										<a href="#" class="enviar-convite-button"><span class="button">Baixar</span></a>
-									</div>
+									@if (Storage::exists('public/birthdays/invites/' . $party->id . '.jpg'))
+										<div class="col-md-6">
+											<img src="{{ Storage::url('public/birthdays/invites/' . $party->id . '.jpg') }}" width="78" />
+											<a href="{{ Storage::url('public/birthdays/invites/' . $party->id . '.jpg') }}" target="_blank" download class="enviar-convite-button"><span class="button">Baixar</span></a>
+										</div>
+									@endif
 									<div class="col-md-6">
 										<img src="{{ asset('assets/site/images/img-qrcode.png') }}" />
 										<a href="#" class="enviar-convite-button"><span class="button">Baixar</span></a>

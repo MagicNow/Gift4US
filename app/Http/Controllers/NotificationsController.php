@@ -6,14 +6,18 @@ use App\Models\Festas;
 use App\Models\Clientes;
 use Illuminate\Http\Request;
 use App\Http\Requests\ScrapsExport;
+use Illuminate\Routing\Route;
 
 class NotificationsController extends Controller
 {
 	private $cliente;
+	private $route;
 
-	public function __construct () {
+	public function __construct (Route $route) {
+		$this->route = $route;
+
 		$this->middleware(function ($request, $next) {
-			if (!session('client_id') && request()->path() !== '/' && request()->path() !== '/') {
+			if (!session('client_id') && request()->path() !== '/' && $this->route->getName() !== 'notificacoes.convitedigital') {
 				return redirect()->route('home');
 			}
 
@@ -86,7 +90,8 @@ class NotificationsController extends Controller
 	public function conviteDigital(Request $request, $festa_id = null)
 	{
 		$party = Festas::find($festa_id);
-		return view('notificacao.convite-digital', compact('party'));
+		$pages = $request->pages ? $request->pages : 4;
+		return view('notificacao.convite-digital', compact('party', 'pages'));
 	}
 
 	public function enviarEmail(Request $request, $festa_id = null)

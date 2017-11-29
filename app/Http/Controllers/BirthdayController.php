@@ -7,6 +7,7 @@ use App\Http\Requests\StoreRegister;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManagerStatic as Image;
 use Validator;
+use Spatie\Browsershot\Browsershot;
 use App\Models\Clientes;
 use App\Models\Festas;
 use App\Http\Requests\StoreBirthdayStep1;
@@ -175,6 +176,13 @@ class BirthdayController extends Controller {
 				if (empty($party->slug)) {
 					$input['slug'] = $slug;
 				}
+
+				$page = url('notificacoes/' . $party->id . '/convite-digital?pages=1');
+				$dest = storage_path('app/public/birthdays/invites/' . $party->id . '.jpg');
+				Browsershot::url($page)
+							->windowSize(573, 573)
+							->save($dest);
+
 				break;
 		}
 
