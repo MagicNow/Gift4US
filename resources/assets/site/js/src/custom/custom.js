@@ -197,6 +197,45 @@ $(function() {
 		$('.upload-image-button').show();
 	});
 
+	var $uploadText = $(".upload-text");
+
+	$uploadText.fileinput({
+		showUpload: false,
+		showCaption: false,
+		showRemove: false,
+		allowedFileExtensions: ['txt'],
+		required: true,
+		msgAjaxError: 'Algo deu errado com a operação {operação}. Por favor, tente novamente mais tarde!',
+		msgAjaxProgressError: '{operation} falhou.',
+		msgUploadEnd: 'Sucesso',
+		msgFileRequired: 'O arquivo é obrigatório.',
+		msgSizeTooLarge: 'Arquivo "{name}" ({size} KB) excede o tamanho máximo permitido {maxSize} KB.',
+		maxFileSize: 3000,
+		ajaxOperations: {
+			deleteThumb: 'arquivo excluído',
+			uploadThumb: 'arquivo carregado',
+			uploadBatch: 'carregamento de arquivos em lote',
+			uploadExtra: 'dados do upload'
+		},
+		msgInvalidFileExtension: 'A extensão do arquivo "{name}" não é permitida. Somente arquivos "{extensions}" são permitidos.',
+		browseLabel: 'Upload .txt',
+		buttonLabelClass: 'col-md-4 form-invite-button',
+		previewSettings: {
+			image: { width: "auto", height: "auto", 'max-width': "100%", 'max-height': "100%" }
+		},
+		layoutTemplates: {
+			btnBrowse: '<div tabindex="500" class="gifts-item-price-description-upload upload-image-button bgC text-center btn-file "{status}>{label}</div>',
+			actions: '<div class="file-actions">\n' +
+				'{drag}\n' +
+				'<div class="clearfix"></div>\n' +
+			'</div>',
+		}
+	}).on("fileselect", function(event, files) {
+		// $('.upload-image-button').hide();
+	}).on("fileclear", function(event, files) {
+		// $('.upload-image-button').show();
+	});
+
     $('.form-birthday-modal-close, .form-birthday-modal-text').on('click', function (e) {
     	e.preventDefault();
 		$modal.addClass('hidden');
