@@ -489,14 +489,6 @@ function formAddGift() {
 		$('.criarPresentes .alerta').hide();
 	});
 
-	$('.lista-email .adicionar-email').click(function() {
-		var emailAdicionar = $('.lista-email .texto').val();
-		$('.lista-email ul.col-md-12').append('<li><a href="#">Excluir</a> '+emailAdicionar+'</li>');
-		var countEmail = $('.lista-email ul.col-md-12 a').length;
-		$('.lista-email fieldset.bottom label.col-md-12').html(countEmail+' emails cadastrados');
-		formEmailDelete();
-	});
-
 	$('.ver-lista-presentes').click(function() {
 		$('#lista-presente').show();
 	});
@@ -526,17 +518,50 @@ function formAddGift() {
 
 		createCookie($(this).data('cookie'), true, 1);
 	});
+
+	$('.form-invite-list').on('submit', function(e) {
+		e.preventDefault();
+
+		var $form = $(this);
+		$.ajax({
+			url: $form.attr('action'),
+			method: $form.attr('method'),
+			data: $form.serialize(),
+			dataType: 'json',
+			success: function (data) {
+				var $item = $('.form-invite-results-item').first().clone();
+				$item.removeClass('hidden');
+				$item.find('.form-invite-fields-email').text(data.email);
+				$item.find('.form-invite-fields-id').val(data.id);
+				$item.appendTo('.form-invite-results');
+
+				$('.form-invite-count').html(data.total +' emails cadastrados');
+			},
+			error: function (xhr, textStatus, errorThrown) {
+				var response = JSON.parse(xhr.responseText);
+				alert(response.email);
+			}
+		});
+	});
+
+	$('.form-invite-results').delegate('.form-invite-delete', 'submit', function(e) {
+		e.preventDefault();
+
+		var $form = $(this);
+		$.ajax({
+			url: $form.attr('action'),
+			method: $form.attr('method'),
+			data: $form.serialize(),
+			dataType: 'json',
+			success: function (data) {
+				$form.remove();
+				var count = $('.form-invite-delete').length;
+				$('.form-invite-count').html(count + ' emails cadastrados');
+			}
+		});
+	});
 }
 
 new Clipboard('.copy-button');
 
-function formEmailDelete() {
-	$('.lista-email ul.col-md-12 a').click(function() {
-	  $(this).parent().remove();
-	  var countEmail = $('.lista-email ul.col-md-12 a').length;
-	  $('.lista-email fieldset.bottom label.col-md-12').html(countEmail+' emails cadastrados');
-	});
-}
 formAddGift();
-formEmailDelete();
-

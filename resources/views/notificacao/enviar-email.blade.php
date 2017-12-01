@@ -15,7 +15,7 @@
 							<div class="convites-enviar-bg clearfix">
 								<div class="col-md-8 text-right">
 									<span class="convites-texto">Enviar convites</span>
-									<a href="#" class="convites-enviar email">E-mail</a><a href="#" class="convites-enviar fb">Facebook</a><a href="#" class="convites-enviar whats">Whatsapp</a>
+									<a href="{{ route('notificacoes.enviarconvite', $party->id) }}" class="convites-enviar email">E-mail</a><a href="{{ route('notificacoes.enviarconvite', $party->id) }}" class="convites-enviar fb">Facebook</a><a href="{{ route('notificacoes.enviarconvite', $party->id) }}" class="convites-enviar whats">Whatsapp</a>
 								</div>
 								<div class="col-md-4 text-right">
 									<a href="{{ url()->previous() }}" class="btn-back">Voltar</a>
@@ -26,25 +26,45 @@
 					<div class="lista-email">
 						<h5 class="title">Email</h5>
 						<h5>Adicionar emails</h5>
-						<fieldset class="col-md-12">
-							<input class="texto col-md-8" type="text" placeholder="escreva aqui o e-mail do convidado" value="" />
-							<button class="col-md-4 adicionar-email" type="button">Adicionar</button>
-						</fieldset>
+						<form action="{{ url('api/lista/adicionar') }}" method="post" class="col-md-12 form-invite-list">
+							<input type="hidden" name="festas_id" value="{{ $party->id }}">
+							<input class="texto col-md-8" type="text" name="email" placeholder="escreva aqui o e-mail do convidado" />
+							<button class="col-md-4 adicionar-email form-invite-button" type="submit">Adicionar</button>
+						</form>
 						<fieldset class="col-md-12">
 							<label class="col-md-8">Quer adicionar algum email que esteja em uma lista antiga?</label>
-							<button class="col-md-4 bgC" type="button">E-mail lista antiga</button>
+							<button class="col-md-4 bgC form-invite-button" type="button">E-mail lista antiga</button>
 						</fieldset>
 						<fieldset class="border col-md-12">
 							<label class="col-md-8">Já tem todos esse email digitados em um arquivo .txt?</label>
-							<button class="col-md-4 gifts-item-price-description-upload" type="button">Upload .txt</button>
+							<button class="col-md-4 gifts-item-price-description-upload form-invite-button" type="button">Upload .txt</button>
 							<input type="file" name="arquivos" class="upload-image" accept="text/plain" />
 						</fieldset>
-						<ul class="col-md-12">
+						<ul class="col-md-12 form-invite-results">
+							@if ($party->lista->count() > 0)
+								@foreach($party->lista as $email)
+									<li class="form-invite-results-item">
+										<form action="{{ url('api/lista/remover') }}" method="post" class="col-md-12 form-invite-delete">
+											<input type="hidden" name="id" class="form-invite-fields-id" value="{{ $email->id }}">
+											<input name="_method" type="hidden" value="DELETE">
+											<button type="submit" class="form-invite-delete-button">Excluir</button> <span class="form-invite-fields-email">{{ $email->email }}</span>
+										</form>
+									</li>
+								@endforeach
+							@else
+								<li class="form-invite-results-item hidden">
+									<form action="{{ url('api/lista/remover') }}" method="post" class="col-md-12 form-invite-delete">
+										<input type="hidden" name="id" class="form-invite-fields-id">
+										<input name="_method" type="hidden" value="DELETE">
+										<button type="submit" class="form-invite-delete-button">Excluir</button> <span class="form-invite-fields-email"></span>
+									</form>
+								</li>
+							@endif
 						</ul>
 						<fieldset class="bottom col-md-12">
 							<div>
-								<label class="col-md-12">0 emails cadastrados</label>
-								<button class="col-md-12" type="button">Enviar</button>
+								<label class="col-md-12 form-invite-count">{{ $party->lista->count() }} emails cadastrados</label>
+								<button class="col-md-12 form-invite-button" type="button">Enviar</button>
 							</div>
 						</fieldset>
 					</div>

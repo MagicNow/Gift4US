@@ -10,6 +10,8 @@ use App\Models\ProdutosMarcas;
 use App\Models\Clientes;
 use App\Models\Festas;
 use App\Models\FestasProdutos;
+use App\Models\FestasLista;
+use App\Http\Requests\StoreList;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 
 class ApiController extends Controller {
@@ -127,5 +129,42 @@ class ApiController extends Controller {
 		$festa->update([
 			'ativo' => $request->ativar
 		]);
+	}
+
+	public function listaAdicionar(StoreList $request) {
+		if(!$request->ajax()) {
+			abort(404, 'Page not found.');
+		}
+
+		$festa = Festas::find($request->festas_id);
+		$cliente = Clientes::find(session('client_id'));
+		$lista = $festa->lista();
+
+		if ($festa->clientes_id != $cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$email = $lista->create($request->all());
+
+		return response()
+			->json(['id' => $email->id, 'email' => $request->email, 'total' => $lista->count() ]);
+	}
+
+	public function listaRemover(Request $request) {
+		if(!$request->ajax()) {
+			abort(404, 'Page not found.');
+		}
+
+		$lista = FestasLista::findOrFail($request->id);
+		$cliente = Clientes::find(session('client_id'));
+
+		if ($lista->festa->clientes_id != $cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$lista->delete();
+
+		return response()
+			->json(['total' => $lista->count() ]);
 	}
 }

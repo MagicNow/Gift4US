@@ -310,79 +310,103 @@
 /* PAGINA EMAIL */
 .lista-email{
 	margin-left:30px;
-}
-.lista-email h5{
-	font:18px 'HelveticaNeueStd_CN';
-	margin:15px 0 0;
-}
-.lista-email h5.title{
-	background:url(../images/bg-email.png) no-repeat 44px 0;
-	display:inline-block;
-	height:27px;
-	line-height:27px;
-	width:100px;
-}
-.lista-email fieldset{
-	padding:0;
-	width:550px;
-	margin:10px 0;
-}
-.lista-email fieldset.border{
-	border-bottom:2px solid #a5a8aa;
-	padding-bottom:10px;
-}
-.lista-email fieldset input.texto,.lista-email fieldset label{
-	font:16px 'HelveticaNeueStd_CN';
-	color:#a5a8aa;
-	border-bottom:2px solid #a5a8aa;
-	border-top:0;
-	border-left:0;
-	border-right:0;
-	padding:2px 0 1px;
-	margin-right:3px;
-	width:363px;
-}
-.lista-email fieldset button{
-	font:18px 'HelveticaNeueStd_CN';
-	color:#fff;
-	background:#109dd9;
-	border:none;
-	padding:2px 0;
-}
-.lista-email fieldset label{
-	border-bottom:0;
-}
-.lista-email fieldset .bgC{
-	background:#b2b5b8;
-}
-.lista-email ul{
-	list-style:none;
-	padding:0;
-}
-.lista-email ul li{
-	font:16px 'HelveticaNeueStd_CN';
-	color:#a5a8aa;
-	line-height:30px;
-}
-.lista-email ul li a{
-	width:23px;
-	height:28px;
-	background:url(../images/bg-excluir.png) no-repeat;
-	text-indent:-15000px;
-	display:inline-block;
-	position:relative;
-	z-index:22;
-}
-.lista-email fieldset.bottom div{
-	width:245px;
-	margin:auto
-}
-.lista-email fieldset.bottom label{
-	text-align:center;
-	color:#000;
-}
-.lista-email fieldset.bottom button{
-	padding:6px 0;
+
+	.form-invite {
+		&-delete {
+			margin: 0;
+			padding: 0;
+
+			&-button {
+				width:23px;
+				height:28px;
+				background:url(../images/bg-excluir.png) no-repeat;
+				text-indent:-15000px;
+				display:inline-block;
+				position:relative;
+				z-index:22;
+				border: 0 none;
+			}
+		}
+
+		&-button {
+			font: 18px 'HelveticaNeueStd_CN';
+			color: #fff;
+			background: #109dd9;
+			border: 0 none;
+			padding: 2px 0;
+		}
+	}
+
+	h5{
+		font:18px 'HelveticaNeueStd_CN';
+		margin:15px 0 0;
+
+		.title{
+			background:url(../images/bg-email.png) no-repeat 44px 0;
+			display:inline-block;
+			height:27px;
+			line-height:27px;
+			width:100px;
+		}
+	}
+	fieldset, .form-invite-list{
+		padding: 0;
+		width: 550px;
+		margin: 10px 0;
+
+		.border{
+			border-bottom:2px solid #a5a8aa;
+			padding-bottom:10px;
+		}
+
+		label{
+			border-bottom:0;
+		}
+		.bgC{
+			background:#b2b5b8;
+		}
+
+		input.texto,
+		label{
+			font:16px 'HelveticaNeueStd_CN';
+			color:#a5a8aa;
+			border-bottom:2px solid #a5a8aa;
+			border-top:0;
+			border-left:0;
+			border-right:0;
+			padding:2px 0 1px;
+			margin-right:3px;
+			width:363px;
+		}
+	}
+
+	ul{
+		list-style:none;
+		padding:0;
+
+		li{
+			font:16px 'HelveticaNeueStd_CN';
+			color:#a5a8aa;
+			line-height:30px;
+		}
+	}
+
+	fieldset {
+		&.bottom {
+			div{
+				width:245px;
+				margin:auto
+			}
+			label{
+				text-align: center;
+				color: #000;
+				border-bottom: 0 none;
+			}
+			button{
+				padding:6px 0;
+			}
+		}
+	}
 }
 /* PAGINA ENVIAR CONVITE */
 

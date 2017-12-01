@@ -43,4 +43,8 @@ class Festas extends Model {
     public function mensagem() {
         return $this->hasMany('App\Models\Mensagem');
     }
+
+    public function lista() {
+        return $this->hasMany('App\Models\FestasLista');
+    }
 }
