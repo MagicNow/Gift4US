@@ -50,7 +50,7 @@
 							<div class="col-md-6 enviar-convite-coluna">
 								<h5 class="whatsapp">Compartilhar no Whatsapp</h5>
 								<div class="row">
-									<a href="#" class="col-md-6 enviar-convite-button"><span class="button">Compartilhar convite</span></a>
+									<a href="whatsapp://send?text={{ url(Storage::url('public/birthdays/invites/' . $party->id . '.jpg')) }}" class="col-md-6 enviar-convite-button"><span class="button">Compartilhar convite</span></a>
 									<a href="whatsapp://send?text={{ route('convidado.index', $party->id) }}" class="col-md-6 enviar-convite-button"><span class="button">Compartilhar <br>link da página</span></a>
 								</div>
 							</div>
