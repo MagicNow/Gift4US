@@ -200,10 +200,12 @@ $(function() {
 	var $uploadText = $(".upload-text");
 
 	$uploadText.fileinput({
-		showUpload: false,
+		// showUpload: false,
 		showCaption: false,
 		showRemove: false,
 		allowedFileExtensions: ['txt'],
+		uploadUrl: $('.form-invite-list').attr('action'),
+		uploadAsync: true,
 		required: true,
 		msgAjaxError: 'Algo deu errado com a operação {operação}. Por favor, tente novamente mais tarde!',
 		msgAjaxProgressError: '{operation} falhou.',
@@ -219,21 +221,18 @@ $(function() {
 		},
 		msgInvalidFileExtension: 'A extensão do arquivo "{name}" não é permitida. Somente arquivos "{extensions}" são permitidos.',
 		browseLabel: 'Upload .txt',
-		buttonLabelClass: 'col-md-4 form-invite-button',
-		previewSettings: {
-			image: { width: "auto", height: "auto", 'max-width': "100%", 'max-height': "100%" }
-		},
+		buttonLabelClass: 'col-md-4 form-invite-button form-invite-button-txt',
 		layoutTemplates: {
-			btnBrowse: '<div tabindex="500" class="gifts-item-price-description-upload upload-image-button bgC text-center btn-file "{status}>{label}</div>',
+			btnBrowse: '<div tabindex="500" class="gifts-item-price-description-upload upload-image-button text-center btn-file "{status}>{label}</div>',
 			actions: '<div class="file-actions">\n' +
 				'{drag}\n' +
 				'<div class="clearfix"></div>\n' +
 			'</div>',
 		}
 	}).on("fileselect", function(event, files) {
-		// $('.upload-image-button').hide();
+		$('.form-invite-button-txt').hide();
 	}).on("fileclear", function(event, files) {
-		// $('.upload-image-button').show();
+		$('.form-invite-button-txt').show();
 	});
 
     $('.form-birthday-modal-close, .form-birthday-modal-text').on('click', function (e) {
@@ -596,6 +595,34 @@ function formAddGift() {
 				$form.remove();
 				var count = $('.form-invite-delete').length;
 				$('.form-invite-count').html(count + ' emails cadastrados');
+			}
+		});
+	});
+
+	$('.birthday-remove').on('click', function (e) {
+		e.preventDefault();
+
+		const $self = $(this);
+
+		$.confirm({
+			title: 'Tem certeza que deseja excluir o aniversário?',
+			content: '',
+			type: 'light',
+			buttons: {   
+				ok: {
+					text: "Sim",
+					btnClass: 'btn-danger',
+					keys: ['enter'],
+					action: function(){
+						$.post(baseUrl + '/api/festas/remover', { festa: $self.data('festaId')}, function (data) {
+							window.location.href = data.redirectTo;
+						});
+					}
+				},
+				cancel: {
+					text: "Não",
+					btnClass: 'btn-default'
+				}
 			}
 		});
 	});

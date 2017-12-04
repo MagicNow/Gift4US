@@ -15,6 +15,8 @@ class Festas extends Model {
 		'updated_at',
 	];
 
+	protected $softDelete = true;
+
 	public function cliente() {
 		return $this->hasOne('App\Models\Clientes');
 	}

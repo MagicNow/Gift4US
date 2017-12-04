@@ -131,6 +131,28 @@ class ApiController extends Controller {
 		]);
 	}
 
+	public function festasRemover(Request $request) {
+		if(!$request->ajax()) {
+			abort(404, 'Page not found.');
+		}
+
+		if (!session('client_id')) {
+			abort(403, 'Unauthorized action. Client not logged.');
+		}
+
+		$festa = Festas::find($request->festa);
+		$cliente = Clientes::find(session('client_id'));
+
+		if ($festa->clientes_id != $cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$festa->delete();
+
+		return response()
+			->json(['success' => true, 'redirectTo' => route('usuario.meus-aniversarios') ]);
+	}
+
 	public function listaAdicionar(StoreList $request) {
 		if(!$request->ajax()) {
 			abort(404, 'Page not found.');
@@ -139,6 +161,10 @@ class ApiController extends Controller {
 		$festa = Festas::find($request->festas_id);
 		$cliente = Clientes::find(session('client_id'));
 		$lista = $festa->lista();
+
+		if (!$cliente) {
+			abort(403, 'Unauthorized action.');
+		}
 
 		if ($festa->clientes_id != $cliente->id) {
 			abort(403, 'Unauthorized action.');

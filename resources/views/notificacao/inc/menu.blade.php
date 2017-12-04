@@ -4,11 +4,11 @@
 		<span>{{ $party->festa_dia }}/{{ $party->festa_mes }}/{{ $party->festa_ano }}</span>
 	</div>
 	<div class="row"> 
-		<a href="#" class="gifts-box-number-middle toys dados-container col-md-6">
+		<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 1 ]) }}" class="gifts-box-number-middle toys dados-container col-md-6">
 			<p class="gifts-box-number-middle-selected">Editar</p>
 		</a>
 		<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
-			<p class="gifts-box-number-middle-selected">Excluir</p>
+			<p class="gifts-box-number-middle-selected birthday-remove" data-festa-id="{{ $party->id }}">Excluir</p>
 		</a>
 	</div>
 </div>
@@ -32,11 +32,8 @@
 		<span class="pull-left">103 / 44 cotas</span>
 	</div>
 	<div class="row"> 
-		<a href="#" class="gifts-box-number-middle toys dados-container col-md-6">
+		<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-middle dados-container col-md-12">
 			<p class="gifts-box-number-middle-selected">Ver lista</p>
-		</a>
-		<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
-			<p class="gifts-box-number-middle-selected">Editar</p>
 		</a>
 	</div>
 </div>
@@ -50,11 +47,8 @@
 		</small>
 	</div>
 	<div class="row"> 
-		<a href="{{ route('notificacoes.aniversario', [ $party->id, 'modal' => 'lista-de-aniversarios' ]) }}" class="gifts-box-number-middle toys dados-container col-md-6">
+		<a href="{{ route('notificacoes.aniversario', [ $party->id, 'modal' => 'lista-de-aniversarios' ]) }}" class="gifts-box-number-middle dados-container col-md-12">
 			<p class="gifts-box-number-middle-selected">Ver lista</p>
-		</a>
-		<a href="#" class="gifts-box-number-middle toys col-md-6 dados-container">
-			<p class="gifts-box-number-middle-selected">Editar</p>
 		</a>
 	</div>
 </div>

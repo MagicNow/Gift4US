@@ -37,7 +37,6 @@
 						</fieldset>
 						<fieldset class="border col-md-12">
 							<label class="col-md-8">Já tem todos esse email digitados em um arquivo .txt?</label>
-							{{-- <button class="col-md-4 form-invite-button" type="button">Upload .txt</button> --}}
 							<input type="file" name="arquivos" class="upload-text" data-preview-file-type="text" />
 						</fieldset>
 						<ul class="col-md-12 form-invite-results">

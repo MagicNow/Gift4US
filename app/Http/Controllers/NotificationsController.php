@@ -11,6 +11,7 @@ use Illuminate\Routing\Route;
 class NotificationsController extends Controller
 {
 	private $cliente;
+	private $festa;
 	private $route;
 
 	public function __construct (Route $route) {
@@ -21,6 +22,7 @@ class NotificationsController extends Controller
 				return redirect()->route('home');
 			}
 
+			$this->festa = Festas::findOrFail($request->festa_id);
 			$this->cliente = Clientes::find(session('client_id'));
 
 			return $next($request);
@@ -29,20 +31,19 @@ class NotificationsController extends Controller
 
 	public function aniversario(Request $request, $festa_id)
 	{
-		$party = Festas::find($festa_id);
-		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
 		$porpagina = 15;
 
 		$pagina = $request->pagina ? $request->pagina : 1;
 
+		$party = $this->festa;
 		$percent = [
-			'clothes' => $this->calcClothes($party),
-			'quotas' => $this->calcQuotas($party),
-			'toys' => $this->calcToys($party)
+			'clothes' => $this->calcClothes($this->festa),
+			'quotas' => $this->calcQuotas($this->festa),
+			'toys' => $this->calcToys($this->festa)
 		];
 
-		$presencas = $party->confirmacaoPresenca();
+		$presencas = $this->festa->confirmacaoPresenca();
 		$presencasTotal = $presencas->count();
 
 		if ($request->busca && !empty($request->busca)) {
@@ -89,38 +90,38 @@ class NotificationsController extends Controller
 
 	public function conviteDigital(Request $request, $festa_id = null)
 	{
-		$party = Festas::find($festa_id);
+		$party = $this->festa;
 		$pages = $request->pages ? $request->pages : 4;
 		return view('notificacao.convite-digital', compact('party', 'pages'));
 	}
 
 	public function enviarEmail(Request $request, $festa_id = null)
 	{
-		$party = Festas::find($festa_id);
+		$party = $this->festa;
 		return view('notificacao.enviar-email', compact('party'));
 	}
 
 	public function enviarConvite(Request $request, $festa_id = null)
 	{
-		$party = Festas::find($festa_id);
+		$party = $this->festa;
 		return view('notificacao.enviar-convite', compact('party'));
 	}
 
 	public function imprimirConvite(Request $request, $festa_id = null)
 	{
-		$party = Festas::find($festa_id);
+		$party = $this->festa;
 		return view('notificacao.imprimir.convite', compact('party'));
 	}
 
 	public function imprimirListaPresentes(Request $request, $festa_id = null)
 	{
-		$party = Festas::find($festa_id);
+		$party = $this->festa;
 		return view('notificacao.imprimir.lista-presentes', compact('party'));
 	}
 
 	public function imprimirPresencas(Request $request, $festa_id = null)
 	{
-		$party = Festas::find($festa_id);
+		$party = $this->festa;
 
 		$porpagina = 48;
 		$paginas = round($party->confirmacaoPresenca->count() / $porpagina) === 0.0 ? 1 : round($party->confirmacaoPresenca->count() / $porpagina);
@@ -139,7 +140,7 @@ class NotificationsController extends Controller
 
     public function exportaRecados(Request $request, $festa_id, ScrapsExport $export)
     {
-    	$scraps = Festas::find($festa_id)->mensagem()->select('nome', 'mensagem')->get(); //->toArray();
+    	$scraps = $this->festa->mensagem()->select('nome', 'mensagem')->get(); //->toArray();
 
         // work on the export
         return $export->sheet('Recados', function($sheet) use($scraps) {

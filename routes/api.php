@@ -18,6 +18,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::post('festas/ativar', ['as' => 'festas.ativar', 'uses' => 'ApiController@festasAtivar']);
+Route::post('festas/remover', ['as' => 'festas.remover', 'uses' => 'ApiController@festasRemover']);
 Route::get('produtos', ['as' => 'produtos', 'uses' => 'ApiController@produtos']);
 Route::post('presentes/adicionar', ['as' => 'presentes.adicionar', 'uses' => 'ApiController@presentesAdicionar']);
 Route::post('presentes/remover', ['as' => 'presentes.remover', 'uses' => 'ApiController@presentesRemover']);
