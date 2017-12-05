@@ -160,7 +160,7 @@ class ApiController extends Controller {
 
 		$festa = Festas::find($request->festas_id);
 		$cliente = Clientes::find(session('client_id'));
-		$lista = $festa->lista();
+		$retorno = [];
 
 		if (!$cliente) {
 			abort(403, 'Unauthorized action.');
@@ -170,10 +170,10 @@ class ApiController extends Controller {
 			abort(403, 'Unauthorized action.');
 		}
 
-		$email = $lista->create($request->all());
+		$retorno[] = $festa->lista()->firstOrCreate($request->all());
 
 		return response()
-			->json(['id' => $email->id, 'email' => $request->email, 'total' => $lista->count() ]);
+			->json(['lista' => $retorno, 'total' => $festa->lista()->count() ]);
 	}
 
 	public function listaRemover(Request $request) {
@@ -192,5 +192,37 @@ class ApiController extends Controller {
 
 		return response()
 			->json(['total' => $lista->count() ]);
+	}
+
+	public function listaImportar(Request $request) {
+		if(!$request->ajax()) {
+			abort(404, 'Page not found.');
+		}
+
+		$festa = Festas::find($request->festas_id);
+		$cliente = Clientes::find(session('client_id'));
+		$retorno = [];
+
+		if (!$cliente) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		if ($festa->clientes_id != $cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		if (empty($request->file('arquivos'))) {
+			abort(400, 'Nenhum arquivo foi enviado.');
+		}
+
+		$content = \File::get($request->file('arquivos'));
+		foreach (explode("\n", $content) as $key => $email){
+			$retorno[] = $festa->lista()->firstOrCreate([
+				'email' => $email
+			])->toArray();
+		}
+
+		return response()
+			->json(['lista' => $retorno, 'total' => $festa->lista()->count() ]);
 	}
 }

@@ -35,10 +35,10 @@
 							<label class="col-md-8">Quer adicionar algum email que esteja em uma lista antiga?</label>
 							<button class="col-md-4 bgC form-invite-button" type="button">E-mail lista antiga</button>
 						</fieldset>
-						<fieldset class="border col-md-12">
+						<form action="{{ url('api/lista/importar') }}" method="post" class="border col-md-12 form-invite-upload">
 							<label class="col-md-8">Já tem todos esse email digitados em um arquivo .txt?</label>
-							<input type="file" name="arquivos" class="upload-text" data-preview-file-type="text" />
-						</fieldset>
+							<input type="file" name="arquivos" class="upload-text" data-festa-id="{{ $party->id }}" data-preview-file-type="text" />
+						</form>
 						<ul class="col-md-12 form-invite-results">
 							@if ($party->lista->count() > 0)
 								@foreach($party->lista as $email)

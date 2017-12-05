@@ -25,4 +25,5 @@ Route::post('presentes/remover', ['as' => 'presentes.remover', 'uses' => 'ApiCon
 Route::post('presentes/reservar', ['as' => 'presentes.reservar', 'uses' => 'ApiController@presentesReservar']);
 Route::post('categorias/adicionar', ['as' => 'categorias.adicionar', 'uses' => 'ApiController@categoriasAdicionar']);
 Route::post('lista/adicionar', ['as' => 'lista.adicionar', 'uses' => 'ApiController@listaAdicionar']);
+Route::post('lista/importar', ['as' => 'lista.importar', 'uses' => 'ApiController@listaImportar']);
 Route::delete('lista/remover', ['as' => 'lista.remover', 'uses' => 'ApiController@listaRemover']);

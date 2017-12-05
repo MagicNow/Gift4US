@@ -200,11 +200,16 @@ $(function() {
 	var $uploadText = $(".upload-text");
 
 	$uploadText.fileinput({
-		// showUpload: false,
+		showUpload: true,
 		showCaption: false,
-		showRemove: false,
+		showRemove: true,
+		showPreview: false,
+		showCancel: false,
 		allowedFileExtensions: ['txt'],
-		uploadUrl: $('.form-invite-list').attr('action'),
+		uploadExtraData: { festas_id: $uploadText.data('festaId') },
+		uploadClass: 'btn btn-default col-md-2 enviar-convite-upload',
+		removeClass: 'btn btn-default col-md-2 enviar-convite-upload',
+		uploadUrl: $('.form-invite-upload').attr('action'),
 		uploadAsync: true,
 		required: true,
 		msgAjaxError: 'Algo deu errado com a operação {operação}. Por favor, tente novamente mais tarde!',
@@ -228,11 +233,27 @@ $(function() {
 				'{drag}\n' +
 				'<div class="clearfix"></div>\n' +
 			'</div>',
+			progress: '',
 		}
 	}).on("fileselect", function(event, files) {
 		$('.form-invite-button-txt').hide();
 	}).on("fileclear", function(event, files) {
 		$('.form-invite-button-txt').show();
+	}).on('fileuploaded', function(event, data, previewId, index) {
+		var list = data.response.lista;
+		for (i = 0; i < list.length; i++) {
+			console.log(list[i].email);
+			var $item = $('.form-invite-results-item').first().clone();
+			$item.removeClass('hidden');
+			$item.find('.form-invite-fields-email').text(list[i].email);
+			$item.find('.form-invite-fields-id').val(list[i].id);
+			$item.appendTo('.form-invite-results');
+		}
+
+
+		// $uploadText.fileinput('reset');
+
+		// $('.form-invite-button-txt').show();
 	});
 
     $('.form-birthday-modal-close, .form-birthday-modal-text').on('click', function (e) {
@@ -567,11 +588,15 @@ function formAddGift() {
 			data: $form.serialize(),
 			dataType: 'json',
 			success: function (data) {
-				var $item = $('.form-invite-results-item').first().clone();
-				$item.removeClass('hidden');
-				$item.find('.form-invite-fields-email').text(data.email);
-				$item.find('.form-invite-fields-id').val(data.id);
-				$item.appendTo('.form-invite-results');
+				var list = data.lista;
+				for (i = 0; i < list.length; i++) {
+					console.log(list[i].email);
+					var $item = $('.form-invite-results-item').first().clone();
+					$item.removeClass('hidden');
+					$item.find('.form-invite-fields-email').text(list[i].email);
+					$item.find('.form-invite-fields-id').val(list[i].id);
+					$item.appendTo('.form-invite-results');
+				}
 
 				$('.form-invite-count').html(data.total +' emails cadastrados');
 			},

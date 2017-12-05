@@ -354,7 +354,9 @@
 			width:100px;
 		}
 	}
-	fieldset, .form-invite-list{
+	fieldset,
+	.form-invite-list,
+	.form-invite-upload{
 		padding: 0;
 		width: 550px;
 		margin: 10px 0;
@@ -481,6 +483,10 @@
 	.pull-left,.enviar-convite .pull-right{
 		width: 131px;
 		text-align:center;
+	}
+
+	&-upload {
+		padding: 4px 0 0;
 	}
 }
 
