@@ -33,6 +33,8 @@ class InviteSend extends Mailable
     {
         $festa = $this->festa->id;
         return $this->view('emails.invite.send')
-                    ->with('festa');
+                    ->with([
+                        'festa' => $festa
+                    ]);
     }
 }
