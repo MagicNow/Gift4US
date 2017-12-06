@@ -590,7 +590,6 @@ function formAddGift() {
 			success: function (data) {
 				var list = data.lista;
 				for (i = 0; i < list.length; i++) {
-					console.log(list[i].email);
 					var $item = $('.form-invite-results-item').first().clone();
 					$item.removeClass('hidden');
 					$item.find('.form-invite-fields-email').text(list[i].email);
@@ -599,6 +598,7 @@ function formAddGift() {
 				}
 
 				$('.form-invite-count').html(data.total +' emails cadastrados');
+				$('.form-invite-email').val('');
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				var response = JSON.parse(xhr.responseText);
@@ -649,6 +649,44 @@ function formAddGift() {
 					btnClass: 'btn-default'
 				}
 			}
+		});
+	});
+
+	$('#inviteList').on('show.bs.modal', function (event) {
+		const $button = $(event.relatedTarget); // Button that triggered the modal
+		const list = $button.data('festas-lista');
+		const party = $button.data('festas-id');
+		const $modal = $(this);
+		const $body = $modal.find('.invite-list-body');
+
+		$.post(baseUrl + '/api/lista/antigas', { lista: list }, function (data) {
+			$body.html('');
+
+			for (var i = 0; i < data.festas.length; i++) {
+				$body.append('<tr><td>' + data.festas[i].nome + '</td>' +
+								'<td>' + data.festas[i].festa_dia + '/' + data.festas[i].festa_mes + '/' + data.festas[i].festa_ano + '</td>' +
+								'<td><button type="button" title="Importar" data-lista="' + data.festas[i].id + '" data-id="' + party + '" class="btn btn-default form-invite-modal-import"><i class="glyphicon glyphicon-upload"></i></button></td>' +
+							'</tr>');
+			}
+		});
+	}).on('click', '.form-invite-modal-import', function (e) {
+		e.preventDefault();
+
+		const $self = $(this);
+
+		$.post(baseUrl + '/api/lista/antigas/importar', { lista: $self.data('lista'), festas_id: $self.data('id') }, function (data) {
+			var list = data.lista;
+			for (i = 0; i < list.length; i++) {
+				var $item = $('.form-invite-results-item').first().clone();
+				$item.removeClass('hidden');
+				$item.find('.form-invite-fields-email').text(list[i].email);
+				$item.find('.form-invite-fields-id').val(list[i].id);
+				$item.appendTo('.form-invite-results');
+			}
+
+			$('.form-invite-count').html(data.total +' emails cadastrados');
+			$('.form-invite-email').val('');
+			$('#inviteList').modal('toggle');
 		});
 	});
 }

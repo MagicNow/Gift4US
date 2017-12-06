@@ -26,4 +26,6 @@ Route::post('presentes/reservar', ['as' => 'presentes.reservar', 'uses' => 'ApiC
 Route::post('categorias/adicionar', ['as' => 'categorias.adicionar', 'uses' => 'ApiController@categoriasAdicionar']);
 Route::post('lista/adicionar', ['as' => 'lista.adicionar', 'uses' => 'ApiController@listaAdicionar']);
 Route::post('lista/importar', ['as' => 'lista.importar', 'uses' => 'ApiController@listaImportar']);
+Route::post('lista/antigas/importar', ['as' => 'lista.antigas.importar', 'uses' => 'ApiController@listaAntigaImportar']);
+Route::post('lista/antigas', ['as' => 'lista.antigas', 'uses' => 'ApiController@listaAntiga']);
 Route::delete('lista/remover', ['as' => 'lista.remover', 'uses' => 'ApiController@listaRemover']);

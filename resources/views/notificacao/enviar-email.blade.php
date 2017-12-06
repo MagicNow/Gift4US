@@ -28,12 +28,16 @@
 						<h5>Adicionar emails</h5>
 						<form action="{{ url('api/lista/adicionar') }}" method="post" class="col-md-12 form-invite-list">
 							<input type="hidden" name="festas_id" value="{{ $party->id }}">
-							<input class="texto col-md-8" type="text" name="email" placeholder="escreva aqui o e-mail do convidado" />
+							<input class="texto col-md-8 form-invite-email" type="text" name="email" placeholder="escreva aqui o e-mail do convidado" />
 							<button class="col-md-4 adicionar-email form-invite-button" type="submit">Adicionar</button>
 						</form>
 						<fieldset class="col-md-12">
 							<label class="col-md-8">Quer adicionar algum email que esteja em uma lista antiga?</label>
-							<button class="col-md-4 bgC form-invite-button" type="button">E-mail lista antiga</button>
+							@if (count($partyLists) > 0)
+								<button class="col-md-4 form-invite-button form-invite-old-list" type="button" data-festas-lista="{{ implode(',', $partyLists) }}" data-festas-id="{{ $party->id }}" data-toggle="modal" data-target="#inviteList">E-mail lista antiga</button>
+							@else
+								<button class="col-md-4 bgC form-invite-button" disabled type="button">E-mail lista antiga</button>
+							@endif
 						</fieldset>
 						<form action="{{ url('api/lista/importar') }}" method="post" class="border col-md-12 form-invite-upload">
 							<label class="col-md-8">Já tem todos esse email digitados em um arquivo .txt?</label>
@@ -68,6 +72,30 @@
 						</fieldset>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="inviteList" tabindex="-1" role="dialog" aria-labelledby="inviteListLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="inviteListLabel">E-mail lista antiga</h4>
+				</div>
+				<table class="modal-body table table-responsive table-striped">
+					<thead>
+						<tr>
+							<td>Aniversariante</td>
+							<td>Data da festa</td>
+							<td>Ações</td>
+						</tr>
+					</thead>
+					<tbody class="invite-list-body">
+						<tr>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>

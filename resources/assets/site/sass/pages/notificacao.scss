@@ -338,6 +338,11 @@
 			&-txt {
 				width: 100%;
 				border-radius: 4px;
+				cursor: pointer;
+
+				~ input {
+					cursor: pointer;
+				}
 			}
 		}
 	}
@@ -683,6 +688,10 @@
 	padding:7px 0 4px !important;
 }
 .detalhes-festa a.toys p{
-  font-size:16px;
-  margin-bottom:0!important;
+	font-size:16px;
+	margin-bottom:0!important;
+}
+
+#inviteList {
+	font-size: 14px;
 }

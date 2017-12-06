@@ -225,4 +225,46 @@ class ApiController extends Controller {
 		return response()
 			->json(['lista' => $retorno, 'total' => $festa->lista()->count() ]);
 	}
+
+	public function listaAntiga(Request $request) {
+		if(!$request->ajax()) {
+			abort(404, 'Page not found.');
+		}
+
+		$cliente = Clientes::find(session('client_id'));
+
+		if (!$cliente) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$lista = explode(',', $request->lista);
+		$festas = Festas::whereIn('id', $lista)->get();
+
+		return response()
+			->json(['festas' => $festas ]);
+	}
+
+	public function listaAntigaImportar (Request $request) {
+		$listaImportar = Festas::findOrFail($request->lista);
+		$festa = Festas::findOrFail($request->festas_id);
+		$cliente = Clientes::find(session('client_id'));
+		$retorno = [];
+
+		if (!$cliente) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		if ($listaImportar->clientes_id != $cliente->id || $festa->clientes_id != $cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		foreach ($listaImportar->lista as $key => $item){
+			$retorno[] = $festa->lista()->firstOrCreate([
+				'email' => $item->email
+			])->toArray();
+		}
+
+		return response()
+			->json(['lista' => $retorno, 'total' => $festa->lista()->count() ]);
+	}
 }

@@ -25,7 +25,7 @@ class StoreList extends FormRequest
     public static function rules(Request $request)
     {
         return [
-            'email' => 'required|email|unique:festas_listas,email,' . $request->festas_id
+            'email' => 'required|email|unique:festas_listas,festas_id'
         ];
     }
 }

@@ -97,8 +97,20 @@ class NotificationsController extends Controller
 
 	public function enviarEmail(Request $request, $festa_id = null)
 	{
+		$lists = $this->cliente->festas()
+					->whereNotIn('id', [ $festa_id ])
+					->with('lista')
+					->get();
+		$partyLists = [];
+
+		foreach ($lists as $list) {
+			if ($list->lista->count() > 0) {
+				$partyLists[] = $list->id;
+			}
+		}
+
 		$party = $this->festa;
-		return view('notificacao.enviar-email', compact('party'));
+		return view('notificacao.enviar-email', compact('party', 'partyLists'));
 	}
 
 	public function enviarConvite(Request $request, $festa_id = null)
