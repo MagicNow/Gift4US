@@ -9,7 +9,7 @@
 	<table cellspacing="0" width="562" cellpadding="0" border="0" style="text-align: center; margin: 0 auto; display: block;">
 		<tr>
 			<td align="center">
-				<img src="{{ Storage::url('public/birthdays/invites/' . $festa . '.jpg') }}" />
+				<img src="{{ url(Storage::url('public/birthdays/invites/' . $festa . '.jpg')) }}" />
 			</td>
 		</tr>
 	</table>
