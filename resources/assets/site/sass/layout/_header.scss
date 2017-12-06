@@ -78,3 +78,21 @@ header{
 
 	}
 }
+@media only screen and (max-width : 640px) {
+    header .navbar.navbar-default .navbar-collapse .navbar-nav{
+	    width: 100%;
+        background: url('../images/bg_menu.jpg');
+    }
+    header .navbar{
+		padding: 0;
+	}
+	header .navbar.navbar-default .navbar-collapse {
+		padding: 0;
+	}
+	header .navbar.navbar-default .navbar-collapse .navbar-nav li.divisor {
+        border-right: none;
+    }
+	header .navbar.navbar-default .navbar-collapse .navbar-nav li a{
+		padding: 15px;
+	}
+}

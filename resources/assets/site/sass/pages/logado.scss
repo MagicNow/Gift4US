@@ -300,6 +300,24 @@ input {
 		margin-top: 52px;
 	}
 }
+@media only screen and (max-width : 640px) {
+    .dashboard .container .presentinho img {
+        width:100%;
+    }
+	.usuario-ajax:after{
+		display: none;
+	}
+	.usuario-ajax-content {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+	.my-birthday {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+}
 
 @media only screen and (min-width : 481px) {
 	.flex-row.row {
