@@ -240,20 +240,7 @@ $(function() {
 	}).on("fileclear", function(event, files) {
 		$('.form-invite-button-txt').show();
 	}).on('fileuploaded', function(event, data, previewId, index) {
-		var list = data.response.lista;
-		for (i = 0; i < list.length; i++) {
-			console.log(list[i].email);
-			var $item = $('.form-invite-results-item').first().clone();
-			$item.removeClass('hidden');
-			$item.find('.form-invite-fields-email').text(list[i].email);
-			$item.find('.form-invite-fields-id').val(list[i].id);
-			$item.appendTo('.form-invite-results');
-		}
-
-
-		// $uploadText.fileinput('reset');
-
-		// $('.form-invite-button-txt').show();
+		populateEmailsList(data);
 	});
 
     $('.form-birthday-modal-close, .form-birthday-modal-text').on('click', function (e) {
@@ -675,17 +662,7 @@ function formAddGift() {
 		const $self = $(this);
 
 		$.post(baseUrl + '/api/lista/antigas/importar', { lista: $self.data('lista'), festas_id: $self.data('id') }, function (data) {
-			var list = data.lista;
-			for (i = 0; i < list.length; i++) {
-				var $item = $('.form-invite-results-item').first().clone();
-				$item.removeClass('hidden');
-				$item.find('.form-invite-fields-email').text(list[i].email);
-				$item.find('.form-invite-fields-id').val(list[i].id);
-				$item.appendTo('.form-invite-results');
-			}
-
-			$('.form-invite-count').html(data.total +' emails cadastrados');
-			$('.form-invite-email').val('');
+			populateEmailsList(data);
 			$('#inviteList').modal('toggle');
 		});
 	});
@@ -694,3 +671,18 @@ function formAddGift() {
 new Clipboard('.copy-button');
 
 formAddGift();
+
+function populateEmailsList(data) {
+	var list = data.lista;
+
+	for (i = 0; i < list.length; i++) {
+		var $item = $('.form-invite-results-item').first().clone();
+		$item.removeClass('hidden');
+		$item.find('.form-invite-fields-email').text(list[i].email);
+		$item.find('.form-invite-fields-id').val(list[i].id);
+		$item.appendTo('.form-invite-results');
+	}
+
+	$('.form-invite-count').html(data.total +' emails cadastrados');
+	$('.form-invite-email').val('');
+}

@@ -73,6 +73,8 @@ Route::group(['prefix' => 'notificacoes/{festa_id}'], function() {
 		Route::get('lista-presentes', ['as'=> 'notificacoes.imprimir.listaPresentes', 'uses' => 'NotificationsController@imprimirListaPresentes']);
 		Route::get('presencas-confirmadas', ['as'=> 'notificacoes.imprimir.presencas', 'uses' => 'NotificationsController@imprimirPresencas']);
 	});
+
+	Route::get('submeter-emails', ['as'=> 'notificacoes.submeter', 'uses' => 'NotificationsController@submeterEmails']);
 });
 
 Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {

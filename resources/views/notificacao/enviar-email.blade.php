@@ -67,7 +67,7 @@
 						<fieldset class="bottom col-md-12">
 							<div>
 								<label class="col-md-12 form-invite-count">{{ $party->lista->count() }} emails cadastrados</label>
-								<button class="col-md-12 form-invite-button" type="button">Enviar</button>
+								<a href="{{ route('notificacoes.submeter', $party->id) }}" class="col-md-12 form-invite-button btn">Enviar</a>
 							</div>
 						</fieldset>
 					</div>

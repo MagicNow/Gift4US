@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Festas;
 use App\Models\Clientes;
-use Illuminate\Http\Request;
 use App\Http\Requests\ScrapsExport;
-use Illuminate\Routing\Route;
+use Illuminate\Http\Request;
+use App\Mail\InviteSend;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class NotificationsController extends Controller
 {
@@ -14,7 +16,7 @@ class NotificationsController extends Controller
 	private $festa;
 	private $route;
 
-	public function __construct (Route $route) {
+	public function __construct (\Illuminate\Routing\Route $route) {
 		$this->route = $route;
 
 		$this->middleware(function ($request, $next) {
@@ -159,5 +161,20 @@ class NotificationsController extends Controller
 			$sheet->fromArray($scraps);
 			$sheet->freezeFirstRow();
         })->export('xls');
+    }
+
+    public function submeterEmails(Request $request, $festa_id) {
+    	$festa = Festas::findOrFail($festa_id);
+		$user = session('client_id');
+
+		if ($festa->clientes_id != $user) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		foreach ($festa->lista as $key => $email) {
+			Mail::to($email->email)->send(new InviteSend($festa));
+		}
+
+		return redirect()->route('notificacoes.aniversario', $festa_id);
     }
 }
