@@ -22,7 +22,7 @@
 		<script src="{{ asset('assets/home/js/html5shiv.js?crc=4241844378') }}" type="text/javascript"></script>
 		<![endif]-->
 		<!--HTML Widget code-->
-		<style type="text/css">.teste{zoom:50%;}.foop {transition: all 500ms;}body {opacity: 1;margin-left: 0;transition: all 500ms;transition-timing-function: linear;}#u9576 {top: -4300px;}html {overflow: auto !important;} </style>
+		<style type="text/css">.foop {transition: all 500ms;}body {opacity: 1;margin-left: 0;transition: all 500ms;transition-timing-function: linear;}#u9576 {top: -4300px;}html {overflow: auto !important;} </style>
 	
 	</head>
 
@@ -389,7 +389,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="teste">
+				
 					<div class="clip_frame grpelem" id="u8764">
 						<!-- svg -->
 						<img class="svg" id="u8765" src="{{ asset('assets/home/images/svg-colado-166951x162.svg?crc=288915161') }}" width="77" height="75" alt="" data-mu-svgfallback="{{ asset('assets/home/images/svg%20colado%20166951x162_poster_.png?crc=4047886553') }}"/>
