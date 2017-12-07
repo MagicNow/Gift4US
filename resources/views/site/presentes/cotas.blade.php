@@ -54,7 +54,7 @@
 						<span>Parabéns! Você está perto de finalizar sua lista de cotas!</span>
 						<p>
 							<img src="{{ asset('assets/site/images/presentinho-icone.png') }}">
-							<small class="gifts-box-number-header-total">99</small> selecionados
+							<small class="gifts-box-number-header-total">{{ count($selected) }}</small> selecionados
 						</p>
 						<div class="gifts-box-number-footer dados-container">
 							<a class="gifts-box-number-submit col-md-12" href="#">Concluir Lista</a>

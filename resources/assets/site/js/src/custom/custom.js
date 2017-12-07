@@ -260,7 +260,7 @@ $(function() {
 		var $list = $self.parents('.gifts-list');
 		var $item = $self.parents('.gifts-item');
     	var $total = $('.gifts-box-number-header-total');
-    	var total = parseInt($total.text()) + 1;
+    	var total = parseInt($total[0].innerHTML, 10) + 1;
 
     	$item.addClass('selected');
     	$total.text(total);
@@ -304,7 +304,7 @@ $(function() {
 
 		var $list = $('.gifts-list');
 		var $total = $('.gifts-box-number-header-total');
-		var total = parseInt($total.text()) - 1;
+		var total = parseInt($total[0].innerHTML) - 1;
 
 		$activeGift.removeClass('selected');
 		$total.text(total);

@@ -18,7 +18,7 @@
 			<p class="gifts-modal-subtitle">Parabéns! Você está perto de finalizar sua lista de brinquedos!</p>
 			<p class="gifts-modal-subtitle">
 				<img src="{{ asset('assets/site/images/presentinho-icone.png') }}">
-				<small class="gifts-box-number-header-total">99</small> selecionados
+				<small class="gifts-box-number-header-total">{{ count($selected) }}</small> selecionados
 			</p>
 			<div class="gifts-modal-buttons">
 				<a class="gifts-box-number-submit col-md-12" href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}">Concluir Lista</a>
