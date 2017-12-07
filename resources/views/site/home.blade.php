@@ -23,10 +23,8 @@
 		<![endif]-->
 		<!--HTML Widget code-->
 		<style type="text/css">.foop {transition: all 500ms;}body {opacity: 1;margin-left: 0;transition: all 500ms;transition-timing-function: linear;}#u9576 {top: -4300px;}html {overflow: auto !important;} </style>
-
 	</head>
 	<body>
-		   
 		<!--HTML Widget code-->
 		<div class="clearfix" id="page">
 			<!-- column -->
@@ -96,7 +94,9 @@
 								<!-- horizontal box -->
 								<div class="MenuItemLabel NoWrap clearfix grpelem" id="u3866-4">
 									<!-- content -->
-									<a href="{{ url('/#convidado_aniversariante') }}" target="_self"><p>login</p></a>
+									<a href="{{ url('/#convidado_aniversariante') }}" target="_self">
+										<p>login</p>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -110,26 +110,22 @@
 								<div onclick="javascript:document.getElementById('u3964').focus();" class="MenuItemLabel NoWrap clearfix grpelem" id="u3916-4">
 									<!-- content -->
 									<p>aniversário</p>
-				
-									
-				   <div id="u3958">
-						<!-- simple frame -->
-					</div>
-					<div id="u3961">
-						<!-- simple frame -->
-					</div>
-					<div id="u3967">
-						<!-- simple frame -->
-					</div>
-				
-					
-						<input type="text" class="rounded-corners" id="u3964" >
-				
+									<div id="u3958">
+										<!-- simple frame -->
+									</div>
+									<div id="u3961">
+										<!-- simple frame -->
+									</div>
+									<div id="u3967">
+										<!-- simple frame -->
+									</div>
+									<form method="post" action="{{ route('convidado.login') }}">
+										<input type="text" class="rounded-corners" name="name" id="u3964" >
+									</form>
 								</div>
 							</div>
 						</div>
 					</nav>
-			
 					<div class="clip_frame ose_pre_init" id="u4816">
 						<!-- svg -->
 						<img class="svg" id="u4814" src="{{ asset('assets/home/images/svg-colado-123x125.svg?crc=97497752') }}" width="35" height="36" alt="" data-mu-svgfallback="{{ asset('assets/home/images/svg%20colado%20123x125_poster_.png?crc=4221097519') }}"/>
@@ -237,18 +233,18 @@
 					<!-- /m_editable -->
 					<form method="post" action="{{ route('convidado.login') }}">
 						@if (session('convidado'))
-							<div class="form-login-message">
-								{{ session('convidado') }}
-							</div>
+						<div class="form-login-message">
+							{{ session('convidado') }}
+						</div>
 						@endif
 						<input type="text" name="name" id="u9186" class="clearfix grpelem index-input" required>
 					</form>
 					<div class="clearfix grpelem" id="u9630">
 						<form method="post" action="{{ route('usuario.login') }}" class="clearfix colelem" id="pu9606">
 							@if (session('status'))
-								<div class="form-login-message">
-									{{ session('status') }}
-								</div>
+							<div class="form-login-message">
+								{{ session('status') }}
+							</div>
 							@endif
 							<!-- group -->
 							<div class="clearfix grpelem" id="u9606">
@@ -256,7 +252,6 @@
 								<input type="text" name="email" class="colelem form-login-input" id="u9597" placeholder="insira seu email:" required>
 								<input type="password" name="senha" class="colelem form-login-input" id="u9600" placeholder="insira a senha:" required>
 							</div>
-						
 							<div class="clearfix colelem" id="u9609">
 								<!-- group -->
 								<div class="clearfix grpelem" id="u9216">
@@ -746,71 +741,102 @@
 		<script src="{{ asset('assets/home/js/require.js?crc=244322403') }}" type="text/javascript" async data-main="{{ asset('assets/home/js/museconfig.js?crc=36584860') }}" onload="if (requirejs) requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
 		<!--HTML Widget code-->
 		<script type="text/javascript">
-			$(window).load(function(){
-			var ef = 1;
-			if (ef === 1) {
-			(function() {
-			var delay = false;
-			$(document).on('mousewheel DOMMouseScroll', function(event) {
-			event.preventDefault();
-			if(delay) return;
-			delay = true;
-			setTimeout(function(){delay = false},500)
-			var wd = event.originalEvent.wheelDelta || -event.originalEvent.detail;
-			var XZ = "ALL";
-			var a = $("a:not([href])").not(XZ.replace(/\b(?=\w)/g, '#'));
-			if(wd < 0) {
-			for(var i = 0 ; i < a.length ; i++) {
-			var t = a[i].getClientRects()[0].top;
-			if(t >= 70) break;}}else {
-			for(var i = a.length-1 ; i >= 0 ; i--) {
-			var t = a[i].getClientRects()[0].top;
-			if(t < -70) break;}}
-			var time = 500; 
-			var qooqee = 'easeInQuad';
-			$("html, body").animate({ scrollTop: $(a[i]).offset().top }, time, qooqee );});})();}}); 
-			$(window).load(function(){
-			var ef = 1;
-			if (ef === 2) {
-			(function() {
-			$(document).on('mousewheel DOMMouseScroll', function(event) {
-			var XZ = "";
-			var a = $("a:not([href])").not(XZ.replace(/\b(?=\w)/g, '.')); 
-			var x=$(a[a.length-1]).offset();
-			var m = (x.top) + 10;
-			var fo= $(window).scrollTop();
-			fo = fo+500;
-			var dox=$(a[0]).offset();
-			var dom = (dox.top) + 200;
-			var dofo= $(window).scrollTop();
-			if (dofo < dom){
-			if(event.originalEvent.deltaY < 0) {
-			event.preventDefault();
-			return;}   }
-			if( fo > m ) {
-			if(event.originalEvent.deltaY > 0) {
-			event.preventDefault();
-			return; } }
-			$("body").css("opacity","0");
-			var timing = 500+550; 
-			var fnz = 500+450; 
-			setTimeout(function(){ 
-			$("body").css("opacity","1");
-			}, timing);
-			var wd = event.originalEvent.wheelDelta || -event.originalEvent.detail;
-			var XZ = "ALL";
-			var a = $("a:not([href])").not(XZ.replace(/\b(?=\w)/g, '#'));
-			if(wd < 0) {
-			for(var i = 0 ; i < a.length ; i++) {
-			var t = a[i].getClientRects()[0].top;
-			if(t >= 70) break;}}else {
-			for(var i = a.length-1 ; i >= 0 ; i--) {
-			var t = a[i].getClientRects()[0].top;
-			if(t < -70) break;}}
-			setTimeout(function(){  
-			$("html, body").animate({ scrollTop: $(a[i]).offset().top }, 0 );}, fnz);});})();;}});
+			$(window).load(function() {
+			    var ef = 1;
+			    if (ef === 1) {
+			        (function() {
+			            var delay = false;
+			            $(document).on('mousewheel DOMMouseScroll', function(event) {
+			                event.preventDefault();
+			                if (delay) return;
+			                delay = true;
+			                setTimeout(function() {
+			                    delay = false
+			                }, 500)
+			                var wd = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+			                var XZ = "ALL";
+			                var a = $("a:not([href])").not(XZ.replace(/\b(?=\w)/g, '#'));
+			                if (wd < 0) {
+			                    for (var i = 0; i < a.length; i++) {
+			                        var t = a[i].getClientRects()[0].top;
+			                        if (t >= 70) break;
+			                    }
+			                } else {
+			                    for (var i = a.length - 1; i >= 0; i--) {
+			                        var t = a[i].getClientRects()[0].top;
+			                        if (t < -70) break;
+			                    }
+			                }
+			                var time = 500;
+			                var qooqee = 'easeInQuad';
+			                $("html, body").animate({
+			                    scrollTop: $(a[i]).offset().top
+			                }, time, qooqee);
+			            });
+			        })();
+			    }
+			});
+			$(window).load(function() {
+			    var ef = 1;
+			    if (ef === 2) {
+			        (function() {
+			            $(document).on('mousewheel DOMMouseScroll', function(event) {
+			                var XZ = "";
+			                var a = $("a:not([href])").not(XZ.replace(/\b(?=\w)/g, '.'));
+			                var x = $(a[a.length - 1]).offset();
+			                var m = (x.top) + 10;
+			                var fo = $(window).scrollTop();
+			                fo = fo + 500;
+			                var dox = $(a[0]).offset();
+			                var dom = (dox.top) + 200;
+			                var dofo = $(window).scrollTop();
+			                if (dofo < dom) {
+			                    if (event.originalEvent.deltaY < 0) {
+			                        event.preventDefault();
+			                        return;
+			                    }
+			                }
+			                if (fo > m) {
+			                    if (event.originalEvent.deltaY > 0) {
+			                        event.preventDefault();
+			                        return;
+			                    }
+			                }
+			                $("body").css("opacity", "0");
+			                var timing = 500 + 550;
+			                var fnz = 500 + 450;
+			                setTimeout(function() {
+			                    $("body").css("opacity", "1");
+			                }, timing);
+			                var wd = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+			                var XZ = "ALL";
+			                var a = $("a:not([href])").not(XZ.replace(/\b(?=\w)/g, '#'));
+			                if (wd < 0) {
+			                    for (var i = 0; i < a.length; i++) {
+			                        var t = a[i].getClientRects()[0].top;
+			                        if (t >= 70) break;
+			                    }
+			                } else {
+			                    for (var i = a.length - 1; i >= 0; i--) {
+			                        var t = a[i].getClientRects()[0].top;
+			                        if (t < -70) break;
+			                    }
+			                }
+			                setTimeout(function() {
+			                    $("html, body").animate({
+			                        scrollTop: $(a[i]).offset().top
+			                    }, 0);
+			                }, fnz);
+			            });
+			        })();;
+			    }
+			});
+
 			jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeOutQuad",swing:function(e,f,a,h,g){return jQuery.easing[jQuery.easing.def](e,f,a,h,g)},easeInQuad:function(e,f,a,h,g){return h*(f/=g)*f+a},easeOutQuad:function(e,f,a,h,g){return -h*(f/=g)*(f-2)+a},easeInOutQuad:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f+a}return -h/2*((--f)*(f-2)-1)+a},easeInCubic:function(e,f,a,h,g){return h*(f/=g)*f*f+a},easeOutCubic:function(e,f,a,h,g){return h*((f=f/g-1)*f*f+1)+a},easeInOutCubic:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f+a}return h/2*((f-=2)*f*f+2)+a},easeInQuart:function(e,f,a,h,g){return h*(f/=g)*f*f*f+a},easeOutQuart:function(e,f,a,h,g){return -h*((f=f/g-1)*f*f*f-1)+a},easeInOutQuart:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f+a}return -h/2*((f-=2)*f*f*f-2)+a},easeInQuint:function(e,f,a,h,g){return h*(f/=g)*f*f*f*f+a},easeOutQuint:function(e,f,a,h,g){return h*((f=f/g-1)*f*f*f*f+1)+a},easeInOutQuint:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f*f+a}return h/2*((f-=2)*f*f*f*f+2)+a},easeInSine:function(e,f,a,h,g){return -h*Math.cos(f/g*(Math.PI/2))+h+a},easeOutSine:function(e,f,a,h,g){return h*Math.sin(f/g*(Math.PI/2))+a},easeInOutSine:function(e,f,a,h,g){return -h/2*(Math.cos(Math.PI*f/g)-1)+a},easeInExpo:function(e,f,a,h,g){return(f==0)?a:h*Math.pow(2,10*(f/g-1))+a},easeOutExpo:function(e,f,a,h,g){return(f==g)?a+h:h*(-Math.pow(2,-10*f/g)+1)+a},easeInOutExpo:function(e,f,a,h,g){if(f==0){return a}if(f==g){return a+h}if((f/=g/2)<1){return h/2*Math.pow(2,10*(f-1))+a}return h/2*(-Math.pow(2,-10*--f)+2)+a},easeInCirc:function(e,f,a,h,g){return -h*(Math.sqrt(1-(f/=g)*f)-1)+a},easeOutCirc:function(e,f,a,h,g){return h*Math.sqrt(1-(f=f/g-1)*f)+a},easeInOutCirc:function(e,f,a,h,g){if((f/=g/2)<1){return -h/2*(Math.sqrt(1-f*f)-1)+a}return h/2*(Math.sqrt(1-(f-=2)*f)+1)+a},easeInElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return -(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e},easeOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return g*Math.pow(2,-10*h)*Math.sin((h*k-i)*(2*Math.PI)/j)+l+e},easeInOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k/2)==2){return e+l}if(!j){j=k*(0.3*1.5)}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}if(h<1){return -0.5*(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e}return g*Math.pow(2,-10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j)*0.5+l+e},easeInBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*(f/=h)*f*((g+1)*f-g)+a},easeOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*((f=f/h-1)*f*((g+1)*f+g)+1)+a},easeInOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}if((f/=h/2)<1){return i/2*(f*f*(((g*=(1.525))+1)*f-g))+a}return i/2*((f-=2)*f*(((g*=(1.525))+1)*f+g)+2)+a},easeInBounce:function(e,f,a,h,g){return h-jQuery.easing.easeOutBounce(e,g-f,0,h,g)+a},easeOutBounce:function(e,f,a,h,g){if((f/=g)<(1/2.75)){return h*(7.5625*f*f)+a}else{if(f<(2/2.75)){return h*(7.5625*(f-=(1.5/2.75))*f+0.75)+a}else{if(f<(2.5/2.75)){return h*(7.5625*(f-=(2.25/2.75))*f+0.9375)+a}else{return h*(7.5625*(f-=(2.625/2.75))*f+0.984375)+a}}}},easeInOutBounce:function(e,f,a,h,g){if(f<g/2){return jQuery.easing.easeInBounce(e,f*2,0,h,g)*0.5+a}return jQuery.easing.easeOutBounce(e,f*2-g,0,h,g)*0.5+h*0.5+a}});
-			 
+
+			@if (session('convidado'))
+				alert('{{ session('convidado') }}');
+			@endif
 		</script>
 	</body>
 </html>

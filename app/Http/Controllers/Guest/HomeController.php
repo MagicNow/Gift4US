@@ -63,13 +63,18 @@ class HomeController extends Controller {
 
 	public function login(Request $request)
 	{
-		$name = $request->input('name');
-		$party = Festas::where('nome', 'LIKE', '%' . $name . '%')->first();
+		$name = $request->name;
+		$party = Festas::where('ativo', 1)
+						->where(function ($query) use ($name) {
+							$query->where('nome', 'LIKE', '%' . $name . '%')
+								  ->orWhere('codigo', 'LIKE', $name);
+						})
+						->first();
+
 		if (isset($party) && !empty($party)) {
 			return redirect()->route('convidado.index', $party->id);
 		} else {
-			session()->flash('convidado', 'Código da festa não existe.');
-			return redirect('/');
+			return redirect('/')->with('convidado', 'Nenhuma festa encontrada!');
 		}
 	}
 
