@@ -80,6 +80,22 @@ class GiftsController extends Controller {
 		return view('site.presentes.roupas', compact('request', 'titulo', 'client', 'products', 'party', 'selected'));
 	}
 
+	public function clothesDetail(Request $request, $festa_id, $roupa_id)
+	{
+		$party = Festas::find($festa_id);
+		$product = Produtos::find($roupa_id);
+		$selected = $party->tipo->pluck('id')->toArray();
+
+		$client = $this->cliente;
+		$titulo = 'ÁREA DO USUÁRIO';
+		$selected = $party->produto->where('categoria', 'roupa')->pluck('id')->toArray();
+		$added = $party->produto->where('categoria', 'roupa')->where('adicionado', 1)->where('festas_id', $party->id)->count();
+
+		$add = [];
+
+		return view('site.presentes.roupa-detalhe', compact('selected', 'request', 'titulo', 'client', 'party', 'product', 'selected', 'add', 'added'));
+	}
+
 	public function toys(Request $request, $festa_id)
 	{
 		$party = Festas::find($festa_id);
@@ -263,7 +279,7 @@ class GiftsController extends Controller {
 		$quotasTotal = $party->cotas->count();
 
 		$titulo = 'ÁREA DO USUÁRIO';
-		return view('site.presentes.cotas', compact('request', 'titulo', 'client', 'party', 'quotasTotal'));
+		return view('site.presentes.cotas', compact('request', 'titulo', 'client', 'party', 'quotasTotal', 'selected'));
 	}
 
 	public function quotasAdd(Request $request, $festa_id)

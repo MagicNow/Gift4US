@@ -39,6 +39,7 @@ Route::group(['prefix' => 'usuario'], function() {
 
 		/** ROUPAS **/
 		Route::get('festa/{festa_id?}/presentes/roupas', ['as' => 'usuario.meus-aniversarios.presentes.roupas','uses' => 'GiftsController@index'])->where(['festa_id' => '[0-9]+']);
+		Route::get('festa/{festa_id?}/presentes/roupas/{roupa_id}/detalhe', ['as'=> 'usuario.meus-aniversarios.presentes.coupas.detalhe', 'uses' => 'GiftsController@clothesDetail']);
 
 		/** BRINQUEDOS **/
 		Route::get('festa/{festa_id?}/presentes/brinquedos', ['as' => 'usuario.meus-aniversarios.presentes.brinquedos','uses' => 'GiftsController@toys'])->where(['festa_id' => '[0-9]+']);
