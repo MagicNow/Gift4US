@@ -1,6 +1,26 @@
 @extends('site/master')
 
 @section('content')
+	<div class="gifts-modal modal-excluir-presente hidden">
+		<div class="gifts-modal-content col-md-3 col-md-offset-5">
+			<h3 class="gifts-modal-title">Excluir este presente da sua lista</h3>
+			<p class="gifts-modal-subtitle">Você realmente deseja excluir este presente?</p>
+			<div class="gifts-modal-frame row">
+				<div class="col-md-5">
+					<img src="" class="gifts-item-image" width="100%">
+				</div>
+				<div class="gifts-item-content col-md-7">
+					<h5 class="gifts-item-title"></h5>
+					<p class="gifts-item-price-description">Preço aproximado</p>
+					<p class="gifts-item-price-value"></p>
+				</div>
+			</div>
+			<div class="gifts-modal-buttons">
+				<button class="gifts-modal-button gifts-modal-detail-button-remove">Excluir</button>
+				<button class="gifts-modal-button gifts-modal-button-cancel">Cancelar</button>
+			</div>
+		</div>
+	</div>
 
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container brinquedos-lista criar-presentes">
@@ -13,7 +33,7 @@
 					<div class="row">
 						@include('site.inc.filtro-categorias', ['filter' => 'brinquedos'])
 					</div>
-					<ul class="gifts-list" data-festa-id="3">
+					<ul class="gifts-list" data-festa-id="{{ $party->id }}">
 						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="1">
 							<div class="row">
 								<p class="gifts-item-title">Ver Detalhes</p>
@@ -38,7 +58,7 @@
 										@endif
 
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC textB" aria-describedby="gifts-name" name="titulo" maxlength="100" value="{{ $product->titulo }}">
+											<input type="text" class="form-control gifts-item-name bgC textB" aria-describedby="gifts-name" name="titulo" maxlength="100" value="{{ $product->titulo }}">
 											<span class="input-group-addon" id="gifts-name"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<p class="gifts-item-price-description">Preço aproximado:</p>
@@ -72,10 +92,12 @@
 										</div>
 										<p class="gifts-item-price-value bgC text-right"><a href="#" class="clone-button" data-target="lojas-disponiveis">+ Adicionar outra loja</a></p>
 
-										<div class="gifts-item-buttons">
-											<button type="submit" name="salvar" value="salvar" class="col-md-6 gifts-item-button gifts-item-button-show">Salvar</button>
+										<div class="gifts-item-buttons gifts-detail-buttons {{ in_array($product->id, $selected) ? 'selected' : '' }}">
+											<button type="button" name="salvar" value="salvar" class="col-md-6 gifts-item-button gifts-item-button-show gifts-detail-button-select {{ in_array($product->id, $selected) ? 'hidden' : '' }}" data-id="{{ $product->id }}" data-festa-id="{{ $party->id }}">Selecionar</button>
+
+											<span class="col-md-6 gifts-detail-button-selected {{ in_array($product->id, $selected) ? '' : 'hidden' }}">Selecionado <button class="gifts-detail-button-remove button-remove"></button></span>
+
 											<button class="col-md-6 gifts-item-button gifts-item-button-select">Voltar</button>
-											<button type="submit" name="salvar" value="salvar e adicionar" class="col-md-12 gifts-item-button criar-presentes-save-continue">Salvar e adicionar um novo presente</button>
 										</div>
 									</form>
 								</div>

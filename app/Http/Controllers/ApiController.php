@@ -51,9 +51,9 @@ class ApiController extends Controller {
 			abort(404, 'Page not found.');
 		}
 
-		$festa = Festas::find($request->festa);
-		$cliente = Clientes::find(session('client_id'));
-		$produto = Produtos::find($request->produto);
+		$festa = Festas::findOrFail($request->festa);
+		$cliente = Clientes::findOrFail(session('client_id'));
+		$produto = Produtos::findOrFail($request->produto);
 
 		if ($festa->clientes_id != $cliente->id) {
 			abort(403, 'Unauthorized action.');

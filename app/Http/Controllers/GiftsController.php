@@ -193,6 +193,7 @@ class GiftsController extends Controller {
 	{
 		$party = Festas::find($festa_id);
 		$product = Produtos::find($brinquedo_id);
+		$selected = $party->tipo->pluck('id')->toArray();
 
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
@@ -201,7 +202,7 @@ class GiftsController extends Controller {
 
 		$add = [];
 
-		return view('site.presentes.brinquedos-detalhe', compact('request', 'titulo', 'client', 'party', 'product', 'selected', 'add', 'added'));
+		return view('site.presentes.brinquedos-detalhe', compact('selected', 'request', 'titulo', 'client', 'party', 'product', 'selected', 'add', 'added'));
 	}
 
 	public function toysStore(StoreToys $request, $festa_id)
@@ -232,7 +233,7 @@ class GiftsController extends Controller {
 		$brinquedo->lojas()->saveMany($lojas);
 
 		if ($input['salvar'] === 'salvar') {
-			return redirect()->route('usuario.meus-aniversarios.presentes.brinquedos', $festa->id);
+			return redirect()->route('usuario.meus-aniversarios.presentes.brinquedos.detalhe', [ $festa->id, $brinquedo->id ]);
 		} else {
 			return redirect()->route('usuario.meus-aniversarios.presentes.brinquedos.adicionar', $festa->id);
 		}

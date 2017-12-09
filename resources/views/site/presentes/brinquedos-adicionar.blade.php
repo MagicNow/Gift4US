@@ -31,7 +31,7 @@
 										</div>
 										<p class="gifts-item-price-description">Observação</p>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui alguma observação caso haja necessidade" aria-describedby="gifts-obs" maxlength="255" name="descricao" value="{{ old('descricao') }}" required>
+											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui alguma observação caso haja necessidade" aria-describedby="gifts-obs" maxlength="255" name="descricao" value="{{ old('descricao') }}" >
 											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<p class="gifts-item-price-description">Valor total</p>

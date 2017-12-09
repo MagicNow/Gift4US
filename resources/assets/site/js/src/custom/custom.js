@@ -253,24 +253,80 @@ $(function() {
 		$modal.removeClass('hidden');
     });
 
-    $('.gifts-item-button-select').on('click', function (e) {
-    	e.preventDefault();
+	$('.gifts-item-button-select').on('click', function (e) {
+		e.preventDefault();
 
 		var $self = $(this);
 		var $list = $self.parents('.gifts-list');
 		var $item = $self.parents('.gifts-item');
-    	var $total = $('.gifts-box-number-header-total');
-    	var total = parseInt($total[0].innerHTML, 10) + 1;
+		var $total = $('.gifts-box-number-header-total');
+		var total = parseInt($total[0].innerHTML, 10) + 1;
 
-    	$item.addClass('selected');
-    	$total.text(total);
+		$item.addClass('selected');
+		$total.text(total);
 
 		if (total > 0) {
 			$('.gifts-box-number-submit').show();
 		}
 
-    	$.post(baseUrl + '/api/presentes/adicionar', { produto: $item.data('id'), festa: $list.data('festaId')});
-    });
+		$.post(baseUrl + '/api/presentes/adicionar', { produto: $item.data('id'), festa: $list.data('festaId')});
+	});
+
+	$('.gifts-detail-button-select').on('click', function (e) {
+		e.preventDefault();
+
+		var $self = $(this);
+		var $total = $('.gifts-box-number-header-total');
+		var $buttons = $('.gifts-item-buttons');
+		var total = parseInt($total[0].innerHTML, 10) + 1;
+
+		$buttons.addClass('selected');
+		$('.gifts-detail-button-selected').removeClass('hidden');
+		$('.gifts-detail-button-select').addClass('hidden');
+
+		$total.text(total);
+
+		if (total > 0) {
+			$('.gifts-box-number-submit').show();
+		}
+
+		$.post(baseUrl + '/api/presentes/adicionar', { produto: $self.data('id'), festa: $self.data('festaId')});
+	});
+
+	$('.gifts-detail-button-remove').on('click', function (e) {
+		e.preventDefault();
+
+		var $frame = $('.modal-excluir-presente');
+		var $content = $('.gifts-item-detalhe');
+
+		$frame.removeClass('hidden');
+
+		$frame.find('.gifts-item-image').attr('src', $content.find('.gifts-item-image').attr('src'));
+		$frame.find('.gifts-item-title').text($content.find('.gifts-item-name').val());
+		$frame.find('.gifts-item-price-value').text($content.find('.gifts-item-price-value').val());
+	});
+
+	$('.gifts-modal-detail-button-remove').on('click', function (e) {
+		e.preventDefault();
+
+		var $buttons = $('.gifts-item-buttons');
+		var $button = $('.gifts-detail-button-select');
+		var $total = $('.gifts-box-number-header-total');
+		var total = parseInt($total[0].innerHTML) - 1;
+
+		$buttons.removeClass('selected');
+		$('.gifts-detail-button-selected').addClass('hidden');
+		$('.gifts-detail-button-select').removeClass('hidden');
+
+		$total.text(total);
+		closeGiftModal();
+
+		if (total <= 0) {
+			$('.gifts-box-number-submit').hide();
+		}
+
+		$.post(baseUrl + '/api/presentes/remover', { produto: $button.data('id'), festa: $button.data('festaId')})
+	});
 
     $('.gifts-filter-select').select2({
     	placeholder: 'ordenar por'
@@ -285,8 +341,8 @@ $(function() {
     	createCookie($(this).data('cookie'), true, 1);
     });
 
-    $('.gifts-item-button-remove').on('click', function (e) {
-    	e.preventDefault();
+	$('.gifts-item-button-remove').on('click', function (e) {
+		e.preventDefault();
 
 		$activeGift = $(this).parents('.gifts-item');
 
@@ -294,13 +350,13 @@ $(function() {
 		var $modalFinalizar = $('.modal-lista-concluir');
 		var $content = $activeGift.find('.row');
 
-    	$modal.removeClass('hidden');
-    	$modalFinalizar.addClass('hidden');
-    	$modal.find('.gifts-modal-frame').html($content.html());
-    });
+		$modal.removeClass('hidden');
+		$modalFinalizar.addClass('hidden');
+		$modal.find('.gifts-modal-frame').html($content.html());
+	});
 
 	$('.gifts-modal-button-remove').on('click', function (e) {
-    	e.preventDefault();
+		e.preventDefault();
 
 		var $list = $('.gifts-list');
 		var $total = $('.gifts-box-number-header-total');
