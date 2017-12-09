@@ -36,6 +36,13 @@
 }
 
 .gifts {
+	&-quotas-button-remove {
+		height: 19px;
+		border-radius: 0;
+		border-left: 0 none;
+		border-right: 0 none;
+	}
+
 	&-detail {
 		&-button-selected {
 			border-top: 0 none;
@@ -310,6 +317,10 @@
 		&-buttons {
 			margin-top: 10px;
 			height: 21px;
+
+			button {
+				border-radius: 0;
+			}
 		}
 
 		&-button {
@@ -342,6 +353,13 @@
 
 			&-remove {
 				@extend .button-remove;
+			}
+
+			&-back {
+				border-right: 0;
+				border-left: 0;
+				text-align: center;
+				height: 22px;
 			}
 		}
 

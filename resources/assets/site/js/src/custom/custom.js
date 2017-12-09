@@ -341,7 +341,7 @@ $(function() {
     	createCookie($(this).data('cookie'), true, 1);
     });
 
-	$('.gifts-item-button-remove').on('click', function (e) {
+	$('.gifts-item-button-remove, .gifts-quotas-button-remove').on('click', function (e) {
 		e.preventDefault();
 
 		$activeGift = $(this).parents('.gifts-item');
@@ -371,7 +371,24 @@ $(function() {
 		}
 
 		$.post(baseUrl + '/api/presentes/remover', { produto: $activeGift.data('id'), festa: $list.data('festaId')})
-    });
+	});
+
+    $('.gifts-modal-quotas-button-remove').on('click', function (e) {
+		e.preventDefault();
+
+		var $list = $('.gifts-list');
+		var $total = $('.gifts-box-number-header-total');
+		var total = parseInt($total[0].innerHTML) - 1;
+
+		$total.text(total);
+		closeGiftModal();
+
+		if (total <= 0) {
+			$('.gifts-box-number-submit').hide();
+		}
+
+		$.post(baseUrl + '/api/cotas/remover', { produto: $activeGift.data('id'), festas_id: $list.data('festaId')})
+	});
 
     $('.gifts-modal-button-cancel').on('click', closeGiftModal);
 

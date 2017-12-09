@@ -58,7 +58,7 @@
 										<p class="gifts-item-price-value bgC textR"><a href="#" class="clone-button" data-target="lojas-disponiveis">+ Adicionar outra loja</a></p>
 										<div class="gifts-item-buttons">
 											<button type="submit" name="salvar" value="salvar" class="col-md-6 gifts-item-button gifts-item-button-show">Salvar</button>
-											<button class="col-md-6 gifts-item-button gifts-item-button-select">Voltar</button>
+											<a class="col-md-6 gifts-item-button gifts-item-button-back" href="{{ url()->previous() }}">Voltar</a>
 											<button type="submit" name="salvar" value="salvar e adicionar" class="col-md-12 gifts-item-button criar-presentes-save-continue">Salvar e adicionar um novo presente</button>
 										</div>
 									</div>

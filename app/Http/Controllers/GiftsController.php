@@ -324,16 +324,6 @@ class GiftsController extends Controller {
 		}
 	}
 
-	public function quotasDetail(Request $request, $festa_id)
-	{
-		$party = Festas::find($festa_id);
-		$client = $this->cliente;
-		$quotasTotal = $party->cotas->count();
-		$titulo = 'ÁREA DO USUÁRIO';
-
-		return view('site.presentes.cotas-detalhe', compact('request', 'titulo', 'client', 'party', 'quotasTotal'));
-	}
-
 	private function upload(Request $request, $folder)
 	{
 		if ($request->foto) {

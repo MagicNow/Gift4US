@@ -1,6 +1,17 @@
 @extends('site/master')
 
 @section('content')
+	<div class="gifts-modal modal-excluir-presente hidden">
+		<div class="gifts-modal-content col-md-3 col-md-offset-5">
+			<h3 class="gifts-modal-title">Excluir este presente da sua lista</h3>
+			<p class="gifts-modal-subtitle">Você realmente deseja excluir este presente?</p>
+			<div class="gifts-modal-frame row"></div>
+			<div class="gifts-modal-buttons">
+				<button class="gifts-modal-button gifts-modal-quotas-button-remove">Excluir</button>
+				<button class="gifts-modal-button gifts-modal-button-cancel">Cancelar</button>
+			</div>
+		</div>
+	</div>
 
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container brinquedosLista criar-presentes">
@@ -20,36 +31,9 @@
 							</ul>
 						</div>
 					</div>
-					<!-- MODAL ITEM -->
-					<div class="modal-lista-item" style="display:none">
-						<h6>Excluir este presente da sua lista</h6>
-						<span>Você realmente deseja excluir este presente?</span>
-						<ul class="gifts-list" data-festa-id="3">
-							<li class="col-md-12 gifts-item " data-id="24">
-								<div class="row">
-									<div class="col-md-5">
-										<img src="http://recursos.pandabrinquedos.com.br/Imagem/Produto/235/254547/star-wars-radio-relogio-com-alarme-darth-vader-jazwares-stwr0001-68180.jpg" class="gifts-item-image" width="100%">
-									</div>
-									<div class="gifts-item-content col-md-7">
-										<h5 class="gifts-item-title">STAR WARS-RÁDIO RELÓGIO DARTH VADER</h5>
-										<p class="gifts-item-price-description">Valor total do presente:</p>
-										<p class="gifts-item-price-value">R$ 4.000,00</p>
-										<p class="gifts-item-price-description">nº de cotas</p>
-										<p class="gifts-item-price-value">8 cotas</p>
-										<p class="gifts-item-price-description">Valor da cota para presente</p>
-										<p class="gifts-item-price-value">R$ 500,00</p>
-									</div>
-								</div>
-								<div class="gifts-box-number-footer dados-container">
-									<a class="gifts-box-number-submit col-md-6 pull-left" href="#">Excluir</a>
-									<a class="gifts-box-number-submit col-md-6 pull-right" href="#">Cancelar</a>
-								</div>
-							</li>
-						</ul>
-					</div>
 					<!-- MODAL -->
 					<!-- MODAL CONCLUIR -->
-					<div class="modal-lista-item modal-lista-concluir" style="display:none">
+					<div class="modal-lista-item modal-lista-concluir hidden">
 						<h6>Lista de Cotas</h6>
 						<span>Parabéns! Você está perto de finalizar sua lista de cotas!</span>
 						<p>
@@ -85,8 +69,7 @@
 										</div>
 									</div>
 									<div class="gifts-item-buttons">
-										<a href="{{ route('usuario.meus-aniversarios.presentes.cotas.detalhe', [ $party->id, $cota->id ]) }}" class="col-md-6 gifts-item-button gifts-item-button-show">Ver detalhes</a>
-										<a class="col-md-6 gifts-item-button gifts-item-button-select" href="#">Retirar da lista</a>
+										<button type="button" class="col-md-12 gifts-item-button gifts-quotas-button-remove">Retirar da lista</button>
 									</div>
 								</li>
 							@endforeach

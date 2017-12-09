@@ -267,4 +267,24 @@ class ApiController extends Controller {
 		return response()
 			->json(['lista' => $retorno, 'total' => $festa->lista()->count() ]);
 	}
+
+	public function cotasRemover (Request $request) {
+		if(!$request->ajax()) {
+			abort(404, 'Page not found.');
+		}
+
+		$festa = Festas::findOrFail($request->festas_id);
+		$cliente = Clientes::find(session('client_id'));
+		$retorno = [];
+
+		if (!$cliente) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		if ($festa->clientes_id != $cliente->id) {
+			abort(403, 'Unauthorized action.');
+		}
+
+		$festa->cotas()->detach($request->produto);
+	}
 }
