@@ -387,7 +387,9 @@ $(function() {
 			$('.gifts-box-number-submit').hide();
 		}
 
-		$.post(baseUrl + '/api/cotas/remover', { produto: $activeGift.data('id'), festas_id: $list.data('festaId')})
+		$.post(baseUrl + '/api/cotas/remover', { produto: $activeGift.data('id'), festas_id: $list.data('festaId')}, function () {
+			$activeGift.remove();
+		});
 	});
 
     $('.gifts-modal-button-cancel').on('click', closeGiftModal);

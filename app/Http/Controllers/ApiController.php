@@ -8,6 +8,7 @@ use App\Models\Produtos;
 use App\Models\ProdutosTipos;
 use App\Models\ProdutosMarcas;
 use App\Models\Clientes;
+use App\Models\Cotas;
 use App\Models\Festas;
 use App\Models\FestasProdutos;
 use App\Models\FestasLista;
@@ -285,6 +286,6 @@ class ApiController extends Controller {
 			abort(403, 'Unauthorized action.');
 		}
 
-		$festa->cotas()->detach($request->produto);
+		$produto = Cotas::findOrFail($request->produto)->delete();
 	}
 }
