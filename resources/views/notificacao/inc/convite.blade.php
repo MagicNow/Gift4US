@@ -31,7 +31,9 @@
 		<div class="endereco">
 			<h6>Onde?</h6>
 			<h5>{{ $party->endereco }}</h5>
-			<h5>Próximo a {{ $party->referencia }}</h5>
+			@if (!empty($party->referencia))
+				<h5>Próximo a {{ $party->referencia }}</h5>
+			@endif
 			@if (!empty($party->observacoes))
 				<h6>Observações:</h6>
 				<h5>{{ $party->observacoes }}</h5>
