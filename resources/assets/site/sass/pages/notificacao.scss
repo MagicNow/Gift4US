@@ -497,25 +497,28 @@
 
 /* MODAL LISTAS */
 .modal-lista-presentes{
-	width:1151px;
-	height:627px;
-	background:#fff;
-	z-index:222;
-	position:absolute;
+	width: 1151px;
+	height: 750px;
+	background: #fff;
+	z-index: 222;
+	position: absolute;
 
 	.modal-lista-header{
 		height:52px;
 		background:#109dd9;
 	}
+
 	.modal-lista-header a{
 		float:right;
 		font:44px Verdana;
 		color:#fff;
 		margin-right:10px;
 	}
+
 	.lista-ferramentas {
 		margin:12px -32px;
 	}
+
 	.lista-ferramentas,
 	.lista-header{
 		h5{
