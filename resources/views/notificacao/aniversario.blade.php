@@ -1,7 +1,6 @@
 @extends('site/master')
 
 @section('content')
-
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container brinquedosLista criarPresentes">
 			@include('notificacao.inc.modal-recados')

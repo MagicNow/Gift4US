@@ -11,7 +11,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="content-language" content="pt-br" />
 
-     {{-- {!! Html::style('assets/site/styles/bootstrap.min.css') !!} --}}
      {!! Html::style('assets/site/styles/styles.css') !!}
 </head>
 <body class="{{ str_replace('.', '-', Route::currentRouteName()) }}">

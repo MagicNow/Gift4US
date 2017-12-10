@@ -35,6 +35,7 @@ class NotificationsController extends Controller
 	{
 		$titulo = 'ÁREA DO USUÁRIO';
 		$porpagina = 15;
+		$client = $this->cliente;
 
 		$pagina = $request->pagina ? $request->pagina : 1;
 
@@ -63,7 +64,7 @@ class NotificationsController extends Controller
 						->take($porpagina)
 						->orderBy('nome')->get();
 
-		return view('notificacao.aniversario', compact('request', 'party', 'titulo', 'client', 'presencas', 'presencasTotal', 'paginas', 'pagina'));
+		return view('notificacao.aniversario', compact('client', 'request', 'party', 'titulo', 'client', 'presencas', 'presencasTotal', 'paginas', 'pagina'));
 	}
 
 	private function calcClothes ($party) {
@@ -92,13 +93,18 @@ class NotificationsController extends Controller
 
 	public function conviteDigital(Request $request, $festa_id = null)
 	{
+		$titulo = 'ÁREA DO USUÁRIO';
 		$party = $this->festa;
 		$pages = $request->pages ? $request->pages : 4;
-		return view('notificacao.convite-digital', compact('party', 'pages'));
+		$client = $this->cliente;
+
+		return view('notificacao.convite-digital', compact('titulo', 'client', 'party', 'pages'));
 	}
 
 	public function enviarEmail(Request $request, $festa_id = null)
 	{
+		$titulo = 'ÁREA DO USUÁRIO';
+		$client = $this->cliente;
 		$lists = $this->cliente->festas()
 					->whereNotIn('id', [ $festa_id ])
 					->with('lista')
@@ -112,30 +118,41 @@ class NotificationsController extends Controller
 		}
 
 		$party = $this->festa;
-		return view('notificacao.enviar-email', compact('party', 'partyLists'));
+		return view('notificacao.enviar-email', compact('titulo', 'client', 'party', 'partyLists'));
 	}
 
 	public function enviarConvite(Request $request, $festa_id = null)
 	{
+		$titulo = 'ÁREA DO USUÁRIO';
+		$client = $this->cliente;
 		$party = $this->festa;
-		return view('notificacao.enviar-convite', compact('party'));
+
+		return view('notificacao.enviar-convite', compact('titulo', 'client', 'party'));
 	}
 
 	public function imprimirConvite(Request $request, $festa_id = null)
 	{
+		$titulo = 'ÁREA DO USUÁRIO';
+		$client = $this->cliente;
 		$party = $this->festa;
-		return view('notificacao.imprimir.convite', compact('party'));
+
+		return view('notificacao.imprimir.convite', compact('titulo', 'party', 'client'));
 	}
 
 	public function imprimirListaPresentes(Request $request, $festa_id = null)
 	{
+		$titulo = 'ÁREA DO USUÁRIO';
+		$client = $this->cliente;
 		$party = $this->festa;
-		return view('notificacao.imprimir.lista-presentes', compact('party'));
+
+		return view('notificacao.imprimir.lista-presentes', compact('titulo', 'party', 'client'));
 	}
 
 	public function imprimirPresencas(Request $request, $festa_id = null)
 	{
+		$client = $this->cliente;
 		$party = $this->festa;
+		$titulo = 'ÁREA DO USUÁRIO';
 
 		$porpagina = 48;
 		$paginas = round($party->confirmacaoPresenca->count() / $porpagina) === 0.0 ? 1 : round($party->confirmacaoPresenca->count() / $porpagina);
@@ -149,7 +166,7 @@ class NotificationsController extends Controller
 								->get();
 		}
 
-		return view('notificacao.imprimir.presencas-confirmadas', compact('party', 'presencas', 'paginas', 'porpagina'));
+		return view('notificacao.imprimir.presencas-confirmadas', compact('titulo', 'client', 'party', 'presencas', 'paginas', 'porpagina'));
 	}
 
     public function exportaRecados(Request $request, $festa_id, ScrapsExport $export)
