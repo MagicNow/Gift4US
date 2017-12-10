@@ -13,6 +13,8 @@
 		</div>
 	</div>
 
+	@include('site.inc.modal-cotas-concluir')
+
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container brinquedosLista criar-presentes">
 			<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_ent13.png') }}" class="presentinho col-xs-12 col-sm-12 col-md-6" alt="">
@@ -32,18 +34,6 @@
 						</div>
 					</div>
 					<!-- MODAL -->
-					<!-- MODAL CONCLUIR -->
-					<div class="modal-lista-item modal-lista-concluir hidden">
-						<h6>Lista de Cotas</h6>
-						<span>Parabéns! Você está perto de finalizar sua lista de cotas!</span>
-						<p>
-							<img src="{{ asset('assets/site/images/presentinho-icone.png') }}">
-							<small class="gifts-box-number-header-total">{{ count($quotasTotal) }}</small> selecionados
-						</p>
-						<div class="gifts-box-number-footer dados-container">
-							<a class="gifts-box-number-submit col-md-12" href="#">Concluir Lista</a>
-						</div>
-					</div>
 					@if (count($party->cotas) > 0)
 						<ul class="gifts-list" data-festa-id="{{ $party->id }}">
 							@foreach($party->cotas as $cota)

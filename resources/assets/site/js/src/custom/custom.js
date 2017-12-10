@@ -623,7 +623,7 @@ function formAddGift() {
 	});
 
 	$('.btn-modal-finalizar').click(function() {
-		var countSelected = $('ul.gifts-list .selected').length;
+		var countSelected = $('.gifts-box-number-header').find('.gifts-box-number-header-total').text();
 		$('.modal-lista-concluir .gifts-modal-subtitle small').html(countSelected);
 		$('.modal-excluir-presente').addClass('hidden');
 		$('.modal-lista-concluir').removeClass('hidden');

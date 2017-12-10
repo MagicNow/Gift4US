@@ -1,6 +1,8 @@
 @extends('site/master')
 
 @section('content')
+	@include('site.inc.modal-cotas-concluir')
+
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container criar-presentes cota">
 			<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_ent09.png') }}" class="presentinho col-xs-12 col-sm-12 col-md-6" alt="">

@@ -23,7 +23,7 @@
 	</div>
 	<div class="gifts-box-number-footer dados-container">
 		{{-- @if (count($selected) > 0 || count($add) > 0) --}}
-			<a class="gifts-box-number-submit btn-modal-finalizar" href="#">Finalizar lista</a>
+			<button type="button" class="gifts-box-number-submit btn-modal-finalizar">Finalizar lista</button>
 		{{-- @endif --}}
 		<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
 	</div>
