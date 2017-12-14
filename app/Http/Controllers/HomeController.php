@@ -11,20 +11,18 @@ class HomeController extends Controller {
 	private $cliente;
 
 	public function __construct () {
-		$this->middleware(function ($request, $next) {
-			if (!session('client_id') && request()->path() !== '/' && request()->path() !== '/') {
-				return redirect()->route('home');
-			}
 
-			$this->cliente = Clientes::find(session('client_id'));
-
-			return $next($request);
-		});
 	}
 
 	public function index(Request $request)
 	{
 		return view('site.home');
+	}
+
+
+	public function index_new(Request $request)
+	{
+		return view('site.home-new');
 	}
 
 	public function usuarios(Request $request)

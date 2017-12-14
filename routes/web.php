@@ -10,7 +10,8 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::any('/', ['as' => 'home','uses' => 'HomeController@index']);
+Route::get('/nova', ['as' => 'home-new','uses' => 'HomeController@index_new']);
+Route::get('/', ['as' => 'home','uses' => 'HomeController@index']);
 
 Route::get('cadastro/confirmar-dados', ['as' => 'usuario.confirma', 'uses' => 'RegisterController@confirmar']);
 Route::resource('cadastro/dados-bancarios', 'BankController');

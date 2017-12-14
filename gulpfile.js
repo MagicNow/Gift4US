@@ -124,6 +124,25 @@ gulp.task('styles-deploy', function() {
 });
 
 
+//compiling our SCSS files for deployment
+gulp.task('home-deploy', function() {
+    //the initializer / master SCSS file, which will just be a file that imports everything
+    return gulp.src('resources/assets/site/sass/pages/home.scss')
+            .pipe(plumber())
+            .pipe(sass({
+                  includePaths: [
+                      'resources/assets/site/sass',
+                  ]
+            }))
+            .pipe(autoprefixer({
+                browsers: autoPrefixBrowserList,
+                cascade:  true
+            }))
+            .pipe(concat('home.css'))
+            .pipe(minifyCSS())
+            .pipe(gulp.dest('public/assets/site/styles'));
+});
+
 //migrating over all HTML files for deployment
 gulp.task('html-deploy', function() {
     gulp.src('resources/assets/site/fonts/**/*')
@@ -145,23 +164,23 @@ gulp.task('html-deploy', function() {
 //  startup the web server,
 //  start up browserSync
 //  compress all scripts and SCSS files
-gulp.task('default', ['scripts', 'styles', 'images-deploy'], function() {
+gulp.task('default', ['scripts', 'styles', 'home-deploy', 'images-deploy'], function() {
     //a list of watchers, so it will watch all of the following files waiting for changes
     gulp.task('resources/assets/site/js/src/**', ['scripts']);
-    gulp.task('resources/assets/site/sass/**', ['styles']);
+    gulp.task('resources/assets/site/sass/**', ['styles', 'home-deploy']);
     gulp.task('resources/assets/site/images/**', ['images-deploy']);
     gulp.task('resources/assets/site/json/**', ['copy']);
 });
 
-gulp.task('watch', ['scripts', 'styles', 'images-deploy'], function() {
+gulp.task('watch', ['scripts', 'styles', 'home-deploy', 'images-deploy'], function() {
     gulp.watch('resources/assets/site/js/src/**', ['scripts']);
-    gulp.watch('resources/assets/site/sass/**', ['styles']);
+    gulp.watch('resources/assets/site/sass/**', ['styles', 'home-deploy']);
     gulp.watch('resources/assets/site/images/**', ['images-deploy']);
     gulp.watch('resources/assets/site/json/**', ['copy']);
 });
 
 //this is our deployment task, it will set everything for deployment-ready files
-gulp.task('deploy', gulpSequence( ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy', 'copy'));
+gulp.task('deploy', gulpSequence( ['scripts-deploy', 'styles-deploy', 'home-deploy', 'images-deploy'], 'html-deploy', 'copy'));
 
 gulp.task('admin-fonts', function() {
     gulp.src(['resources/assets/admin/fonts/**/*'])
