@@ -5,12 +5,7 @@
 	<div class="preview dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		@include('convidado.inc.header-inner', $party)
 
-		<div class="sub-menu text-center">
-			<a class="confirm-btn" href="#"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
-			<a class="gifts-btn active" href="#"><img src="{{ asset('assets/site/images/img-presente-in.png') }}" alt="" /></a>
-			<a class="message-btn" href="#"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" /></a>
-			<a class="map-btn" href="#"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
-		</div>
+		@include('convidado.inc.anchors')
 	</div>
 	
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">

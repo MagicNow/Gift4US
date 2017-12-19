@@ -551,7 +551,7 @@ $(function() {
 			data: $form.serialize(),
 			success: function (data) {
 				console.log(data.response, data);
-				$form.html('<p>' + data.response + '</p>');
+				$form.html('<p class="form-success-message">' + data.response + '</p>');
 			}
 		});
 	});
