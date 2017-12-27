@@ -18,7 +18,62 @@ use Orchestra\Parser\Xml\Facade as XmlParser;
 class ApiController extends Controller {
 	public function produtos()
 	{
-		$xml = XmlParser::load(env('PRODUCTS_XML'));
+		$this->produtosReviva();
+		$this->produtosPanda();
+
+		die('Importação realizada com sucesso.');
+	}
+
+	private function produtosReviva()
+	{
+		$json = file_get_contents("https://api.awsli.com.br/v1/produto?format=json&ativo=true&chave_api=" . env('PRODUCTS_REVIVA_CHAVE_API') . "&chave_aplicacao=" . env('PRODUCTS_REVIVA_CHAVE_APP') . '&limit=' . env('PRODUCTS_REVIVA_LIMIT'));
+
+		$data = json_decode($json);
+
+		foreach ($data->objects as $value) {
+			$categorias = $value->categorias;
+			if (isset($categorias[0])) {
+				$json = file_get_contents("https://api.awsli.com.br" . $categorias[0] . "?format=json&chave_api=" . env('PRODUCTS_REVIVA_CHAVE_API') . "&chave_aplicacao=" . env('PRODUCTS_REVIVA_CHAVE_APP'));
+				$dataCat = json_decode($json);
+				$tipo = ProdutosTipos::firstOrCreate(['nome' => $dataCat->nome]);
+			}
+
+			$json = file_get_contents("https://api.awsli.com.br/v1/produto_preco/" . $value->id . "?format=json&chave_api=" . env('PRODUCTS_REVIVA_CHAVE_API') . "&chave_aplicacao=" . env('PRODUCTS_REVIVA_CHAVE_APP'));
+			$dataPreco = json_decode($json);
+
+
+			$json = file_get_contents("https://api.awsli.com.br/v1/produto_imagem/?produto=" . $value->id . "&format=json&chave_api=" . env('PRODUCTS_REVIVA_CHAVE_API') . "&chave_aplicacao=" . env('PRODUCTS_REVIVA_CHAVE_APP'));
+			$dataImagem = json_decode($json);
+
+
+			$imagemPrincipal = array_filter(
+				$dataImagem->objects,
+					function ($e) {
+						return $e->principal == true;
+					}
+				);
+
+			if (isset($imagemPrincipal[0])) {
+				$imagemUrl = "https://cdn.awsli.com.br/600x1000/" . $imagemPrincipal[0]->caminho;
+			}
+
+			$data = [
+						'categoria'		=> 'brinquedo',
+						'titulo'		=> $value->nome,
+						'descricao'		=> strip_tags($value->descricao_completa),
+						'preco'			=> preg_replace('/[^0-9.,]/', '', $dataPreco->cheio),
+						'preco_venda'	=> preg_replace('/[^0-9.,]/', '', isset($dataPreco->promocional) ? $dataPreco->promocional : $dataPreco->cheio),
+						'imagem'		=> $imagemUrl,
+						'tipo_id'		=> $tipo->id
+					];
+
+			$produto = Produtos::updateOrCreate(['codigo' => $value->id], $data);
+		};
+	}
+
+	private function produtosPanda()
+	{
+		$xml = XmlParser::load(env('PRODUCTS_PANDA_XML'));
  
 		$feed = $xml->rebase('channel')->parse([
 					'items'		=> ['uses' => 'item[title,description]'],
