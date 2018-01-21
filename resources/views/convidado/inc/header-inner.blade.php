@@ -8,7 +8,7 @@
 	<div class="preview-header-image-container text-center">
 		<div class="preview-header-image-mask">&nbsp;</div>
 	</div>
-	<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_dia }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
+	<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_mes }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
 		{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
 		{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
 	</div>
