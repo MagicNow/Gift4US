@@ -22,7 +22,8 @@
 							</div>
 						</form>
 					</div>
-					<p class="gifts-categories-intro text-center">Para facilitar o filtro de produtos, escolha abaixo os interesses do aniversariante.</p>
+					<p class="gifts-categories-intro text-center">Para ver a lista de produtos, escolha abaixo os interesses do aniversariante:<br>
+						<small>(você pode escolher quantos interesses quiser)</small></p>
 					<form method="get" action="{{ route('usuario.meus-aniversarios.presentes.brinquedos.lista', $party->id) }}">
 						<ul class="gifts-categories-list row" data-festa-id="{{ $party->id }}">
 							@if (isset($categories) && count($categories) > 0)

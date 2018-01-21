@@ -169,8 +169,10 @@ class GiftsController extends Controller {
 		if ($request->adicionados) {
 			$products = $products->where('adicionado', 1)->where('festas_id', $party->id);
 		} else {
-			$products = $products->where('adicionado', 0)
-								->whereIn('tipo_id', $categories);
+			$products = $products->where('adicionado', 0);
+			if (!empty($categories)) {
+				$products = $products->whereIn('tipo_id', $categories);
+			}
 		}
 
 		$products = $products->orderBy('id', 'DESC')->paginate(30);

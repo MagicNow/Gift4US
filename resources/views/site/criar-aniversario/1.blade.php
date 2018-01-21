@@ -47,8 +47,10 @@
 								<div class="form-inline">
 									<input type="number" name="idade_anos" class="form-control form-input form-birthday-years" id="aniver-anos" value="{{ old('idade_anos', $festa->idade_anos) }}" min="0" max="99" tabindex="2">
 									<label class="control-label form-birthday-separator">anos</label>
-									<input type="number" name="idade_meses" class="form-control form-input form-birthday-years" value="{{ old('idade_meses', $festa->idade_meses) }}" min="0" max="12" tabindex="3">
-									<label class="control-label form-birthday-separator">meses</label>
+									<div class="form-birthday-months-container {{ old('idade_anos', $festa->idade_anos) || empty($festa->idade_anos) ? 'hidden' : NULL }}">
+										<input type="number" name="idade_meses" class="form-control form-input form-birthday-years" value="{{ old('idade_meses', $festa->idade_meses) }}" min="0" max="12" tabindex="3">
+										<label class="control-label form-birthday-separator">meses</label>
+									</div>
 								</div>
 							</div>
 							<div class="form-group">
@@ -70,6 +72,15 @@
 									<input type="number" name="festa_minuto" class="form-control form-input form-birthday-time" value="{{ old('festa_minuto', $festa->festa_minuto) }}" min="0" max="60" tabindex="8">
 								</div>
 							</div>
+							<div class="form-group">
+								<label for="presenca-sim">Gostaria que os convidados confirmassem presença?</label>
+								<label class="checkbox-inline pd0">
+									<input type="radio" id="presenca-sim" value="1" name="confirma_presenca" {{ $festa->confirma_presenca == 1 ? 'checked' : '' }}> Sim
+								</label>
+								<label class="checkbox-inline">
+									<input type="radio" id="presenca-nao" value="0" name="confirma_presenca" {{ $festa->confirma_presenca == 0 ? 'checked' : '' }}> Não
+								</label>
+							</div>
 						</fieldset>
 						<fieldset class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-md-offset-1">
 							<div class="text-center">
@@ -81,15 +92,6 @@
 										<img src="{{ asset("assets/site/images/bt_inserirfoto.png") }}">
 									@endif
 								</a>
-							</div>
-							<div class="form-birthday-presence">
-								<p class="defaut-text">Gostaria que os convidados confirmassem presença?</p>
-								<label class="checkbox-inline pd0">
-									<input type="radio" id="presenca-sim" value="1" name="confirma_presenca" {{ $festa->confirma_presenca == 1 ? 'checked' : '' }}> Sim
-								</label>
-								<label class="checkbox-inline">
-									<input type="radio" id="presenca-nao" value="0" name="confirma_presenca" {{ $festa->confirma_presenca == 0 ? 'checked' : '' }}> Não
-								</label>
 							</div>
 						</fieldset>
 					</div>

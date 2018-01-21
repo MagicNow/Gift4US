@@ -109,6 +109,10 @@ $layout-color-blue: #019ee3;
 		font: 17px 'HelveticaNeueStd_BDCN';
 		color: #525353;
 		margin: 20px 0 30px;
+
+		small {
+			font-family: 'HelveticaNeueStd';
+		}
 	}
 
 	&-list {
@@ -755,7 +759,11 @@ $layout-color-blue: #019ee3;
 
 .form-inline .form-birthday {
 	&-years {
-		width: 16%;
+		width: 50px;
+	}
+
+	&-months-container {
+		display: inline-block;
 	}
 
 	&-date {

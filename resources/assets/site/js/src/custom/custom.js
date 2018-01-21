@@ -1,5 +1,14 @@
 $(function() {
-	var $activeGift;
+	var $activeGift,
+		$win = $(window),
+		$doc = $(document),
+		$giftsContainer = $doc.find('.gifts-container'),
+		$giftsBoxNumber = $doc.find('.gifts-box-number');
+
+	var $giftsContainerTop = $giftsContainer.length > 0 ? $giftsContainer.offset().top + 35 : null; // 35 -> padding-top
+	var $giftsContainerBottom = $giftsContainer.length > 0 ? $giftsContainerTop + $giftsContainer.height() : null;
+	var $giftsBoxNumberTop = $giftsBoxNumber.length > 0 ? $giftsBoxNumber.offset().top : null;
+	var $giftsBoxNumberBottom = $giftsBoxNumber.length > 0 ? $giftsBoxNumberTop + $giftsBoxNumber.height() : null;
 
 	// add validate to cpf
 	$.validator.addMethod("cpf", function(value, element) {
@@ -64,6 +73,17 @@ $(function() {
 		$.post(baseUrl + '/api/festas/ativar', { ativar: ativo, festa: $self.data('festaId')});
 	});
 
+	$('input[name="idade_anos"]').on('change keydown', function (e) {
+		const $self = $(this);
+		const $months = $self.parents('.form-group').find('.form-birthday-months-container');
+		if ($self.val() == '' || $self.val() > 0) {
+			$months.addClass('hidden');
+			$months.find('[name="idade_meses"]').val(0);
+		} else {
+			$months.removeClass('hidden')
+		}
+	});
+
 	$('.password-form').validate({
 		rules: {
 			provisoria: {
@@ -113,10 +133,16 @@ $(function() {
 		}
 	});
 
-	$(window).load(function(e) {
+	$win.load(function(e) {
 		var $presentinho = $('.presentinho'),
 			image = $('.usuario-ajax').find('[data-presente]');
 		 $presentinho.append('<img src="' + image.data('presente') + '">');
+	}).on('scroll', function () {
+		if ($doc.scrollTop() < $giftsContainerBottom - $giftsBoxNumberBottom) {
+			$giftsBoxNumber.css('top', $doc.scrollTop());
+		}
+
+		// console.log($giftsContainer, $giftsContainerTop, $giftsContainerBottom, $giftsBoxNumberTop, $giftsBoxNumberBottom);
 	});
     
     var $modal = $('.form-birthday-modal');

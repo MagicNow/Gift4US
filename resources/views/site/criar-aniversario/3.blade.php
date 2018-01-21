@@ -86,8 +86,8 @@
 					<div class="clearfix">
 						<div class="col-md-8">
 							<div class="form-group">
-								<label for="aniver-observacoes">Observações gerais sobre o aniversariante (opcional)</label>
-								<input type="text" class="form-control form-input" id="aniver-observacoes" name="observacoes_2" value="{{ old('nome', $festa->observacoes_2) }}">
+								<label for="aniver-observacoes">Preferências e dicas sobre o aniversariante (opcional)</label>
+								<input type="text" class="form-control form-input" id="aniver-observacoes" name="observacoes_2" value="{{ old('nome', $festa->observacoes_2) }}" placeholder="Não gosta da cor verde, etc.">
 							</div>
 						</div>
 					</div>

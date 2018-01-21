@@ -20,7 +20,9 @@
 					<fieldset class="form-birthday-first col-xs-12 col-sm-12" style="margin-bottom: 50px;">
 						<div class="clearfix">
 
-							<p class="text-center my-birthday-title">Quais tipos de presente você quer listar?</p>
+							<p class="text-center my-birthday-title">Quais tipos de presentes você quer listar?<br>
+								<small>(você pode escolher ao mesmo tempo entre as três opções, não apenas uma)</small>
+							</p>
 							<div class="row">
 								<div class="col-md-4 form-birthday-gift-column">
 									<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos', $festa->id) }}" class="form-birthday-gift-link"><span class="icon form-birthday-gift-toy">BRINQUEDOS</span>Crie uma lista de interesses e a partir dela uma lista de brinquedos que o aniversariante gostaria de ganhar.</a>
@@ -47,7 +49,7 @@
 						</ul>
 					</nav>
 					@if ($gifts['total'] > 0)
-						<a href="{{ route('notificacoes.aniversario', $festa->id) }}" class="form-birthday-finish">concluir aniversário</a>
+						<a href="{{ route('notificacoes.aniversario', $festa->id) }}" class="form-birthday-finish">CONCLUIR ESTA ETAPA</a>
 					@endif
 					<a href="{{ route('usuario.meus-aniversarios.novo.festa', [$festa->id, 4]) }}" class="form-birthday-submit" style="text-align: center; color: #acacac; font-size: 17px;">voltar a etapa anterior</a>
 				</form>

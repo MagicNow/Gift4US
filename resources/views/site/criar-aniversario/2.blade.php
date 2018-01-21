@@ -34,11 +34,11 @@
 							</div>
 							<div class="form-group">
 								<label for="aniver-referencia">Quer inserir um ponto de referência? (opcional)</label>
-								<input type="text" class="form-control form-input" id="aniver-referencia" name="referencia" value="{{ old('referencia', $festa->referencia) }}">
+								<input type="text" class="form-control form-input" id="aniver-referencia" name="referencia" value="{{ old('referencia', $festa->referencia) }}" placeholder="Metrô, Lojas, Praças, etc.">
 							</div>
 							<div class="form-group">
 								<label for="aniver-observacoes">Observações gerais sobre a festa (opcional)</label>
-								<input type="text" class="form-control form-input" id="aniver-observacoes" name="observacoes" value="{{ old('observacoes', $festa->observacoes) }}">
+								<input type="text" class="form-control form-input" id="aniver-observacoes" name="observacoes" value="{{ old('observacoes', $festa->observacoes) }}" placeholder="Serviço de Valet, Salão de Festas, Festa a Fantasia etc.">
 							</div>
 						</fieldset>
 						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">

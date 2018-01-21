@@ -64,7 +64,7 @@
 									<img src="{{ asset('assets/site/images/bg-header-convite.png') }}" alt="Festa">
 									<div class="header-convite-foto" style="background-image: url({{ asset('storage/birthdays/' . $party->foto) }})"></div>
 									<p>
-										Festa de {{ isset($party->idade_anos) && $party->idade_anos > 0 ? $party->idade_anos . ' anos' : NULL }} {{ isset($party->idade_meses) && $party->idade_meses > 0 ? $party->idade_meses . ' meses' : NULL }} {{ $party->nome == 'masculino' ? 'do' : 'da' }}<br /><span>{{ $party->nome }}</span>
+										Festa de {{ isset($party->idade_anos) && $party->idade_anos > 0 ? $party->idade_anos . ' anos' : NULL }} {{ isset($party->idade_meses) && $party->idade_meses > 0 ? $party->idade_meses . ' meses' : NULL }} de<br /><span>{{ $party->nome }}</span>
 									</p>
 								</div>
 								<div class="passos pull-left">
