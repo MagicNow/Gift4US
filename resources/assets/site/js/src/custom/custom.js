@@ -3,7 +3,7 @@ $(function() {
 		$win = $(window),
 		$doc = $(document),
 		$giftsContainer = $doc.find('.gifts-container'),
-		$giftsBoxNumber = $doc.find('.gifts-box-number');
+		$giftsBoxNumber = $doc.find('.gifts-box-number.move');
 
 	var $giftsContainerTop = $giftsContainer.length > 0 ? $giftsContainer.offset().top + 35 : null; // 35 -> padding-top
 	var $giftsContainerBottom = $giftsContainer.length > 0 ? $giftsContainerTop + $giftsContainer.height() : null;

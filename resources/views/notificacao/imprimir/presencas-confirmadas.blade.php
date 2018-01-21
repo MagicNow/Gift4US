@@ -33,7 +33,7 @@
 									</div>
 								</div>
 							</div>
-							<h1 class="titulo">Presenças Confirmadas {{ $party->confirmacaoPresenca->count() }}</h1>
+							<h1 class="titulo">Presenças Confirmadas {{ $party->confirmacaoPresenca->sum('numero_pessoas') }}</h1>
 							<table>
 								@php
 								$i = 0;
@@ -46,7 +46,7 @@
 											<fieldset class="form-birthday-first col-xs-4 col-sm-4">
 												<div class="radio">
 													<label data-image="" class="form-birthday-sex-label">
-													{{ $item->nome }}
+													{{ $item->nome }} - {{ $item->numero_pessoas }}
 													<input type="radio" name="ciclo_vida"><span></span>
 													</label>
 												</div>

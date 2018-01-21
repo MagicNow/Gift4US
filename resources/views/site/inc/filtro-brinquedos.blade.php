@@ -1,4 +1,4 @@
-<div class="gifts-box-number col-md-3">
+<div class="gifts-box-number col-md-3 move">
 	<div class="gifts-box-number-header row">
 		<div class="col-md-11 col-md-offset-1">
 			<h4 class="gifts-box-number-header-title">Lista de Brinquedos</h4>

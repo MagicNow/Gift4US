@@ -40,7 +40,7 @@
 <div class="detalhes-festa lista-presentes">
 	<p>Presenças confirmadas</p>
 	<div class="row pD">
-		<span class="pull-left">{{ $party->confirmacaoPresenca->count() }} pessoas confirmadas</span>
+		<span class="pull-left">{{ $party->confirmacaoPresenca->sum('numero_pessoas') }} pessoas confirmadas</span>
 		<small class="pull-left">
 			<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
 			<span>43</span>

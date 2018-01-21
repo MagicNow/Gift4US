@@ -27,20 +27,22 @@
 			<div class="col-md-12">
 				<div class="col-md-4"><strong>Presenças confirmadas {{ $presencasTotal }}</strong></div>
 				@if ($presencasTotal > 0)
-					<form class="col-md-4 bt-search" method="get" action="{{ route('notificacoes.aniversario', [ $party->id ]) }}">
+					<form class="col-md-3 bt-search" method="get" action="{{ route('notificacoes.aniversario', [ $party->id ]) }}">
 						<input type="hidden" name="modal" value="lista-de-aniversarios">
 						<div class="form-group">
 						<input type="text" class="form-control form-input" id="aniver-observacoes" name="busca" placeholder="Insira aqui o que está procurando" value="{{ $request->busca }}">
 						</div>
 					</form>
-					<form class="col-md-4 modal-lista-letras" method="get" action="{{ route('notificacoes.aniversario', [ $party->id ]) }}">
+					<form class="col-md-5 modal-lista-letras" method="get" action="{{ route('notificacoes.aniversario', [ $party->id ]) }}">
 						<input type="hidden" name="modal" value="lista-de-aniversarios">
 						@foreach (range('a', 'z') as $char)
 							<div class="modal-lista-letras-item">
 								<input type="radio" name="inicial" {{ $request->inicial == $char ? 'checked' : NULL }} value="{{ $char }}" id="modal-inicial-input-{{ $char }}" class="hidden modal-lista-letras-input">
 								<label for="modal-inicial-input-{{ $char }}" class="modal-lista-letras-botao">{{ $char }}</label></div>
 						@endforeach
-						{{-- <a href="#" class="active">a</a> --}}
+						<div class="modal-lista-letras-item">
+							<input type="radio" name="inicial" {{ $request->inicial == '' ? 'checked' : NULL }} value="" id="modal-inicial-input-todos" class="hidden modal-lista-letras-input">
+							<label for="modal-inicial-input-todos" class="modal-lista-letras-botao">TODOS</label></div>
 					</form>
 				@endif
 			</div>
@@ -49,29 +51,12 @@
 			<div class="row">
 				<table class="col-md-12">
 					<tbody>
-						@php
-						$i = 0;
-						@endphp
 						@foreach ($presencas as $presenca)
-							@if ($i === 0)
-								<tr>
-							@endif
-								<td class="col-md-4">{{ $presenca->nome }}</td>
-							@if ($i === 2)
-								</tr>
-								@php
-								$i = 0;
-								@endphp
-							@else
-								@php
-								$i++;
-								@endphp
-							@endif
-						@endforeach
-
-						@if ($i <= 2)
+							<tr>
+								<td class="col-md-6">{{ $presenca->nome }}</td>
+								<td class="col-md-6">{{ $presenca->numero_pessoas }} pessoa(s)</td>
 							</tr>
-						@endif
+						@endforeach
 					</tbody>
 				</table>
 			</div>

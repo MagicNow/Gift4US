@@ -26,7 +26,7 @@
 								<li class="col-md-6 gifts-item " data-id="24">
 									<div class="row">
 										<div class="col-md-5">
-											<img src="{{ url('storage/quotas/' . $cota->foto) }}" class="gifts-item-image" width="100%">
+											<a href="{{ route('convidado.cotas.detalhe', [ $party->id, $cota->id]) }}" target="_self"><img src="{{ url('storage/quotas/' . $cota->foto) }}" class="gifts-item-image" width="100%"></a>
 										</div>
 										<div class="gifts-item-content col-md-7">
 											<h5 class="gifts-item-title">{{ $cota->nome }}</h5>

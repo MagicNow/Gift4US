@@ -42,10 +42,10 @@
 										@endforeach
 									@endif
 
-									<div class="col-md-6">
+									<div class="{{ $product->adicionado == 0 ? 'col-md-6' : 'col-md-12' }}">
 										<a href="{{ route('convidado.brinquedos.index', $party) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de Brinquedos</a>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-6 {{ $product->adicionado == 0 ?: 'hidden' }}">
 										<a href="{{ route('convidado.brinquedos.compraOnline', [$party, $product]) }}" class="my-birthday-create-button-small">Quero comprar online agora</a>
 									</div>
 								</div>

@@ -17,7 +17,7 @@
 			{{ Html::image('assets/site/images/presentinho_aniversario_presente_roupas.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
 
 			<div class="gifts-container row col-md-offset-2">
-				<div class="gifts-box-number col-md-3">
+				<div class="gifts-box-number col-md-3 move">
 					<div class="gifts-box-number-header row">
 						<div class="col-md-11 col-md-offset-1">
 							<h4 class="gifts-box-number-header-title">Lista de Roupas</h4>

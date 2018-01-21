@@ -47,7 +47,7 @@ class NotificationsController extends Controller
 		];
 
 		$presencas = $this->festa->confirmacaoPresenca();
-		$presencasTotal = $presencas->count();
+		$presencasTotal = $presencas->sum('numero_pessoas');
 
 		if ($request->busca && !empty($request->busca)) {
 			$presencas = $presencas->where('nome', 'like', '%' . $request->busca . '%');

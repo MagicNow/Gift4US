@@ -140,6 +140,10 @@
 			text-align: left;
 			transition: all 0.2s;
 
+			.gifts-filter-search-input.form-control {
+				width: 100%;
+			}
+
 			&-header {
 				margin-top: 10px;
 				background-color: #e6e6e8;

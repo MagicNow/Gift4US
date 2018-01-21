@@ -22,7 +22,7 @@
 									<div class="row">
 										<div class="col-md-5">
 											@if (!empty($product->imagem))
-												<img src="{{ $product->imagem }}" class="gifts-item-image" width="100%">
+												<a href="{{ route('convidado.brinquedos.detalhe', [$party->id, $product->id]) }}" target="_self"><img src="{{ $product->imagem }}" class="gifts-item-image" width="100%"></a>
 											@endif
 										</div>
 										<div class="gifts-item-content col-md-7">
