@@ -18,7 +18,7 @@ use Orchestra\Parser\Xml\Facade as XmlParser;
 class ApiController extends Controller {
 	public function produtos()
 	{
-		$this->produtosReviva();
+		// $this->produtosReviva();
 		$this->produtosPanda();
 
 		die('Importação realizada com sucesso.');
@@ -96,6 +96,12 @@ class ApiController extends Controller {
 					];
 
 			$produto = Produtos::updateOrCreate(['codigo' => $value['id']], $data);
+
+			$produto->lojas()->delete();
+			$produto->lojas()->create([
+				'nome' => 'Panda Brinquedos',
+				'link' => NULL
+			]);
 		}
 
 		return response()
