@@ -36,6 +36,19 @@
 }
 
 .gifts {
+	&-back-button {
+		text-align: center;
+		color: #acacac;
+		font-size: 17px;
+		padding-top: 50px;
+		margin-bottom: 0 !important;
+
+		&-container {
+			display: inline-block;
+			width: 100%;
+		}
+	}
+
 	&-quotas-button-remove {
 		height: 19px;
 		border-radius: 0;
@@ -556,6 +569,13 @@
 			display: block;
 			line-height: 34px !important;
 			text-align: center;
+
+			&-fixed {
+				position: fixed;
+				bottom: 70px;
+				width: 100%;
+				z-index: 5;
+			}
 		}
 	}
 

@@ -9,6 +9,10 @@ $(function() {
 	var $giftsContainerBottom = $giftsContainer.length > 0 ? $giftsContainerTop + $giftsContainer.height() : null;
 	var $giftsBoxNumberTop = $giftsBoxNumber.length > 0 ? $giftsBoxNumber.offset().top : null;
 	var $giftsBoxNumberBottom = $giftsBoxNumber.length > 0 ? $giftsBoxNumberTop + $giftsBoxNumber.height() : null;
+	var $giftsCategories = $('.gifts-container');
+	var $giftsCategoriesButton = $giftsCategories.length > 0 ? $giftsCategories.find('.gifts-categories-submit-fixed') : null;
+
+	$giftsCategoriesButton.width($giftsCategories.width());
 
 	// add validate to cpf
 	$.validator.addMethod("cpf", function(value, element) {
@@ -142,7 +146,13 @@ $(function() {
 			$giftsBoxNumber.css('top', $doc.scrollTop());
 		}
 
-		// console.log($giftsContainer, $giftsContainerTop, $giftsContainerBottom, $giftsBoxNumberTop, $giftsBoxNumberBottom);
+		if ($doc.scrollTop() + $win.height() > $giftsCategories.offset().top + $giftsCategories.height()) {
+			$giftsCategoriesButton.css({'position': 'absolute', 'bottom': '70px'});
+		} else {
+			$giftsCategoriesButton.css({'position': 'fixed', 'bottom': '30px'});
+		}
+
+		// $giftsCategoriesButton.css('top', $doc.scrollTop());
 	});
     
     var $modal = $('.form-birthday-modal');

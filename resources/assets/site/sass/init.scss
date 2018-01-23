@@ -189,6 +189,25 @@
 	}
 }
 
+.position-relative {
+	position: relative;
+}
+
 .clone-button {
 	color: #333;
+}
+
+.pagination {
+	> .active > span {
+		background-color: #019ee3;
+		border-color: #019ee3;
+	}
+
+	> li > a,
+	> li > span {
+		font-family: 'HelveticaNeueStd';
+		font-size: 13px;
+		color: #555557;
+		border: 0 none;
+	}
 }

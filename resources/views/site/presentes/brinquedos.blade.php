@@ -5,7 +5,7 @@
 		<div class="container">
 			{{ Html::image('assets/site/images/presentinho_aniversario_presente_brinquedos.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
 
-			<div class="gifts-container row col-md-offset-2">
+			<div class="gifts-container row col-md-offset-2 position-relative">
 				<div class="col-md-12 dados-container">
 					<div class="gifts-filter clearfix">
 						<ul class="gifts-filter-categories">
@@ -68,8 +68,12 @@
 								Nenhuma categoria cadastrada
 							@endif
 						</ul>
-						<button type="submit" name="enviar" class="gifts-categories-submit">ESCOLHER PRODUTOS</button>
-						<a href="{{ route('usuario.meus-aniversarios.novo.festa', [$party->id, 5]) }}" class="form-birthday-submit" style="text-align: center; color: #acacac; font-size: 17px;">voltar a etapa anterior</a>
+						<div class="gifts-categories-submit-fixed">
+							<button type="submit" name="enviar" class="gifts-categories-submit">VER LISTA DE PRODUTOS</button>
+						</div>
+						<div class="gifts-back-button-container text-center">
+							<a href="{{ route('usuario.meus-aniversarios.novo.festa', [$party->id, 5]) }}" class="form-birthday-submit gifts-back-button">voltar a etapa anterior</a>
+						</div>
 					</form>
 				</div>
 			</div>

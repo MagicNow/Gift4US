@@ -95,6 +95,9 @@
 									<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
 								</li>
 							@endforeach
+							<div class="products-pagination text-center"> 
+								{{ $products->links() }}
+							</div>
 						@else
 							Nenhum produto cadastrado
 						@endif
