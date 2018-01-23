@@ -79,6 +79,12 @@
 .detalhes-festa{
 	margin-top:35px;
 
+	.my-birthday-item-input {
+		position: relative;
+		z-index: 2;
+		margin-bottom: 5px;
+	}
+
 	&:last-child{
 		margin-bottom:35px;
 	}

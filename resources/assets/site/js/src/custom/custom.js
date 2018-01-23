@@ -140,7 +140,10 @@ $(function() {
 	$win.load(function(e) {
 		var $presentinho = $('.presentinho'),
 			image = $('.usuario-ajax').find('[data-presente]');
-		 $presentinho.append('<img src="' + image.data('presente') + '">');
+
+		if (image.length > 0) {
+			$presentinho.append('<img src="' + image.data('presente') + '">');
+		}
 	}).on('scroll', function () {
 		if ($doc.scrollTop() < $giftsContainerBottom - $giftsBoxNumberBottom) {
 			$giftsBoxNumber.css('top', $doc.scrollTop());

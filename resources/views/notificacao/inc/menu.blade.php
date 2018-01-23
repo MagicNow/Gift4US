@@ -1,4 +1,8 @@
 <div class="detalhes-festa">
+	<div class="clearfix my-birthday-item-input">
+		<input type="checkbox" name="active[{{ $party->id }}]" id="my-birthday-{{ $party->id }}" class="my-birthday-checkbox" value="1" data-festa-id="{{ $party->id }}" />
+	</div>
+
 	<p>{{ $party->nome }}</p>
 	<div class="row">
 		<span>{{ $party->festa_dia }}/{{ $party->festa_mes }}/{{ $party->festa_ano }}</span>
