@@ -80,26 +80,25 @@ Route::group(['prefix' => 'notificacoes/{festa_id}'], function() {
 
 Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
 	Route::post('login', ['as'=> 'convidado.login', 'uses' => 'HomeController@login']);
-	Route::post('{festa_id}/confirmar-presenca', ['as'=> 'convidado.confirmar-presenca', 'uses' => 'HomeController@confirmarPresenca'])->where(['festa_id' => '[0-9]+']);
-	Route::post('{festa_id}/escrever-mensagem', ['as'=> 'convidado.escrever-mensagem', 'uses' => 'HomeController@escreverMensagem'])->where(['festa_id' => '[0-9]+']);
-	Route::get('{festa_id}', ['as'=> 'convidado.index', 'uses' => 'HomeController@index'])->where(['festa_id' => '[
-		0-9]+']);
+	Route::post('{slug}/confirmar-presenca', ['as'=> 'convidado.confirmar-presenca', 'uses' => 'HomeController@confirmarPresenca']);
+	Route::post('{slug}/escrever-mensagem', ['as'=> 'convidado.escrever-mensagem', 'uses' => 'HomeController@escreverMensagem']);
+	Route::get('{slug}', ['as'=> 'convidado.index', 'uses' => 'HomeController@index']);
 
 	/** BRINQUEDOS */
-	Route::group(['prefix' => '{festa_id}/brinquedos'], function () {
+	Route::group(['prefix' => '{slug}/brinquedos'], function () {
 		Route::get('/', ['as'=> 'convidado.brinquedos.index', 'uses' => 'ToysController@index']);
 		Route::get('compra-online/{product_id}', ['as'=> 'convidado.brinquedos.compraOnline', 'uses' => 'ToysController@compraOnline']);
 		Route::get('detalhe/{produto_id}', ['as'=> 'convidado.brinquedos.detalhe', 'uses' => 'ToysController@detalhe']);
 		Route::get('reserva/{produto_id}', ['as'=> 'convidado.brinquedos.reserva', 'uses' => 'ToysController@reserva']);
 	});
 
-	Route::group(['prefix' => '{festa_id}/cotas'], function () {
+	Route::group(['prefix' => '{slug}/cotas'], function () {
 		Route::get('/', ['as'=> 'convidado.cotas.index', 'uses' => 'QuotasController@index']);
 		Route::get('detalhe/{product_id}', ['as'=> 'convidado.cotas.detalhe', 'uses' => 'QuotasController@detalhe']);
 		Route::get('mensagem', ['as'=> 'convidado.cotas.mensagem', 'uses' => 'QuotasController@mensagem']);
 	});
 
-	Route::group(['prefix' => '{festa_id}/roupas'], function () {
+	Route::group(['prefix' => '{slug}/roupas'], function () {
 		Route::get('/', ['as'=> 'convidado.roupas.index', 'uses' => 'ClothesController@index']);
 		Route::get('mensagem/{produto_id}', ['as'=> 'convidado.roupas.mensagem', 'uses' => 'ClothesController@mensagem']);
 		Route::get('detalhe/{produto_id}', ['as'=> 'convidado.roupas.detalhe', 'uses' => 'ClothesController@detalhe']);

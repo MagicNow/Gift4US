@@ -43,14 +43,14 @@
 									@endif
 
 									<div class="{{ $product->adicionado == 0 ? 'col-md-6' : 'col-md-12' }}">
-										<a href="{{ route('convidado.brinquedos.index', $party) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de Brinquedos</a>
+										<a href="{{ route('convidado.brinquedos.index', $party->slug) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de Brinquedos</a>
 									</div>
 									<div class="col-md-6 {{ $product->adicionado == 0 ?: 'hidden' }}">
-										<a href="{{ route('convidado.brinquedos.compraOnline', [$party, $product]) }}" class="my-birthday-create-button-small">Quero comprar online agora</a>
+										<a href="{{ route('convidado.brinquedos.compraOnline', [$party->slug, $product]) }}" class="my-birthday-create-button-small">Quero comprar online agora</a>
 									</div>
 								</div>
 								<div class="col-md-5" style="margin:0 0 0 320px">
-									<a href="{{ route('convidado.brinquedos.reserva', [$party, $product]) }}" class="my-birthday-create-button-small">Quero dar este presente mas comprarei em loja física</a>
+									<a href="{{ route('convidado.brinquedos.reserva', [$party->slug, $product]) }}" class="my-birthday-create-button-small">Quero dar este presente mas comprarei em loja física</a>
 								</div>
 							</div>
 						</li>

@@ -11,17 +11,18 @@ class QuotasController extends Controller {
 	var $party;
 
 	public function __construct(Request $request) {
-		$this->party = Festas::find($request->route('festa_id'));
-		if (empty($this->party)) {
-			abort(404, 'Página não encontrada.');
-		}
+		$this->middleware(function ($request, $next) {
+			$this->party = Festas::where('slug', $request->route('slug'))->firstOrFail();
 
-		$this->quotas = $this->party->cotas();
+			if ($this->party->ativo == 0 && session('client_id') !== $this->party->clientes_id) {
+				abort(404, 'Página não encontrada.');
+			}
 
-		$quotasTotal = $this->quotas->sum('quantidade_cotas');
-		$this->quotasAvalible = $this->quotas;
+			$this->quotas = $this->party->cotas();
 
-		$this->middleware(function ($request, $next) use ($quotasTotal) {
+			$quotasTotal = $this->quotas->sum('quantidade_cotas');
+			$this->quotasAvalible = $this->quotas;
+			
 			$percent = $this->quotasAvalible->sum('quantidade_cotas') > 0 ? round(($this->quotasAvalible->sum('quantidade_cotas') * 100) / $quotasTotal, 0, PHP_ROUND_HALF_EVEN) : 0;
 			view()->share('percent', $percent);
 

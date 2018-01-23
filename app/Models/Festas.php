@@ -3,8 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Festas extends Model {
+	use HasSlug;
 
 	protected $fillable = ['nome', 'sexo', 'clientes_id', 'idade_anos', 'idade_meses', 'festa_dia', 'festa_mes', 'festa_ano', 'festa_hora', 'festa_minuto', 'foto', 'confirma_presenca', 'endereco', 'endereco_latitude', 'endereco_longitude', 'referencia', 'referencia_latitude', 'referencia_longitude', 'observacoes', 'ciclo_vida', 'tamanho_camiseta', 'tamanho_calca', 'tamanho_sapato', 'observacoes_2', 'layout_id', 'receber_recados', 'step', 'codigo', 'slug', 'ativo'];
 
@@ -49,4 +52,14 @@ class Festas extends Model {
     public function lista() {
         return $this->hasMany('App\Models\FestasLista');
     }
+
+	/**
+	 * Get the options for generating the slug.
+	 */
+	public function getSlugOptions() : SlugOptions
+	{
+		return SlugOptions::create()
+					->generateSlugsFrom('nome')
+					->saveSlugsTo('slug');
+	}
 }

@@ -1,4 +1,4 @@
-<form class="gifts-box-number col-md-3" action="{{ route('convidado.cotas.index', $party->id) }}" method="get">
+<form class="gifts-box-number col-md-3" action="{{ route('convidado.cotas.index', $party->slug) }}" method="get">
 	<div class="input-group gifts-filter-search pull-right" method="get">
 		<span class="input-group-addon"><i class="fa fa-search"></i></span>
 		<input type="search" class="form-control gifts-filter-search-input" name="busca" placeholder="presente que está procurando" value="{{ $request->busca }}">

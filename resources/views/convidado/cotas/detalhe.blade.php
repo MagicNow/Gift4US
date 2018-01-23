@@ -20,7 +20,7 @@
 					<div class="row">
 						@include('convidado.inc.filtro-categorias', ['filter' => 'cotas'])
 					</div>
-					<ul class="gifts-list" data-festa-id="3">
+					<ul class="gifts-list" data-festa-id="{{ $party->id }}">
 						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="{{ $product->id }}">
 							<div class="row">
 								<p class="gifts-item-title">Ver Detalhes</p>
@@ -38,7 +38,7 @@
 										<p class="gifts-item-price-value bgC">R$ {{ number_format($product->valor_total / $product->quantidade_cotas, 2) }}</p>
 									@endif
 									<div class="col-md-6">
-										<a href="{{ route('convidado.cotas.index', $party) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de COTAS</a>
+										<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de COTAS</a>
 									</div>
 									<div class="col-md-6">
 										<a href="#" class="my-birthday-create-button-small">Quero comprar online agora</a>

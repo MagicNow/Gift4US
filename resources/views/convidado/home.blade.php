@@ -79,7 +79,7 @@
 			<img src="{{ asset('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
 			<img src="{{ asset('assets/site/images/img-balao-check.png') }}" align="right" />
 		</div>
-		<form class="boxfR rsvp-form" action="{{ route('convidado.confirmar-presenca', $party->id) }}" method="post">
+		<form class="boxfR rsvp-form" action="{{ route('convidado.confirmar-presenca', $party->slug) }}" method="post">
 			<fieldset class="col-md-12">
 				<div class="rsvp-form-content">
 					<div class="form-group">
@@ -135,7 +135,7 @@
 				<img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" />
 				<div class="preview-item-toys"></div>
 				<p class="preview-item-text text-center">BRINQUEDOS</p>
-				<p class="text-center desc"><a href="{{ route('convidado.brinquedos.index', $party->id) }}">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
+				<p class="text-center desc"><a href="{{ route('convidado.brinquedos.index', $party->slug) }}">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
 				<div class="porcentagem">
 					<span style="width:{{ $percent['toys'] }}%"></span>
 					<strong>{{ $percent['toys'] }}% disponivel</strong>
@@ -144,7 +144,7 @@
 			<li class="col-md-4 text-center preview-item-container">
 				<div class="preview-item-clothes text-center"></div>
 				<p class="preview-item-text text-center">ROUPAS</p>
-				<p class="text-center desc"><a href="{{ route('convidado.roupas.index', $party->id) }}">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
+				<p class="text-center desc"><a href="{{ route('convidado.roupas.index', $party->slug) }}">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
 				<div class="porcentagem">
 					<span style="width:{{ $percent['clothes'] }}%"></span>
 					<strong>{{ $percent['clothes'] }}% disponivel</strong>
@@ -153,7 +153,7 @@
 			<li class="col-md-4 text-center preview-item-container ">
 				<div class="preview-item-quota text-center"></div>
 				<p class="preview-item-text text-center">COTAS</p>
-				<p class="text-center desc"><a href="{{ route('convidado.cotas.index', $party->id) }}">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</a></p>
+				<p class="text-center desc"><a href="{{ route('convidado.cotas.index', $party->slug) }}">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</a></p>
 				<div class="porcentagem">
 					<span style="width:{{ $percent['quotas'] }}%"></span>
 					<strong>{{ $percent['quotas'] }}% disponivel</strong>
@@ -184,7 +184,7 @@
 		</div>
 	</div>
 	<div class="mensagem">
-		<form class="boxfL rsvp-form" action="{{ route('convidado.escrever-mensagem', $party->id) }}" method="post">
+		<form class="boxfL rsvp-form" action="{{ route('convidado.escrever-mensagem', $party->slug) }}" method="post">
 			<fieldset class="col-md-12 img-field">
 				<div class="rsvp-form-content">
 					<p class="text-left">Escreva uma mensagem</p>

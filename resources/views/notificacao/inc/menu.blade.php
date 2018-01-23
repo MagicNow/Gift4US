@@ -66,6 +66,6 @@
 		</a>
 	</div>
 	<div class="gifts-box-number-footer">
-		<a href="{{ route('convidado.index', $party->id) }}" target="_blank" class="gifts-box-number-submit">ver página do aniversariante</a>
+		<a href="{{ route('convidado.index', $party->slug) }}" target="_blank" class="gifts-box-number-submit">ver página do aniversariante</a>
 	</div>
 </div>

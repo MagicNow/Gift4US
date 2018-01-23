@@ -16,13 +16,9 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index(Request $request, $festa_id = null)
+	public function index(Request $request, $slug = null)
 	{
-		$party = Festas::find($festa_id);
-
-		if (!$party) {
-			abort(403, 'Unauthorized action.');
-		}
+		$party = Festas::where('slug', $slug)->firstOrFail();
 
 		if ($party->ativo == 0 && session('client_id') !== $party->clientes_id) {
 			abort(404, 'Página não encontrada.');

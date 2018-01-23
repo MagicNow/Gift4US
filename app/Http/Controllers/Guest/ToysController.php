@@ -13,19 +13,21 @@ class ToysController extends Controller {
 	private $toysAvalible;
 
 	public function __construct(Request $request) {
-		$this->party = Festas::find($request->route('festa_id'));
-		if (empty($this->party)) {
-			abort(404, 'Página não encontrada.');
-		}
 
-		$this->toys = $this->party
-						   ->produto()
-						   ->where('categoria', 'brinquedo');
+		$this->middleware(function ($request, $next) {
+			$this->party = Festas::where('slug', $request->route('slug'))->firstOrFail();
 
-		$toysTotal = $this->toys->count();
-		$this->toysAvalible = $this->toys->whereNull('nome');
+			if ($this->party->ativo == 0 && session('client_id') !== $this->party->clientes_id) {
+				abort(404, 'Página não encontrada.');
+			}
 
-		$this->middleware(function ($request, $next) use ($toysTotal) {
+			$this->toys = $this->party
+							   ->produto()
+							   ->where('categoria', 'brinquedo');
+
+			$toysTotal = $this->toys->count();
+			$this->toysAvalible = $this->toys->whereNull('nome');
+
 			$percent = round(($this->toysAvalible->count() * 100) / $toysTotal, 0, PHP_ROUND_HALF_EVEN);
 			view()->share('percent', $percent);
 
