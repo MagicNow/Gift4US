@@ -1,6 +1,6 @@
 <div class="detalhes-festa">
 	<div class="clearfix my-birthday-item-input">
-		<input type="checkbox" name="active[{{ $party->id }}]" id="my-birthday-{{ $party->id }}" class="my-birthday-checkbox" value="1" data-festa-id="{{ $party->id }}" />
+		<input type="checkbox" name="active[{{ $party->id }}]" id="my-birthday-{{ $party->id }}" class="my-birthday-checkbox" value="1" {{ $party->ativo ? 'checked' : NULL }} data-festa-id="{{ $party->id }}" />
 	</div>
 
 	<p>{{ $party->nome }}</p>

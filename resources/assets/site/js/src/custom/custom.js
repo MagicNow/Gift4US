@@ -12,7 +12,7 @@ $(function() {
 	var $giftsCategories = $('.gifts-container');
 	var $giftsCategoriesButton = $giftsCategories.length > 0 ? $giftsCategories.find('.gifts-categories-submit-fixed') : null;
 
-	$giftsCategoriesButton.width($giftsCategories.width());
+	$giftsCategoriesButton ? $giftsCategoriesButton.width($giftsCategories.width()) : null;
 
 	// add validate to cpf
 	$.validator.addMethod("cpf", function(value, element) {
@@ -149,10 +149,12 @@ $(function() {
 			$giftsBoxNumber.css('top', $doc.scrollTop());
 		}
 
-		if ($doc.scrollTop() + $win.height() > $giftsCategories.offset().top + $giftsCategories.height()) {
-			$giftsCategoriesButton.css({'position': 'absolute', 'bottom': '70px'});
-		} else {
-			$giftsCategoriesButton.css({'position': 'fixed', 'bottom': '30px'});
+		if ($giftsCategories.length > 0) {
+			if ($doc.scrollTop() + $win.height() > $giftsCategories.offset().top + $giftsCategories.height()) {
+				$giftsCategoriesButton.css({'position': 'absolute', 'bottom': '70px'});
+			} else {
+				$giftsCategoriesButton.css({'position': 'fixed', 'bottom': '30px'});
+			}
 		}
 
 		// $giftsCategoriesButton.css('top', $doc.scrollTop());

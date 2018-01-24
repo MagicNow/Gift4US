@@ -1,5 +1,5 @@
 <!-- MODAL LISTA PRESENTES -->
-<div class="modal-lista-presentes" id="lista-presente" style="display:none;">
+<div class="modal-lista-presentes hidden" id="lista-presente">
 	<div class="modal-lista-header">
 		<a href="#">X</a>
 	</div>

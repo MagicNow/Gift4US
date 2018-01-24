@@ -7,7 +7,7 @@
 		<div class="row lista-ferramentas">
 			<div class="col-md-2">
 				<div class="col-md-8 my-birthday-item-input">
-					<input type="checkbox" name="active[{{ $party->id }}]" id="my-birthday-{{ $party->id }}" class="my-birthday-checkbox" value="1" data-festa-id="{{ $party->id }}" />
+					<input type="checkbox" name="active[{{ $party->id }}]" id="my-birthday-{{ $party->id }}" class="my-birthday-checkbox" value="1" {{ $party->ativo ? 'checked' : NULL }} data-festa-id="{{ $party->id }}" />
 				</div>
 			</div>
 			<div class="col-md-3 text-right">
