@@ -12,7 +12,15 @@ $(function() {
 	var $giftsCategories = $('.gifts-container');
 	var $giftsCategoriesButton = $giftsCategories.length > 0 ? $giftsCategories.find('.gifts-categories-submit-fixed') : null;
 
+	var $previewHeader = $('.preview-header-container');
+	var $previewHeaderTop = $previewHeader.length > 0 ? $previewHeader.offset().top : null;
+	var $previewHeaderHeight = $previewHeader.length > 0 ? $previewHeader.height() : null;
+	var $previewHeaderSubmenu = $previewHeader.length > 0 ? $('.sub-menu') : null;
+	var $previewHeaderSubmenuTop = $previewHeader.length > 0 ? $previewHeaderSubmenu.offset().top : null;
+
 	$giftsCategoriesButton ? $giftsCategoriesButton.width($giftsCategories.width()) : null;
+
+	guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop);
 
 	// add validate to cpf
 	$.validator.addMethod("cpf", function(value, element) {
@@ -149,6 +157,8 @@ $(function() {
 			$doc.scrollTop() > $giftsBoxNumberTop + 10) {
 			$giftsBoxNumber.css('top', $doc.scrollTop() - $giftsBoxNumberTop - 10); // 10 -> margin-top
 		}
+
+		guestPageCheckHeaderPosition($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop);
 
 		if ($giftsCategories.length > 0) {
 			if ($doc.scrollTop() + $win.height() > $giftsCategories.offset().top + $giftsCategories.height()) {
@@ -598,6 +608,24 @@ $(function() {
 		});
 	});
 });
+
+function guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop) {
+	if ($doc.scrollTop() > $previewHeaderTop) {
+		$previewHeader.css('position', 'fixed');
+	} else {
+		$previewHeader.css('position', 'absolute');
+	}
+
+	if ($doc.scrollTop() + 10 + $previewHeaderHeight > $previewHeaderSubmenuTop) {
+		$previewHeaderSubmenu.css({'position': 'fixed', 'top': $previewHeaderHeight});
+	} else {
+		$previewHeaderSubmenu.css({'position': 'relative', 'top': 0});
+	}
+
+	// $previewHeader
+	// $previewHeaderTop
+	// $previewHeaderHeight
+}
 
 function changeQuotaSplit() {
 	if ($('.criar-presentes.cota').length > 0) {

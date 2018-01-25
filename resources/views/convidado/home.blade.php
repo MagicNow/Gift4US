@@ -19,7 +19,27 @@
 			<a href="#" class="preview-more-btn">Clique e saiba tudo sobre a festa!</a>
 		</div>
 
-		@include('convidado.inc.header-inner', $party)
+		{{-- @include('convidado.inc.header-inner', $party) --}}
+
+		<div class="preview-header-space">
+			<div class="preview-header-container">
+				<div class="preview-header">
+					<div class="preview-header-decor">
+						@if ($party->foto)
+							<img src="{{ url('storage/birthdays/mask/' . pathinfo($party->foto, PATHINFO_FILENAME) . '.png') }}" alt="{{ $party->nome }}" height="111" class="preview-header-image">
+						@endif
+					</div>
+					<div class="preview-header-name">{{ $party->nome }}</div>
+					<div class="preview-header-image-container text-center">
+						<div class="preview-header-image-mask">&nbsp;</div>
+					</div>
+					<div class="preview-header-info">{{ $party->festa_dia }}.{{ $party->festa_mes }} | {{ date ('H:i',strtotime($party->festa_hora . ':' . $party->festa_minuto)) }}<br>
+						{{ $party->idade_anos > 1 ? $party->idade_anos . ' anos' : ($party->idade_anos == 1 ? 'ano' : NULL) }}
+						{{ $party->idade_meses > 1 ? $party->idade_meses . ' meses' : ($party->idade_meses == 1 ? 'mes' : NULL) }}
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="control-panel" style="clear:both">
 		<img src="{{ asset('assets/site/images/presentinho-preview-1.png') }}" class="preview-presentinho preview-presentinhoHome">
@@ -64,15 +84,29 @@
 		<div class="rsvp">
 			<a name="confirmar"></a>
 			
-			@include('convidado.inc.header-inner', $party)
-			<div class="sub-menu text-center">
-				@if ($party->confirma_presenca === 1)
-					<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-in.png') }}" alt="" /></a>
-				@endif
-				<a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-out.png') }}" alt="" /></a>
-				<a class="message-btn" href="#recado"><img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" alt="" />
-				</a>
-				<a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-out.png') }}" alt="" /></a>
+			{{-- @include('convidado.inc.header-inner', $party) --}}
+			<div class="preview-header-space"></div>
+			<div class="sub-menu-container">
+				<div class="sub-menu text-center">
+					@if ($party->confirma_presenca === 1)
+						<a class="confirm-btn {{-- active --}}" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
+					@endif
+					<a class="gifts-btn" href="#lista">
+					    <img src="{{ asset('assets/site/images/img-presente-out.png') }}" class="img-blue" alt="" />
+						<img src="{{ asset('assets/site/images/img-presente-out-orange.png') }}" class="img-orange" alt="" />
+						<img src="{{ asset('assets/site/images/img-presente-out-red.png') }}" class="img-red" alt="" />
+					</a>
+					<a class="message-btn" href="#recado">
+					    <img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" class="img-blue" alt="" />
+						<img src="{{ asset('assets/site/images/img-mensagem-out-orange.png') }}" alt="" class="img-orange" />
+						<img src="{{ asset('assets/site/images/img-mensagem-out-red.png') }}" alt="" class="img-red" />
+					</a>
+					<a class="map-btn" href="#mapa">
+					    <img src="{{ asset('assets/site/images/img-maps-out.png') }}" class="img-blue" alt="" />
+						<img src="{{ asset('assets/site/images/img-maps-out-orange.png') }}" class="img-orange" alt="" />
+						<img src="{{ asset('assets/site/images/img-maps-out-red.png') }}" class="img-red" alt="" />
+					</a>
+				</div>
 			</div>
 		</div>
 		<div class="boxfL">
@@ -111,23 +145,8 @@
 	<div class="rsvp">
 		<a name="lista"></a>
 
-		@include('convidado.inc.header-inner', $party)
-		<div class="sub-menu text-center">
-			@if ($party->confirma_presenca === 1)
-				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
-			@endif
-			<a class="gifts-btn" href="#lista"><img src="{{ asset('assets/site/images/img-presente-in.png') }}" alt="" /></a>
-			<a class="message-btn" href="#recado">
-		    <img src="{{ asset('assets/site/images/img-mensagem-out.png') }}" class="img-blue" alt="" />				
-			<img src="{{ asset('assets/site/images/img-mensagem-out-orange.png') }}" alt="" class="img-orange" />
-			<img src="{{ asset('assets/site/images/img-mensagem-out-red.png') }}" alt="" class="img-red" />
-			</a>
-			<a class="map-btn" href="#mapa">
-		    <img src="{{ asset('assets/site/images/img-maps-out.png') }}" class="img-blue" alt="" />
-			<img src="{{ asset('assets/site/images/img-maps-out-orange.png') }}" class="img-orange" alt="" />
-			<img src="{{ asset('assets/site/images/img-maps-out-red.png') }}" class="img-red" alt="" />
-			</a>
-		</div>
+		<div class="preview-header-space"></div>
+		{{-- @include('convidado.inc.header-inner', $party) --}}
 	</div>
 	<div class="presente">
 		<ul class="preview-list row">
@@ -164,9 +183,11 @@
 	<br clear="all" />
 	<div class="rsvp">
 		<a name="recado"></a>
-		@include('convidado.inc.header-inner', $party)
 
-		<div class="sub-menu text-center">
+		<div class="preview-header-space"></div>
+		{{-- @include('convidado.inc.header-inner', $party) --}}
+
+		{{-- <div class="sub-menu text-center">
 			@if ($party->confirma_presenca === 1)
 				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
 			@endif
@@ -181,7 +202,7 @@
 			<img src="{{ asset('assets/site/images/img-maps-out-orange.png') }}" class="img-orange" alt="" />
 			<img src="{{ asset('assets/site/images/img-maps-out-red.png') }}" class="img-red" alt="" />
 			</a>
-		</div>
+		</div> --}}
 	</div>
 	<div class="mensagem">
 		<form class="boxfL rsvp-form" action="{{ route('convidado.escrever-mensagem', $party->slug) }}" method="post">
@@ -207,9 +228,11 @@
 	<br clear="all" />
 	<div class="rsvp">
 		<a name="mapa"></a>
-		@include('convidado.inc.header-inner', $party)
 
-		<div class="sub-menu text-center">
+		<div class="preview-header-space"></div>
+		{{-- @include('convidado.inc.header-inner', $party) --}}
+
+		{{-- <div class="sub-menu text-center">
 			@if ($party->confirma_presenca === 1)
 				<a class="confirm-btn active" href="#confirmar"><img src="{{ asset('assets/site/images/img-check-out.png') }}" alt="" /></a>
 			@endif
@@ -225,7 +248,7 @@
 			<img src="{{ asset('assets/site/images/img-mensagem-out-red.png') }}" alt="" class="img-red" />
 			</a>
 			<a class="map-btn" href="#mapa"><img src="{{ asset('assets/site/images/img-maps-in.png') }}" alt="" /></a>
-		</div>
+		</div> --}}
 	</div>
 	<div class="maps">
 		<div class="container clearfix">
