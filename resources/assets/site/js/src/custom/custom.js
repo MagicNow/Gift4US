@@ -145,8 +145,9 @@ $(function() {
 			$presentinho.append('<img src="' + image.data('presente') + '">');
 		}
 	}).on('scroll', function () {
-		if ($doc.scrollTop() < $giftsContainerBottom - $giftsBoxNumberBottom) {
-			$giftsBoxNumber.css('top', $doc.scrollTop());
+		if ($doc.scrollTop() - $giftsBoxNumberTop - 10 < $giftsContainerBottom - $giftsBoxNumberBottom &&
+			$doc.scrollTop() > $giftsBoxNumberTop + 10) {
+			$giftsBoxNumber.css('top', $doc.scrollTop() - $giftsBoxNumberTop - 10); // 10 -> margin-top
 		}
 
 		if ($giftsCategories.length > 0) {
