@@ -616,15 +616,13 @@ function guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, 
 		$previewHeader.css('position', 'absolute');
 	}
 
-	if ($doc.scrollTop() + 10 + $previewHeaderHeight > $previewHeaderSubmenuTop) {
-		$previewHeaderSubmenu.css({'position': 'fixed', 'top': $previewHeaderHeight});
-	} else {
-		$previewHeaderSubmenu.css({'position': 'relative', 'top': 0});
+	if ($previewHeaderSubmenu) {
+		if ($doc.scrollTop() + 10 + $previewHeaderHeight > $previewHeaderSubmenuTop) {
+			$previewHeaderSubmenu.css({'position': 'fixed', 'top': $previewHeaderHeight});
+		} else {
+			$previewHeaderSubmenu.css({'position': 'relative', 'top': 0});
+		}
 	}
-
-	// $previewHeader
-	// $previewHeaderTop
-	// $previewHeaderHeight
 }
 
 function changeQuotaSplit() {
