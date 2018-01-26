@@ -74,7 +74,7 @@ class GiftsController extends Controller {
 			$products = $products->whereIn('id', $selected);
 		}
 
-		$products = $products->get();
+		$products = $products->paginate(30);
 		$client = $this->cliente;
 		$titulo = 'ÁREA DO USUÁRIO';
 		return view('site.presentes.roupas', compact('request', 'titulo', 'client', 'products', 'party', 'selected'));
@@ -278,10 +278,11 @@ class GiftsController extends Controller {
 	{
 		$party = Festas::find($festa_id);
 		$client = $this->cliente;
+		$products = $party->cotas()->paginate(30);
 		$quotasTotal = $party->cotas->count();
 
 		$titulo = 'ÁREA DO USUÁRIO';
-		return view('site.presentes.cotas', compact('request', 'titulo', 'client', 'party', 'quotasTotal', 'selected'));
+		return view('site.presentes.cotas', compact('request', 'titulo', 'client', 'party', 'quotasTotal', 'selected', 'products'));
 	}
 
 	public function quotasAdd(Request $request, $festa_id)

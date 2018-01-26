@@ -43,8 +43,8 @@
 							</div>
 						@endif
 
-						@if (count($party->cotas) > 0)
-							@foreach($party->cotas as $cota)
+						@if (count($products) > 0)
+							@foreach($products as $cota)
 								<li class="col-md-6 gifts-item " data-id="{{ $cota->id }}">
 									<div class="row">
 										<div class="col-md-5">
@@ -71,6 +71,9 @@
 									</div>
 								</li>
 							@endforeach
+							<div class="products-pagination text-center"> 
+								{{ $products->links() }}
+							</div>
 						@else
 							Nenhuma cota cadastrado
 						@endif
