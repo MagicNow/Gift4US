@@ -20,7 +20,27 @@ $(function() {
 
 	$giftsCategoriesButton ? $giftsCategoriesButton.width($giftsCategories.width()) : null;
 
-	guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop);
+	var $preview = $('.preview');
+	var $previewPins = $preview.length > 0 ? $('.pin-button') : null;
+	var previewSections = $preview.length > 0 ? [{
+				'top': $('.section-confirma').offset().top,
+				'bottom': $('.section-confirma').offset().top + $('.section-confirma').height(),
+				'section': $('.confirm-btn')
+			},{
+				'top': $('.section-lista').offset().top,
+				'bottom': $('.section-lista').offset().top + $('.section-lista').height(),
+				'section': $('.gifts-btn')
+			},{
+				'top': $('.section-recado').offset().top,
+				'bottom': $('.section-recado').offset().top + $('.section-recado').height(),
+				'section': $('.message-btn')
+			},{
+				'top': $('.section-mapa').offset().top,
+				'bottom': $('.section-mapa').offset().top + $('.section-mapa').height(),
+				'section': $('.map-btn')
+			}] : null;
+
+	guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins);
 
 	// add validate to cpf
 	$.validator.addMethod("cpf", function(value, element) {
@@ -158,7 +178,7 @@ $(function() {
 			$giftsBoxNumber.css('top', $doc.scrollTop() - $giftsBoxNumberTop - 10); // 10 -> margin-top
 		}
 
-		guestPageCheckHeaderPosition($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop);
+		guestPageCheckHeaderPosition($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins);
 
 		if ($giftsCategories.length > 0) {
 			if ($doc.scrollTop() + $win.height() > $giftsCategories.offset().top + $giftsCategories.height()) {
@@ -609,7 +629,7 @@ $(function() {
 	});
 });
 
-function guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop) {
+function guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins) {
 	if ($doc.scrollTop() > $previewHeaderTop) {
 		$previewHeader.css('position', 'fixed');
 	} else {
@@ -621,6 +641,14 @@ function guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, 
 			$previewHeaderSubmenu.css({'position': 'fixed', 'top': $previewHeaderHeight});
 		} else {
 			$previewHeaderSubmenu.css({'position': 'relative', 'top': 0});
+		}
+
+		$previewPins.removeClass('active');
+
+		for (var i = 0; i < previewSections.length; i++) {
+			if ($doc.scrollTop() > previewSections[i].top && $doc.scrollTop() <= previewSections[i].bottom) {
+				previewSections[i].section.addClass('active');
+			}
 		}
 	}
 }

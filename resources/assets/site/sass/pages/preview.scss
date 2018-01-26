@@ -6,808 +6,841 @@ $decor-bg-light-blue: rgba(#5b99d4,0.19);
 $decor-bg-light-orange: rgba(#EC9001,0.19);
 $decor-bg-light-red: rgba(#df3132,0.19);
 $decor-bg-red: rgba(#df3132,1);
+
+.pin-button {
+	&.active {
+		svg path {
+			fill: $color-gold;
+		}
+	}
+}
+
 .orange {
-    .preview {
-        &-more-btn {
-            background-color: $color-orange;
-        }
-        &-banner {
-            background-color: $color-orange;
-        }
-        &-header {
-            &-address {
-                background: $decor-bg-orange;
-            }
-            &-decor {
-                background: $decor-bg-orange;
-            }
-            &-image {
-                &-mask {
-                    background-color: #ec9001;
-                }
-            }
-            &-advertising {
-                background-color: #EC9001;
-            }
-            &.fixed {
-                .preview-header-decor {
-                    background: $color-orange;
-                }
-            }
-        }
-        &-item {
-            background-color: #ee9024;
-        }
-        .sub-menu {
-            min-height: 105px;
-            a {
-                &.confirm-btn {
-                    background-color: $color-orange;
-                }
-                &.gifts-btn {
-                    background-color: $color-orange;
-                }
-                &.message-btn {
-                    background-color: $color-orange;
-                }
-                &.map-btn {
-                    background-color: $color-orange;
-                }
-                &.active {
-                    background-color: $color-gold;
-                }
-            }
-        }
-        .rsvp {
-            background: $decor-bg-light-orange;
-            &-form {
-                background-color: $color-orange;
-            }
-        }
-        .msg {
-            background: $decor-bg-light-orange;
-            &-form {
-                background-color: $color-orange;
-            }
-        }
-        .mapa {
-            .location {
-                background: $decor-bg-light-orange;
-            }
-        }
-        .gifts {
-            .preview-list {
-                .preview-item-text {
-                    color: $color-orange;
-                }
-                .preview-item-toys {
-                    background-color: $color-orange;
-                }
-                .preview-item-clothes {
-                    background-color: $color-orange;
-                }
-                .preview-item-quota {
-                    background-color: $color-orange;
-                }
-            }
-        }
-    }
+	.sub-menu-icon {
+		path {
+			fill: $decor-bg-orange;
+		}
+	}
+
+	.preview {
+		&-more-btn {
+			background-color: $color-orange;
+		}
+		&-banner {
+			background-color: $color-orange;
+		}
+		&-header {
+			&-address {
+				background: $decor-bg-orange;
+			}
+			&-decor {
+				background: $decor-bg-orange;
+			}
+			&-image {
+				&-mask {
+					background-color: #ec9001;
+				}
+			}
+			&-advertising {
+				background-color: #EC9001;
+			}
+			&.fixed {
+				.preview-header-decor {
+					background: $color-orange;
+				}
+			}
+		}
+		&-item {
+			background-color: #ee9024;
+		}
+		.sub-menu {
+			min-height: 105px;
+			a {
+				&.confirm-btn {
+					background-color: $color-orange;
+				}
+				&.gifts-btn {
+					background-color: $color-orange;
+				}
+				&.message-btn {
+					background-color: $color-orange;
+				}
+				&.map-btn {
+					background-color: $color-orange;
+				}
+				&.active {
+					background-color: $color-gold;
+				}
+			}
+		}
+		.rsvp {
+			background: $decor-bg-light-orange;
+			&-form {
+				background-color: $color-orange;
+			}
+		}
+		.msg {
+			background: $decor-bg-light-orange;
+			&-form {
+				background-color: $color-orange;
+			}
+		}
+		.mapa {
+			.location {
+				background: $decor-bg-light-orange;
+			}
+		}
+		.gifts {
+			.preview-list {
+				.preview-item-text {
+					color: $color-orange;
+				}
+				.preview-item-toys {
+					background-color: $color-orange;
+				}
+				.preview-item-clothes {
+					background-color: $color-orange;
+				}
+				.preview-item-quota {
+					background-color: $color-orange;
+				}
+			}
+		}
+	}
 }
 .blue {
-    .preview {
-        &-more-btn {
-            background-color: $color-blue;
-        }
-        &-banner {
-            background-color: $color-blue;
-        }
-        &-header {
-            &-address {
-                background: $decor-bg-blue;
-            }
-            &-decor {
-                background: $decor-bg-blue;
-            }
-            &-image {
-                &-mask {
-                    background-color: #2599d6;
-                }
-            }
-            &.fixed {
-                .preview-header-decor {
-                    background: $color-blue;
-                }
-            }
-        }
-        &-item {
-            background-color: #2599d6;
-        }
-        .sub-menu {
-            min-height: 105px;
-            a {
-                &.confirm-btn {
-                    background-color: $color-blue;
-                }
-                &.gifts-btn {
-                    background-color: $color-blue;
-                }
-                &.message-btn {
-                    background-color: $color-blue;
-                }
-                &.map-btn {
-                    background-color: $color-blue;
-                }
-                &.active {
-                    background-color: $color-gold;
-                }
-            }
-        }
-        .rsvp {
-            background: $decor-bg-light-blue;
-            &-form {
-                background-color: $color-blue;
-            }
-        }
-        .msg {
-            background: $decor-bg-light-blue;
-            &-form {
-                background-color: $color-blue;
-            }
-        }
-        .mapa {
-            .location {
-                background: $decor-bg-light-blue;
-            }
-        }
-        .gifts {
-            .preview-list {
-                .preview-item-text {
-                    color: $color-blue;
-                }
-                .preview-item-toys {
-                    background-color: $color-blue;
-                }
-                .preview-item-clothes {
-                    background-color: $color-blue;
-                }
-                .preview-item-quota {
-                    background-color: $color-blue;
-                }
-            }
-        }
-    }
+	.sub-menu-icon {
+		path {
+			fill: $decor-bg-blue;
+		}
+	}
+
+	.preview {
+		&-more-btn {
+			background-color: $color-blue;
+		}
+		&-banner {
+			background-color: $color-blue;
+		}
+		&-header {
+			&-address {
+				background: $decor-bg-blue;
+			}
+			&-decor {
+				background: $decor-bg-blue;
+			}
+			&-image {
+				&-mask {
+					background-color: #2599d6;
+				}
+			}
+			&.fixed {
+				.preview-header-decor {
+					background: $color-blue;
+				}
+			}
+		}
+		&-item {
+			background-color: #2599d6;
+		}
+		.sub-menu {
+			min-height: 105px;
+			a {
+				&.confirm-btn {
+					background-color: $color-blue;
+				}
+				&.gifts-btn {
+					background-color: $color-blue;
+				}
+				&.message-btn {
+					background-color: $color-blue;
+				}
+				&.map-btn {
+					background-color: $color-blue;
+				}
+				&.active {
+					background-color: $color-gold;
+				}
+			}
+		}
+		.rsvp {
+			background: $decor-bg-light-blue;
+			&-form {
+				background-color: $color-blue;
+			}
+		}
+		.msg {
+			background: $decor-bg-light-blue;
+			&-form {
+				background-color: $color-blue;
+			}
+		}
+		.mapa {
+			.location {
+				background: $decor-bg-light-blue;
+			}
+		}
+		.gifts {
+			.preview-list {
+				.preview-item-text {
+					color: $color-blue;
+				}
+				.preview-item-toys {
+					background-color: $color-blue;
+				}
+				.preview-item-clothes {
+					background-color: $color-blue;
+				}
+				.preview-item-quota {
+					background-color: $color-blue;
+				}
+			}
+		}
+	}
 }
 .red {
-    .preview {
-        &-more-btn {
-            background-color: $color-red;
-        }
-        &-banner {
-            background-color: $color-red;
-        }
-        &-header {
-            &-address {
-                background: $decor-bg-red;
-            }
-            &-decor {
-                background: $decor-bg-red;
-            }
-            &-image {
-                &-mask {
-                    background-color: #df3132;
-                }
-            }
-            &.fixed {
-                .preview-header-decor {
-                    background: $color-red;
-                }
-            }
-        }
-        &-item {
-            background-color: #df3132;
-        }
-        .sub-menu {
-            min-height: 105px;
-            a {
-                &.confirm-btn {
-                    background-color: $color-red;
-                }
-                &.gifts-btn {
-                    background-color: $color-red;
-                }
-                &.message-btn {
-                    background-color: $color-red;
-                }
-                &.map-btn {
-                    background-color: $color-red;
-                }
-                &.active {
-                    background-color: $color-gold;
-                }
-            }
-        }
-        .rsvp {
-            background: $decor-bg-light-red;
-            &-form {
-                background-color: $color-red;
-            }
-        }
-        .msg {
-            background: $decor-bg-light-red;
-            &-form {
-                background-color: $color-red;
-            }
-        }
-        .mapa {
-            .location {
-                background: $decor-bg-light-red;
-            }
-        }
-        .gifts {
-            .preview-list {
-                .preview-item-text {
-                    color: $color-red;
-                }
-                .preview-item-toys {
-                    background-color: $color-red;
-                }
-                .preview-item-clothes {
-                    background-color: $color-red;
-                }
-                .preview-item-quota {
-                    background-color: $color-red;
-                }
-            }
-        }
-    }
+	.sub-menu-icon {
+		path {
+			fill: $decor-bg-red;
+		}
+	}
+
+	.preview {
+		&-more-btn {
+			background-color: $color-red;
+		}
+		&-banner {
+			background-color: $color-red;
+		}
+		&-header {
+			&-address {
+				background: $decor-bg-red;
+			}
+			&-decor {
+				background: $decor-bg-red;
+			}
+			&-image {
+				&-mask {
+					background-color: #df3132;
+				}
+			}
+			&.fixed {
+				.preview-header-decor {
+					background: $color-red;
+				}
+			}
+		}
+		&-item {
+			background-color: #df3132;
+		}
+		.sub-menu {
+			min-height: 105px;
+			a {
+				&.confirm-btn {
+					background-color: $color-red;
+				}
+				&.gifts-btn {
+					background-color: $color-red;
+				}
+				&.message-btn {
+					background-color: $color-red;
+				}
+				&.map-btn {
+					background-color: $color-red;
+				}
+				&.active {
+					background-color: $color-gold;
+				}
+			}
+		}
+		.rsvp {
+			background: $decor-bg-light-red;
+			&-form {
+				background-color: $color-red;
+			}
+		}
+		.msg {
+			background: $decor-bg-light-red;
+			&-form {
+				background-color: $color-red;
+			}
+		}
+		.mapa {
+			.location {
+				background: $decor-bg-light-red;
+			}
+		}
+		.gifts {
+			.preview-list {
+				.preview-item-text {
+					color: $color-red;
+				}
+				.preview-item-toys {
+					background-color: $color-red;
+				}
+				.preview-item-clothes {
+					background-color: $color-red;
+				}
+				.preview-item-quota {
+					background-color: $color-red;
+				}
+			}
+		}
+	}
 }
 .preview {
-    padding: 0 0 42px;
-    &-container {
-        width: 775px;
-        margin: 0 auto;
-    }
-    &-presentinho {
-        position: absolute;
-        right: 0;
-        top: -30px;
-        z-index: 1;
-        &-vermelho {
-            position: absolute;
-            left: 0;
-            z-index: 1;
-        }
-    }
-    &-banner {
-        position: relative;
-        height: 420px;
-        width: 100%;
-        margin: 0 auto;
-        padding: 0;
-        &-item {
-            background-image: url(../images/bg.png);
-            background-size: cover;
-            background-repeat: repeat;
-            height: 100%;
-            padding: 100px 0;
-            &-image {
-                display: block;
-                margin: 0 auto;
-            }
-        }
-    }
-    &-header {
-        position: relative;
-        // overflow: hidden;
-        &-name {
-            background-color: #ecc22a;
-            text-align: center;
-            width: 225px;
-            position: absolute;
-            right: 50%;
-            margin-right: 143px;
-            height: 104px;
-            top: 49px;
-            font: 20px HelveticaNeueStd_BDCN;
-            padding: 15px 0 0;
-            color: #fff;
-            text-transform: uppercase;
-            clip-path: polygon(0% 0%,98% 4%,90% 69%,60% 70%,60% 100%,50% 100%,50% 71%,0% 73%);
-        }
-        &.fixed {
-            margin-top: -130px;
-            position: absolute;
-            width: 100%;
-            .preview-header-image-container {
-                margin: 0 auto 0;
-            }
-        }
-        &-info {
-            text-align: center;
-            width: 225px;
-            position: absolute;
-            left: 50%;
-            margin-left: 143px;
-            height: 74px;
-            top: 69px;
-            font: 20px HelveticaNeueStd;
-            padding: 15px 0 0;
-            color: #fff;
-            text-transform: uppercase;
-            z-index: 1;
-        }
-        &-address {
-            color: #fff;
-            font: 16px HelveticaNeueStd;
-            width: 380px;
-            height: 122px;
-            margin: -10px auto 0;
-            clip-path: polygon(0% 0%,25.6% 0%,25% 14%,75% 18%,74% 0%,100% 0%,96% 100%,4% 100%);
-            padding: 35px 30px 10px;
-            text-align: center;
-        }
-        &-decor {
-            height: $decor-height;
-            margin: $decor-margin;
-            position: absolute;
-            width: calc(50% - 85px);
-            top: 0;
-            &-left {
-                right: 50%;
-                margin-right: 85px;
-                clip-path: polygon(0% 0%,98% 0%,97.6% 42%,100% 45%,99% 100%,0% 100%);
-            }
-            &-right {
-                left: 50%;
-                margin-left: 85px;
-                clip-path: polygon(2% 0%,100% 0%,100% 100%,0.5% 100%,0% 51%,3% 41%);
-            }
-        }
-        &-image {
-            position: absolute;
-            top: 61px;
-            left: 2px;
-            height: 105px;
-            &-container {
-                text-align: center;
-                position: relative;
-                // margin: 27px auto 0;
-                margin: 0 auto;
-                width: 182px;
-                display: block;
-            }
-            &-mask {
-                width: 100%;
-                height: 177px;
-                mask: url(../images/preview-mask-gift.png);
-            }
-        }
-        &-left {
-            position: absolute;
-            left: -50%;
-            width: 50%;
-            height: $decor-height;
-            background-color: $decor-bg-orange;
-            margin: $decor-margin;
-        }
-    }
-    .control-panel {
-        position: relative;
-    }
-    .sub-menu {
-        position: relative;
-        padding-top: 5px;
-        a {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            margin: 0 10px;
-            text-indent: -99999px;
-            vertical-align: bottom;
-            &.confirm-btn {
-                width: 45px;
-                height: 46px;
-                mask: url(../images/confirm-btn.png);
-            }
-            &.gifts-btn {
-                width: 50px;
-                height: 49px;
-                mask: url(../images/gifts-btn.png);
-            }
-            &.message-btn {
-                width: 39px;
-                height: 42px;
-                mask: url(../images/message-btn.png);
-            }
-            &.map-btn {
-                width: 30px;
-                height: 45px;
-                mask: url(../images/map-btn.png);
-            }
-        }
-    }
-    .gifts {
-        position: relative;
-        min-height: 500px;
-        z-index: 10;
-        margin-top: 180px;
-        border: solid 1px rgba(0,0,0,0);
-        .preview-list {
-            max-width: 800px;
-            margin: 250px auto 30px;
-            padding-left: 50px;
-            p {
-                &.desc {
-                    font: 17px HelveticaNeueStd;
-                }
-            }
-            .preview-item-toys {
-                mask: url(../images/convidado/ico_brinquedos.png);
-                width: 96px;
-                height: 93px;
-                display: inline-block;
-            }
-            .preview-item-clothes {
-                mask: url(../images/convidado/ico_roupas.png);
-                width: 95px;
-                height: 95px;
-                display: inline-block;
-            }
-            .preview-item-quota {
-                mask: url(../images/convidado/ico_cotas.png);
-                width: 89px;
-                height: 88px;
-                display: inline-block;
-            }
-        }
-        .presente-oba {
-            position: absolute;
-            left: 30px;
-            margin-top: 120px;
-            z-index: 1;
-            pointer-events: none;
-        }
-    }
-    .mapa {
-        position: relative;
-        min-height: 580px;
-        z-index: 10;
-        margin-top: 50px;
-        padding-top: 140px;
-        .container {
-            background-color: #fff;
-            margin-top: 150px;
-            height: 450px;
-        }
-        .location {
-            position: absolute;
-            width: 350px;
-            height: auto;
-            padding: 10px;
-            margin-top: 180px;
-            font: 15px HelveticaNeueStd;
-            left: 50%;
-            margin-left: -480px;
-            .where {
-                h3 {
-                    color: $color-gold;
-                    margin-bottom: 10px;
-                }
-                p {
-                    color: #000;
-                    line-height: 140%;
-                }
-            }
-            .obs {
-                h3 {
-                    color: $color-gold;
-                    margin-bottom: 10px;
-                }
-                p {
-                    color: #000;
-                    line-height: 140%;
-                }
-            }
-        }
-        .g-maps {
-            margin-top: 50px;
-            z-index: 10;
-            position: absolute;
-            left: 50%;
-            margin-left: 70px;
-            iframe {
-                width: 450px;
-                height: 350px;
-            }
-        }
-        .presente-como {
-            bottom: 40px;
-            left: 50%;
-            margin-left: -490px;
-            z-index: 5;
-            position: absolute;
-        }
-    }
-    .msg {
-        position: relative;
-        min-height: 580px;
-        z-index: 10;
-        margin-top: 180px;
-        &-baloes {
-            position: absolute;
-            left: 170px;
-            margin-top: 80px;
-            z-index: 1;
-        }
-        &-form {
-            position: absolute;
-            left: 50%;
-            margin-left: -480px;
-            height: 440px;
-            margin-top: 140px;
-            z-index: 1;
-            width: 542px;
-            mask: url(../images/convidado/bg_form2.png);
-            fieldset {
-                padding: 25px 110px 0 110px;
-                textarea {
-                    &.form-control {
-                        height: 60px;
-                    }
-                }
-                button {
-                    color: #bdbdbf;
-                    float: right;
-                    background-color: #fff;
-                    border: none;
-                    padding: 0px 7px;
-                    text-transform: uppercase;
-                    font-size: 13px;
-                }
-                .form-control {
-                    padding: 3px 6px;
-                    margin: 12px 0;
-                    height: 25px;
-                    color: #bdbdbf;
-                }
-                p {
-                    color: #fff;
-                    font-size: 14px;
-                }
-            }
-        }
-        .preview-presentinho-vermelho {
-            bottom: 0;
-            left: 50%;
-            margin-left: -340px;
-        }
-        .preview-advertising {
-            height: 200px;
-            width: 430px;
-            margin: 20px 0 0;
-            position: absolute;
-            left: 50%;
-            margin-left: 130px;
-            margin-top: 150px;
-            background-color: #c74041;
-        }
-    }
-    .rsvp {
-        position: relative;
-        min-height: 500px;
-        z-index: 10;
-        margin-top: 180px;
-        &-baloes {
-            position: absolute;
-            left: 170px;
-            margin-top: 80px;
-            z-index: 1;
-        }
-        &-form {
-            position: absolute;
-            left: 50%;
-            margin-left: -40px;
-            height: 319px;
-            margin-top: 180px;
-            z-index: 1;
-            width: 542px;
-            mask: url(../images/convidado/bg_form2.png);
-            fieldset {
-                padding: 35px 110px 0 110px;
-                .form-control {
-                    padding: 3px 6px;
-                    margin: 12px 0;
-                    height: 25px;
-                    color: #bdbdbf;
-                }
-                p {
-                    color: #fff;
-                    font-size: 14px;
-                    button {
-                        color: #bdbdbf;
-                        float: right;
-                        background-color: #fff;
-                        border: none;
-                        padding: 0px 7px;
-                        text-transform: uppercase;
-                        font-size: 13px;
-                    }
-                }
-            }
-        }
-        .preview-presentinho-vermelho {
-            margin-top: 140px;
-        }
-    }
-    &-list {
-        list-style-type: none;
-        margin: 45px 0 0 0;
-        .text {
-            &-center {
-                .preview-item-text {
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-            }
-            &-right {
-                .preview-item-text {
-                    float: right;
-                }
-            }
-        }
-    }
-    &-item {
-        mask: url(../images/preview-item-mask.png);
-        width: 134px;
-        height: 130px;
-        padding: 53px 0 0;
-        font: 34px/66px HelveticaNeueStd_BDCN;
-        color: #fff;
-        display: inline-block;
-        &-text {
-            font: 20px dk_astromonkeyregular;
-            width: 134px;
-            margin: 5px 0 0 0;
-            color: #ecc229;
-        }
-    }
-    &-advertising {
-        background-color: #1f9ad5;
-        height: 125px;
-        width: 100%;
-        margin: 20px 0 0;
-        &-btn {
-            background-color: #ecc229;
-            padding: 0 13px;
-            line-height: 25px;
-            height: 25px;
-            float: right;
-            margin: 15px 15px 0 0;
-            color: #fff;
-        }
-    }
-    &-back-btn {
-        &.btn-blue {
-            line-height: 44px;
-            height: 44px;
-            position: absolute;
-            left: 10px;
-            top: 10px;
-            padding: 0 10px;
-            z-index: 3;
-        }
-    }
-    &-more-btn {
-        display: inline-block;
-        line-height: 44px;
-        height: 44px;
-        margin: 40px auto;
-        padding: 12px 10px 0;
-        z-index: 3;
-        color: #fff;
-        text-transform: uppercase;
-        font: 16px 'dk_astromonkeyregular';
-        letter-spacing: 0.26em;
-    }
+	padding: 0 0 42px;
+
+	&-section {
+		display: inline-block;
+		width: 100%;
+	}
+
+	&-container {
+		width: 775px;
+		margin: 0 auto;
+	}
+	&-presentinho {
+		position: absolute;
+		right: 0;
+		top: -30px;
+		z-index: 1;
+		&-vermelho {
+			position: absolute;
+			left: 0;
+			z-index: 1;
+		}
+	}
+	&-banner {
+		position: relative;
+		height: 420px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0;
+		&-item {
+			background-image: url(../images/bg.png);
+			background-size: cover;
+			background-repeat: repeat;
+			height: 100%;
+			padding: 100px 0;
+			&-image {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+	}
+	&-header {
+		position: relative;
+		// overflow: hidden;
+		&-name {
+			background-color: #ecc22a;
+			text-align: center;
+			width: 225px;
+			position: absolute;
+			right: 50%;
+			margin-right: 143px;
+			height: 104px;
+			top: 49px;
+			font: 20px HelveticaNeueStd_BDCN;
+			padding: 15px 0 0;
+			color: #fff;
+			text-transform: uppercase;
+			clip-path: polygon(0% 0%,98% 4%,90% 69%,60% 70%,60% 100%,50% 100%,50% 71%,0% 73%);
+		}
+		&.fixed {
+			margin-top: -130px;
+			position: absolute;
+			width: 100%;
+			.preview-header-image-container {
+				margin: 0 auto 0;
+			}
+		}
+		&-info {
+			text-align: center;
+			width: 225px;
+			position: absolute;
+			left: 50%;
+			margin-left: 143px;
+			height: 74px;
+			top: 69px;
+			font: 20px HelveticaNeueStd;
+			padding: 15px 0 0;
+			color: #fff;
+			text-transform: uppercase;
+			z-index: 1;
+		}
+		&-address {
+			color: #fff;
+			font: 16px HelveticaNeueStd;
+			width: 380px;
+			height: 122px;
+			margin: -10px auto 0;
+			clip-path: polygon(0% 0%,25.6% 0%,25% 14%,75% 18%,74% 0%,100% 0%,96% 100%,4% 100%);
+			padding: 35px 30px 10px;
+			text-align: center;
+		}
+		&-decor {
+			height: $decor-height;
+			margin: $decor-margin;
+			position: absolute;
+			width: calc(50% - 85px);
+			top: 0;
+			&-left {
+				right: 50%;
+				margin-right: 85px;
+				clip-path: polygon(0% 0%,98% 0%,97.6% 42%,100% 45%,99% 100%,0% 100%);
+			}
+			&-right {
+				left: 50%;
+				margin-left: 85px;
+				clip-path: polygon(2% 0%,100% 0%,100% 100%,0.5% 100%,0% 51%,3% 41%);
+			}
+		}
+		&-image {
+			position: absolute;
+			top: 61px;
+			left: 2px;
+			height: 105px;
+			&-container {
+				text-align: center;
+				position: relative;
+				// margin: 27px auto 0;
+				margin: 0 auto;
+				width: 182px;
+				display: block;
+			}
+			&-mask {
+				width: 100%;
+				height: 177px;
+				mask: url(../images/preview-mask-gift.png);
+			}
+		}
+		&-left {
+			position: absolute;
+			left: -50%;
+			width: 50%;
+			height: $decor-height;
+			background-color: $decor-bg-orange;
+			margin: $decor-margin;
+		}
+	}
+	.control-panel {
+		position: relative;
+	}
+	.sub-menu {
+		position: relative;
+		padding-top: 5px;
+		a {
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			margin: 0 10px;
+			text-indent: -99999px;
+			vertical-align: bottom;
+			&.confirm-btn {
+				width: 45px;
+				height: 46px;
+				mask: url(../images/confirm-btn.png);
+			}
+			&.gifts-btn {
+				width: 50px;
+				height: 49px;
+				mask: url(../images/gifts-btn.png);
+			}
+			&.message-btn {
+				width: 39px;
+				height: 42px;
+				mask: url(../images/message-btn.png);
+			}
+			&.map-btn {
+				width: 30px;
+				height: 45px;
+				mask: url(../images/map-btn.png);
+			}
+		}
+	}
+	.gifts {
+		position: relative;
+		min-height: 500px;
+		z-index: 10;
+		margin-top: 180px;
+		border: solid 1px rgba(0,0,0,0);
+		.preview-list {
+			max-width: 800px;
+			margin: 250px auto 30px;
+			padding-left: 50px;
+			p {
+				&.desc {
+					font: 17px HelveticaNeueStd;
+				}
+			}
+			.preview-item-toys {
+				mask: url(../images/convidado/ico_brinquedos.png);
+				width: 96px;
+				height: 93px;
+				display: inline-block;
+			}
+			.preview-item-clothes {
+				mask: url(../images/convidado/ico_roupas.png);
+				width: 95px;
+				height: 95px;
+				display: inline-block;
+			}
+			.preview-item-quota {
+				mask: url(../images/convidado/ico_cotas.png);
+				width: 89px;
+				height: 88px;
+				display: inline-block;
+			}
+		}
+		.presente-oba {
+			position: absolute;
+			left: 30px;
+			margin-top: 120px;
+			z-index: 1;
+			pointer-events: none;
+		}
+	}
+	.mapa {
+		position: relative;
+		min-height: 580px;
+		z-index: 10;
+		margin-top: 50px;
+		padding-top: 140px;
+		.container {
+			background-color: #fff;
+			margin-top: 150px;
+			height: 450px;
+		}
+		.location {
+			position: absolute;
+			width: 350px;
+			height: auto;
+			padding: 10px;
+			margin-top: 180px;
+			font: 15px HelveticaNeueStd;
+			left: 50%;
+			margin-left: -480px;
+			.where {
+				h3 {
+					color: $color-gold;
+					margin-bottom: 10px;
+				}
+				p {
+					color: #000;
+					line-height: 140%;
+				}
+			}
+			.obs {
+				h3 {
+					color: $color-gold;
+					margin-bottom: 10px;
+				}
+				p {
+					color: #000;
+					line-height: 140%;
+				}
+			}
+		}
+		.g-maps {
+			margin-top: 50px;
+			z-index: 10;
+			position: absolute;
+			left: 50%;
+			margin-left: 70px;
+			iframe {
+				width: 450px;
+				height: 350px;
+			}
+		}
+		.presente-como {
+			bottom: 40px;
+			left: 50%;
+			margin-left: -490px;
+			z-index: 5;
+			position: absolute;
+		}
+	}
+	.msg {
+		position: relative;
+		min-height: 580px;
+		z-index: 10;
+		margin-top: 180px;
+		&-baloes {
+			position: absolute;
+			left: 170px;
+			margin-top: 80px;
+			z-index: 1;
+		}
+		&-form {
+			position: absolute;
+			left: 50%;
+			margin-left: -480px;
+			height: 440px;
+			margin-top: 140px;
+			z-index: 1;
+			width: 542px;
+			mask: url(../images/convidado/bg_form2.png);
+			fieldset {
+				padding: 25px 110px 0 110px;
+				textarea {
+					&.form-control {
+						height: 60px;
+					}
+				}
+				button {
+					color: #bdbdbf;
+					float: right;
+					background-color: #fff;
+					border: none;
+					padding: 0px 7px;
+					text-transform: uppercase;
+					font-size: 13px;
+				}
+				.form-control {
+					padding: 3px 6px;
+					margin: 12px 0;
+					height: 25px;
+					color: #bdbdbf;
+				}
+				p {
+					color: #fff;
+					font-size: 14px;
+				}
+			}
+		}
+		.preview-presentinho-vermelho {
+			bottom: 0;
+			left: 50%;
+			margin-left: -340px;
+		}
+		.preview-advertising {
+			height: 200px;
+			width: 430px;
+			margin: 20px 0 0;
+			position: absolute;
+			left: 50%;
+			margin-left: 130px;
+			margin-top: 150px;
+			background-color: #c74041;
+		}
+	}
+	.rsvp {
+		position: relative;
+		min-height: 500px;
+		z-index: 10;
+		margin-top: 180px;
+		&-baloes {
+			position: absolute;
+			left: 170px;
+			margin-top: 80px;
+			z-index: 1;
+		}
+		&-form {
+			position: absolute;
+			left: 50%;
+			margin-left: -40px;
+			height: 319px;
+			margin-top: 180px;
+			z-index: 1;
+			width: 542px;
+			mask: url(../images/convidado/bg_form2.png);
+			fieldset {
+				padding: 35px 110px 0 110px;
+				.form-control {
+					padding: 3px 6px;
+					margin: 12px 0;
+					height: 25px;
+					color: #bdbdbf;
+				}
+				p {
+					color: #fff;
+					font-size: 14px;
+					button {
+						color: #bdbdbf;
+						float: right;
+						background-color: #fff;
+						border: none;
+						padding: 0px 7px;
+						text-transform: uppercase;
+						font-size: 13px;
+					}
+				}
+			}
+		}
+		.preview-presentinho-vermelho {
+			margin-top: 140px;
+		}
+	}
+	&-list {
+		list-style-type: none;
+		margin: 45px 0 0 0;
+		.text {
+			&-center {
+				.preview-item-text {
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+			&-right {
+				.preview-item-text {
+					float: right;
+				}
+			}
+		}
+	}
+	&-item {
+		mask: url(../images/preview-item-mask.png);
+		width: 134px;
+		height: 130px;
+		padding: 53px 0 0;
+		font: 34px/66px HelveticaNeueStd_BDCN;
+		color: #fff;
+		display: inline-block;
+		&-text {
+			font: 20px dk_astromonkeyregular;
+			width: 134px;
+			margin: 5px 0 0 0;
+			color: #ecc229;
+		}
+	}
+	&-advertising {
+		background-color: #1f9ad5;
+		height: 125px;
+		width: 100%;
+		margin: 20px 0 0;
+		&-btn {
+			background-color: #ecc229;
+			padding: 0 13px;
+			line-height: 25px;
+			height: 25px;
+			float: right;
+			margin: 15px 15px 0 0;
+			color: #fff;
+		}
+	}
+	&-back-btn {
+		&.btn-blue {
+			line-height: 44px;
+			height: 44px;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			padding: 0 10px;
+			z-index: 3;
+		}
+	}
+	&-more-btn {
+		display: inline-block;
+		line-height: 44px;
+		height: 44px;
+		margin: 40px auto;
+		padding: 12px 10px 0;
+		z-index: 3;
+		color: #fff;
+		text-transform: uppercase;
+		font: 16px 'dk_astromonkeyregular';
+		letter-spacing: 0.26em;
+	}
 }
 .orange {
-    .preview-container {
-        .preview {
-            &-advertising {
-                background-color: #EC9001;
-            }
-        }
-    }
-    .boxfR {
-        .preview {
-            &-advertising {
-                background-color: #EC9001;
-            }
-        }
-    }
-    .img {
-        &-field {
-            background: url(../images/bg-mensagem-orange.png) no-repeat;
-        }
-    }
-    .presente .preview-item-toys {
-        background: url(../images/img-brinquedo-orange.png) no-repeat;
-    }
-    .presente .preview-item-clothes {
-        background: url(../images/img-roupa-orange.png) no-repeat;
-    }
-    .presente .preview-item-quota {
-        background: url(../images/img-cotas-orange.png) no-repeat;
-    }
-    .img-orange {
-        display: normal;
-    }
-    .img-red {
-        display: none;
-    }
-    .img-blue {
-        display: none;
-    }
-    .presente .porcentagem span {
-        background-color: #ecc229;
-    }
-    .presente .porcentagem {
-        border: 5px solid #EC9001;
-    }
+	.preview-container {
+		.preview {
+			&-advertising {
+				background-color: #EC9001;
+			}
+		}
+	}
+	.boxfR {
+		.preview {
+			&-advertising {
+				background-color: #EC9001;
+			}
+		}
+	}
+	.img {
+		&-field {
+			background: url(../images/bg-mensagem-orange.png) no-repeat;
+		}
+	}
+	.presente .preview-item-toys {
+		background: url(../images/img-brinquedo-orange.png) no-repeat;
+	}
+	.presente .preview-item-clothes {
+		background: url(../images/img-roupa-orange.png) no-repeat;
+	}
+	.presente .preview-item-quota {
+		background: url(../images/img-cotas-orange.png) no-repeat;
+	}
+	.img-orange {
+		display: normal;
+	}
+	.img-red {
+		display: none;
+	}
+	.img-blue {
+		display: none;
+	}
+	.presente .porcentagem span {
+		background-color: #ecc229;
+	}
+	.presente .porcentagem {
+		border: 5px solid #EC9001;
+	}
 }
 .blue {
-    .img-orange {
-        display: none;
-    }
-    .img-red {
-        display: none;
-    }
-    .img-blue {
-        display: normal;
-    }
+	.img-orange {
+		display: none;
+	}
+	.img-red {
+		display: none;
+	}
+	.img-blue {
+		display: normal;
+	}
 }
 .red {
-    .preview-container {
-        .preview {
-            &-advertising {
-                background-color: #df3132;
-            }
-        }
-    }
-    .img-orange {
-        display: none;
-    }
-    .img-red {
-        display: normal;
-    }
-    .img-blue {
-        display: none;
-    }
-    .presente .preview-item-toys {
-        background: url(../images/img-brinquedo-red.png) no-repeat;
-    }
-    .presente .preview-item-clothes {
-        background: url(../images/img-roupa-red.png) no-repeat;
-    }
-    .presente .preview-item-quota {
-        background: url(../images/img-cotas-red.png) no-repeat;
-    }
-    .presente .porcentagem {
-        border: 5px solid #df3132;
-    }
-    .presente .porcentagem span {
-        background-color: #ecc229;
-    }
-    .boxfR {
-        .preview {
-            &-advertising {
-                background-color: #df3132;
-            }
-        }
-    }
-    .img {
-        &-field {
-            background: url(../images/bg-mensagem-red.png) no-repeat;
-        }
-    }
+	.preview-container {
+		.preview {
+			&-advertising {
+				background-color: #df3132;
+			}
+		}
+	}
+	.img-orange {
+		display: none;
+	}
+	.img-red {
+		display: normal;
+	}
+	.img-blue {
+		display: none;
+	}
+	.presente .preview-item-toys {
+		background: url(../images/img-brinquedo-red.png) no-repeat;
+	}
+	.presente .preview-item-clothes {
+		background: url(../images/img-roupa-red.png) no-repeat;
+	}
+	.presente .preview-item-quota {
+		background: url(../images/img-cotas-red.png) no-repeat;
+	}
+	.presente .porcentagem {
+		border: 5px solid #df3132;
+	}
+	.presente .porcentagem span {
+		background-color: #ecc229;
+	}
+	.boxfR {
+		.preview {
+			&-advertising {
+				background-color: #df3132;
+			}
+		}
+	}
+	.img {
+		&-field {
+			background: url(../images/bg-mensagem-red.png) no-repeat;
+		}
+	}
 }
