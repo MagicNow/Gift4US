@@ -39,9 +39,7 @@
 		<p class="gifts-box-toys-add-legend">Adicione presentes que não achou na nossa lista de sugestões ao lado</p>
 	</div>
 	<div class="gifts-box-number-footer dados-container">
-		@if (count($selected) > 0 || count($add) > 0)
-			<a class="gifts-box-number-submit btn-modal-finalizar" href="#">Finalizar lista</a>
-		@endif
+		<a class="gifts-box-number-submit btn-modal-finalizar {{ count($selected) > 0 || count($add) > 0 ?: 'hidden' }}" href="#">Finalizar lista de brinquedos</a>
 		<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
 	</div>
 </div>

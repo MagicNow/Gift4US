@@ -180,67 +180,97 @@
 	}
 }
 
-.dados-container .social a{
-	display:block;
-	font:19px 'HelveticaNeueStd_CN';
-	color:#FFF;
-	line-height:35px;
-}
-.dados-container .social a.btn-print{
-	background:#109dd9 url(../images/btn-print.png) no-repeat 154px 0;
-	width:216px;
-	padding:6px 0 0 24px;
-	margin-left:81px;
-}
+.dados-container {
+	.social {
+		&-back-home {
+			font: 16px 'HelveticaNeueStd_CN';
+			color: #555557;
+			padding-bottom: 10px;
+		}
 
-.dados-container .social .convites {
-	&-texto {
-		font: 19px 'HelveticaNeueStd_CN';
-		color: #FFF;
-		line-height: 35px;
-	}
-
-	&-enviar{
-		background:#109dd9 url(../images/btn-invite.png) no-repeat 0 0;
-		height: 35px;
-		width: 42px;
-		text-indent: -9999em;
-		display: inline-block;
-		text-align: left;
-		vertical-align: top;
-
-		&-bg {
+		&-button {
 			background-color: #109dd9;
+			height: 38px;
+
+			&-print-icon {
+				top: 6px;
+				position: relative;
+			}
+
+			span.convites-texto {
+				font-size: 14px;
+				line-height: 38px;
+			}
 		}
 
-		&.email {
-			background-position: 0 2px;
+		a {
+			display:block;
+			font:19px 'HelveticaNeueStd_CN';
+			color:#FFF;
+			line-height:35px;
+
+			&.btn-print{
+				background:#109dd9 url(../images/btn-print.png) no-repeat 154px 0;
+				width:216px;
+				padding:6px 0 0 24px;
+				margin-left:81px;
+			}
 		}
 
-		&.fb {
-			background-position: -36px 2px;
-		}
+		.convites {
+			&-texto {
+				font: 19px 'HelveticaNeueStd_CN';
+				color: #FFF;
+				line-height: 35px;
+			}
 
-		&.whats {
-			background-position: -72px 2px;
+			&-enviar{
+				background:#109dd9 url(../images/btn-invite.png) no-repeat 0 0;
+				height: 35px;
+				width: 42px;
+				text-indent: -9999em;
+				display: inline-block;
+				text-align: left;
+				vertical-align: top;
+
+				&-bg {
+					background-color: #109dd9;
+				}
+
+				&.email {
+					background-position: 0 2px;
+				}
+
+				&.fb {
+					background-position: -36px 2px;
+				}
+
+				&.whats {
+					background-position: -72px 2px;
+				}
+			}
 		}
 	}
 }
 
 .dados-container .convite{
 	background: url(../images/bg.jpg);
-	width:558px;
+	width: 100%;
+	// width:558px;
 	height:527px;
 	clear:both;
 	margin:20px 59px 20px 0;
 }
+
 .dados-container .passos{
-	position:relative;
-	margin:0 0 0 20px;
+	// position:relative;
+	// margin:0 0 0 20px;
+	background: rgba(16, 157, 217, 0.2);
 }
-.dados-container .passos .bg,.dados-container .local-festa .bg{
-	background:#109dd9;
-	width:172px;
+
+.dados-container .passos .bg, .dados-container .local-festa .bg{
+	
+	// width:172px;
 	height:368px;
 	opacity:0.2;
 	position:absolute;
@@ -254,9 +284,9 @@
 	font:17px 'HelveticaNeueStd_CN';
 	line-height:17px;
 	color:#19434c;
-	width:172px;
+	// width:172px;
+	padding:13px 0;
 	text-align:center;
-	padding:13px 19px;
 }
 .dados-container .passos div span{
 	padding-top:2px;
@@ -273,8 +303,9 @@
 }
 .dados-container .data-festa{
 	position:relative;
-	background: url(../images/bg-convite-data.png);
-	width:355px;
+	background: url(../images/bg-convite-data.png) no-repeat;
+	background-size: contain;
+	// width:355px;
 	height:220px;
 	margin-top:-42px;
 }
@@ -287,9 +318,10 @@
 }
 .dados-container .local-festa{
 	position:relative;
-	width:355px;
+	// width:355px;
 	height:138px;
 	margin-top:10px;
+	background: rgba(16, 157, 217, 0.2);
 }
 .dados-container .local-festa .bg{
 	width:355px;

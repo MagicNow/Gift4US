@@ -68,15 +68,15 @@ class HomeController extends Controller {
 						->first();
 
 		if (isset($party) && !empty($party)) {
-			return redirect()->route('convidado.index', $party->id);
+			return redirect()->route('convidado.index', $party->slug);
 		} else {
 			return redirect('/')->with('convidado', 'Nenhuma festa encontrada!');
 		}
 	}
 
-	public function confirmarPresenca(StoreConfirmPresence $request, $festa_id)
+	public function confirmarPresenca(StoreConfirmPresence $request, $slug)
 	{
-		$festa = Festas::find($festa_id);
+		$festa = Festas::where('slug', $slug)->first();
 
 		if (!$festa) {
 			abort(403, 'Unauthorized action.');
@@ -91,9 +91,9 @@ class HomeController extends Controller {
 			->json(['response' => 'Confirmação de presença efetuada com sucesso.']);
 	}
 
-	public function escreverMensagem(StoreMessage $request, $festa_id)
+	public function escreverMensagem(StoreMessage $request, $slug)
 	{
-		$festa = Festas::find($festa_id);
+		$festa = Festas::where('slug', $slug)->first();
 
 		if (!$festa) {
 			abort(403, 'Unauthorized action.');
@@ -105,6 +105,6 @@ class HomeController extends Controller {
 		$festa->mensagem()->save($mensagem);
 
 		return response()
-			->json(['response' => 'Mensagem enviada com sucesso.']);
+			->json(['response' => 'Que divertido! Sua mensagem foi enviada com sucesso :)']);
 	}
 }

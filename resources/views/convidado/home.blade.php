@@ -145,9 +145,9 @@
 		<div class="presente">
 			<ul class="preview-list row">
 				<li class="col-md-4 preview-item-container text-center">
-					<img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" />
+					<a href="{{ route('convidado.brinquedos.index', $party->slug) }}"><img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" /></a>
 					<div class="preview-item-toys"></div>
-					<p class="preview-item-text text-center">BRINQUEDOS</p>
+					<a href="{{ route('convidado.brinquedos.index', $party->slug) }}" class="preview-item-text text-center">BRINQUEDOS</a>
 					<p class="text-center desc"><a href="{{ route('convidado.brinquedos.index', $party->slug) }}">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
 					<div class="porcentagem">
 						<span style="width:{{ $percent['toys'] }}%"></span>
@@ -155,8 +155,8 @@
 					</div>
 				</li>
 				<li class="col-md-4 text-center preview-item-container">
-					<div class="preview-item-clothes text-center"></div>
-					<p class="preview-item-text text-center">ROUPAS</p>
+					<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="preview-item-clothes"></a>
+					<a href="{{ route('convidado.roupas.index', $party->slug) }}" class="preview-item-text text-center">ROUPAS</a>
 					<p class="text-center desc"><a href="{{ route('convidado.roupas.index', $party->slug) }}">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
 					<div class="porcentagem">
 						<span style="width:{{ $percent['clothes'] }}%"></span>
@@ -164,8 +164,8 @@
 					</div>
 				</li>
 				<li class="col-md-4 text-center preview-item-container ">
-					<div class="preview-item-quota text-center"></div>
-					<p class="preview-item-text text-center">COTAS</p>
+					<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="preview-item-quota"></a>
+					<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="preview-item-text text-center">COTAS</a>
 					<p class="text-center desc"><a href="{{ route('convidado.cotas.index', $party->slug) }}">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</a></p>
 					<div class="porcentagem">
 						<span style="width:{{ $percent['quotas'] }}%"></span>

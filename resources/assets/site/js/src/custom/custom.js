@@ -339,6 +339,7 @@ $(function() {
 
 		if (total > 0) {
 			$('.gifts-box-number-submit').show();
+			$('.btn-modal-finalizar').removeClass('hidden').css('display', 'block');
 		}
 
 		$.post(baseUrl + '/api/presentes/adicionar', { produto: $item.data('id'), festa: $list.data('festaId')});
