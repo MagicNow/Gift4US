@@ -86,18 +86,18 @@
 								<li class="col-md-6 gifts-item gifts-item-roupas {{ in_array($product->id, $selected) ? 'selected' : '' }}" data-id="{{ $product->id }}">
 									<div class="row">
 										<div class="col-md-5">
-											@if (file_exists('storage/products/' . $product->imagem))
-												<img src="{{ url('storage/products/' . $product->imagem) }}" class="gifts-item-image">
-											@else 
-												<input type="hidden" value="{{ url('storage/products/' . $product->imagem) }}">
+											@if (!empty($product->imagem))
+												<img src="{{ $product->imagem }}" class="gifts-item-image">
 											@endif
 										</div>
 										<div class="gifts-item-content col-md-7">
 											<h5 class="gifts-item-title">{{ $product->titulo }}</h5>
 											<p class="gifts-item-price-description">Preço aproximado</p>
 											<p class="gifts-item-price-value">R$ {{ $product->preco_venda }}</p>
-											<p class="gifts-item-color-description">Cor</p>
-											<p class="gifts-item-color-value">{{ $product->cor }}</p>
+											@if (!empty($product->cor))
+												<p class="gifts-item-color-description">Cor</p>
+												<p class="gifts-item-color-value">{{ $product->cor }}</p>
+											@endif
 										</div>
 									</div>
 									<div class="gifts-item-buttons">

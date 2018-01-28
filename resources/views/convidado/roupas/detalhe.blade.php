@@ -33,8 +33,10 @@
 									<h5 class="gifts-item-title bgC">{{ $product->titulo }}</h5>
 									<p class="gifts-item-price-description">Preço aproximado</p>
 									<p class="gifts-item-price-value bgC">R$ {{ $product->preco_venda }}</p>
-									<p class="gifts-item-color-description">Cor</p>
-									<p class="gifts-item-color-value bgC">{{ $product->cor }}</p>
+									@if (!empty($product->cor))
+										<p class="gifts-item-color-description">Cor</p>
+										<p class="gifts-item-color-value bgC">{{ $product->cor }}</p>
+									@endif
 									<div class="col-md-6">
 										<a href="{{ route('convidado.roupas.index', $party->slug) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de Roupas</a>
 									</div>
