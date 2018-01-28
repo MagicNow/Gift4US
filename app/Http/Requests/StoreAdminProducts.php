@@ -27,7 +27,7 @@ class StoreAdminProducts extends FormRequest
 			'imagem' => 'mimes:jpeg,bmp,png,jpg,gif',
 			'categoria' => 'required|in:roupa,brinquedo',
 			'titulo' => 'required',
-			'cor' => 'required|max:50',
+			'cor' => 'max:50',
 			'preco_venda' => 'required|numeric'
 		];
 	}
