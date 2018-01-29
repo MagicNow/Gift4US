@@ -22,7 +22,7 @@ $(function() {
 
 	var $preview = $('.preview');
 	var $previewPins = $preview.length > 0 ? $('.pin-button') : null;
-	var previewSections = $preview.length > 0 ? [{
+	var previewSections = $preview.length > 0 && $('.section-mapa').length > 0 ? [{
 				'top': $('.section-confirma').offset().top,
 				'bottom': $('.section-confirma').offset().top + $('.section-confirma').height(),
 				'section': $('.confirm-btn')
