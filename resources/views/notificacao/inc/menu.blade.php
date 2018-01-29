@@ -47,7 +47,7 @@
 		<span class="pull-left">{{ $party->confirmacaoPresenca->sum('numero_pessoas') }} pessoas confirmadas</span>
 		<small class="pull-left">
 			<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
-			<span>43</span>
+			<span>{{ $party->confirmacaoPresenca()->where('visualizado', 0)->count() }}</span>
 		</small>
 	</div>
 	<div class="row"> 

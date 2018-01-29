@@ -49,6 +49,11 @@ class NotificationsController extends Controller
 		$presencas = $this->festa->confirmacaoPresenca();
 		$presencasTotal = $presencas->sum('numero_pessoas');
 
+		// reset notifications
+		if ($request->modal == 'lista-de-aniversarios') {
+			$presencas->update(['visualizado' => 1]);
+		}
+
 		if ($request->busca && !empty($request->busca)) {
 			$presencas = $presencas->where('nome', 'like', '%' . $request->busca . '%');
 		} else {
