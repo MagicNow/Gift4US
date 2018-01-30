@@ -155,7 +155,7 @@
 					</div>
 				</li>
 				<li class="col-md-4 text-center preview-item-container">
-					<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="preview-item-clothes"></a>
+					<a href="{{ route('convidado.roupas.index', $party->slug) }}" class="preview-item-clothes"></a>
 					<a href="{{ route('convidado.roupas.index', $party->slug) }}" class="preview-item-text text-center">ROUPAS</a>
 					<p class="text-center desc"><a href="{{ route('convidado.roupas.index', $party->slug) }}">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
 					<div class="porcentagem">

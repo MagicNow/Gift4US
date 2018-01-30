@@ -103,6 +103,7 @@ Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
 		Route::get('mensagem/{produto_id}', ['as'=> 'convidado.roupas.mensagem', 'uses' => 'ClothesController@mensagem']);
 		Route::get('detalhe/{produto_id}', ['as'=> 'convidado.roupas.detalhe', 'uses' => 'ClothesController@detalhe']);
 		Route::get('compra-online/{product_id}', ['as'=> 'convidado.roupas.compraOnline', 'uses' => 'ClothesController@compraOnline']);
+		Route::post('compra-online/{product_id}', ['as'=> 'convidado.roupas.compraOnline', 'uses' => 'ClothesController@compraOnlineSubmeter']);
 	});
 
 	Route::get('compra-online/sucesso', ['as'=> 'convidado.roupas.sucesso', 'uses' => 'ClothesController@success']);

@@ -159,6 +159,7 @@ $(function() {
 	});
 
 	$('input[name="cpf"]').mask('000.000.000-00', {reverse: true});
+	$('input[name="nascimento"]').mask('00/00/0000');
 	$('input[name="tel"]').mask(maskBehavior, {
 		onKeyPress: function(val, e, field, options) {
 			field.mask(maskBehavior.apply({}, arguments), options);

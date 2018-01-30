@@ -94,47 +94,45 @@ class ClothesController extends Controller {
 			abort(404, 'Página não encontrada.');
 		}
 
-		/*
+		return view('convidado.roupas.compra-online', compact('request', 'party', 'product'));
+	}
+
+	public function compraOnlineSubmeter (Request $request, $festa_id, $product_id) {
+		$product = Produtos::find($product_id);
+
 		$data = [
 			'items' => [
 				[
-					'id' => '18',
-					'description' => 'Item Um',
+					'id' => $product->id,
+					'description' => $product->titulo,
 					'quantity' => '1',
-					'amount' => '1.15',
-					'weight' => '45',
-					'shippingCost' => '3.5',
-					'width' => '50',
-					'height' => '45',
-					'length' => '60',
+					'amount' => $product->preco_venda
 				]
 			],
 			'sender' => [
-				'email' => 'heitorglockner@gmail.com',
-				'name' => 'Heitor Ehlert Glockner',
+				'name' => $request->nome,
+				'email' => $request->email,
 				'documents' => [
 					[
-						'number' => '02135897027',
+						'number' => preg_replace('/[^0-9]/', '', $request->cpf),
 						'type' => 'CPF'
 					]
 				],
-				'phone' => '5198-416215',
-				'bornDate' => '1989-02-09',
+				'phone' => preg_replace('/[^0-9]/', '', $request->tel),
+				'bornDate' => $this->formatDate($request->nascimento),
 			]
 		];
+
 		$checkout = PagSeguro::checkout()->createFromArray($data);
 		$credentials = PagSeguro::credentials()->get();
 		$information = $checkout->send($credentials); // Retorna um objeto de laravel\pagseguro\Checkout\Information\Information
 		if ($information) {
-			print_r($information->getCode());
-			print_r($information->getDate());
-			print_r($information->getLink());
-
-			echo "<a target='_blank' href='https://pagseguro.uol.com.br/v2/checkout/payment.html?code=" . $information->getCode() . "'> Pagamento </a>";
+			return redirect("https://pagseguro.uol.com.br/v2/checkout/payment.html?code=" . $information->getCode());
 		}
-		exit;
-		*/
+	}
 
-		return view('convidado.roupas.compra-online', compact('request', 'party', 'product'));
+	private function formatDate ($date) {
+		$date = explode('/', $date);
+		return $date[2] . '-' . $date[1] . '-' . $date[0];
 	}
 }

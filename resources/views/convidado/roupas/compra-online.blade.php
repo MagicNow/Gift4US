@@ -22,7 +22,7 @@
 					</div>
 					<div class="form-cadastro">
 						<div class="form-cadastro-content">
-							<form method="post" action="#">
+							<form method="post" action="{{ route('convidado.roupas.compraOnline', [$party->slug, $product->id]) }}">
 								<fieldset class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-pgto-fieldset">
 									<label>
 										Nome:
@@ -34,19 +34,19 @@
 									</label>
 									<label>
 										CPF:
-										<input type="text" name="cpf" value="" class="input-cpf">
+										<input type="text" name="cpf" value="" class="input-cpf" value="" aria-required="true">
 									</label>
 									<div class="row">
 										<div class="col-md-6">
 											<label>
 												Telefone:
-												<input type="text" name="telefone" value="" class="input-phone">
+												<input type="text" name="tel" value="" class="input-phone" value="" aria-required="true">
 											</label>
 										</div>
 										<div class="col-md-6">
 											<label>
 												Data de Nascimento:
-												<input type="text" name="nascimento" value="" class="input-data">
+												<input type="text" name="nascimento" value="" class="input-data" value="" aria-required="true">
 											</label>
 										</div>
 									</div>
