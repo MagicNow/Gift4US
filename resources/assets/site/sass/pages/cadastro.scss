@@ -1,6 +1,6 @@
 .form-cadastro {
     padding: 40px 0;
-    .container {
+    .container, .form-cadastro-content {
         position: relative;
         .presentinho {
             position: absolute;
@@ -87,6 +87,10 @@
                 letter-spacing: 5px;
                 margin: 30px auto 49px;
             }
+        }
+
+        fieldset.form-pgto-fieldset {
+            padding-top: 0;
         }
     }
 }

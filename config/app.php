@@ -183,6 +183,7 @@ return [
         Orangehill\Iseed\IseedServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        laravel\pagseguro\Platform\Laravel5\ServiceProvider::class,
     ],
 
     /*
@@ -237,6 +238,7 @@ return [
         'Image'        => Intervention\Image\Facades\Image::class,
         'Helper'       => App\Helper::class,
         'Excel'        => Maatwebsite\Excel\Facades\Excel::class,
+        'PagSeguro'    => laravel\pagseguro\Platform\Laravel5\PagSeguro::class,
     ],
 
 ];

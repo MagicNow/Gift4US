@@ -20,9 +20,41 @@
 					<div class="row">
 						@include('convidado.inc.filtro-categorias', ['filter' => 'roupas'])
 					</div>
-					<ul class="gifts-list" data-festa-id="{{ $party->id }}">
-
-					</ul>
+					<div class="form-cadastro">
+						<div class="form-cadastro-content">
+							<form method="post" action="#">
+								<fieldset class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-pgto-fieldset">
+									<label>
+										Nome:
+										<input type="text" name="nome" required="" value="" aria-required="true">
+									</label>
+									<label>
+										Email:
+										<input type="email" name="email" required="" value="" aria-required="true">
+									</label>
+									<label>
+										CPF:
+										<input type="text" name="cpf" value="" class="input-cpf">
+									</label>
+									<div class="row">
+										<div class="col-md-6">
+											<label>
+												Telefone:
+												<input type="text" name="telefone" value="" class="input-phone">
+											</label>
+										</div>
+										<div class="col-md-6">
+											<label>
+												Data de Nascimento:
+												<input type="text" name="nascimento" value="" class="input-data">
+											</label>
+										</div>
+									</div>
+									<button type="submit" class="enviar"> Finalizar</button>
+								</fieldset>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

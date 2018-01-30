@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Guest;
 
+use laravel\pagseguro\Platform\Laravel5\PagSeguro;
 use App\Models\Festas;
 use App\Models\Produtos;
 use Illuminate\Http\Request;
@@ -92,6 +93,47 @@ class ClothesController extends Controller {
 		if (empty($product)) {
 			abort(404, 'Página não encontrada.');
 		}
+
+		/*
+		$data = [
+			'items' => [
+				[
+					'id' => '18',
+					'description' => 'Item Um',
+					'quantity' => '1',
+					'amount' => '1.15',
+					'weight' => '45',
+					'shippingCost' => '3.5',
+					'width' => '50',
+					'height' => '45',
+					'length' => '60',
+				]
+			],
+			'sender' => [
+				'email' => 'heitorglockner@gmail.com',
+				'name' => 'Heitor Ehlert Glockner',
+				'documents' => [
+					[
+						'number' => '02135897027',
+						'type' => 'CPF'
+					]
+				],
+				'phone' => '5198-416215',
+				'bornDate' => '1989-02-09',
+			]
+		];
+		$checkout = PagSeguro::checkout()->createFromArray($data);
+		$credentials = PagSeguro::credentials()->get();
+		$information = $checkout->send($credentials); // Retorna um objeto de laravel\pagseguro\Checkout\Information\Information
+		if ($information) {
+			print_r($information->getCode());
+			print_r($information->getDate());
+			print_r($information->getLink());
+
+			echo "<a target='_blank' href='https://pagseguro.uol.com.br/v2/checkout/payment.html?code=" . $information->getCode() . "'> Pagamento </a>";
+		}
+		exit;
+		*/
 
 		return view('convidado.roupas.compra-online', compact('request', 'party', 'product'));
 	}

@@ -23,6 +23,7 @@ Route::get('produtos', ['as' => 'produtos', 'uses' => 'ApiController@produtos'])
 Route::post('presentes/adicionar', ['as' => 'presentes.adicionar', 'uses' => 'ApiController@presentesAdicionar']);
 Route::post('presentes/remover', ['as' => 'presentes.remover', 'uses' => 'ApiController@presentesRemover']);
 Route::post('presentes/reservar', ['as' => 'presentes.reservar', 'uses' => 'ApiController@presentesReservar']);
+Route::post('presentes/sucesso', ['as' => 'presentes.pagamento', 'uses' => 'ApiController@presentesPagamento']);
 Route::post('categorias/adicionar', ['as' => 'categorias.adicionar', 'uses' => 'ApiController@categoriasAdicionar']);
 Route::post('lista/adicionar', ['as' => 'lista.adicionar', 'uses' => 'ApiController@listaAdicionar']);
 Route::post('lista/importar', ['as' => 'lista.importar', 'uses' => 'ApiController@listaImportar']);
