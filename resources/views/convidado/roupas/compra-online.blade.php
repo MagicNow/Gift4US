@@ -37,7 +37,7 @@
 						<div class="form-cadastro-content">
 							<form method="post" action="{{ route('convidado.roupas.compraOnline', [$party->slug, $product->id]) }}">
 								<fieldset class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-pgto-fieldset">
-									<legend class="form-cadastro-legenda">Dados Pessoais</legend>
+									<legend class="form-cadastro-legenda">Dados do Comprador</legend>
 									<label>
 										Nome:
 										<input type="text" name="nome" required="" value="" aria-required="true">
@@ -66,7 +66,7 @@
 									</div>
 								</fieldset>
 								<fieldset class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-pgto-fieldset">
-									<legend class="form-cadastro-legenda">Pagamento</legend>
+									<legend class="form-cadastro-legenda">Dados do Pagamento</legend>
 
 
 
@@ -84,50 +84,44 @@
 												<input id="boletoRadio" type="radio" name="changePaymentMethod" value="boleto">
 											</label>
 										</div>
-										<div id="creditCardData" class="paymentMethodGroup" dataMethod="creditCard">
+										<div class="creditCardData paymentMethodGroup" dataMethod="creditCard">
 											<div id="cardData">
-												<h2>Dados do Cartão </h2>
 												<div class="field" id="cardBrand" style="margin-top:-10px">
 													<label for="cardNumber">
-														Número <font color="red">*</font>
+														Número do cartão <font color="red">*</font>
 														<input type="text" name="cardNumber" id="cardNumber" class="cardDatainput" onblur="brandCard();" />
 														<span><img class="bandeiraCartao" id="bandeiraCartao" /></span>
 													</label>
 												</div>
-												<div class="field" id="expiraCartao">
-													<label for="cardExpirationMonth">
-														Data de Vencimento (99/9999) <font color="red">*</font>
-														<div class="row">
-															<div class="col-md-5">
-																<select name="cardExpirationMonth" id="cardExpirationYear" class="cardDatainput month">
-																	@for ($i = 1; $i <= 12; $i++)
-																		<option value="{{ sprintf("%02d", $i) }}">{{ sprintf("%02d", $i) }}</option>
-																	@endfor
-																</select>
+												<div class="row">
+													<div class="field col-md-6" id="expiraCartao">
+														<label for="cardExpirationMonth">
+															Data de Vencimento (99/9999) <font color="red">*</font>
+															<div class="row">
+																<div class="col-md-5">
+																	<select name="cardExpirationMonth" id="cardExpirationYear" class="cardDatainput month">
+																		@for ($i = 1; $i <= 12; $i++)
+																			<option value="{{ sprintf("%02d", $i) }}">{{ sprintf("%02d", $i) }}</option>
+																		@endfor
+																	</select>
+																</div>
+																<div class="col-md-1">/</div>
+																<div class="col-md-5">
+																	<select name="cardExpirationYear" id="cardExpirationYear" class="cardDatainput year">
+																		@for ($i = date('Y'); $i <= date('Y') + 10; $i++)
+																			<option value="{{ $i }}">{{ $i }}</option>
+																		@endfor
+																	</select>
+																</div>
 															</div>
-															<div class="col-md-1">/</div>
-															<div class="col-md-5">
-																<select name="cardExpirationYear" id="cardExpirationYear" class="cardDatainput year">
-																	@for ($i = date('Y'); $i <= date('Y') + 10; $i++)
-																		<option value="{{ $i }}">{{ $i }}</option>
-																	@endfor
-																</select>
-															</div>
-														</div>
-													</label>
-												</div>
-												<div class="field" id="cvvCartao">
-													<label for="cardCvv">
-														Código de Segurança <font color="red">*</font>
-														<input type="text" name="cardCvv" id="cardCvv" maxlength="5" class="cardDatainput" />
-													</label>
-												</div>
-												<div class="field" id="installmentsWrapper">
-													<label for="installmentQuantity">
-														Parcelamento
-														<select name="installmentQuantity" id="installmentQuantity"></select>
-														<input type="hidden" name="installmentValue" id="installmentValue" />
-													</label>
+														</label>
+													</div>
+													<div class="field col-md-6" id="cvvCartao">
+														<label for="cardCvv">
+															Código de Segurança <font color="red">*</font>
+															<input type="text" name="cardCvv" id="cardCvv" maxlength="5" class="cardDatainput" />
+														</label>
+													</div>
 												</div>
 												<h2>Dados do Titular do Cartão</h2>
 												<div id="holderDataChoice">
@@ -140,18 +134,18 @@
 														<input type="radio" name="holderType" id="otherHolder" value="otherHolder">
 													</label>
 												</div>
-												<div class="field">
-													<label for="creditCardHolderBirthDate">
-														Data de Nascimento do Titular do Cartão <font color="red">*</font>
-														<input type="text" name="creditCardHolderBirthDate" id="creditCardHolderBirthDate" maxlength="10" />
-													</label>
-												</div>
 												<div id="dadosOtherPagador" class="dadosOtherPagador">
 													<div id="holderData">
 														<div class="field">
 															<label for="creditCardHolderName">
 																Nome (Como está impresso no cartão) <font color="red">*</font>
 																<input type="text" name="creditCardHolderName" id="creditCardHolderName" />
+															</label>
+														</div>
+														<div class="field">
+															<label for="creditCardHolderBirthDate">
+																Data de Nascimento do Titular do Cartão <font color="red">*</font>
+																<input type="text" name="creditCardHolderBirthDate" id="creditCardHolderBirthDate" maxlength="10" />
 															</label>
 														</div>
 														<div class="row">
@@ -168,82 +162,88 @@
 																</label>
 															</div>
 														</div>
-														<h2>Endereço de Cobrança</h2>
-														<div class="field" id="CEPP">
-															<label for="billingAddressPostalCode">
-																CEP <font color="red">*</font>
-																<input type="text" name="billingAddressPostalCode" id="billingAddressPostalCode" maxlength="9"/>
-															</label>
-														</div>
-														<div class="field" id="EndP">
-															<label for="billingAddressStreet">
-																Endereço <font color="red">*</font>
-																<input type="text" name="billingAddressStreet" id="billingAddressStreet" />
-															</label>
-														</div>
-														<div class="row">
-															<div class="field col-md-4" id="NumP">
-																<label for="billingAddressNumber">
-																	Número <font color="red">*</font>
-																	<input type="text" name="billingAddressNumber" id="billingAddressNumber" size="5"/>
-																</label>
-															</div>
-															<div class="field col-md-8" id="ComP">
-																<label for="billingAddressComplement">
-																	Complemento
-																	<input type="text" name="billingAddressComplement" id="billingAddressComplement" />
-																</label>
-															</div>
-														</div>
-														<div class="field" id="BairP">
-															<label for="billingAddressDistrict">
-																Bairro <font color="red">*</font>
-																<input type="text" name="billingAddressDistrict" id="billingAddressDistrict" />
-															</label>
-														</div>
-														<div class="row">
-															<div class="field col-md-6" id="CidP">
-																<label for="billingAddressCity">
-																	Cidade <font color="red">*</font>
-																	<input type="text" name="billingAddressCity" id="billingAddressCity" />
-																</label>
-															</div>
-															<div class="field col-md-6" id="EstP">
-																<label for="billingAddressState">
-																	Estado <font color="red">*</font>
-																	<input type="text" name="billingAddressState" id="billingAddressState" class="addressState" maxlength="2" style="text-transform: uppercase;" onBlur="this.value=this.value.toUpperCase()"/>
-																</label>
-															</div>
-														</div>
-														<div class="field" style="display: none">
-															<label for="billingAddressCountry">
-																País
-																<input type="text" name="billingAddressCountry" id="billingAddressCountry" value="Brasil" readonly="readonly" />
-															</label>
-														</div>
+
 													</div>
 												</div>
 												<input type="hidden" name="creditCardToken" id="creditCardToken"  />
 												<input type="hidden" name="creditCardBrand" id="creditCardBrand"  />
-												<center>
-													<input type="button" id="creditCardPaymentButton" class="btn btn-default btn-block" onclick="pagarCartao(PagSeguroDirectPayment.getSenderHash());" value="Finalizar compra" />
-												</center>
+
 											</div>
 										</div>
-										<center>
-											<div id="boletoData" name="boletoData" class="paymentMethodGroup" dataMethod="boleto">
-												<input type="button" id="boletoButton" value="Gerar Boleto" class="btn btn-default btn-block" onclick="pagarBoleto(PagSeguroDirectPayment.getSenderHash());" />
+									</div>
+								</fieldset>
+
+								<fieldset class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-pgto-fieldset">
+									<legend class="form-cadastro-legenda creditCardData">Endereço de Cobrança</legend>
+									<div class="creditCardData">
+										<div class="field" id="CEPP">
+											<label for="billingAddressPostalCode">
+												CEP <font color="red">*</font>
+												<input type="text" name="billingAddressPostalCode" id="billingAddressPostalCode" maxlength="9"/>
+											</label>
+										</div>
+										<div class="field" id="EndP">
+											<label for="billingAddressStreet">
+												Endereço <font color="red">*</font>
+												<input type="text" name="billingAddressStreet" id="billingAddressStreet" />
+											</label>
+										</div>
+										<div class="row">
+											<div class="field col-md-4" id="NumP">
+												<label for="billingAddressNumber">
+													Número <font color="red">*</font>
+													<input type="text" name="billingAddressNumber" id="billingAddressNumber" size="5"/>
+												</label>
 											</div>
-											<br />
-											<img src="images/banner-pagseguro.png" style="float:left"/>
-										</center>
+											<div class="field col-md-8" id="ComP">
+												<label for="billingAddressComplement">
+													Complemento
+													<input type="text" name="billingAddressComplement" id="billingAddressComplement" />
+												</label>
+											</div>
+										</div>
+										<div class="field" id="BairP">
+											<label for="billingAddressDistrict">
+												Bairro <font color="red">*</font>
+												<input type="text" name="billingAddressDistrict" id="billingAddressDistrict" />
+											</label>
+										</div>
+										<div class="row">
+											<div class="field col-md-6" id="CidP">
+												<label for="billingAddressCity">
+													Cidade <font color="red">*</font>
+													<input type="text" name="billingAddressCity" id="billingAddressCity" />
+												</label>
+											</div>
+											<div class="field col-md-6" id="EstP">
+												<label for="billingAddressState">
+													Estado <font color="red">*</font>
+													<input type="text" name="billingAddressState" id="billingAddressState" class="addressState" maxlength="2" style="text-transform: uppercase;" onBlur="this.value=this.value.toUpperCase()"/>
+												</label>
+											</div>
+										</div>
+										<div class="field" style="display: none">
+											<label for="billingAddressCountry">
+												País
+												<input type="text" name="billingAddressCountry" id="billingAddressCountry" value="Brasil" readonly="readonly" />
+											</label>
+										</div>
 									</div>
 
-
-
+									<center>
+										<input type="button" id="creditCardPaymentButton" class="btn btn-default btn-block" onclick="pagarCartao(PagSeguroDirectPayment.getSenderHash());" value="Finalizar compra" />
+									</center>
+									<center>
+										<div id="boletoData" name="boletoData" class="paymentMethodGroup" dataMethod="boleto">
+											<input type="button" id="boletoButton" value="Gerar Boleto" class="btn btn-default btn-block" onclick="pagarBoleto(PagSeguroDirectPayment.getSenderHash());" />
+										</div>
+										<br />
+										<img src="images/banner-pagseguro.png" style="float:left"/>
+									</center>
 
 									<button type="submit" class="enviar"> Finalizar</button>
 								</fieldset>
+
 							</form>
 						</div>
 					</div>

@@ -161,9 +161,9 @@ $(function() {
 	$("input[name='changePaymentMethod']").on('click', function(e) {
 		if (e.currentTarget.value == 'creditCard') {
 			$('#boletoData').css('display', 'none');
-			$('#creditCardData').css('display', 'block');
+			$('.creditCardData').css('display', 'block');
 		} else if (e.currentTarget.value == 'boleto') {
-			$('#creditCardData').css('display', 'none');
+			$('.creditCardData').css('display', 'none');
 			$('#boletoData').css('display', 'block');
 		}
 	});
@@ -191,7 +191,7 @@ $(function() {
 			});
 		},
 	});
-	$('input[name="cpf"]').mask('000.000.000-00', {reverse: true});
+	$('input[name="cpf"], #creditCardHolderCPF').mask('000.000.000-00', {reverse: true});
 	$('input[name="nascimento"], #creditCardHolderBirthDate').mask('00/00/0000');
 	$('input[name="tel"], input[name="creditCardHolderPhone"]').mask(maskBehavior, {
 		onKeyPress: function(val, e, field, options) {
