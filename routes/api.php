@@ -31,3 +31,4 @@ Route::post('lista/antigas/importar', ['as' => 'lista.antigas.importar', 'uses' 
 Route::post('lista/antigas', ['as' => 'lista.antigas', 'uses' => 'ApiController@listaAntiga']);
 Route::delete('lista/remover', ['as' => 'lista.remover', 'uses' => 'ApiController@listaRemover']);
 Route::post('cotas/remover', ['as' => 'cotas.remover', 'uses' => 'ApiController@cotasRemover']);
+Route::post('busca-cep', ['as' => 'cep.buscar', 'uses' => 'ApiController@buscaCep']);
