@@ -160,20 +160,21 @@ $(function() {
 
 	$("input[name='changePaymentMethod']").on('click', function(e) {
 		if (e.currentTarget.value == 'creditCard') {
-			$('#boletoData').css('display', 'none');
-			$('.creditCardData').css('display', 'block');
+			$('#boletoData').hide();
+			$('.creditCardData').show();
 		} else if (e.currentTarget.value == 'boleto') {
-			$('.creditCardData').css('display', 'none');
-			$('#boletoData').css('display', 'block');
+			$('#boletoButton')
+			$('.creditCardData').hide();
+			$('#boletoData').show();
 		}
 	});
 
 	$("input[name='holderType']").on('click', function(e) {
 		if (e.currentTarget.value == 'sameHolder') {
-			$('#dadosOtherPagador').css('display', 'none');
+			$('#dadosOtherPagador').hide();
 			ReInserirDadosPgto();
 		} else if (e.currentTarget.value == 'otherHolder') {
-			$('#dadosOtherPagador').css('display', 'block');
+			$('#dadosOtherPagador').show();
 		}
 	});
 
@@ -206,8 +207,6 @@ $(function() {
 		if (image.length > 0) {
 			$presentinho.append('<img src="' + image.data('presente') + '">');
 		}
-
-		$('#senderHash').val(PagSeguroDirectPayment.getSenderHash());
 	}).on('scroll', function () {
 		if ($doc.scrollTop() - $giftsBoxNumberTop - 10 < $giftsContainerBottom - $giftsBoxNumberBottom &&
 			$doc.scrollTop() > $giftsBoxNumberTop + 10) {
@@ -375,7 +374,7 @@ $(function() {
 
 		if (total > 0) {
 			$('.gifts-box-number-submit').show();
-			$('.btn-modal-finalizar').removeClass('hidden').css('display', 'block');
+			$('.btn-modal-finalizar').removeClass('hidden').show();
 		}
 
 		$.post(baseUrl + '/api/presentes/adicionar', { produto: $item.data('id'), festa: $list.data('festaId')});
@@ -664,6 +663,10 @@ $(function() {
 			}
 		});
 	});
+
+	$('.form-payment').on('submit', function () {
+		$('input[name="senderHash"]').val(PagSeguroDirectPayment.getSenderHash());
+	});
 });
 
 function guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins) {
@@ -738,21 +741,21 @@ function brandCard() {
 		cardBin: $("#cardNumber").val(),
 		success: function(response) {
 			$("#creditCardBrand").val(response.brand.name);
-			$("#cardNumber").css('border', '1px solid #999');
+			// $("#cardNumber").css('border', '1px solid #999');
 			if (response.brand.expirable) {
-				$("#expiraCartao").css('display', 'block');
+				$("#expiraCartao").show();
 			} else {
-				$("#expiraCartao").css('display', 'none');
+				$("#expiraCartao").hide();
 			}
 			if (response.brand.cvvSize > 0) {
-				$("#cvvCartao").css('display', 'block');
+				$("#cvvCartao").show();
 			} else {
-				$("#cvvCartao").css('display', 'none');
+				$("#cvvCartao").hide();
 			}
 			$("#bandeiraCartao").attr('src', 'https://stc.pagseguro.uol.com.br/public/img/payment-methods-flags/68x30/' + response.brand.name + '.png');
 		},
 		error: function(response) {
-			$("#cardNumber").css('border', '2px solid red');
+			$("#cardNumber").css('border-color', 'red');
 			$("#cardNumber").focus();
 		},
 		complete: function(response) {
@@ -764,162 +767,6 @@ function showModal() {
 	$("#modal-title").html("Aguarde");
 	$("#modal-body").html("");
 	$("#aguarde").modal("show");
-}
-
-function pagarBoleto(senderHash) {
-	showModal();
-	$.ajax({
-		type: 'POST',
-		url: 'pagamentoBoleto.php',
-		cache: false,
-		data: {
-			// id: {{ isset($_GET['id']) ? $_GET['id'] : NULL }},
-			email: $("#senderEmail").val(),
-			nome: $("#senderName").val(),
-			cpf: $("#senderCPF").val(),
-			ddd: $("#senderAreaCode").val(),
-			telefone: $("#senderPhone").val(),
-			cep: $("#shippingAddressPostalCode").val(),
-			endereco: $("#shippingAddressStreet").val(),
-			numero: $("#shippingAddressNumber").val(),
-			complemento: $("#shippingAddressComplement").val(),
-			bairro: $("#shippingAddressDistrict").val(),
-			cidade: $("#shippingAddressCity").val(),
-			estado: $("#shippingAddressState").val(),
-			pais: "BRA",
-			senderHash: senderHash,
-		},
-		success: function(data) {
-			if (!(data.paymentLink)) {
-				//alert(data);
-				$("#modal-title").html("<font color='red'>Erro</font>");
-				$("#modal-body").html("");
-				//console.log(data.error);
-				$.each(data.error, function(index, value) {
-					if (value.code) {
-						//console.log("6 " + value.code);
-						tratarError(value.code);
-					} else {
-						//console.log("7 " + data.error);
-						tratarError(data.error.code);
-					}
-				});
-			} else {
-				window.location = data.paymentLink;
-				setTimeout(function() {
-					$("#modal-body").html("");
-					$("#modal-title").html("<font color='green'>Sucesso!</font>")
-					$("#modal-body").html("Caso você não seja redirecionado para o seu boleto, clique no botão abaixo.<br /><br /><a href='" + data.paymentLink + "'><center><img src='images/boleto.png' /><br /><br /><button class='btn-success btn-block btn-lg'>Ir para o meu boleto</button></center></a>");
-				}, 3500);
-			}
-		}
-	});
-}
-
-function pagarCartao(senderHash) {
-	showModal();
-	PagSeguroDirectPayment.createCardToken({
-		cardNumber: $("#cardNumber").val(),
-		brand: $("#creditCardBrand").val(),
-		cvv: $("#cardCvv").val(),
-		expirationMonth: $("#cardExpirationMonth").val(),
-		expirationYear: $("#cardExpirationYear").val(),
-		success: function(response) {
-			$("#creditCardToken").val(response.card.token);
-		},
-		error: function(response) {
-			if (response.error) {
-				$("#modal-title").html("<font color='red'>Erro</font>");
-				$("#modal-body").html("");
-				//console.log("4" + response);
-				$.each(response.errors, function(index, value) {
-					//console.log(value);
-					tratarError(value);
-				});
-			}
-		},
-		complete: function(response) {}
-	});
-	$.ajax({
-		type: 'POST',
-		url: 'pagamentoCartao.php',
-		cache: false,
-		data: {
-			// id: {{ isset($_GET['id']) ? $_GET['id'] : NULL }},
-			email: $("#senderEmail").val(),
-			nome: $("#senderName").val(),
-			cpf: $("#senderCPF").val(),
-			ddd: $("#senderAreaCode").val(),
-			telefone: $("#senderPhone").val(),
-			cep: $("#shippingAddressPostalCode").val(),
-			endereco: $("#shippingAddressStreet").val(),
-			numero: $("#shippingAddressNumber").val(),
-			complemento: $("#shippingAddressComplement").val(),
-			bairro: $("#shippingAddressDistrict").val(),
-			cidade: $("#shippingAddressCity").val(),
-			estado: $("#shippingAddressState").val(),
-			pais: "BRA",
-			senderHash: senderHash,
-			enderecoPagamento: $("#billingAddressStreet").val(),
-			numeroPagamento: $("#billingAddressNumber").val(),
-			complementoPagamento: $("#billingAddressComplement").val(),
-			bairroPagamento: $("#billingAddressDistrict").val(),
-			cepPagamento: $("#billingAddressPostalCode").val(),
-			cidadePagamento: $("#billingAddressCity").val(),
-			estadoPagamento: $("#billingAddressState").val(),
-			cardToken: $("#creditCardToken").val(),
-			cardNome: $("#creditCardHolderName").val(),
-			cardCPF: $("#creditCardHolderCPF").val(),
-			cardNasc: $("#creditCardHolderBirthDate").val(),
-			cardFoneArea: $("#creditCardHolderAreaCode").val(),
-			cardFoneNum: $("#creditCardHolderPhone").val(),
-			numParcelas: $("#installmentQuantity").val(),
-			valorParcelas: $("#installmentValue").val(),
-		},
-		success: function(data) {
-			//console.log(data);
-			if (data.error) {
-				if (data.error.code == "53037") {
-					$("#creditCardPaymentButton").click();
-				} else {
-					$("#modal-title").html("<font color='red'>Erro</font>");
-					$("#modal-body").html("");
-					$.each(data.error, function(index, value) {
-						if (value.code) {
-							tratarError(value.code);
-						} else {
-							tratarError(data.error.code)
-						}
-					})
-					//console.log("2 " + data);
-				}
-			} else {
-				$.ajax({
-					type: 'POST',
-					url: 'getStatus.php',
-					cache: false,
-					data: {
-						id: data.code,
-					},
-					success: function(status) {
-						if (status == "7") {
-							//alert(data);
-							$("#modal-title").html("<font color='red'>Erro</font>");
-							$("#modal-body").html("Erro ao processar o seu pagamento.<br/> Não se preocupe pois esse valor <b>não será debitado de sua conta ou não constará em sua fatura</b><br /><br />Verifique se você possui limite suficiente para efetuar a transação e/ou tente um cartão diferente");
-						} else {
-							window.location = "http://download.infoenem.com.br/pagamento-efetuado/";
-							setTimeout(function() {
-								$("#modal-body").html("");
-								$("#modal-title").html("<font color='green'>Sucesso!</font>")
-								$("#modal-body").html("Caso você não seja redirecionado para a nossa página de instruções, clique no botão abaixo.<br /><br /><a href='http://download.infoenem.com.br/pagamento-efetuado/'><center><button class='btn-success btn-block btn-lg'>Ir para a página de instruções</button></center></a>");
-							}, 1500);
-						}
-					}
-				});
-				//console.log("1 " + data);
-			}
-		}
-	});
 }
 
 function formAddGift() {

@@ -1,7 +1,8 @@
 <?php
 namespace App\Http\Controllers\Guest;
 
-use laravel\pagseguro\Platform\Laravel5\PagSeguro;
+use GuzzleHttp\Client;
+use PagSeguro;
 use App\Models\Festas;
 use App\Models\Produtos;
 use Illuminate\Http\Request;
@@ -87,6 +88,35 @@ class ClothesController extends Controller {
 
 	public function compraOnline(Request $request, $festa_id, $product_id)
 	{
+
+		// $client = new Client([
+		// 	'base_uri' => 'https://ws.sandbox.pagseguro.uol.com.br/v2/',
+		// 	'headers' => ['Accept' => 'application/xml;charset=ISO-8859-1'],
+		// 	'timeout'  => 120,
+		// ]);
+
+		// $response = $client->request('POST', 'sessions/', [
+		// 				'header' => [
+		// 				],
+		// 				'query' => [
+		// 					'email' => env('PAGSEGURO_EMAIL'),
+		// 					'token' => env('PAGSEGURO_TOKEN')
+		// 				]
+		// 			]);
+
+		// dd($response->getBody()->getContents());
+
+		// $body = $response->getBody();
+		// // Implicitly cast the body to a string and echo it
+		// echo $body;
+		// // Explicitly cast the body to a string
+		// $stringBody = (string) $body;
+		// // Read 10 bytes from the body
+		// $tenBytes = $body->read(10);
+		// // Read the remaining contents of the body as a string
+		// $remainingBytes = $body->getContents();
+
+
 		$party = $this->party;
 		$product = Produtos::find($product_id);
 
@@ -100,6 +130,7 @@ class ClothesController extends Controller {
 	public function compraOnlineSubmeter (Request $request, $festa_id, $product_id) {
 		$product = Produtos::find($product_id);
 
+		/*
 		$data = [
 			'items' => [
 				[
@@ -122,13 +153,27 @@ class ClothesController extends Controller {
 				'bornDate' => $this->formatDate($request->nascimento),
 			]
 		];
+		*/
 
-		$checkout = PagSeguro::checkout()->createFromArray($data);
-		$credentials = PagSeguro::credentials()->get();
-		$information = $checkout->send($credentials); // Retorna um objeto de laravel\pagseguro\Checkout\Information\Information
-		if ($information) {
-			return redirect("https://pagseguro.uol.com.br/v2/checkout/payment.html?code=" . $information->getCode());
-		}
+		$pagseguro = PagSeguro::setReference('ID do pedido')
+							->setSenderInfo([
+								'senderName' => $request->nome, //Deve conter nome e sobrenome
+								'senderPhone' => $request->tel, //Código de área enviado junto com o telefone
+								'senderEmail' => $request->email,
+								'senderHash' => $request->senderHash,
+								'senderCPF' => $request->cpf //Ou CNPJ se for Pessoa Júridica
+							]);
+
+		$pagseguro = $pagseguro->setItems([[
+							'itemId' => $product->id,
+							'itemDescription' => $product->titulo,
+							'itemAmount' => $product->preco_venda, //Valor unitário
+							'itemQuantity' => '1', // Quantidade de itens
+					]]);
+
+		$pagseguro = $pagseguro->send([
+						'paymentMethod' => 'boleto'
+					]);
 	}
 
 	private function formatDate ($date) {

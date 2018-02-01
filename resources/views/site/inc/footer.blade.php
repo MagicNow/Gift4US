@@ -37,6 +37,7 @@
 
 <script type="text/javascript">
 	var baseUrl = '{{ route("home") }}';
+	var tokenData = 'email={{ env('PAGSEGURO_EMAIL') }}&token={{ env('PAGSEGURO_TOKEN') }}';
 </script>
 
 {{ HTML::script('assets/site/js/app.js') }}

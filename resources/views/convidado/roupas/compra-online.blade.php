@@ -35,32 +35,33 @@
 					</div>
 					<div class="form-cadastro">
 						<div class="form-cadastro-content">
-							<form method="post" action="{{ route('convidado.roupas.compraOnline', [$party->slug, $product->id]) }}">
+							<form method="post" action="{{ route('convidado.roupas.compraOnline', [$party->slug, $product->id]) }}" class="form-payment">
+								<input type="hidden" name="senderHash">
 								<fieldset class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-pgto-fieldset">
 									<legend class="form-cadastro-legenda">Dados do Comprador</legend>
 									<label>
 										Nome:
-										<input type="text" name="nome" required="" value="" aria-required="true">
+										<input type="text" name="nome" required="" aria-required="true">
 									</label>
 									<label>
 										Email:
-										<input type="email" name="email" required="" value="" aria-required="true">
+										<input type="email" name="email" required="" aria-required="true">
 									</label>
 									<label>
 										CPF:
-										<input type="text" name="cpf" value="" class="input-cpf" value="" aria-required="true">
+										<input type="text" name="cpf" class="input-cpf" aria-required="true">
 									</label>
 									<div class="row">
 										<div class="col-md-6">
 											<label>
 												Telefone:
-												<input type="text" name="tel" value="" class="input-phone" value="" aria-required="true">
+												<input type="text" name="tel" class="input-phone" aria-required="true">
 											</label>
 										</div>
 										<div class="col-md-6">
 											<label>
 												Data de Nascimento:
-												<input type="text" name="nascimento" value="" class="input-data" value="" aria-required="true">
+												<input type="text" name="nascimento" class="input-data" aria-required="true">
 											</label>
 										</div>
 									</div>
@@ -68,16 +69,11 @@
 								<fieldset class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-pgto-fieldset">
 									<legend class="form-cadastro-legenda">Dados do Pagamento</legend>
 
-
-
-
-
-
 									<div class="groupData" id="paymentMethods">
 										<div id="paymentMethodsOptions">
 											<label class="field radio col-md-6">
 												Cartão de Crédito
-												<input id="creditCardRadio" type="radio" name="changePaymentMethod" value="creditCard" >
+												<input id="creditCardRadio" type="radio" name="changePaymentMethod" value="creditCard" checked>
 											</label>
 											<label class="field radio col-md-6">
 												Boleto
@@ -86,17 +82,22 @@
 										</div>
 										<div class="creditCardData paymentMethodGroup" dataMethod="creditCard">
 											<div id="cardData">
-												<div class="field" id="cardBrand" style="margin-top:-10px">
-													<label for="cardNumber">
-														Número do cartão <font color="red">*</font>
-														<input type="text" name="cardNumber" id="cardNumber" class="cardDatainput" onblur="brandCard();" />
-														<span><img class="bandeiraCartao" id="bandeiraCartao" /></span>
-													</label>
+												<div class="row">
+													<div class="field col-md-10" id="cardBrand">
+														<label for="cardNumber">
+															Número do cartão <font color="red">*</font>
+															<input type="text" name="cardNumber" id="cardNumber" class="cardDatainput" onblur="brandCard();" />
+														</label>
+													</div>
+													<div class="col-md-2">
+														&nbsp;
+														<span class="clearfix"><img class="bandeiraCartao" id="bandeiraCartao" /></span>
+													</div>
 												</div>
 												<div class="row">
 													<div class="field col-md-6" id="expiraCartao">
 														<label for="cardExpirationMonth">
-															Data de Vencimento (99/9999) <font color="red">*</font>
+															Data de Vencimento <font color="red">*</font>
 															<div class="row">
 																<div class="col-md-5">
 																	<select name="cardExpirationMonth" id="cardExpirationYear" class="cardDatainput month">
@@ -116,18 +117,18 @@
 															</div>
 														</label>
 													</div>
-													<div class="field col-md-6" id="cvvCartao">
+													<div class="field col-md-4" id="cvvCartao">
 														<label for="cardCvv">
 															Código de Segurança <font color="red">*</font>
 															<input type="text" name="cardCvv" id="cardCvv" maxlength="5" class="cardDatainput" />
 														</label>
 													</div>
 												</div>
-												<h2>Dados do Titular do Cartão</h2>
+												<h2 class="legend-subtitle">Dados do Titular do Cartão</h2>
 												<div id="holderDataChoice">
 													<label class="field radio col-md-6">
 														mesmo que o comprador
-														<input type="radio" name="holderType" id="sameHolder" value="sameHolder">
+														<input type="radio" name="holderType" id="sameHolder" value="sameHolder" checked>
 													</label>
 													<label class="field radio col-md-6">
 														outro
@@ -229,19 +230,10 @@
 											</label>
 										</div>
 									</div>
-
+									<img src="{{ asset('assets/site/images/banner-pagseguro.png') }}">
 									<center>
-										<input type="button" id="creditCardPaymentButton" class="btn btn-default btn-block" onclick="pagarCartao(PagSeguroDirectPayment.getSenderHash());" value="Finalizar compra" />
+										<button type="submit" id="creditCardPaymentButton">Finalizar compra</button>
 									</center>
-									<center>
-										<div id="boletoData" name="boletoData" class="paymentMethodGroup" dataMethod="boleto">
-											<input type="button" id="boletoButton" value="Gerar Boleto" class="btn btn-default btn-block" onclick="pagarBoleto(PagSeguroDirectPayment.getSenderHash());" />
-										</div>
-										<br />
-										<img src="images/banner-pagseguro.png" style="float:left"/>
-									</center>
-
-									<button type="submit" class="enviar"> Finalizar</button>
 								</fieldset>
 
 							</form>
