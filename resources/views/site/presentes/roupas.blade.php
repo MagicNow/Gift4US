@@ -57,6 +57,7 @@
 								<div class="input-group gifts-filter-search pull-right" method="get">
 									<span class="input-group-addon"><i class="fa fa-search"></i></span>
 									<input type="search" class="form-control gifts-filter-search-input" name="busca" placeholder="presente que está procurando" value="{{ $request->busca }}">
+									<input type="submit" name="buscar" class="gifts-filter-search-submit pull-right" value="Ir">
 								</div>
 								<div class="gifts-filter-select-container pull-right">
 									<select class="gifts-filter-select" name="ordenacao">
