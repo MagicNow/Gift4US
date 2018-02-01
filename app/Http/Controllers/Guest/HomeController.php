@@ -24,13 +24,19 @@ class HomeController extends Controller {
 			abort(404, 'Página não encontrada.');
 		}
 
+		$gifts = [
+			'cotas' => $party->cotas->count() > 0 ? true : false,
+			'brinquedos' => $party->produto()->where('categoria', 'brinquedo')->count() > 0 ? true : false,
+			'roupas' => $party->produto()->where('categoria', 'roupa')->count() > 0 ? true : false
+		];
+
 		$percent = [
 			'clothes' => $this->calcClothes($party),
 			'quotas' => $this->calcQuotas($party),
 			'toys' => $this->calcToys($party)
 		];
 
-		return view('convidado.home', compact('party', 'percent'));
+		return view('convidado.home', compact('party', 'percent', 'gifts'));
 	}
 
 	private function calcClothes ($party) {

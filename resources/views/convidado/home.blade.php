@@ -145,28 +145,70 @@
 		<div class="presente">
 			<ul class="preview-list row">
 				<li class="col-md-4 preview-item-container text-center">
-					<a href="{{ route('convidado.brinquedos.index', $party->slug) }}"><img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" /></a>
+					@if ($gifts['brinquedos'])
+						<a href="{{ route('convidado.brinquedos.index', $party->slug) }}"><img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" /></a>
+					@else
+						<img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" />
+					@endif
 					<div class="preview-item-toys"></div>
-					<a href="{{ route('convidado.brinquedos.index', $party->slug) }}" class="preview-item-text text-center">BRINQUEDOS</a>
-					<p class="text-center desc"><a href="{{ route('convidado.brinquedos.index', $party->slug) }}">Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!</a></p>
+					@if ($gifts['brinquedos'])
+						<a href="{{ route('convidado.brinquedos.index', $party->slug) }}" class="preview-item-text text-center">BRINQUEDOS</a>
+					@else
+						<span class="preview-item-text text-center">BRINQUEDOS</span>
+					@endif
+					<p class="text-center desc">
+						@if ($gifts['brinquedos'])
+							<a href="{{ route('convidado.brinquedos.index', $party->slug) }}">
+						@endif
+							Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!
+						@if ($gifts['brinquedos'])
+							</a>
+						@endif
+					</p>
 					<div class="porcentagem">
 						<span style="width:{{ $percent['toys'] }}%"></span>
 						<strong>{{ $percent['toys'] }}% disponivel</strong>
 					</div>
 				</li>
 				<li class="col-md-4 text-center preview-item-container">
-					<a href="{{ route('convidado.roupas.index', $party->slug) }}" class="preview-item-clothes"></a>
-					<a href="{{ route('convidado.roupas.index', $party->slug) }}" class="preview-item-text text-center">ROUPAS</a>
-					<p class="text-center desc"><a href="{{ route('convidado.roupas.index', $party->slug) }}">Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!</a></p>
+					@if ($gifts['roupas'])
+						<a href="{{ route('convidado.roupas.index', $party->slug) }}" class="preview-item-clothes"></a>
+						<a href="{{ route('convidado.roupas.index', $party->slug) }}" class="preview-item-text text-center">ROUPAS</a>
+					@else
+						<span class="preview-item-clothes"></span>
+						<span class="preview-item-text text-center">ROUPAS</span>
+					@endif
+					<p class="text-center desc">
+						@if ($gifts['roupas'])
+							<a href="{{ route('convidado.roupas.index', $party->slug) }}">
+						@endif
+							Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!
+						@if ($gifts['roupas'])
+							</a>
+						@endif
+					</p>
 					<div class="porcentagem">
 						<span style="width:{{ $percent['clothes'] }}%"></span>
 						<strong>{{ $percent['clothes'] }}% disponivel</strong>
 					</div>
 				</li>
 				<li class="col-md-4 text-center preview-item-container ">
-					<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="preview-item-quota"></a>
-					<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="preview-item-text text-center">COTAS</a>
-					<p class="text-center desc"><a href="{{ route('convidado.cotas.index', $party->slug) }}">Clique aqui para presentear com parte da cota e ajudar naquele presentão!</a></p>
+					@if ($gifts['cotas'])
+						<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="preview-item-quota"></a>
+						<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="preview-item-text text-center">COTAS</a>
+					@else
+						<span class="preview-item-quota"></span>
+						<span class="preview-item-text text-center">COTAS</span>
+					@endif
+					<p class="text-center desc">
+						@if ($gifts['cotas'])
+							<a href="{{ route('convidado.cotas.index', $party->slug) }}">
+						@endif
+							Clique aqui para presentear com parte da cota e ajudar naquele presentão!
+						@if ($gifts['cotas'])
+							</a>
+						@endif
+					</p>
 					<div class="porcentagem">
 						<span style="width:{{ $percent['quotas'] }}%"></span>
 						<strong>{{ $percent['quotas'] }}% disponivel</strong>
