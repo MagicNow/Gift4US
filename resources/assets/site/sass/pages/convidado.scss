@@ -234,19 +234,24 @@ header.area-convidado h2 {
 	border:5px solid #1e9bd7;
 	width:140px;
 	height:20px;
+
+	&-container {
+		display: inline-block;
+		width: 100%;
+	}
+
+	strong {
+		display: inline-block;
+		margin: 5px 0;
+		font-size: 15px;
+		font-weight: normal;
+	}
 }
 
 .presente .porcentagem span {
 	float:left;
 	background-color:#f09121;
 	height:10px;
-}
-
-.presente .porcentagem strong {
-	display: inline-block;
-	margin: 10px 0;
-	font-size: 15px;
-	font-weight: normal;
 }
 
 .mensagem{

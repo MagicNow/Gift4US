@@ -166,7 +166,7 @@
 						@endif
 					</p>
 					<div class="porcentagem">
-						<span style="width:{{ $percent['toys'] }}%"></span>
+						<p class="porcentagem-container"><span style="width:{{ $percent['toys'] }}%"></span></p>
 						<strong>{{ $percent['toys'] }}% disponivel</strong>
 					</div>
 				</li>
@@ -188,7 +188,7 @@
 						@endif
 					</p>
 					<div class="porcentagem">
-						<span style="width:{{ $percent['clothes'] }}%"></span>
+						<p class="porcentagem-container"><span style="width:{{ $percent['clothes'] }}%"></span></p>
 						<strong>{{ $percent['clothes'] }}% disponivel</strong>
 					</div>
 				</li>
@@ -210,7 +210,7 @@
 						@endif
 					</p>
 					<div class="porcentagem">
-						<span style="width:{{ $percent['quotas'] }}%"></span>
+						<p class="porcentagem-container"><span style="width:{{ $percent['quotas'] }}%"></span></p>
 						<strong>{{ $percent['quotas'] }}% disponivel</strong>
 					</div>
 				</li>
