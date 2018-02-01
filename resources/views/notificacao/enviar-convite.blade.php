@@ -65,17 +65,11 @@
 							</div>
 							<div class="col-md-6 enviar-convite-coluna">
 								<h5 class="download">Download</h5>
-								<div class="row">
+								<div class="row text-center">
 									@if (Storage::exists('public/birthdays/invites/' . $party->id . '.jpg'))
-										<div class="col-md-6">
-											<img src="{{ Storage::url('public/birthdays/invites/' . $party->id . '.jpg') }}" width="78" />
-											<a href="{{ Storage::url('public/birthdays/invites/' . $party->id . '.jpg') }}" target="_blank" download class="enviar-convite-button"><span class="button">Baixar</span></a>
-										</div>
+										<img src="{{ Storage::url('public/birthdays/invites/' . $party->id . '.jpg') }}" width="78" />
+										<a href="{{ Storage::url('public/birthdays/invites/' . $party->id . '.jpg') }}" target="_blank" download class="enviar-convite-button"><span class="button">Baixar</span></a>
 									@endif
-									<div class="col-md-6">
-										<img src="{{ asset('assets/site/images/img-qrcode.png') }}" />
-										<a href="#" class="enviar-convite-button"><span class="button">Baixar</span></a>
-									</div>
 								</div>
 							</div>
 						</div>
