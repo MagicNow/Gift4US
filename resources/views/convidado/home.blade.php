@@ -182,7 +182,7 @@
 						@if ($gifts['roupas'])
 							<a href="{{ route('convidado.roupas.index', $party->slug) }}">
 						@endif
-							Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!
+							Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!<br>&nbsp;
 						@if ($gifts['roupas'])
 							</a>
 						@endif
@@ -204,7 +204,7 @@
 						@if ($gifts['cotas'])
 							<a href="{{ route('convidado.cotas.index', $party->slug) }}">
 						@endif
-							Clique aqui para presentear com parte da cota e ajudar naquele presentão!
+							Clique aqui para presentear com parte da cota e ajudar naquele presentão!<br>&nbsp;
 						@if ($gifts['cotas'])
 							</a>
 						@endif
