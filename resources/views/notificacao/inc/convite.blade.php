@@ -10,7 +10,7 @@
 			</p>
 		</div>
 		<div class="clearfix">
-			<div class="col-md-4">
+			<div class="col-md-4 col-xs-4">
 				<div class="passos">
 					<div class="passo1">
 						<div class="bg-presente">1</div>
@@ -26,7 +26,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-8 col-xs-8">
 				<div class="row">
 					<div class="data-festa">
 						<span>{{ $party->festa_dia }}/{{ $party->festa_mes }}/{{ $party->festa_ano }} {{ sprintf('%02d', $party->festa_hora) }}h{{ sprintf('%02d', $party->festa_minuto) }}</span>

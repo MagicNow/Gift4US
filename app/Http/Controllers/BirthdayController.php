@@ -178,9 +178,10 @@ class BirthdayController extends Controller {
 				}
 
 				$page = url('notificacoes/' . $party->id . '/convite-digital?pages=1');
-				$dest = storage_path('app/public/birthdays/invites/' . $party->id . '.jpg');
+				$dest = storage_path('app/public/birthdays/invites/' . $party->codigo . '.jpg');
+				// dd($page);
 				Browsershot::url($page)
-							->windowSize(573, 573)
+							->windowSize(533, 573)
 							->save($dest);
 
 				break;
