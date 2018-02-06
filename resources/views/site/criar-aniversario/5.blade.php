@@ -4,9 +4,9 @@
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container">
 			@if ($gifts['total'] == 0)
-				{{ Html::image('assets/site/images/presentinho_aniversario_passo5.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
-			@else
 				{{ Html::image('assets/site/images/presentinho_aniversario_passo5_ent02.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }}
+			@else
+				{{ Html::image('assets/site/images/presentinho_aniversario_passo5.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }}
 			@endif
 
 			<div class="dados step5 row col-md-offset-2">
