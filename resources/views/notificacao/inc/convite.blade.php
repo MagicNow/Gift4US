@@ -22,7 +22,7 @@
 					</div>
 					<div class="passo3">
 						<div class="bg-presente">3</div>
-						<span>confira a lista de presentes e confirme sua presença</span>
+						<span>confira a lista de presentes {{ $party->confirma_presenca === 0 ? '' : 'e confirme sua presença' }}</span>
 					</div>
 				</div>
 			</div>

@@ -43,8 +43,8 @@
 									<br/>
 									<img src="{{ asset('assets/site/images/tres.png') }}">
 									<br/>
-									<span>Confirme sua presença
-									e encontre a lista de presentes</span>
+									<span>{{ $party->confirma_presenca === 0 ? 'Encontre' : 'Confirme sua presença
+									e encontre' }} a lista de presentes</span>
 								</div>
 							</div>
 						</center>

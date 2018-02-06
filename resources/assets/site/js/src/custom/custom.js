@@ -15,16 +15,16 @@ $(function() {
 	var $previewHeader = $('.preview-header-container');
 	var $previewHeaderTop = $previewHeader.length > 0 ? $previewHeader.offset().top : null;
 	var $previewHeaderHeight = $previewHeader.length > 0 ? $previewHeader.height() : null;
-	var $previewHeaderSubmenu = $previewHeader.length > 0 ? $('.sub-menu') : null;
-	var $previewHeaderSubmenuTop = $previewHeader.length > 0 ? $previewHeaderSubmenu.offset().top : null;
+	var $previewHeaderSubmenu = $('.sub-menu').length > 0 ? $('.sub-menu') : null;
+	var $previewHeaderSubmenuTop = $previewHeaderSubmenu ? $previewHeaderSubmenu.offset().top : null;
 
 	$giftsCategoriesButton ? $giftsCategoriesButton.width($giftsCategories.width()) : null;
 
 	var $preview = $('.preview');
 	var $previewPins = $preview.length > 0 ? $('.pin-button') : null;
 	var previewSections = $preview.length > 0 && $('.section-mapa').length > 0 ? [{
-				'top': $('.section-confirma').offset().top,
-				'bottom': $('.section-confirma').offset().top + $('.section-confirma').height(),
+				'top': $('.section-confirma').length > 0 ? $('.section-confirma').offset().top : 0,
+				'bottom': $('.section-confirma').length > 0 ? $('.section-confirma').offset().top + $('.section-confirma').height() : 0,
 				'section': $('.confirm-btn')
 			},{
 				'top': $('.section-lista').offset().top,

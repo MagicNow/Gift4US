@@ -56,21 +56,38 @@
 												</div>
 											</div>
 										@endif
-
-										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-name bgC textB" aria-describedby="gifts-name" name="titulo" maxlength="100" value="{{ $product->titulo }}">
-											<span class="input-group-addon" id="gifts-name"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-										</div>
+										@if ($product->adicionado)
+											<div class="input-group gifts-input-icon">
+												<input type="text" class="form-control gifts-item-name bgC textB" aria-describedby="gifts-name" name="titulo" maxlength="100" value="{{ $product->titulo }}">
+												<span class="input-group-addon" id="gifts-name"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+											</div>
+										@else
+											<div class="input-group gifts-input-icon w100">
+												<span class="form-control gifts-item-name bgC textB">{{ $product->titulo }}</span>
+											</div>
+										@endif
 										<p class="gifts-item-price-description">Preço aproximado:</p>
-										<div class="input-group gifts-input-icon">
-											<input type="text" class="money form-control gifts-item-price-value bgC" aria-describedby="gifts-total-price" name="preco_venda" value="{{ $product->preco_venda }}">
-											<span class="input-group-addon" id="gifts-total-price"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-										</div>
+										@if ($product->adicionado)
+											<div class="input-group gifts-input-icon">
+												<input type="text" class="money form-control gifts-item-price-value bgC" aria-describedby="gifts-total-price" name="preco_venda" value="{{ $product->preco_venda }}">
+												<span class="input-group-addon" id="gifts-total-price"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+											</div>
+										@else
+											<div class="input-group gifts-input-icon w100">
+												<span class="form-control gifts-item-name bgC textB w100">R$ {{ $product->preco_venda }}</span>
+											</div>
+										@endif
 										<p class="gifts-item-price-description">Observação</p>
-										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC" aria-describedby="gifts-obs" maxlength="255" name="descricao" value="{{ $product->descricao }}">
-											<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-										</div>
+										@if ($product->adicionado)
+											<div class="input-group gifts-input-icon">
+												<input type="text" class="form-control gifts-item-price-value bgC" aria-describedby="gifts-obs" maxlength="255" name="descricao" value="{{ $product->descricao }}">
+												<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+											</div>
+										@else
+											<div class="input-group gifts-input-icon w100">
+												<span class="form-control gifts-item-name bgC textB w100">{{ $product->descricao }}</span>
+											</div>
+										@endif
 										<p class="gifts-item-price-description">Lojas disponiveis</p>
 										<div class="clone" id="lojas-disponiveis">
 											@if ($product->lojas->count() > 0 || old('lojas'))
@@ -78,26 +95,36 @@
 												$lojas = old('lojas') ? old('lojas') : $product->lojas;
 												@endphp
 												@foreach ($lojas as $key => $loja)
-													<div class="input-group gifts-input-icon clone-reference">
-														<input type="text" class="form-control gifts-item-price-value bgC" aria-describedby="gifts-obs" maxlength="255" name="lojas[{{ $key }}][nome]" value="{{ $loja->nome }}">
-														<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-													</div>
+													@if ($product->adicionado)
+														<div class="input-group gifts-input-icon clone-reference">
+															<input type="text" class="form-control gifts-item-price-value bgC" aria-describedby="gifts-obs" maxlength="255" name="lojas[{{ $key }}][nome]" value="{{ $loja->nome }}">
+															<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+														</div>
+													@else
+														<div class="input-group gifts-input-icon w100">
+															<span class="form-control gifts-item-name bgC textB w100">{{ $loja->nome }}</span>
+														</div>
+													@endif
 												@endforeach
 											@else
-												<div class="input-group gifts-input-icon clone-reference">
-													<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas[][nome]">
-													<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-												</div>
+												@if ($product->adicionado)
+													<div class="input-group gifts-input-icon clone-reference">
+														<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome da loja em que o produto encontra-se disponível" aria-describedby="gifts-obs" maxlength="255" name="lojas[][nome]">
+														<span class="input-group-addon" id="gifts-obs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+													</div>
+												@endif
 											@endif
 										</div>
-										<p class="gifts-item-price-value bgC text-right"><a href="#" class="clone-button" data-target="lojas-disponiveis">+ Adicionar outra loja</a></p>
+										@if ($product->adicionado)
+											<p class="gifts-item-price-value bgC text-right"><a href="#" class="clone-button" data-target="lojas-disponiveis">+ Adicionar outra loja</a></p>
+										@endif
 
 										<div class="gifts-item-buttons gifts-detail-buttons {{ in_array($product->id, $selected) ? 'selected' : '' }}">
 											<button type="button" name="salvar" value="salvar" class="col-md-6 gifts-item-button gifts-item-button-show gifts-detail-button-select {{ in_array($product->id, $selected) ? 'hidden' : '' }}" data-id="{{ $product->id }}" data-festa-id="{{ $party->id }}">Selecionar</button>
 
 											<span class="col-md-6 gifts-detail-button-selected {{ in_array($product->id, $selected) ? '' : 'hidden' }}">Selecionado <button class="gifts-detail-button-remove button-remove"></button></span>
 
-											<button class="col-md-6 gifts-item-button gifts-item-button-select">Voltar</button>
+											<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos.lista', $party->id) }}" class="col-md-6 gifts-item-button gifts-item-button-back-detail text-center">Voltar</a>
 										</div>
 									</form>
 								</div>

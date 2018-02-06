@@ -1,7 +1,7 @@
 .button-selected {
 	display: block !important;
-	height: 24px;
-	font: 15px/24px 'HelveticaNeueStd_BDCN';
+	height: 21px;
+	font: 15px/21px 'HelveticaNeueStd_BDCN';
 	text-align: center;
 }
 
@@ -285,18 +285,21 @@
 			}
 		}
 	}
-    &-item-lista {
-		max-height: 150px;
-	}
-	&-item-roupas {
-		margin-bottom: 10px;
-		max-height: 150px;
-	}
 
 	&-item {
 		list-style-type: none;
         margin-top: 10px;
+        overflow: hidden;
 	    
+	    &-lista {
+			max-height: 152px;
+		}
+
+		&-roupas {
+			margin-bottom: 10px;
+			max-height: 150px;
+		}
+
 		&-link {
 			color: #555557;
 			text-align: center;
@@ -339,6 +342,7 @@
 
 			button {
 				border-radius: 0;
+				padding-bottom: 0;
 			}
 		}
 
@@ -355,7 +359,7 @@
 				border-left: 0 none;
 				border-right: 1px solid #cfcfd1;
 				// padding-top: 1px;
-	            // padding-bottom: 1px;
+	            padding-bottom: 0;
 			}
 
 			&-select {
@@ -379,6 +383,12 @@
 				border-left: 0;
 				text-align: center;
 				height: 22px;
+
+				&-detail {
+					height: 20px;
+					border-right: 0;
+					border-left: 0;
+				}
 			}
 		}
 
@@ -609,6 +619,15 @@
 
 	.bgC {
 		background-color:#eaeaea;
+	}
+
+	.input-group {
+		span.bgC {
+			overflow: hidden;
+			border: 0;
+			box-shadow: none;
+			height: 26px;
+		}
 	}
 
 	.gifts-item {
