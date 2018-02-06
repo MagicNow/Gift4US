@@ -626,7 +626,8 @@
 			overflow: hidden;
 			border: 0;
 			box-shadow: none;
-			height: 26px;
+			min-height: 26px;
+			height: auto;
 		}
 	}
 
