@@ -29,14 +29,12 @@
 								<p class="gifts-item-price-description-cota">Preeencha algumas informações básicas descritas abaixo e inserira uma imagem do presente e pronto! Ao salvar ele estará automaticamente na sua lista de adicionados.</p>
 								<form class="row criar-presentes-form edit-form-pencil" action="{{ route('usuario.meus-aniversarios.presentes.cotas.submeter', $party->id) }}" method="post" enctype="multipart/form-data">
 									@if ($errors->any())
-										<div class="col-md-12">
-											<div class="alert alert-danger">
-												<ul class="criar-presentes-errors">
-													@foreach ($errors->all() as $error)
-														<li>{{ $error }}</li>
-													@endforeach
-												</ul>
-											</div>
+										<div class="notify hidden" data-type="danger">
+											<ul class="criar-presentes-errors">
+												@foreach ($errors->all() as $error)
+													<li>{{ $error }}</li>
+												@endforeach
+											</ul>
 										</div>
 									@endif
 

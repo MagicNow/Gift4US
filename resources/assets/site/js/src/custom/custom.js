@@ -105,6 +105,26 @@ $(function() {
 		$.post(baseUrl + '/api/festas/ativar', { ativar: ativo, festa: $self.data('festaId')});
 	});
 
+	const $notify = $('.notify');
+	if ($notify.length > 0) {
+		$notify.find('li').each(function(index, el) {
+			setTimeout(function () {
+				$.notify({
+					title: $(el).text(),
+					message: '',
+				}, {
+					type: $notify.data('type'),
+					delay: 5000,
+					timer: 1000,
+					animate: {
+						enter: 'animated fadeInDown',
+						exit: 'animated fadeOutUp'
+					}
+				});
+			}, 500 * index)
+		});
+	}
+
 	$('input[name="idade_anos"]').on('change keydown', function (e) {
 		const $self = $(this);
 		const $months = $self.parents('.form-group').find('.form-birthday-months-container');

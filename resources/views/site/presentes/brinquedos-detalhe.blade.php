@@ -46,14 +46,12 @@
 										<input name="_method" type="hidden" value="PUT">
 
 										@if ($errors->any())
-											<div class="col-md-12">
-												<div class="alert alert-danger">
-													<ul class="criar-presentes-errors">
-														@foreach ($errors->all() as $error)
-															<li>{{ $error }}</li>
-														@endforeach
-													</ul>
-												</div>
+											<div class="notify hidden" data-type="danger">
+												<ul class="criar-presentes-errors">
+													@foreach ($errors->all() as $error)
+														<li>{{ $error }}</li>
+													@endforeach
+												</ul>
 											</div>
 										@endif
 										@if ($product->adicionado)

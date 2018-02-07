@@ -26,7 +26,7 @@
 									</div>
 									<div class="gifts-item-content col-md-8">
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome do presente" aria-describedby="gifts-name" name="titulo" maxlength="100" value="{{ old('titulo') }}">
+											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome do presente" aria-describedby="gifts-name" name="titulo" maxlength="100" value="{{ old('titulo') }}" required>
 											<span class="input-group-addon" id="gifts-name"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 										<p class="gifts-item-price-description">Observação</p>

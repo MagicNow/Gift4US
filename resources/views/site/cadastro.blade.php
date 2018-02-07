@@ -7,7 +7,7 @@
     		<form action="{{ route('cadastro.store') }}" method="post" class="col-md-offset-2 col-xs-10 col-sm-10 col-md-10 col-lg-10 register-form">
     			<fieldset class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     @if ($errors->any())
-                        <div class="alert alert-danger">
+                        <div class="notify hidden" data-type="danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>

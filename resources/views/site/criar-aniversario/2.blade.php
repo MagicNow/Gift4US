@@ -7,7 +7,7 @@
 
 			<div class="dados row col-md-offset-2">
 				@if ($errors->any())
-					<div class="alert alert-danger">
+					<div class="notify hidden" data-type="danger">
 						<ul>
 							@foreach ($errors->all() as $error)
 								<li>{{ $error }}</li>
