@@ -43,7 +43,7 @@
 									</div>
 									<div class="gifts-item-content col-md-8">
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="form-control gifts-item-price-value bgC" placeholder="Escreva aqui o nome do presente" aria-describedby="gifts-name" name="nome" maxlength="100" value="{{ old('nome') }}">
+											<input type="text" class="form-control gifts-item-price-value bgC {{ $errors->first('nome', 'has-error') }}" placeholder="Escreva aqui o nome do presente" aria-describedby="gifts-name" name="nome" maxlength="100" value="{{ old('nome') }}">
 											<span class="input-group-addon" id="gifts-name"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 
@@ -55,7 +55,7 @@
 
 										<p class="gifts-item-price-description">Valor total</p>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="money quota form-control gifts-item-price-value bgC" placeholder="0,00" aria-describedby="gifts-total-price" name="valor_total" value="{{ old('valor_total') }}">
+											<input type="text" class="money quota form-control gifts-item-price-value bgC {{ $errors->first('valor_total', 'has-error') }}" placeholder="0,00" aria-describedby="gifts-total-price" name="valor_total" value="{{ old('valor_total') }}">
 											<span class="input-group-addon" id="gifts-total-price"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 
@@ -79,7 +79,7 @@
 											<div class="gifts-item-quotas-split">
 												<div class="row">
 													<div class="form-group form-birthday-size-container col-md-5">
-														<select name="quantidade_cotas" class="form-control form-birthday-size-input" id="cotas">
+														<select name="quantidade_cotas" class="form-control form-birthday-size-input {{ $errors->first('quantidade_cotas', 'has-error') }}" id="cotas">
 															<option value="">Quantidade de cotas</option>
 															@for ($i = 1; $i <= 10; $i++)
 																<option value="{{ $i }}" {{ old('quantidade_cotas') == $i ? 'selected' : NULL }}>{{ $i }}</option>

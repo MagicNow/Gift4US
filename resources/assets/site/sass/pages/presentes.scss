@@ -619,6 +619,10 @@
 
 	.bgC {
 		background-color:#eaeaea;
+
+		&.has-error {
+			box-shadow: inset 0px 0px 3px red;
+		}
 	}
 
 	.input-group {
