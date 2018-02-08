@@ -31,24 +31,24 @@
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12 col-md-5 col-lg-5">
 							<div class="form-group">
 								<label for="aniver-nome">Qual nome do aniversáriante?</label>
-								<input type="text" class="form-control form-input" id="aniver-nome" name="nome" maxlength="100" value="{{ old('nome', $festa->nome) }}" tabindex="1">
+								<input type="text" class="form-control form-input {{ $errors->first('nome', 'has-error') }}" id="aniver-nome" name="nome" maxlength="100" value="{{ old('nome', $festa->nome) }}" tabindex="1">
 							</div>
 							<div class="form-group">
 								<p class="defaut-text">Qual o gênero do aniversáriante?</p>
 								<label class="checkbox-inline pd0">
-									<input type="radio" id="sexo-sim" value="masculino" name="sexo" {{ $festa->sexo == 'masculino' ? 'checked' : '' }}> Masculino
+									<input type="radio" id="sexo-sim" value="masculino" name="sexo" {{ $festa->sexo == 'masculino' ? 'checked' : '' }} class="{{ $errors->first('sexo', 'has-error') }}"> Masculino
 								</label>
 								<label class="checkbox-inline">
-									<input type="radio" id="sexo-nao" value="feminino" name="sexo" {{ $festa->sexo == 'feminino' ? 'checked' : '' }}> Feminino
+									<input type="radio" id="sexo-nao" value="feminino" name="sexo" {{ $festa->sexo == 'feminino' ? 'checked' : '' }} class="{{ $errors->first('sexo', 'has-error') }}"> Feminino
 								</label>
 							</div>
 							<div class="form-group">
 								<label for="aniver-anos">Quantos anos irá fazer?</label>
 								<div class="form-inline">
-									<input type="number" name="idade_anos" class="form-control form-input form-birthday-years" id="aniver-anos" value="{{ old('idade_anos', $festa->idade_anos) }}" min="0" max="99" tabindex="2">
+									<input type="number" name="idade_anos" class="form-control form-input form-birthday-years {{ $errors->first('idade_anos', 'has-error') }}" id="aniver-anos" value="{{ old('idade_anos', $festa->idade_anos) }}" min="0" max="99" tabindex="2">
 									<label class="control-label form-birthday-separator">anos</label>
 									<div class="form-birthday-months-container {{ old('idade_anos', $festa->idade_anos) || empty($festa->idade_anos) ? 'hidden' : NULL }}">
-										<input type="number" name="idade_meses" class="form-control form-input form-birthday-years" value="{{ old('idade_meses', $festa->idade_meses) }}" min="0" max="12" tabindex="3">
+										<input type="number" name="idade_meses" class="form-control form-input form-birthday-years {{ $errors->first('idade_meses', 'has-error') }}" value="{{ old('idade_meses', $festa->idade_meses) }}" min="0" max="12" tabindex="3">
 										<label class="control-label form-birthday-separator">meses</label>
 									</div>
 								</div>
@@ -56,20 +56,20 @@
 							<div class="form-group">
 								<label for="aniver-data">Qual a data da festa?</label>
 								<div class="form-inline">
-									<input type="number" name="festa_dia" class="form-control form-input form-birthday-date-day" id="aniver-data" value="{{ old('festa_dia', $festa->festa_dia) }}" min="0" max="31" tabindex="4">
+									<input type="number" name="festa_dia" class="form-control form-input form-birthday-date-day {{ $errors->first('festa_dia', 'has-error') }}" id="aniver-data" value="{{ old('festa_dia', $festa->festa_dia) }}" min="0" max="31" tabindex="4">
 									<label class="control-label form-birthday-separator">/</label>
-									<input type="number" name="festa_mes" class="form-control form-input form-birthday-date-month" value="{{ old('festa_mes', $festa->festa_mes) }}" min="0" max="12" tabindex="5">
+									<input type="number" name="festa_mes" class="form-control form-input form-birthday-date-month {{ $errors->first('festa_mes', 'has-error') }}" value="{{ old('festa_mes', $festa->festa_mes) }}" min="0" max="12" tabindex="5">
 									<label class="control-label form-birthday-separator">/</label>
-									<input type="number" name="festa_ano" class="form-control form-input form-birthday-date-year" value="{{ old('festa_ano', $festa->festa_ano) }}" min="0" max="2020" tabindex="6">
+									<input type="number" name="festa_ano" class="form-control form-input form-birthday-date-year {{ $errors->first('festa_ano', 'has-error') }}" value="{{ old('festa_ano', $festa->festa_ano) }}" min="0" max="2020" tabindex="6">
 									<button type="button" class="form-birthday-calendar"><i class="fa fa-calendar" aria-hidden="true"></i></button>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="aniver-horario">Qual horário da festa?</label>
 								<div class="form-inline">
-									<input type="number" name="festa_hora" class="form-control form-input form-birthday-time" id="aniver-horario" value="{{ old('festa_hora', $festa->festa_hora) }}" min="0" max="24" tabindex="7">
+									<input type="number" name="festa_hora" class="form-control form-input form-birthday-time {{ $errors->first('festa_hora', 'has-error') }}" id="aniver-horario" value="{{ old('festa_hora', $festa->festa_hora) }}" min="0" max="24" tabindex="7">
 									<span class="control-label form-birthday-separator">:</span>
-									<input type="number" name="festa_minuto" class="form-control form-input form-birthday-time" value="{{ old('festa_minuto', $festa->festa_minuto) }}" min="0" max="60" tabindex="8">
+									<input type="number" name="festa_minuto" class="form-control form-input form-birthday-time {{ $errors->first('festa_minuto', 'has-error') }}" value="{{ old('festa_minuto', $festa->festa_minuto) }}" min="0" max="60" tabindex="8">
 								</div>
 							</div>
 							<div class="form-group">

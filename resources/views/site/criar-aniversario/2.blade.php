@@ -30,7 +30,7 @@
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12 col-md-5 col-lg-5">
 							<div class="form-group">
 								<label for="aniver-endereco">Qual o endereço da festa?</label>
-								<input type="text" class="form-control form-input" id="aniver-endereco" name="endereco" placeholder="" value="{{ old('endereco', $festa->endereco) }}">
+								<input type="text" class="form-control form-input {{ $errors->first('endereco', 'has-error') }}" id="aniver-endereco" name="endereco" placeholder="" value="{{ old('endereco', $festa->endereco) }}">
 							</div>
 							<div class="form-group">
 								<label for="aniver-referencia">Quer inserir um ponto de referência? (opcional)</label>
