@@ -33,7 +33,10 @@ class GiftsController extends Controller {
 	public function index(Request $request, $festa_id)
 	{
 		$party = Festas::find($festa_id);
-		$products = Produtos::where('categoria', 'roupa')->where('status', 1);
+		$gender = $party->sexo == 'masculino' ? 'M' : 'F';
+		$products = Produtos::where('categoria', 'roupa')
+							->where('status', 1)
+							->whereIn('sexo', [ $gender, 'U' ]);
 
 		if (!isset($party) || empty($party)) {
 			abort(404, 'Page not found.');
