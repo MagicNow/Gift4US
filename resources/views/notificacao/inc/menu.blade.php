@@ -17,7 +17,7 @@
 	</div>
 </div>
 <div class="detalhes-festa lista-presentes">
-	<p>Lista de presentes</p>
+	{{--  <p>Lista de presentes</p>
 	<div class="row pD">
 		<span class="pull-left">103 / 44 brinquedos</span>
 		<small class="pull-left">
@@ -39,7 +39,7 @@
 		<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-middle dados-container col-md-12">
 			<p class="gifts-box-number-middle-selected">Ver lista</p>
 		</a>
-	</div>
+	</div>  --}}
 </div>
 <div class="detalhes-festa lista-presentes">
 	<p>Presenças confirmadas</p>
