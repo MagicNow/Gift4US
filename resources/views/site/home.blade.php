@@ -225,11 +225,7 @@
 						<img class="svg" id="u9215" src="{{ asset('assets/home/images/svg-colado-19689x30.svg?crc=4147025150') }}" width="197" height="30" alt="" data-mu-svgfallback="{{ asset('assets/home/images/svg%20colado%2019689x30_poster_.png?crc=198103898') }}"/>
 					</div>
 					<img class="grpelem" id="u9217-4" alt="Busque aqui a festa que foi convidado:" width="444" height="34" src="{{ asset('assets/home/images/u9217-4.png?crc=4173099072') }}"/><!-- rasterized frame -->
-					<!-- m_editable region-id="editable-static-tag-U9219-BP_infinity" template="index.html" data-type="html" data-ice-options="disableImageResize,link" -->
-					<div class="clearfix grpelem" id="u9219-6" data-muse-uid="U9219" data-muse-type="txt_frame">
-						<!-- content -->
-						<p>Insira aqui o código único<br/>ou o nome do(a) aniversariante</p>
-					</div>
+					
 					<!-- /m_editable -->
 					<form method="post" action="{{ route('convidado.login') }}">
 						@if (session('convidado'))
@@ -237,7 +233,8 @@
 							{{ session('convidado') }}
 						</div>
 						@endif
-						<input type="text" name="name" id="u9186" class="clearfix grpelem index-input" required>
+						<input type="text" name="name" id="u9186" class="clearfix grpelem index-input" required placeholder="Código único ou o nome do(a) aniversariante">
+						<button type="submit" id="u9186-submit"><img src="{{ asset('assets/home/images/btn-entrar-azul.jpg') }}" alt="Entrar"></button>
 					</form>
 					<div class="clearfix grpelem" id="u9630">
 						<form method="post" action="{{ route('usuario.login') }}" class="clearfix colelem" id="pu9606">
@@ -254,9 +251,13 @@
 							</div>
 							<div class="clearfix colelem" id="u9609">
 								<!-- group -->
+								<a href="{{ route('cadastro.create') }}" id="u9609-register"><img src="{{ asset('assets/home/images/btn-cadastrar.png') }}" alt="Cadastrar"></a>
 								<div class="clearfix grpelem" id="u9216">
 									<!-- group -->
 									<button type="submit"><img class="grpelem" id="u9207-4" alt="CADASTRE-SE" width="148" height="25" src="{{ asset('assets/home/images/u9207-4.png?crc=3899746967') }}"/></button>
+								</div>
+								<div class="clearfix grpelem" id="u9216-remember">
+									<a href="#">Esqueci minha senha</a>
 								</div>
 							</div>
 						</form>
