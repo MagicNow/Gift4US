@@ -45,6 +45,22 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="sexo" class="form-title">Sexo</label>
+            <div class="custom-control custom-radio custom-control-inline">
+                {!! Form::radio('sexo', 'M', isset($product->sexo) && $product->sexo == 'M' ? true : false, ['class' => 'custom-control-input', 'id' => 'sexoM'] )!!}
+                <label class="custom-control-label" for="sexoM">Masculino</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                {!! Form::radio('sexo', 'F', isset($product->sexo) && $product->sexo == 'F' ? true : false, ['class' => 'custom-control-input', 'id' => 'sexoF'] )!!}
+                <label class="custom-control-label" for="sexoF">Feminino</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                {!! Form::radio('sexo', 'U', isset($product->sexo) && $product->sexo == 'U' ? true : false, ['class' => 'custom-control-input', 'id' => 'sexoU'] )!!}
+                <label class="custom-control-label" for="sexoU">Unissex</label>
+            </div>
+        </div>
+
+        <div class="form-group">
             <label for="imagem">Imagem</label>
             <input type="file" id="imagem" name="imagem">
         </div>

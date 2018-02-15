@@ -40,7 +40,9 @@ $(function() {
 				'section': $('.map-btn')
 			}] : null;
 
-	guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins);
+	if ($('body').hasClass('convidado.index')) {
+		guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins);
+	}
 
 	// add validate to cpf
 	$.validator.addMethod("cpf", function(value, element) {
@@ -233,7 +235,9 @@ $(function() {
 			$giftsBoxNumber.css('top', $doc.scrollTop() - $giftsBoxNumberTop - 10); // 10 -> margin-top
 		}
 
-		guestPageCheckHeaderPosition($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins);
+		if ($('body').hasClass('convidado.index')) {
+			guestPageCheckHeaderPosition($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins);
+		}
 
 		if ($giftsCategories.length > 0) {
 			if ($doc.scrollTop() + $win.height() > $giftsCategories.offset().top + $giftsCategories.height()) {
@@ -705,9 +709,11 @@ function guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, 
 
 		$previewPins.removeClass('active');
 
-		for (var i = 0; i < previewSections.length; i++) {
-			if ($doc.scrollTop() > previewSections[i].top && $doc.scrollTop() <= previewSections[i].bottom) {
-				previewSections[i].section.addClass('active');
+		if (previewSections) {
+			for (var i = 0; i < previewSections.length; i++) {
+				if ($doc.scrollTop() > previewSections[i].top && $doc.scrollTop() <= previewSections[i].bottom) {
+					previewSections[i].section.addClass('active');
+				}
 			}
 		}
 	}
@@ -776,7 +782,7 @@ function brandCard() {
 		},
 		error: function(response) {
 			$("#cardNumber").css('border-color', 'red');
-			$("#cardNumber").focus();
+			// $("#cardNumber").focus();
 		},
 		complete: function(response) {
 		}
