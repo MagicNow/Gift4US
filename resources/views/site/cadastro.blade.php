@@ -1,6 +1,102 @@
 @extends('site/master')
 
 @section('content')
+	<div class="clearfix colelem" id="pu2427">
+		<!-- group -->
+		<div class="browser_width ose_ei" id="u2427-bw">
+			<div class="scroll_effect" id="u2427" style="opacity: 0;">
+				<!-- simple frame -->
+			</div>
+		</div>
+		<nav class="MenuBar clearfix" id="menuu2489">
+			<!-- horizontal box -->
+			<div class="MenuItemContainer clearfix grpelem" id="u2504">
+				<!-- vertical box -->
+				<a class="nonblock nontext MenuItem MenuItemWithSubMenu anim_swing clearfix colelem" id="u2505" href="{{ url('/#lista_de_presentes') }}" data-href="anchor:U8683:U8771">
+					<!-- horizontal box -->
+					<div class="MenuItemLabel NoWrap clearfix grpelem" id="u2507-4">
+						<!-- content -->
+						<p>lista de presentes</p>
+					</div>
+				</a>
+			</div>
+			<div class="MenuItemContainer clearfix grpelem" id="u2511">
+				<!-- vertical box -->
+				<a class="nonblock nontext MenuItem MenuItemWithSubMenu anim_swing clearfix colelem" id="u2514" href="{{ url('/#como_funciona') }}" data-href="anchor:U8683:U8730">
+					<!-- horizontal box -->
+					<div class="MenuItemLabel NoWrap clearfix grpelem" id="u2517-4">
+						<!-- content -->
+						<p>como funciona</p>
+					</div>
+				</a>
+			</div>
+			<div class="MenuItemContainer clearfix grpelem" id="u2518">
+				<!-- vertical box -->
+				<a class="nonblock nontext MenuItem MenuItemWithSubMenu anim_swing clearfix colelem" id="u2519" href="{{ url('/#passoapasso') }}" data-href="anchor:U8683:U8687">
+					<!-- horizontal box -->
+					<div class="MenuItemLabel NoWrap clearfix grpelem" id="u2520-4">
+						<!-- content -->
+						<p>passo a passo</p>
+					</div>
+				</a>
+			</div>
+		</nav>
+		<nav class="MenuBar clearfix scroll_effect" id="menuu3847" style="opacity: 1;">
+			<!-- horizontal box -->
+			<div class="MenuItemContainer clearfix grpelem" id="u3855">
+				<!-- vertical box -->
+				<div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u3856">
+					<!-- horizontal box -->
+					<div class="MenuItemLabel NoWrap clearfix grpelem" id="u3858-4">
+						<!-- content -->
+						<a href="http://magic.gift4us/cadastro/create" target="_self">novo usuário</a>
+					</div>
+				</div>
+			</div>
+			<div class="MenuItemContainer clearfix grpelem" id="u3862">
+				<!-- vertical box -->
+				<div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u3865">
+					<!-- horizontal box -->
+					<div class="MenuItemLabel NoWrap clearfix grpelem" id="u3866-4">
+						<!-- content -->
+						<a href="http://magic.gift4us/#convidado_aniversariante" target="_self">
+							<p>login</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<nav class="MenuBar clearfix scroll_effect" id="menuu3913" style="opacity: 1;">
+			<!-- horizontal box -->
+			<div class="MenuItemContainer clearfix grpelem" id="u3914">
+				<!-- vertical box -->
+				<div class="MenuItem MenuItemWithSubMenu clearfix colelem" id="u3915">
+					<!-- horizontal box -->
+					<div onclick="javascript:document.getElementById('u3964').focus();" class="MenuItemLabel NoWrap clearfix grpelem" id="u3916-4">
+						<!-- content -->
+						<p>aniversário</p>
+						<div id="u3958">
+							<!-- simple frame -->
+						</div>
+						<div id="u3961">
+							<!-- simple frame -->
+						</div>
+						<div id="u3967">
+							<!-- simple frame -->
+						</div>
+						<form method="post" action="http://magic.gift4us/convidado/login">
+							<input type="text" class="rounded-corners" name="name" id="u3964">
+						</form>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="clip_frame scroll_effect" id="u4816" style="opacity: 1;">
+			<!-- svg -->
+			<img class="svg" id="u4814" src="{{ asset('assets/home/images/svg-colado-123x125.svg?crc=97497752') }}" width="35" height="36" alt="" data-mu-svgfallback="{{ asset('assets/home/images/svg%20colado%20123x125_poster_.png?crc=4221097519') }}">
+		</div>
+	</div>
+
     <div class="form-cadastro col-xs-12 col-sm-12 col-md-12 col-lg-12">
     	<div class="container">
     	 	{{ Html::image('assets/site/images/presentinho.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-5 col-lg-6')) }}
