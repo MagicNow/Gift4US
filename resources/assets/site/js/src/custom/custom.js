@@ -13,6 +13,7 @@ $(function() {
 	var $giftsCategoriesButton = $giftsCategories.length > 0 ? $giftsCategories.find('.gifts-categories-submit-fixed') : null;
 
 	var $previewHeader = $('.preview-header-container');
+	var $previewHeaderSpace = $('.preview-header-space');
 	var $previewHeaderTop = $previewHeader.length > 0 ? $previewHeader.offset().top : null;
 	var $previewHeaderHeight = $previewHeader.length > 0 ? $previewHeader.height() : null;
 	var $previewHeaderSubmenu = $('.sub-menu').length > 0 ? $('.sub-menu') : null;
@@ -690,6 +691,14 @@ $(function() {
 
 	$('.form-payment').on('submit', function () {
 		$('input[name="senderHash"]').val(PagSeguroDirectPayment.getSenderHash());
+	});
+
+	$('.preview-more-btn').on('click', function (e) {
+		e.preventDefault();
+
+		$('html, body').animate({
+			scrollTop: $previewHeaderSpace.offset().top
+		}, 500);
 	});
 });
 
