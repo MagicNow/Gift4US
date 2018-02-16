@@ -49,7 +49,7 @@
 					<!-- horizontal box -->
 					<div class="MenuItemLabel NoWrap clearfix grpelem" id="u3858-4">
 						<!-- content -->
-						<a href="http://magic.gift4us/cadastro/create" target="_self">novo usuário</a>
+						<a href="{{ url('/cadastro/create') }}" target="_self">novo usuário</a>
 					</div>
 				</div>
 			</div>
@@ -59,7 +59,7 @@
 					<!-- horizontal box -->
 					<div class="MenuItemLabel NoWrap clearfix grpelem" id="u3866-4">
 						<!-- content -->
-						<a href="http://magic.gift4us/#convidado_aniversariante" target="_self">
+						<a href="{{ url('/#convidado_aniversariante') }}" target="_self">
 							<p>login</p>
 						</a>
 					</div>
@@ -84,7 +84,7 @@
 						<div id="u3967">
 							<!-- simple frame -->
 						</div>
-						<form method="post" action="http://magic.gift4us/convidado/login">
+						<form method="post" action="{{ url('/convidado/login') }}">
 							<input type="text" class="rounded-corners" name="name" id="u3964">
 						</form>
 					</div>
