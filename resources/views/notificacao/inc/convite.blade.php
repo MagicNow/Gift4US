@@ -27,9 +27,9 @@
 				</div>
 			</div>
 			<div class="col-md-8 col-xs-8">
-				<div class="row">
+				<div class="row convite-content">
 					<div class="data-festa">
-						<span>{{ $party->festa_dia }}/{{ $party->festa_mes }}/{{ $party->festa_ano }} {{ sprintf('%02d', $party->festa_hora) }}h{{ sprintf('%02d', $party->festa_minuto) }}</span>
+						<span>{{ sprintf('%02d', $party->festa_dia) }}/{{ sprintf('%02d', $party->festa_mes) }}/{{ $party->festa_ano }} {{ sprintf('%02d', $party->festa_hora) }}h{{ sprintf('%02d', $party->festa_minuto) }}</span>
 					</div>
 					<div class="local-festa">
 						<div class="endereco">
