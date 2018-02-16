@@ -30,11 +30,11 @@
 					<div class="clearfix">
 						<fieldset class="form-birthday-first col-xs-12 col-sm-12 col-md-5 col-lg-5">
 							<div class="form-group">
-								<label for="aniver-nome">Qual nome do aniversáriante?</label>
+								<label for="aniver-nome">Qual nome do aniversariante?</label>
 								<input type="text" class="form-control form-input {{ $errors->first('nome', 'has-error') }}" id="aniver-nome" name="nome" maxlength="100" value="{{ old('nome', $festa->nome) }}" tabindex="1">
 							</div>
 							<div class="form-group">
-								<p class="defaut-text">Qual o gênero do aniversáriante?</p>
+								<p class="defaut-text">Qual o gênero do aniversariante?</p>
 								<label class="checkbox-inline pd0">
 									<input type="radio" id="sexo-sim" value="masculino" name="sexo" {{ $festa->sexo == 'masculino' ? 'checked' : '' }} class="{{ $errors->first('sexo', 'has-error') }}"> Masculino
 								</label>
