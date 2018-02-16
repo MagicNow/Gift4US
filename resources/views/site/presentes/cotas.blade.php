@@ -39,7 +39,7 @@
 							<div class="gifts-list-message">
 								<button class="gifts-list-message-remove" data-cookie="closeModalQuotas"></button>
 								<p class="gifts-list-message-first">Selecione as cotas que possuam a personalidade do aniversariante! É bem fácil! Você pode selecionar os produtos sugeridos abaixo, procurar algum modelo específico pelo nome e filtrar por diversas formas! </p>
-								<p class="gifts-list-message-secound">*As cotas adquiridas pelos convidados serão convertidas em crédito na sua conta bancária. Não cadastrou seu conta bancária ainda? Não esqueça de cadastra-la a qualquer momento no painel de controle assim que finalizar a criação do aniversário.</p>
+								<p class="gifts-list-message-secound">*As cotas adquiridas pelos convidados serão convertidas em crédito na sua conta bancária. Não cadastrou sua conta bancária ainda? Não esqueça de cadastra-la a qualquer momento no painel de controle assim que finalizar a criação do aniversário.</p>
 							</div>
 						@endif
 
