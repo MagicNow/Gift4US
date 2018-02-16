@@ -36,11 +36,14 @@
 									<p class="gifts-item-price-description">Observação</p>
 									<p class="gifts-item-price-value bgC">{{ $product->descricao }}</p>
 									<p class="gifts-item-price-description">Lojas disponiveis</p>
-									<p class="linkLojaOnline">PBKids</p>
-									<p class="linkLojaOnline">Americanas</p>
-									<p class="linkLojaOnline">Submarino</p>
-									<p class="linkLojaOnline" style="margin-right:0;">B-Mart</p>
-									<p class="linkLojaOnline">Hi-Happy</p>
+									
+									
+									@if ($product->lojas->count() > 0)
+										@foreach ($product->lojas as $key => $loja)
+											<p class="linkLojaOnline">{{ $loja->nome }}</p>
+										@endforeach
+									@endif
+
 									<h5 class="col-md-12 gifts-item-title">Atenção</h5>
 									<p class="col-md-12 gifts-item-price-description">Antes de sair, que tal avisar o aniversariante que irá dar este presente?<br />Preencha os campos abaixo para concluir!</p>
 									<form action="{{ route('presentes.reservar') }}" method="post" class="col-md-12 formOnline send-form-ajax">
