@@ -12,7 +12,7 @@ class QuotasController extends Controller {
 
 	public function __construct(Request $request) {
 		$this->middleware(function ($request, $next) {
-			$this->party = Festas::where('slug', $request->route('slug'))->firstOrFail();
+			$this->party = Festas::where('codigo', $request->route('slug'))->firstOrFail();
 
 			if ($this->party->ativo == 0 && session('client_id') !== $this->party->clientes_id) {
 				abort(404, 'Página não encontrada.');

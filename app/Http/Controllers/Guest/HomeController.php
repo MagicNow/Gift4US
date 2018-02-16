@@ -18,7 +18,7 @@ class HomeController extends Controller {
 	 */
 	public function index(Request $request, $slug = null)
 	{
-		$party = Festas::where('slug', $slug)->firstOrFail();
+		$party = Festas::where('codigo', $slug)->firstOrFail();
 
 		if ($party->ativo == 0 && session('client_id') !== $party->clientes_id) {
 			abort(404, 'Página não encontrada.');
@@ -74,7 +74,7 @@ class HomeController extends Controller {
 						->first();
 
 		if (isset($party) && !empty($party)) {
-			return redirect()->route('convidado.index', $party->slug);
+			return redirect()->route('convidado.index', $party->codigo);
 		} else {
 			return redirect('/')->with('convidado', 'Nenhuma festa encontrada!');
 		}
@@ -82,7 +82,7 @@ class HomeController extends Controller {
 
 	public function confirmarPresenca(StoreConfirmPresence $request, $slug)
 	{
-		$festa = Festas::where('slug', $slug)->first();
+		$festa = Festas::where('codigo', $slug)->first();
 
 		if (!$festa) {
 			abort(403, 'Unauthorized action.');
@@ -99,7 +99,7 @@ class HomeController extends Controller {
 
 	public function escreverMensagem(StoreMessage $request, $slug)
 	{
-		$festa = Festas::where('slug', $slug)->first();
+		$festa = Festas::where('codigo', $slug)->first();
 
 		if (!$festa) {
 			abort(403, 'Unauthorized action.');

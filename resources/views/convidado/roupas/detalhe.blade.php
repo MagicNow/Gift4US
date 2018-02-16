@@ -38,10 +38,10 @@
 										<p class="gifts-item-color-value bgC">{{ $product->cor }}</p>
 									@endif
 									<div class="col-md-6">
-										<a href="{{ route('convidado.roupas.index', $party->slug) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de Roupas</a>
+										<a href="{{ route('convidado.roupas.index', $party->codigo) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de Roupas</a>
 									</div>
 									<div class="col-md-6">
-										<a href="{{ route('convidado.roupas.compraOnline', [$party->slug, $product]) }}" class="my-birthday-create-button-small">Quero comprar online agora</a>
+										<a href="{{ route('convidado.roupas.compraOnline', [$party->codigo, $product]) }}" class="my-birthday-create-button-small">Quero comprar online agora</a>
 									</div>
 								</div>
 							</div>

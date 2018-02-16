@@ -78,7 +78,7 @@ Route::group(['prefix' => 'notificacoes/{festa_id}'], function() {
 	Route::get('submeter-emails', ['as'=> 'notificacoes.submeter', 'uses' => 'NotificationsController@submeterEmails']);
 });
 
-Route::group(['prefix' => 'convidado', 'namespace' => 'Guest'], function() {
+Route::group(['prefix' => 'aniversariante', 'namespace' => 'Guest'], function() {
 	Route::post('login', ['as'=> 'convidado.login', 'uses' => 'HomeController@login']);
 	Route::post('{slug}/confirmar-presenca', ['as'=> 'convidado.confirmar-presenca', 'uses' => 'HomeController@confirmarPresenca']);
 	Route::post('{slug}/escrever-mensagem', ['as'=> 'convidado.escrever-mensagem', 'uses' => 'HomeController@escreverMensagem']);

@@ -38,7 +38,7 @@
 										<p class="gifts-item-price-value bgC">R$ {{ number_format($product->valor_total / $product->quantidade_cotas, 2) }}</p>
 									@endif
 									<div class="col-md-6">
-										<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de COTAS</a>
+										<a href="{{ route('convidado.cotas.index', $party->codigo) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de COTAS</a>
 									</div>
 									<div class="col-md-6">
 										<a href="#" class="my-birthday-create-button-small">Quero comprar online agora</a>

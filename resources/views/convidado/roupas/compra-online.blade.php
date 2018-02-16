@@ -35,7 +35,7 @@
 					</div>
 					<div class="form-cadastro">
 						<div class="form-cadastro-content">
-							<form method="post" action="{{ route('convidado.roupas.compraOnline', [$party->slug, $product->id]) }}" class="form-payment">
+							<form method="post" action="{{ route('convidado.roupas.compraOnline', [$party->codigo, $product->id]) }}" class="form-payment">
 								<input type="hidden" name="senderHash">
 								<fieldset class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-pgto-fieldset">
 									<legend class="form-cadastro-legenda">Dados do Comprador</legend>

@@ -148,19 +148,19 @@
 			<ul class="preview-list row">
 				<li class="col-md-4 preview-item-container text-center">
 					@if ($gifts['brinquedos'])
-						<a href="{{ route('convidado.brinquedos.index', $party->slug) }}"><img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" /></a>
+						<a href="{{ route('convidado.brinquedos.index', $party->codigo) }}"><img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" /></a>
 					@else
 						<img src="{{ asset('assets/site/images/bg-presente.png') }}" alt="" class="bg" />
 					@endif
 					<div class="preview-item-toys"></div>
 					@if ($gifts['brinquedos'])
-						<a href="{{ route('convidado.brinquedos.index', $party->slug) }}" class="preview-item-text text-center">BRINQUEDOS</a>
+						<a href="{{ route('convidado.brinquedos.index', $party->codigo) }}" class="preview-item-text text-center">BRINQUEDOS</a>
 					@else
 						<span class="preview-item-text text-center">BRINQUEDOS</span>
 					@endif
 					<p class="text-center desc">
 						@if ($gifts['brinquedos'])
-							<a href="{{ route('convidado.brinquedos.index', $party->slug) }}">
+							<a href="{{ route('convidado.brinquedos.index', $party->codigo) }}">
 						@endif
 							Clique aqui para ver a lista completa dos brinquedos prediletos escolhidos pelo aniversariante!
 						@if ($gifts['brinquedos'])
@@ -174,15 +174,15 @@
 				</li>
 				<li class="col-md-4 text-center preview-item-container">
 					@if ($gifts['roupas'])
-						<a href="{{ route('convidado.roupas.index', $party->slug) }}" class="preview-item-clothes"></a>
-						<a href="{{ route('convidado.roupas.index', $party->slug) }}" class="preview-item-text text-center">ROUPAS</a>
+						<a href="{{ route('convidado.roupas.index', $party->codigo) }}" class="preview-item-clothes"></a>
+						<a href="{{ route('convidado.roupas.index', $party->codigo) }}" class="preview-item-text text-center">ROUPAS</a>
 					@else
 						<span class="preview-item-clothes"></span>
 						<span class="preview-item-text text-center">ROUPAS</span>
 					@endif
 					<p class="text-center desc">
 						@if ($gifts['roupas'])
-							<a href="{{ route('convidado.roupas.index', $party->slug) }}">
+							<a href="{{ route('convidado.roupas.index', $party->codigo) }}">
 						@endif
 							Clique aqui para ver a lista de roupas que o aniversariante quer ganhar!<br>&nbsp;
 						@if ($gifts['roupas'])
@@ -196,15 +196,15 @@
 				</li>
 				<li class="col-md-4 text-center preview-item-container ">
 					@if ($gifts['cotas'])
-						<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="preview-item-quota"></a>
-						<a href="{{ route('convidado.cotas.index', $party->slug) }}" class="preview-item-text text-center">COTAS</a>
+						<a href="{{ route('convidado.cotas.index', $party->codigo) }}" class="preview-item-quota"></a>
+						<a href="{{ route('convidado.cotas.index', $party->codigo) }}" class="preview-item-text text-center">COTAS</a>
 					@else
 						<span class="preview-item-quota"></span>
 						<span class="preview-item-text text-center">COTAS</span>
 					@endif
 					<p class="text-center desc">
 						@if ($gifts['cotas'])
-							<a href="{{ route('convidado.cotas.index', $party->slug) }}">
+							<a href="{{ route('convidado.cotas.index', $party->codigo) }}">
 						@endif
 							Clique aqui para presentear com parte da cota e ajudar naquele presentão!<br>&nbsp;
 						@if ($gifts['cotas'])

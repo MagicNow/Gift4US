@@ -22,7 +22,7 @@
 									<div class="row">
 										<div class="col-md-5">
 											@if (!empty($product->imagem))
-												<a href="{{ route('convidado.brinquedos.detalhe', [$party->slug, $product->id]) }}" target="_self"><img src="{{ $product->imagem }}" class="gifts-item-image" width="100%"></a>
+												<a href="{{ route('convidado.brinquedos.detalhe', [$party->codigo, $product->id]) }}" target="_self"><img src="{{ $product->imagem }}" class="gifts-item-image" width="100%"></a>
 											@endif
 										</div>
 										<div class="gifts-item-content col-md-7">
@@ -36,7 +36,7 @@
 										</div>
 									</div>
 									<div class="gifts-item-buttons">
-										<a href="{{ route('convidado.brinquedos.detalhe', [$party->slug, $product->id]) }}" class="col-md-7 col-md-offset-5 gifts-item-button">Ver detalhes</a>
+										<a href="{{ route('convidado.brinquedos.detalhe', [$party->codigo, $product->id]) }}" class="col-md-7 col-md-offset-5 gifts-item-button">Ver detalhes</a>
 									</div>
 								</li>
 							@endforeach
