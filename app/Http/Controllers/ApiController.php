@@ -18,7 +18,7 @@ use Orchestra\Parser\Xml\Facade as XmlParser;
 class ApiController extends Controller {
 	public function produtos()
 	{
-		$this->produtosReviva();
+		// $this->produtosReviva();
 		$this->produtosPanda();
 
 		die('Importação realizada com sucesso.');
@@ -76,7 +76,7 @@ class ApiController extends Controller {
 		$xml = XmlParser::load(env('PRODUCTS_PANDA_XML'));
  
 		$feed = $xml->rebase('channel')->parse([
-					'items'		=> ['uses' => 'item[title,description]'],
+					'items'		=> ['uses' => 'item[title,link,description]'],
 					'values'	=> ['uses' => 'item/g[id,price,sale_price,image_link,brand,product_type]'],
 				]);
 		
@@ -100,7 +100,7 @@ class ApiController extends Controller {
 			$produto->lojas()->delete();
 			$produto->lojas()->create([
 				'nome' => 'Panda Brinquedos',
-				'link' => NULL
+				'link' => strtok($value['link'], '?') . '?utm_source=gift4us&utm_medium=produtos&utm_term=' . str_slug($value['title'])
 			]);
 		}
 
