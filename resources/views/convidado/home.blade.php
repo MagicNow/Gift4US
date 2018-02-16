@@ -109,7 +109,7 @@
 				<img src="{{ asset('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
 				<img src="{{ asset('assets/site/images/img-balao-check.png') }}" align="right" />
 			</div>
-			<form class="boxfR rsvp-form" action="{{ route('convidado.confirmar-presenca', $party->slug) }}" method="post">
+			<form class="boxfR rsvp-form" action="{{ route('convidado.confirmar-presenca', $party->codigo) }}" method="post">
 				<fieldset class="col-md-12">
 					<div class="rsvp-form-content">
 						<div class="form-group">
@@ -226,7 +226,7 @@
 			<div class="preview-header-space"></div>
 		</div>
 		<div class="mensagem">
-			<form class="boxfL rsvp-form" action="{{ route('convidado.escrever-mensagem', $party->slug) }}" method="post">
+			<form class="boxfL rsvp-form" action="{{ route('convidado.escrever-mensagem', $party->codigo) }}" method="post">
 				<fieldset class="col-md-12 img-field">
 					<div class="rsvp-form-content">
 						<p class="text-left">Escreva uma mensagem</p>
