@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Festas;
 use App\Models\Clientes;
-use App\Http\Requests\ScrapsExport;
 use Illuminate\Http\Request;
 use App\Mail\InviteSend;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -174,15 +174,19 @@ class NotificationsController extends Controller
 		return view('notificacao.imprimir.presencas-confirmadas', compact('titulo', 'client', 'party', 'presencas', 'paginas', 'porpagina'));
 	}
 
-    public function exportaRecados(Request $request, $festa_id, ScrapsExport $export)
+    public function exportaRecados(Request $request, $festa_id)
     {
     	$scraps = $this->festa->mensagem()->select('nome', 'mensagem')->get(); //->toArray();
 
-        // work on the export
-        return $export->sheet('Recados', function($sheet) use($scraps) {
-			$sheet->fromArray($scraps);
-			$sheet->freezeFirstRow();
-        })->export('xls');
+		$pdf = PDF::loadView('notificacao.recados', ['scraps' => $scraps]);
+		return $pdf->download('recados.pdf');
+
+
+        // // work on the export
+        // return $export->sheet('Recados', function($sheet) use($scraps) {
+		// 	$sheet->fromArray($scraps);
+		// 	$sheet->freezeFirstRow();
+        // })->export('xls');
     }
 
     public function submeterEmails(Request $request, $festa_id) {

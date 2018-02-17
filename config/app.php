@@ -166,7 +166,6 @@ return [
          * Package Service Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
-        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -182,7 +181,7 @@ return [
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -232,11 +231,10 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
         'Form'         => Collective\Html\FormFacade::class,
         'Html'         => Collective\Html\HtmlFacade::class,
-        'Excel'        => Maatwebsite\Excel\Facades\Excel::class,
         'XmlParser'    => Orchestra\Parser\Xml\Facade::class,
         'Image'        => Intervention\Image\Facades\Image::class,
         'Helper'       => App\Helper::class,
-        'Excel'        => Maatwebsite\Excel\Facades\Excel::class,
+        'PDF'          => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];
