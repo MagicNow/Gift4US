@@ -11,6 +11,7 @@ $(function() {
 	var $giftsBoxNumberBottom = $giftsBoxNumber.length > 0 ? $giftsBoxNumberTop + $giftsBoxNumber.height() : null;
 	var $giftsCategories = $('.gifts-container');
 	var $giftsCategoriesButton = $giftsCategories.length > 0 ? $giftsCategories.find('.gifts-categories-submit-fixed') : null;
+	var $giftsItemLista = $('.gifts-item-lista')
 
 	var $previewHeader = $('.preview-header-container');
 	var $previewHeaderSpace = $('.preview-header-space');
@@ -700,6 +701,35 @@ $(function() {
 			scrollTop: $previewHeaderSpace.offset().top
 		}, 500);
 	});
+
+	let $giftsItem1,
+		$giftsItem2,
+		giftsItemHeight1 = 0,
+		giftsItemHeight2 = 0;
+
+	if ($giftsItemLista.length > 0) {
+		$giftsItemLista.each(function (index, el) {
+			$giftsItem1 = null;
+			$giftsItem2 = null;
+
+			giftsItemHeight1 = 0;
+			giftsItemHeight2 = 0;
+
+			if ((index+1)%2 == 0) {
+				$giftsItem1 = $($giftsItemLista[index - 1]);
+				$giftsItem2 = $(el);
+				
+				giftsItemHeight1 = $giftsItem1.height();
+				giftsItemHeight2 = $giftsItem2.height();
+
+				if (giftsItemHeight1 > giftsItemHeight2) {
+					$giftsItem2.height(giftsItemHeight1);
+				} else {
+					$giftsItem1.height(giftsItemHeight2);
+				}
+			}
+		});
+	}
 });
 
 function guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins) {

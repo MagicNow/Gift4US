@@ -74,7 +74,7 @@
 						@if (isset($products) && count($products) > 0)
 							@foreach ($products as $product)
 								<li class="col-md-6 gifts-item gifts-item-lista {{ in_array($product->id, $selected) ? 'selected' : '' }}" data-id="{{ $product->id }}">
-									<div class="row">
+									<div class="row gifts-item-content">
 										<div class="col-md-5 text-center">
 											@if (!empty($product->imagem))
 												<img src="{{ $product->imagem }}" class="gifts-item-image">

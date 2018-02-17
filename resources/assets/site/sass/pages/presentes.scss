@@ -299,6 +299,7 @@
 
 	    &-lista {
 			max-height: 152px;
+			display: table;
 		}
 
 		&-roupas {
@@ -344,9 +345,15 @@
 			max-width: 100%;
 		}
 
+		&-content {
+			margin-bottom: 10px;
+		}
+
 		&-buttons {
-			margin-top: 10px;
 			height: 21px;
+			display: table-row;
+			width: 100%;
+			vertical-align: bottom;
 
 			button {
 				border-radius: 0;
