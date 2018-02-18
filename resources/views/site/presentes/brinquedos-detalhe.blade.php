@@ -7,7 +7,7 @@
 			<p class="gifts-modal-subtitle">Você realmente deseja excluir este presente?</p>
 			<div class="gifts-modal-frame row">
 				<div class="col-md-5">
-					<img src="" class="gifts-item-image" width="100%">
+					<img src="" class="gifts-item-image">
 				</div>
 				<div class="gifts-item-content col-md-7">
 					<h5 class="gifts-item-title"></h5>
@@ -37,8 +37,8 @@
 						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="1">
 							<div class="row">
 								<p class="gifts-item-title">Ver Detalhes</p>
-								<div class="col-md-4">
-									<img src="{{ $product->imagem }}" class="gifts-item-image" width="100%">
+								<div class="col-md-4 text-center">
+									<img src="{{ $product->imagem }}" class="gifts-item-image">
 								</div>
 								<div class="gifts-item-content col-md-8">
 									<p class="gifts-item-price-description gifts-item-price-description-detalhe-brinquedo">Como nosso portal é colaborativo, caso tenha alguma informação desatualizada você poderá atualizá-la clicando no botão de edição ao final de cada linha.</p>
@@ -72,7 +72,7 @@
 											</div>
 										@else
 											<div class="input-group gifts-input-icon w100">
-												<span class="form-control gifts-item-name bgC textB w100">R$ {{ $product->preco_venda }}</span>
+												<span class="form-control gifts-item-price-value bgC textB w100">R$ {{ $product->preco_venda }}</span>
 											</div>
 										@endif
 										<p class="gifts-item-price-description">Observação</p>
@@ -117,12 +117,14 @@
 											<p class="gifts-item-price-value bgC text-right"><a href="#" class="clone-button" data-target="lojas-disponiveis">+ Adicionar outra loja</a></p>
 										@endif
 
-										<div class="gifts-item-buttons gifts-detail-buttons {{ in_array($product->id, $selected) ? 'selected' : '' }}">
-											<button type="button" name="salvar" value="salvar" class="col-md-6 gifts-item-button gifts-item-button-show gifts-detail-button-select {{ in_array($product->id, $selected) ? 'hidden' : '' }}" data-id="{{ $product->id }}" data-festa-id="{{ $party->id }}">Selecionar</button>
+										<div class="gifts-detail-buttons-container">
+											<div class="gifts-item-buttons gifts-detail-buttons {{ in_array($product->id, $selected) ? 'selected' : '' }}">
+												<button type="button" name="salvar" value="salvar" class="col-md-6 gifts-item-button gifts-item-button-show gifts-detail-button-select {{ in_array($product->id, $selected) ? 'hidden' : '' }}" data-id="{{ $product->id }}" data-festa-id="{{ $party->id }}">Selecionar</button>
 
-											<span class="col-md-6 gifts-detail-button-selected {{ in_array($product->id, $selected) ? '' : 'hidden' }}">Selecionado <button class="gifts-detail-button-remove button-remove"></button></span>
+												<span class="col-md-6 gifts-detail-button-selected {{ in_array($product->id, $selected) ? '' : 'hidden' }}">Selecionado <button class="gifts-detail-button-remove button-remove"></button></span>
 
-											<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos.lista', $party->id) }}" class="col-md-6 gifts-item-button gifts-item-button-back-detail text-center">Voltar</a>
+												<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos.lista', $party->id) }}" class="col-md-6 gifts-item-button gifts-item-button-back-detail text-center">Voltar</a>
+											</div>
 										</div>
 									</form>
 								</div>

@@ -180,13 +180,6 @@ class NotificationsController extends Controller
 
 		$pdf = PDF::loadView('notificacao.recados', ['scraps' => $scraps]);
 		return $pdf->download('recados.pdf');
-
-
-        // // work on the export
-        // return $export->sheet('Recados', function($sheet) use($scraps) {
-		// 	$sheet->fromArray($scraps);
-		// 	$sheet->freezeFirstRow();
-        // })->export('xls');
     }
 
     public function submeterEmails(Request $request, $festa_id) {

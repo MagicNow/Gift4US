@@ -45,7 +45,7 @@
 
 						@if (count($products) > 0)
 							@foreach($products as $cota)
-								<li class="col-md-6 gifts-item " data-id="{{ $cota->id }}">
+								<li class="col-md-6 gifts-item gifts-item-lista" data-id="{{ $cota->id }}">
 									<div class="row">
 										<div class="col-md-5">
 											@if (file_exists('storage/quotas/' . $cota->foto))

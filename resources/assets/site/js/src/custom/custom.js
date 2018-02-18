@@ -5,30 +5,27 @@ $(function() {
 		$giftsContainer = $doc.find('.gifts-container'),
 		$giftsBoxNumber = $doc.find('.gifts-box-number.move');
 
-	var $giftsContainerTop = $giftsContainer.length > 0 ? $giftsContainer.offset().top + 35 : null; // 35 -> padding-top
-	var $giftsContainerBottom = $giftsContainer.length > 0 ? $giftsContainerTop + $giftsContainer.height() : null;
-	var $giftsBoxNumberTop = $giftsBoxNumber.length > 0 ? $giftsBoxNumber.offset().top : null;
-	var $giftsBoxNumberBottom = $giftsBoxNumber.length > 0 ? $giftsBoxNumberTop + $giftsBoxNumber.height() : null;
+	var giftsContainerTop = $giftsContainer.length > 0 ? $giftsContainer.offset().top + 35 : null; // 35 -> padding-top
+	var giftsContainerBottom = $giftsContainer.length > 0 ? giftsContainerTop + $giftsContainer.height() : null;
+	var giftsBoxNumberTop = $giftsBoxNumber.length > 0 ? $giftsBoxNumber.offset().top : null;
+	var giftsBoxNumberBottom = $giftsBoxNumber.length > 0 ? giftsBoxNumberTop + $giftsBoxNumber.height() : null;
 	var $giftsCategories = $('.gifts-container');
 	var $giftsCategoriesButton = $giftsCategories.length > 0 ? $giftsCategories.find('.gifts-categories-submit-fixed') : null;
 	var $giftsItemLista = $('.gifts-item-lista')
 
 	var $previewHeader = $('.preview-header-container');
 	var $previewHeaderSpace = $('.preview-header-space');
-	var $previewHeaderTop = $previewHeader.length > 0 ? $previewHeader.offset().top : null;
-	var $previewHeaderHeight = $previewHeader.length > 0 ? $previewHeader.height() : null;
 	var $previewHeaderSubmenu = $('.sub-menu').length > 0 ? $('.sub-menu') : null;
-	var $previewHeaderSubmenuTop = $previewHeaderSubmenu ? $previewHeaderSubmenu.offset().top : null;
-
+	var previewHeaderTop = $previewHeader.length > 0 ? $previewHeader.offset().top : null;
+	var previewHeaderHeight = $previewHeader.length > 0 ? $previewHeader.height() : null;
+	var previewHeaderHeightTotal = $previewHeader.length > 0 ? previewHeaderHeight + $previewHeaderSubmenu.height() : null;
+	var previewHeaderSubmenuTop = $previewHeaderSubmenu ? $previewHeaderSubmenu.offset().top : null;
+	
 	$giftsCategoriesButton ? $giftsCategoriesButton.width($giftsCategories.width()) : null;
 
 	var $preview = $('.preview');
 	var $previewPins = $preview.length > 0 ? $('.pin-button') : null;
 	var previewSections = $preview.length > 0 && $('.section-mapa').length > 0 ? [{
-				'top': $('.section-confirma').length > 0 ? $('.section-confirma').offset().top : 0,
-				'bottom': $('.section-confirma').length > 0 ? $('.section-confirma').offset().top + $('.section-confirma').height() : 0,
-				'section': $('.confirm-btn')
-			},{
 				'top': $('.section-lista').offset().top,
 				'bottom': $('.section-lista').offset().top + $('.section-lista').height(),
 				'section': $('.gifts-btn')
@@ -42,8 +39,16 @@ $(function() {
 				'section': $('.map-btn')
 			}] : null;
 
+	if ($('.section-confirma').length > 0) {
+		previewSections.push({
+			'top': $('.section-confirma').offset().top,
+			'bottom': $('.section-confirma').offset().top + $('.section-confirma').height(),
+			'section': $('.confirm-btn')
+		});
+	}
+
 	if ($('body').hasClass('convidado.index')) {
-		guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins);
+		guestPageCheckHeaderPosition ($doc, $previewHeader, previewHeaderTop, previewHeaderHeight, previewHeaderHeightTotal, $previewHeaderSubmenu, previewHeaderSubmenuTop, previewSections, $previewPins);
 	}
 
 	// add validate to cpf
@@ -232,13 +237,13 @@ $(function() {
 			$presentinho.append('<img src="' + image.data('presente') + '">');
 		}
 	}).on('scroll', function () {
-		if ($doc.scrollTop() - $giftsBoxNumberTop - 10 < $giftsContainerBottom - $giftsBoxNumberBottom &&
-			$doc.scrollTop() > $giftsBoxNumberTop + 10) {
-			$giftsBoxNumber.css('top', $doc.scrollTop() - $giftsBoxNumberTop - 10); // 10 -> margin-top
+		if ($doc.scrollTop() - giftsBoxNumberTop - 10 < giftsContainerBottom - giftsBoxNumberBottom &&
+			$doc.scrollTop() > giftsBoxNumberTop + 10) {
+			$giftsBoxNumber.css('top', $doc.scrollTop() - giftsBoxNumberTop - 10); // 10 -> margin-top
 		}
 
 		if ($('body').hasClass('convidado.index')) {
-			guestPageCheckHeaderPosition($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins);
+			guestPageCheckHeaderPosition($doc, $previewHeader, previewHeaderTop, previewHeaderHeight, previewHeaderHeightTotal, $previewHeaderSubmenu, previewHeaderSubmenuTop, previewSections, $previewPins);
 		}
 
 		if ($giftsCategories.length > 0) {
@@ -436,8 +441,8 @@ $(function() {
 		$frame.removeClass('hidden');
 
 		$frame.find('.gifts-item-image').attr('src', $content.find('.gifts-item-image').attr('src'));
-		$frame.find('.gifts-item-title').text($content.find('.gifts-item-name').val());
-		$frame.find('.gifts-item-price-value').text($content.find('.gifts-item-price-value').val());
+		$frame.find('.gifts-item-title').text($content.find('.gifts-item-name').val().length > 0 ? $content.find('.gifts-item-name').val() : $content.find('.gifts-item-name').text());
+		$frame.find('.gifts-item-price-value').text($content.find('.gifts-item-price-value').val().length > 0 ? $content.find('.gifts-item-price-value').val() : $content.find('.gifts-item-price-value').text());
 	});
 
 	$('.gifts-modal-detail-button-remove').on('click', function (e) {
@@ -702,6 +707,23 @@ $(function() {
 		}, 500);
 	});
 
+	// $('.guest-page-content').fullpage({
+	// 	sectionSelector: '.preview-section',
+	// 	// scrollOverflow: true
+	// });
+
+	if ($previewPins) {
+		$previewPins.on('click', function (e) {
+			e.preventDefault();
+
+			var $self = $(this);
+
+			$('html, body').animate({
+				scrollTop: $('.section-' + $self.data('href')).offset().top - 20
+			}, 500);
+		});
+	}
+
 	let $giftsItem1,
 		$giftsItem2,
 		giftsItemHeight1 = 0,
@@ -721,9 +743,10 @@ $(function() {
 				
 				giftsItemHeight1 = $giftsItem1.height();
 				giftsItemHeight2 = $giftsItem2.height();
-
+				console.log($giftsItem1, $giftsItem2, giftsItemHeight1, giftsItemHeight2);
 				if (giftsItemHeight1 > giftsItemHeight2) {
-					$giftsItem2.height(giftsItemHeight1);
+					$giftsItem2.height(giftsItemHeight1, giftsItemHeight2, giftsItemHeight1);
+					console.log($giftsItem2.height());
 				} else {
 					$giftsItem1.height(giftsItemHeight2);
 				}
@@ -732,16 +755,16 @@ $(function() {
 	}
 });
 
-function guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, $previewHeaderHeight, $previewHeaderSubmenu, $previewHeaderSubmenuTop, previewSections, $previewPins) {
-	if ($doc.scrollTop() > $previewHeaderTop) {
+function guestPageCheckHeaderPosition ($doc, $previewHeader, previewHeaderTop, previewHeaderHeight, previewHeaderHeightTotal, $previewHeaderSubmenu, previewHeaderSubmenuTop, previewSections, $previewPins) {
+	if ($doc.scrollTop() > previewHeaderTop) {
 		$previewHeader.css('position', 'fixed');
 	} else {
 		$previewHeader.css('position', 'absolute');
 	}
 
 	if ($previewHeaderSubmenu) {
-		if ($doc.scrollTop() + 10 + $previewHeaderHeight > $previewHeaderSubmenuTop) {
-			$previewHeaderSubmenu.css({'position': 'fixed', 'top': $previewHeaderHeight});
+		if ($doc.scrollTop() + 10 + previewHeaderHeight > previewHeaderSubmenuTop) {
+			$previewHeaderSubmenu.css({'position': 'fixed', 'top': previewHeaderHeight});
 		} else {
 			$previewHeaderSubmenu.css({'position': 'relative', 'top': 0});
 		}
@@ -750,7 +773,7 @@ function guestPageCheckHeaderPosition ($doc, $previewHeader, $previewHeaderTop, 
 
 		if (previewSections) {
 			for (var i = 0; i < previewSections.length; i++) {
-				if ($doc.scrollTop() > previewSections[i].top && $doc.scrollTop() <= previewSections[i].bottom) {
+				if ($doc.scrollTop() > previewSections[i].top - previewHeaderHeightTotal && $doc.scrollTop() <= previewSections[i].bottom - previewHeaderHeightTotal) {
 					previewSections[i].section.addClass('active');
 				}
 			}

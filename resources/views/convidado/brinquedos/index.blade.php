@@ -18,7 +18,7 @@
 					<ul class="gifts-list" data-festa-id="{{ $party->id }}">
 						@if (isset($products) && count($products) > 0)
 							@foreach ($products as $product)
-								<li class="col-md-6 gifts-item" data-id="1">
+								<li class="col-md-6 gifts-item gifts-item-lista" data-id="1">
 									<div class="row">
 										<div class="col-md-5">
 											@if (!empty($product->imagem))

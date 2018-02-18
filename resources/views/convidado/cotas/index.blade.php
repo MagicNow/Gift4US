@@ -23,7 +23,7 @@
 					<ul class="gifts-list" data-festa-id="{{ $party->id }}">
 						@if (isset($products) && count($products) > 0)
 							@foreach ($products as $cota)
-								<li class="col-md-6 gifts-item " data-id="24">
+								<li class="col-md-6 gifts-item gifts-item-lista" data-id="24">
 									<div class="row">
 										<div class="col-md-5">
 											<a href="{{ route('convidado.cotas.detalhe', [ $party->codigo, $cota->id]) }}" target="_self"><img src="{{ url('storage/quotas/' . $cota->foto) }}" class="gifts-item-image" width="100%"></a>

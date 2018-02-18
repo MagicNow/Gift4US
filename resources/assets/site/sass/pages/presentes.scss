@@ -69,7 +69,10 @@
 		}
 
 		&-buttons {
-
+			&-container {
+				display: table;
+				width: 100%;
+			}
 		}
 	}
 	&-modal {
@@ -298,7 +301,7 @@
 		}
 
 	    &-lista {
-			max-height: 152px;
+			// max-height: 152px;
 			display: table;
 		}
 

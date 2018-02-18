@@ -373,8 +373,8 @@ header.area-convidado h2 {
 }
 
 .brinquedosLista .gifts-item-detalhe h5.gifts-item-title{
-height:auto;
-padding:3px;
+	height:auto;
+	padding:3px;
 }
 
 .brinquedosLista .gifts-item-detalhe p{
@@ -624,4 +624,10 @@ form .textB{
 		cursor: pointer;
 		text-align: center;
 	}
+}
+
+.slimScrollBar {
+	background: red !important;
+	opacity: 1 !important;
+	z-index: 999 !important;
 }
