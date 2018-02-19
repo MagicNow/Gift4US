@@ -80,7 +80,7 @@
 		</div>
 	</div>
 
-	<div class="rsvp">
+	<div class="rsvp menu">
 		<a name="confirmar" class="pin-section"></a>
 		<div class="sub-menu-container">
 			<div class="sub-menu text-center">
@@ -102,9 +102,11 @@
 		</div>
 	</div>
 
-	<div class="guest-page-content">
+	<div class="fullpage">
+		{{--  <div class="guest-page-content">  --}}
 		@if ($party->confirma_presenca === 1)
 			<div class="preview-section section-confirma">
+				<div class="preview-header-space"></div>
 				<div class="boxfL">
 					<img src="{{ asset('assets/site/images/preview-presentinho-vermelho.png') }}" class="preview-presentinho-vermelho">
 					<img src="{{ asset('assets/site/images/img-balao-check.png') }}" align="right" />
@@ -140,11 +142,8 @@
 		@endif
 
 		<div class="preview-section section-lista">
-			<div class="rsvp">
-				<a name="lista" class="pin-section"></a>
-				<div class="preview-header-space"></div>
-			</div>
-			<div class="presente">
+			<div class="preview-header-space"></div>
+			<div class="presente" style="margin-top: 0;">
 				<ul class="preview-list row">
 					<li class="col-md-4 preview-item-container text-center">
 						@if ($gifts['brinquedos'])
@@ -221,10 +220,7 @@
 			<br clear="all" />
 		</div>
 		<div class="preview-section section-recado">
-			<div class="rsvp">
-				<a name="recado" class="pin-section"></a>
-				<div class="preview-header-space"></div>
-			</div>
+			<div class="preview-header-space"></div>
 			<div class="mensagem">
 				<form class="boxfL rsvp-form" action="{{ route('convidado.escrever-mensagem', $party->codigo) }}" method="post">
 					<fieldset class="col-md-12 img-field">
@@ -249,10 +245,7 @@
 			<br clear="all" />
 		</div>
 		<div class="preview-section section-mapa">
-			<div class="rsvp">
-				<a name="mapa" class="pin-section"></a>
-				<div class="preview-header-space"></div>
-			</div>
+			<div class="preview-header-space"></div>
 			<div class="maps">
 				<div class="container clearfix">
 					<div class="location">
@@ -273,6 +266,7 @@
 			<br clear="all" />
 		</div>
 	</div>
+	{{--  </div>  --}}
 @endsection
 @section('scripts')
 @endsection
