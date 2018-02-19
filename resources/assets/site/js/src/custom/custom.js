@@ -695,8 +695,25 @@ $(function() {
 		});
 	});
 
-	$('.form-payment').on('submit', function () {
+	$('.form-payment').on('submit', function (e) {
 		$('input[name="senderHash"]').val(PagSeguroDirectPayment.getSenderHash());
+
+		var param = {
+			cardNumber: $("input[name='cardNumber']").val(),
+			cvv: $("input[name='cardCvv']").val(),
+			expirationMonth: $("select[name='cardExpirationMonth']").val(),
+			expirationYear: $("select[name='cardExpirationYear']").val(),
+			success: function(response) {
+				$('input[name="creditCardToken"]').val(response.card.token);
+			},
+			error: function(response) {
+				console.log('error', response);
+			}
+		}
+
+		if ($('#creditCardRadio').is(':checked')) {
+			PagSeguroDirectPayment.createCardToken(param);
+		}
 	});
 
 	$('.preview-more-btn').on('click', function (e) {

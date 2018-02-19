@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FestasProdutos extends Model {
 
-	protected $fillable = ['nome', 'email', 'rg', 'mensagem'];
+	protected $fillable = ['nome', 'email', 'rg', 'mensagem', 'numero_pedido', 'estado', 'cidade', 'bairro', 'complemento', 'numero', 'endereco', 'cep', 'final_cartao', 'nascimento', 'cpf'];
 
 	protected $dates = ['deleted_at'];
 	

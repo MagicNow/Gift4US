@@ -106,7 +106,7 @@ Route::group(['prefix' => 'aniversariante', 'namespace' => 'Guest'], function() 
 		Route::post('compra-online/{product_id}', ['as'=> 'convidado.roupas.compraOnline', 'uses' => 'ClothesController@compraOnlineSubmeter']);
 	});
 
-	Route::get('compra-online/sucesso', ['as'=> 'convidado.roupas.sucesso', 'uses' => 'ClothesController@success']);
+	Route::post('compra-online/status', ['as'=> 'convidado.roupas.status', 'uses' => 'PurchaseController@status']);
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {

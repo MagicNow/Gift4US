@@ -36,32 +36,35 @@
 					<div class="form-cadastro">
 						<div class="form-cadastro-content">
 							<form method="post" action="{{ route('convidado.roupas.compraOnline', [$party->codigo, $product->id]) }}" class="form-payment">
+								@if($errors->any())
+									<div class="alert alert-danger">{{ $errors->first() }}</div>
+								@endif
 								<input type="hidden" name="senderHash">
 								<fieldset class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-pgto-fieldset">
 									<legend class="form-cadastro-legenda">Dados do Comprador</legend>
 									<label>
 										Nome:
-										<input type="text" name="nome" required="" aria-required="true">
+										<input type="text" name="nome" required="" aria-required="true" value="{{ old('nome') }}">
 									</label>
 									<label>
 										Email:
-										<input type="email" name="email" required="" aria-required="true">
+										<input type="email" name="email" required="" aria-required="true" value="{{ old('email') }}">
 									</label>
 									<label>
 										CPF:
-										<input type="text" name="cpf" class="input-cpf" aria-required="true">
+										<input type="text" name="cpf" class="input-cpf" aria-required="true" value="{{ old('cpf') }}">
 									</label>
 									<div class="row">
 										<div class="col-md-6">
 											<label>
 												Telefone:
-												<input type="text" name="tel" class="input-phone" aria-required="true">
+												<input type="text" name="tel" class="input-phone" aria-required="true" value="{{ old('tel') }}">
 											</label>
 										</div>
 										<div class="col-md-6">
 											<label>
 												Data de Nascimento:
-												<input type="text" name="nascimento" class="input-data" aria-required="true">
+												<input type="text" name="nascimento" class="input-data" aria-required="true" value="{{ old('nascimento') }}">
 											</label>
 										</div>
 									</div>
@@ -73,14 +76,15 @@
 										<div id="paymentMethodsOptions">
 											<label class="field radio col-md-6">
 												Cartão de Crédito
-												<input id="creditCardRadio" type="radio" name="changePaymentMethod" value="creditCard" checked>
+												<input id="creditCardRadio" type="radio" name="changePaymentMethod" value="creditCard" {{ old('changePaymentMethod') == 'creditCard' ? 'checked' : NULL }}>
 											</label>
 											<label class="field radio col-md-6">
 												Boleto
-												<input id="boletoRadio" type="radio" name="changePaymentMethod" value="boleto">
+												<input id="boletoRadio" type="radio" name="changePaymentMethod" value="boleto" {{ old('changePaymentMethod') == 'boleto' ? 'checked' : NULL }}>
 											</label>
 										</div>
-										<div class="creditCardData paymentMethodGroup" dataMethod="creditCard">
+										<div class="creditCardData paymentMethodGroup" dataMethod="creditCard" {{ old('changePaymentMethod') == 'boleto' ? 'style=display:none' : NULL }}>
+											<input type="hidden" name="creditCardToken" value="">
 											<div id="cardData">
 												<div class="row">
 													<div class="field col-md-10" id="cardBrand">
@@ -175,8 +179,8 @@
 								</fieldset>
 
 								<fieldset class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-pgto-fieldset">
-									<legend class="form-cadastro-legenda creditCardData">Endereço de Cobrança</legend>
-									<div class="creditCardData">
+									<legend class="form-cadastro-legenda creditCardData" {{ old('changePaymentMethod') == 'boleto' ? 'style=display:none' : NULL }}>Endereço de Cobrança</legend>
+									<div class="creditCardData" {{ old('changePaymentMethod') == 'boleto' ? 'style=display:none' : NULL }}>
 										<div class="field" id="CEPP">
 											<label for="billingAddressPostalCode">
 												CEP <font color="red">*</font>

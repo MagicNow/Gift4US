@@ -131,6 +131,10 @@
 					<div class="row">
 						@include('convidado.inc.filtro-categorias', ['filter' => 'roupas'])
 					</div>
+					@if (isset($success))
+						<div class="alert alert-success">{{ $redirect }}</div>
+					@endif
+
 					<ul class="gifts-list" data-festa-id="{{ $party->id }}">
 						@if (isset($products) && count($products) > 0)
 							@foreach ($products as $product)

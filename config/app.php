@@ -182,6 +182,7 @@ return [
         Orangehill\Iseed\IseedServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Dirape\Token\TokenServiceProvider::class,
     ],
 
     /*
@@ -235,6 +236,7 @@ return [
         'Image'        => Intervention\Image\Facades\Image::class,
         'Helper'       => App\Helper::class,
         'PDF'          => Barryvdh\DomPDF\Facade::class,
+        'Token'        => Dirape\Token\Facades\Facade::class,
     ],
 
 ];
