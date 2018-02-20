@@ -142,7 +142,7 @@
 									<div class="row">
 										<div class="col-md-5">
 											@if (!empty($product->imagem))
-												<a href="{{ route('convidado.roupas.detalhe', [$party->codigo, $product->id]) }}"><img src="{{ url('storage/products/' . $product->imagem) }}" class="gifts-item-image" width="100%"></a>
+												<a href="{{ route('convidado.roupas.detalhe', [$party->codigo, $product->id]) }}"><img src="{{ $product->imagem }}" class="gifts-item-image" width="100%"></a>
 											@endif
 										</div>
 										<div class="gifts-item-content col-md-7">
