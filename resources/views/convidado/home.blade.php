@@ -85,7 +85,7 @@
 		<div class="sub-menu-container">
 			<div class="sub-menu text-center">
 				@if ($party->confirma_presenca === 1)
-					<a class="confirm-btn pin-button" href="#confirmar" data-href="confirmar">
+					<a class="confirm-btn pin-button" href="#confirmar" data-href="confirma">
 						<svg class="sub-menu-icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="58" height="53" viewBox="0 0 58.000000 53.000000" preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,53.000000) scale(0.050000,-0.050000)" fill="#ffffff" stroke="none"><path d="M755 809 c-96 -103 -203 -233 -237 -289 l-62 -101 -124 108 -123 109 -45 -77 -44 -77 201 -201 c160 -160 203 -193 213 -166 92 261 177 403 372 614 l127 140 -38 65 c-51 86 -39 92 -240 -125z"/></g></svg>
 					</a>
 				@endif

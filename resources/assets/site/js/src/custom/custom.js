@@ -797,6 +797,7 @@ $(function() {
 		$sectionActive = $('.preview-section.active');
 
 		if(scrollUp >= scrollSensitive && $sectionActive.prev('.preview-section').length > 0) {
+			console.log('1');
 			$htmlBody.animate({
 				scrollTop: $sectionActive.prev('.preview-section').offset().top
 			}, scrollTime);
