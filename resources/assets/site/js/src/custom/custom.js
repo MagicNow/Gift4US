@@ -773,7 +773,7 @@ $(function() {
 	var $sectionActive = $('.preview-section.active');
 	var scrollSensitive = 50;
 	var scrollTime = 400;
-    $sections.bind('mousewheel', function(e){
+    $win.bind('mousewheel', function(e){
         if(e.originalEvent.wheelDelta / 120 > 0) {
 			scrollDown = 0;
             scrollUp++;
@@ -782,29 +782,76 @@ $(function() {
             scrollDown++;
 		}
 
-		$sectionActive = $('.preview-section.active');
-
-		if(scrollUp >= scrollSensitive && $sectionActive.prev('.preview-section').length > 0) {
-			$htmlBody.animate({
-				scrollTop: $sectionActive.prev('.preview-section').offset().top
-			}, scrollTime);
-
-			scrollUp = 0;
-			$htmlBody.css('overflow', 'hidden'); 
+		if(scrollDown > 0 && $htmlBody.scrollTop() <= previewSections[0].top) {
+			scrollDown = 0;
 		} else {
+			if(scrollUp > 0 && $htmlBody.scrollTop() >= previewSections[previewSections.length - 1].top) {
+				scrollUp = 0;
+			}
+		}
+
+		/*
+		console.log(previewSections.length > 0, $htmlBody.scrollTop() >= previewSections[0].top, $htmlBody.scrollTop() <= previewSections[previewSections.length - 1].bottom);
+		if (previewSections.length > 0 && $htmlBody.scrollTop() >= previewSections[0].top && $htmlBody.scrollTop() <= previewSections[previewSections.length - 1].bottom) {
+			$htmlBody.css('overflow', 'hidden');
+
+
+
+			console.log('scrollDown', scrollDown >= scrollSensitive, $sectionActive.next('.preview-section').length > 0)
 			if(scrollDown >= scrollSensitive && $sectionActive.next('.preview-section').length > 0) {
 				$htmlBody.animate({
 					scrollTop: $sectionActive.next('.preview-section').offset().top
 				}, scrollTime);
 
 				scrollDown = 0;
-				$htmlBody.css('overflow', 'hidden');
 			} else {
-				if ($sectionActive.index() == 0 && scrollUp >= scrollSensitive) {
-					$htmlBody.css('overflow', 'auto');
+				console.log(scrollUp >= scrollSensitive , $sectionActive.prev('.preview-section').length > 0);
+				if(scrollUp >= scrollSensitive && $sectionActive.prev('.preview-section').length > 0) {
+					$htmlBody.animate({
+						scrollTop: $sectionActive.prev('.preview-section').offset().top
+					}, scrollTime);
+
+					scrollUp = 0;
+				}
+			}
+			*/
+
+
+		if ($htmlBody.scrollTop() > previewSections[0].top && $htmlBody.scrollTop() < previewSections[previewSections.length - 1].bottom) {
+			$htmlBody.css('overflow', 'hidden');
+		} else {
+			$htmlBody.css('overflow', 'auto');
+		}
+
+		$sectionActive = $('.preview-section.active');
+		if ($sectionActive.length > 0) {
+			if(scrollUp >= scrollSensitive && $sectionActive.prev('.preview-section').length > 0) {
+				$htmlBody.animate({
+					scrollTop: $sectionActive.prev('.preview-section').offset().top
+				}, scrollTime);
+
+				scrollUp = 0;
+			} else {
+				if(scrollUp >= scrollSensitive && $sectionActive.prev('.preview-section').length === 0) {
+					$htmlBody.animate({
+						scrollTop: $sectionActive.offset().top - $sectionActive.height() - 1
+					}, scrollTime);
 				} else {
-					if ($sectionActive.index() == $sections.length - 1 && scrollDown >= scrollSensitive) {
-						$htmlBody.css('overflow', 'auto');
+					if(scrollDown >= scrollSensitive && $sectionActive.next('.preview-section').length > 0) {
+						$htmlBody.animate({
+							scrollTop: $sectionActive.next('.preview-section').offset().top
+						}, scrollTime);
+
+						scrollDown = 0;
+					} else {
+						if(scrollDown >= scrollSensitive && $sectionActive.next('.preview-section').length === 0) {
+							// $htmlBody.animate({
+							// 	scrollTop: $sectionActive.offset().top + $sectionActive.height()
+							// }, scrollTime);
+	
+							// scrollDown = 0;
+							$htmlBody.css('overflow', 'auto');
+						}
 					}
 				}
 			}
