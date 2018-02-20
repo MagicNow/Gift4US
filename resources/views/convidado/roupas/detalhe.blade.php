@@ -26,7 +26,7 @@
 								<p class="gifts-item-title">Ver Detalhes</p>
 								<div class="col-md-4 text-center">
 									@if (!empty($product->imagem))
-										<img src="{{ url('storage/products/' . $product->imagem) }}" class="gifts-item-image">
+										<img src="{{ $product->imagem }}" class="gifts-item-image">
 									@endif
 								</div>
 								<div class="gifts-item-content col-md-8">

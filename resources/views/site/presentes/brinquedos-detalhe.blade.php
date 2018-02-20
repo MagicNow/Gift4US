@@ -123,7 +123,7 @@
 
 												<span class="col-md-6 gifts-detail-button-selected {{ in_array($product->id, $selected) ? '' : 'hidden' }}">Selecionado <button class="gifts-detail-button-remove button-remove"></button></span>
 
-												<a href="{{ route('usuario.meus-aniversarios.presentes.brinquedos.lista', $party->id) }}" class="col-md-6 gifts-item-button gifts-item-button-back-detail text-center">Voltar</a>
+												<a href="{{ url()->previous() }}" class="col-md-6 gifts-item-button gifts-item-button-back-detail text-center">Voltar</a>
 											</div>
 										</div>
 									</form>
