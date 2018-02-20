@@ -27,25 +27,37 @@ $(function() {
 
 	var $preview = $('.preview');
 	var $previewPins = $preview.length > 0 ? $('.pin-button') : null;
-	var previewSections = $preview.length > 0 && $('.section-mapa').length > 0 ? [{
-				'top': $('.section-lista').offset().top,
-				'bottom': $('.section-lista').offset().top + $('.section-lista').height(),
-				'section': $('.gifts-btn')
-			},{
-				'top': $('.section-recado').offset().top,
-				'bottom': $('.section-recado').offset().top + $('.section-recado').height(),
-				'section': $('.message-btn')
-			},{
-				'top': $('.section-mapa').offset().top,
-				'bottom': $('.section-mapa').offset().top + $('.section-mapa').height(),
-				'section': $('.map-btn')
-			}] : null;
-
+	var previewSections = [];
+	
 	if ($('.section-confirma').length > 0) {
 		previewSections.push({
 			'top': $('.section-confirma').offset().top,
 			'bottom': $('.section-confirma').offset().top + $('.section-confirma').height(),
 			'section': $('.confirm-btn')
+		});
+	}
+
+	if ($('.section-lista').length > 0) {
+		previewSections.push({
+			'top': $('.section-lista').offset().top,
+			'bottom': $('.section-lista').offset().top + $('.section-lista').height(),
+			'section': $('.gifts-btn')
+		});
+	}
+
+	if ($('.section-recado').length > 0) {
+		previewSections.push({
+			'top': $('.section-recado').offset().top,
+			'bottom': $('.section-recado').offset().top + $('.section-recado').height(),
+			'section': $('.message-btn')
+		});
+	}
+	
+	if ($('.section-mapa').length > 0) {
+		previewSections.push({
+			'top': $('.section-mapa').offset().top,
+			'bottom': $('.section-mapa').offset().top + $('.section-mapa').height(),
+			'section': $('.map-btn')
 		});
 	}
 
