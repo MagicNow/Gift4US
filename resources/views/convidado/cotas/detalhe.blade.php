@@ -24,8 +24,8 @@
 						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="{{ $product->id }}">
 							<div class="row">
 								<p class="gifts-item-title">Ver Detalhes</p>
-								<div class="col-md-4">
-									<img src="{{ url('storage/quotas/' . $product->foto) }}" class="gifts-item-image" width="100%">
+								<div class="col-md-4 text-center">
+									<img src="{{ url('storage/quotas/' . $product->foto) }}" class="gifts-item-image">
 								</div>
 								<div class="gifts-item-content col-md-8">
 									<h5 class="gifts-item-title bgC">{{ $product->nome }}</h5>

@@ -24,9 +24,9 @@
 						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="1">
 							<div class="row">
 								<p class="gifts-item-title">Ver Detalhes</p>
-								<div class="col-md-4">
+								<div class="col-md-4 text-center">
 									@if (!empty($product->imagem))
-										<img src="{{ url('storage/products/' . $product->imagem) }}" class="gifts-item-image" width="100%">
+										<img src="{{ url('storage/products/' . $product->imagem) }}" class="gifts-item-image">
 									@endif
 								</div>
 								<div class="gifts-item-content col-md-8">
