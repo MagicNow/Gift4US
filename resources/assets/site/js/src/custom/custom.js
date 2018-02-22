@@ -710,6 +710,9 @@ $(function() {
 	});
 
 	$('.form-payment').on('submit', function (e) {
+		e.preventDefault();
+
+		var $form = $(this);
 		$('input[name="senderHash"]').val(PagSeguroDirectPayment.getSenderHash());
 
 		var param = {
@@ -719,6 +722,7 @@ $(function() {
 			expirationYear: $("select[name='cardExpirationYear']").val(),
 			success: function(response) {
 				$('input[name="creditCardToken"]').val(response.card.token);
+				$form.unbind('submit').submit();
 			},
 			error: function(response) {
 				console.log('error', response);
@@ -727,6 +731,8 @@ $(function() {
 
 		if ($('#creditCardRadio').is(':checked')) {
 			PagSeguroDirectPayment.createCardToken(param);
+		} else {
+			$form.unbind('submit').submit();
 		}
 	});
 

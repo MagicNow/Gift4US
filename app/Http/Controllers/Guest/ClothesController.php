@@ -86,7 +86,6 @@ class ClothesController extends Controller {
 		return view('convidado.roupas.detalhe', compact('request', 'party', 'product'));
 	}
 
-
 	public function compraOnline(Request $request, $festa_id, $product_id)
 	{
 		$party = $this->party;
@@ -186,18 +185,19 @@ class ClothesController extends Controller {
 			}
 
 			$pagseguro = $pagseguro->send($sendData);
+			$partyProduct->update([
+				'pagamento_codigo' => (string) $pagseguro->code
+			]);
 
 			if ($request->changePaymentMethod == 'boleto') {
-				$success = true;
-				$redirect = $pagseguro->paymentLink;
-				// return redirect()->route('convidado.roupas.index', [ $festa_id ])
-				// 				->with('success', 'redirect');
-				header("Location: " . $redirect);
-			} else {
-				$success = true;
-				$message = 'Parabéns, seu pagamento está em análise';
+				$redirect = (string) $pagseguro->paymentLink;
 				return redirect()->route('convidado.roupas.index', [ $festa_id ])
-								->with('success', 'message');
+								->with('success', true)
+								->with('redirect', $redirect);
+			} else {
+				return redirect()->route('convidado.roupas.index', [ $festa_id ])
+								->with('success', true)
+								->with('message', 'Parabéns, seu pagamento está em análise');
 			}
 		} catch(\Artistas\PagSeguro\PagSeguroException $e) {
 			return redirect()->route('convidado.roupas.compraOnline', [ $festa_id, $product_id ])

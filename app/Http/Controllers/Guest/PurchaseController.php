@@ -3,6 +3,8 @@ namespace App\Http\Controllers\Guest;
 
 use GuzzleHttp\Client;
 use PagSeguro;
+use App\Models\CotasCompras;
+use App\Models\FestasProdutos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,9 +15,21 @@ class PurchaseController extends Controller {
 
         $notification = PagSeguro::notification($notificationCode, $notificationType);
 
-        echo '<pre>';
-        print_r($notification);
+		$produto = FestasProdutos::where('pagamento_codigo', (string) $notification->code);
 
-		dd(simplexml_load_string($notification));
+		if ($produto->count() == 0) {
+			$produto = CotasCompras::where('pagamento_codigo', (string) $notification->code);
+		}
+
+		if ($produto->count() == 0) {
+			abort(404, 'Compra não encontrada.');
+		}
+
+		$status = (string) $notification->status;
+		$produto->update([
+			'pagamento_status' => (string) $notification->status
+		]);
+		return response()
+					->json(['status' => true]);
 	}
 }

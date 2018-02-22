@@ -41,7 +41,7 @@
 										<a href="{{ route('convidado.cotas.index', $party->codigo) }}" class="my-birthday-create-button-small">Voltar para<br />a lista de COTAS</a>
 									</div>
 									<div class="col-md-6">
-										<a href="#" class="my-birthday-create-button-small">Quero comprar online agora</a>
+										<a href="{{ route('convidado.cotas.compraOnline', [$party->codigo, $product]) }}" class="my-birthday-create-button-small">Quero comprar online agora</a>
 									</div>
 								</div>
 							</div>

@@ -12,4 +12,8 @@ class Cotas extends Model {
     public function festa() {
         return $this->belongsTo('App\Models\Festas');
     }
+
+    public function compras() {
+        return $this->hasMany('App\Models\CotasCompras');
+    }
 }

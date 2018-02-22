@@ -20,6 +20,15 @@
 					<div class="row">
 						@include('convidado.inc.filtro-categorias', ['filter' => 'cotas'])
 					</div>
+					@if (session('success') && !empty(session('message')))
+						<div class="alert alert-success">{{ session('message') }}</div>
+					@endif
+
+					@if (session('success') && !empty(session('redirect')))
+						<script type="text/javascript">
+							window.open("{{ session('redirect') }}");
+						</script>
+					@endif
 					<ul class="gifts-list" data-festa-id="{{ $party->id }}">
 						@if (isset($products) && count($products) > 0)
 							@foreach ($products as $cota)

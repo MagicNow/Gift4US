@@ -131,8 +131,14 @@
 					<div class="row">
 						@include('convidado.inc.filtro-categorias', ['filter' => 'roupas'])
 					</div>
-					@if (isset($success))
-						<div class="alert alert-success">{{ $redirect }}</div>
+					@if (session('success') && !empty(session('message')))
+						<div class="alert alert-success">{{ session('message') }}</div>
+					@endif
+
+					@if (session('success') && !empty(session('redirect')))
+						<script type="text/javascript">
+							window.open("{{ session('redirect') }}");
+						</script>
 					@endif
 
 					<ul class="gifts-list" data-festa-id="{{ $party->id }}">

@@ -68,8 +68,7 @@ class HomeController extends Controller {
 		$name = $request->name;
 		$party = Festas::where('ativo', 1)
 						->where(function ($query) use ($name) {
-							$query->where('nome', 'LIKE', '%' . $name . '%')
-								  ->orWhere('codigo', 'LIKE', $name);
+							$query->where('codigo', 'LIKE', $name);
 						})
 						->first();
 

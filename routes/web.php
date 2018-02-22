@@ -96,6 +96,8 @@ Route::group(['prefix' => 'aniversariante', 'namespace' => 'Guest'], function() 
 		Route::get('/', ['as'=> 'convidado.cotas.index', 'uses' => 'QuotasController@index']);
 		Route::get('detalhe/{product_id}', ['as'=> 'convidado.cotas.detalhe', 'uses' => 'QuotasController@detalhe']);
 		Route::get('mensagem', ['as'=> 'convidado.cotas.mensagem', 'uses' => 'QuotasController@mensagem']);
+		Route::get('compra-online/{product_id}', ['as'=> 'convidado.cotas.compraOnline', 'uses' => 'QuotasController@compraOnline']);
+		Route::post('compra-online/{product_id}', ['as'=> 'convidado.cotas.compraOnline', 'uses' => 'QuotasController@compraOnlineSubmeter']);
 	});
 
 	Route::group(['prefix' => '{slug}/roupas'], function () {
