@@ -23,9 +23,9 @@
 					<ul class="gifts-list" data-festa-id="3">
 						<li class="col-md-12 gifts-item gifts-item-detalhe" data-id="1">
 							<div class="row">
-								<div class="col-md-4">
+								<div class="col-md-4 text-center">
 									@if (!empty($product->imagem))
-										<img src="{{ $product->imagem }}" class="gifts-item-image" width="100%">
+										<img src="{{ $product->imagem }}" class="gifts-item-image">
 									@endif
 								</div>
 								<div class="gifts-item-content col-md-8">

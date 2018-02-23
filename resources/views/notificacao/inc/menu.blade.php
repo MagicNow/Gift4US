@@ -17,29 +17,43 @@
 	</div>
 </div>
 <div class="detalhes-festa lista-presentes">
-	{{--  <p>Lista de presentes</p>
+	<p>Lista de presentes</p>
 	<div class="row pD">
-		<span class="pull-left">103 / 44 brinquedos</span>
-		<small class="pull-left">
-			<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
-			<span>33</span>
-		</small>
+		<span class="pull-left">{{ $toysTotal }} / {{ $toysBuyed }} brinquedos</span>
+		@if ($toysNotShow > 0)
+			<small class="pull-left">
+				<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
+				<span>{{ $toysNotShow }}</span>
+			</small>
+		@endif
 	</div>
 	<div class="row pD">
-		<span class="pull-left">103 / 44 roupas</span>
-		<small class="pull-left">
-			<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
-			<span>33</span>
-		</small>
+		<span class="pull-left">{{ $clothesTotal }} / {{ $clothesBuyed }} roupas</span>
+		@if ($clothesNotShow > 0)
+			<small class="pull-left">
+				<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
+				<span>{{ $clothesNotShow }}</span>
+			</small>
+		@endif
 	</div>
 	<div class="row pD">
-		<span class="pull-left">103 / 44 cotas</span>
+		<span class="pull-left">{{ $quotasTotal }} / {{ $quotasBuyed }} cotas</span>
+		@if ($quotasNotShow > 0)
+			<small class="pull-left">
+				<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
+				<span>{{ $quotasNotShow }}</span>
+			</small>
+		@endif
 	</div>
 	<div class="row"> 
-		<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-middle dados-container col-md-12">
+		<a href="#" class="gifts-box-number-middle dados-container toys col-md-6">
+		{{--  <a href="{{ route('notificacoes.aniversario', [ $party->id, 'modal' => 'lista-de-presentes' ]) }}" class="gifts-box-number-middle dados-container toys col-md-6">  --}}
 			<p class="gifts-box-number-middle-selected">Ver lista</p>
 		</a>
-	</div>  --}}
+		<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-middle toys col-md-6 dados-container">
+			<p class="gifts-box-number-middle-selected">Editar</p>
+		</a>
+	</div>
 </div>
 <div class="detalhes-festa lista-presentes">
 	<p>Presenças confirmadas</p>

@@ -1,10 +1,13 @@
+var $activeSection,
+	$htmlBody,
+	scrollAnimate = false;
+
 $(function() {
 	var $activeGift,
 		$win = $(window),
 		$doc = $(document),
 		$giftsContainer = $doc.find('.gifts-container'),
-		$giftsBoxNumber = $doc.find('.gifts-box-number.move'),
-		$htmlBody = $('html, body');
+		$giftsBoxNumber = $doc.find('.gifts-box-number.move');
 
 	var giftsContainerTop = $giftsContainer.length > 0 ? $giftsContainer.offset().top + 35 : null; // 35 -> padding-top
 	var giftsContainerBottom = $giftsContainer.length > 0 ? giftsContainerTop + $giftsContainer.height() : null;
@@ -24,6 +27,7 @@ $(function() {
 	var previewHeaderSubmenuTop = $previewHeaderSubmenu ? $previewHeaderSubmenu.offset().top : null;
 	
 	$giftsCategoriesButton ? $giftsCategoriesButton.width($giftsCategories.width()) : null;
+	$htmlBody = $('html, body');
 
 	var $preview = $('.preview');
 	var $previewPins = $preview.length > 0 ? $('.pin-button') : null;
@@ -775,10 +779,9 @@ $(function() {
 				
 				giftsItemHeight1 = $giftsItem1.height();
 				giftsItemHeight2 = $giftsItem2.height();
-				console.log($giftsItem1, $giftsItem2, giftsItemHeight1, giftsItemHeight2);
+
 				if (giftsItemHeight1 > giftsItemHeight2) {
 					$giftsItem2.height(giftsItemHeight1, giftsItemHeight2, giftsItemHeight1);
-					console.log($giftsItem2.height());
 				} else {
 					$giftsItem1.height(giftsItemHeight2);
 				}
@@ -789,9 +792,13 @@ $(function() {
 	var scrollUp = 0;
 	var scrollDown = 0;
 	var $sectionActive = $('.preview-section.active');
-	var scrollSensitive = 50;
+	var scrollSensitive = 80;
 	var scrollTime = 400;
     $win.bind('mousewheel', function(e){
+		if (scrollAnimate) {
+			return false;
+		}
+
         if(e.originalEvent.wheelDelta / 120 > 0) {
 			scrollDown = 0;
             scrollUp++;
@@ -803,18 +810,29 @@ $(function() {
 		$sectionActive = $('.preview-section.active');
 
 		if(scrollUp >= scrollSensitive && $sectionActive.prev('.preview-section').length > 0) {
-			console.log('1');
+			scrollAnimate = true;
 			$htmlBody.animate({
 				scrollTop: $sectionActive.prev('.preview-section').offset().top
-			}, scrollTime);
+			}, {
+				duration: scrollTime,
+				complete: function(){
+				   scrollAnimate = false
+				}
+			});
 
 			scrollUp = 0;
 			$htmlBody.css('overflow', 'hidden'); 
 		} else {
 			if(scrollDown >= scrollSensitive && $sectionActive.next('.preview-section').length > 0) {
+				scrollAnimate = true;
 				$htmlBody.animate({
 					scrollTop: $sectionActive.next('.preview-section').offset().top
-				}, scrollTime);
+				}, {
+					duration: scrollTime,
+					complete: function(){
+					   scrollAnimate = false
+					}
+				});
 
 				scrollDown = 0;
 				$htmlBody.css('overflow', 'hidden');
@@ -824,6 +842,21 @@ $(function() {
 				} else {
 					if ($sectionActive.index() == $sections.length - 1 && scrollDown >= scrollSensitive) {
 						$htmlBody.css('overflow', 'auto');
+					} else {
+						if ($sectionActive.index() == $sections.length - 1 && scrollUp >= 10 && $doc.scrollTop() + $win.height() > $sectionActive.offset().top + $sectionActive.height()) {
+							scrollAnimate = true;
+							$htmlBody.animate({
+								scrollTop: $sectionActive.offset().top
+							}, {
+								duration: scrollTime,
+								complete: function(){
+								   scrollAnimate = false
+								}
+							});
+
+							scrollUp = 0;
+							$htmlBody.css('overflow', 'hidden');
+						}
 					}
 				}
 			}
@@ -853,6 +886,21 @@ function guestPageCheckHeaderPosition ($sections, $doc, $previewHeader, previewH
 				if ($doc.scrollTop() > previewSections[i].top - previewHeaderHeightTotal && $doc.scrollTop() <= previewSections[i].bottom - previewHeaderHeightTotal) {
 					previewSections[i].section.addClass('active');
 					$('.section-' + previewSections[i].section.data('href')).addClass('active');
+
+					if (previewSections[i].section !== $activeSection) {
+						scrollAnimate = true;
+
+						$htmlBody.animate({
+							scrollTop: previewSections[i].top
+						}, {
+							duration: 400,
+							complete: function(){
+							   scrollAnimate = false
+							}
+						});
+					}
+
+					$activeSection = previewSections[i].section;
 				}
 			}
 		}

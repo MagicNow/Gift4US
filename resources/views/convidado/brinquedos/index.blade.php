@@ -20,9 +20,9 @@
 							@foreach ($products as $product)
 								<li class="col-md-6 gifts-item gifts-item-lista" data-id="1">
 									<div class="row">
-										<div class="col-md-5">
+										<div class="col-md-5 text-center">
 											@if (!empty($product->imagem))
-												<a href="{{ route('convidado.brinquedos.detalhe', [$party->codigo, $product->id]) }}" target="_self"><img src="{{ $product->imagem }}" class="gifts-item-image" width="100%"></a>
+												<a href="{{ route('convidado.brinquedos.detalhe', [$party->codigo, $product->id]) }}" target="_self"><img src="{{ $product->imagem }}" class="gifts-item-image"></a>
 											@endif
 										</div>
 										<div class="gifts-item-content col-md-7">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use App\Models\CotasCompras;
 use App\Models\Festas;
 use App\Models\Clientes;
 use Illuminate\Http\Request;
@@ -27,6 +29,25 @@ class NotificationsController extends Controller
 			$this->festa = Festas::findOrFail($request->festa_id);
 			$this->cliente = Clientes::find(session('client_id'));
 
+			$toys = $this->festa->produto()->where('categoria', 'brinquedo');
+			$clothes = $this->festa->produto()->where('categoria', 'roupa');
+			$quotas = $this->festa->cotas();
+
+			$toysTotal = $toys->count();
+			$clothesTotal = $clothes->count();
+			$quotasBuyed = CotasCompras::whereIn('cotas_id', $quotas->pluck('id'));
+			view()->share([
+				'toysTotal' => $toysTotal,
+				'toysBuyed' => $toys->whereNotNull('nome')->count(),
+				'toysNotShow' => $toys->whereNotNull('nome')->whereNotNull('nome')->whereVisualizado(0)->count(),
+				'clothesTotal' => $clothesTotal,
+				'clothesBuyed' => $clothes->whereNotNull('nome')->count(),
+				'clothesNotShow' => $clothes->whereNotNull('nome')->whereNotNull('nome')->whereVisualizado(0)->count(),
+				'quotasTotal' => $quotas->sum('quantidade_cotas'),
+				'quotasBuyed' => $quotasBuyed->count(),
+				'quotasNotShow' => $quotasBuyed->whereVisualizado(0)->count(),
+			]);
+
 			return $next($request);
 		});
 	}
@@ -49,7 +70,6 @@ class NotificationsController extends Controller
 		$presencas = $this->festa->confirmacaoPresenca();
 		$presencasTotal = $presencas->sum('numero_pessoas');
 
-		// reset notifications
 		if ($request->modal == 'lista-de-aniversarios') {
 			$presencas->update(['visualizado' => 1]);
 		}
@@ -68,6 +88,11 @@ class NotificationsController extends Controller
 						->skip($porpagina * ($pagina - 1))
 						->take($porpagina)
 						->orderBy('nome')->get();
+
+		$presentes = NULL;
+		if ($request->modal == 'lista-de-presentes') {
+			$presentes = $this->listaPresentes($request);
+		}
 
 		return view('notificacao.aniversario', compact('client', 'request', 'party', 'titulo', 'client', 'presencas', 'presencasTotal', 'paginas', 'pagina'));
 	}
@@ -195,5 +220,23 @@ class NotificationsController extends Controller
 		}
 
 		return redirect()->route('notificacoes.aniversario', $festa_id);
-    }
+	}
+	
+	private function listaPresentes ($request) {
+		$quotasBuyed = CotasCompras::select('cotas.id',
+											'cotas.nome',
+											DB::raw('FORMAT((cotas.valor_total / cotas.quantidade_cotas), 2) AS valor_venda'),
+											DB::raw('cotas_compras.nome AS convidado_nome'),
+											DB::raw('cotas_compras.email AS convidado_email'),
+											'cotas.quantidade_cotas'
+											)
+									->leftJoin('cotas', 'cotas.id', 'cotas_compras.cotas_id')
+									->where('cotas.festa_id', $this->festa->id);
+		dd($quotasBuyed->pluck('cotas.id'));
+
+// SELECT cotas.nome AS presente_nome, FORMAT((cotas.valor_total / cotas.quantidade_cotas), 2) AS valor_venda, cotas_compras.nome AS convidado_nome, cotas_compras.email AS convidado_email
+// FROM cotas_compras
+// LEFT JOIN cotas ON cotas.id = cotas_compras.cotas_id
+// 
+	}
 }
