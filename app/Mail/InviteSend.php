@@ -31,7 +31,7 @@ class InviteSend extends Mailable
      */
     public function build()
     {
-        $festa = $this->festa->id;
+        $festa = $this->festa->codigo;
         return $this->view('emails.invite.send')
                     ->subject('Convite para festa')
                     ->with([
