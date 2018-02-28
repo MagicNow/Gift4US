@@ -170,7 +170,10 @@ class BirthdayController extends Controller {
 				$slug = $this->createSlug($party->nome, $party->id);
 
 				if (empty($party->codigo)) {
-					$input['codigo'] = strtoupper(substr(md5($slug), 0, 7));
+					$codigo = strtoupper(substr(md5($slug), 0, 7));
+					$input['codigo'] = $codigo;
+				} else {
+					$codigo = $party->codigo;
 				}
 
 				if (empty($party->slug)) {
@@ -178,8 +181,8 @@ class BirthdayController extends Controller {
 				}
 
 				$page = url('notificacoes/' . $party->id . '/convite-digital?pages=1');
-				$dest = storage_path('app/public/birthdays/invites/' . $party->codigo . '.jpg');
-				// dd($page);
+				$dest = storage_path('app/public/birthdays/invites/' . $codigo . '.jpg');
+
 				Browsershot::url($page)
 							->windowSize(533, 500)
 							->save($dest);

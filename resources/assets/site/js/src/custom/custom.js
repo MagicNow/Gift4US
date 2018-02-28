@@ -422,8 +422,7 @@ $(function() {
 		$total.text(total);
 
 		if (total > 0) {
-			$('.gifts-box-number-submit').show();
-			$('.btn-modal-finalizar').removeClass('hidden').show();
+			$('.gifts-box-number-submit').removeClass('hidden');
 		}
 
 		$.post(baseUrl + '/api/presentes/adicionar', { produto: $item.data('id'), festa: $list.data('festaId')});
@@ -444,7 +443,7 @@ $(function() {
 		$total.text(total);
 
 		if (total > 0) {
-			$('.gifts-box-number-submit').show();
+			$('.gifts-box-number-submit').removeClass('hidden');
 		}
 
 		$.post(baseUrl + '/api/presentes/adicionar', { produto: $self.data('id'), festa: $self.data('festaId')});
@@ -479,7 +478,7 @@ $(function() {
 		closeGiftModal();
 
 		if (total <= 0) {
-			$('.gifts-box-number-submit').hide();
+			$('.gifts-box-number-submit').addClass('hidden');
 		}
 
 		$.post(baseUrl + '/api/presentes/remover', { produto: $button.data('id'), festa: $button.data('festaId')})
@@ -524,7 +523,7 @@ $(function() {
 		closeGiftModal();
 
 		if (total <= 0) {
-			$('.gifts-box-number-submit').hide();
+			$('.gifts-box-number-submit').addClass('hidden');
 		}
 
 		$.post(baseUrl + '/api/presentes/remover', { produto: $activeGift.data('id'), festa: $list.data('festaId')})
@@ -541,7 +540,7 @@ $(function() {
 		closeGiftModal();
 
 		if (total <= 0) {
-			$('.gifts-box-number-submit').hide();
+			$('.gifts-box-number-submit').addClass('hidden');
 		}
 
 		$.post(baseUrl + '/api/cotas/remover', { produto: $activeGift.data('id'), festas_id: $list.data('festaId')}, function () {

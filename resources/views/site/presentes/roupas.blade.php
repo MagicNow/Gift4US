@@ -102,7 +102,6 @@
 										</div>
 									</div>
 									<div class="gifts-item-buttons">
-										{{-- <a href="{{ route('usuario.meus-aniversarios.presentes.coupas.detalhe', [ $party->id, $product->id ]) }}" class="col-md-6 gifts-item-button gifts-item-link gifts-item-button-show">Ver detalhes</a> --}}
 										<button class="col-md-12 gifts-item-button gifts-item-button-select">Selecionar</button>
 									</div>
 									<span class="col-md-12 gifts-item-button-selected hidden">Selecionado <button class="gifts-item-button-remove"></button></span>
