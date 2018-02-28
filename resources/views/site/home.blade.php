@@ -17,6 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/home/css/site_global.css?crc=443350757') }}"/>
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/home/css/master_a-master.css?crc=338093875') }}"/>
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/home/css/index.css?crc=4109566438') }}" id="pagesheet"/>
+		<link rel="stylesheet" type="text/css" href="{{ asset('assets/home/css/jquery.modal.min.css') }}"/>
 		<!-- JS includes -->
 		<!--[if lt IE 9]>
 		<script src="{{ asset('assets/home/js/html5shiv.js?crc=4241844378') }}" type="text/javascript"></script>
@@ -25,6 +26,14 @@
 		<style type="text/css">.foop {transition: all 500ms;}body {opacity: 1;margin-left: 0;transition: all 500ms;transition-timing-function: linear;}#u9576 {top: -4300px;}html {overflow: auto !important;} </style>
 	</head>
 	<body>
+		<form id="remember-form" class="modal" action="#">
+			<h3 class="remeber-title">Esqueci minha senha</h3>
+			<div class="remeber-content">
+				<input type="email" name="email" placeholder="Insira seu e-mail" class="remember-email" required>
+				<button type="submit" class="remember-submit">Enviar</button>
+			</div>
+			<p class="remember-message">Em alguns minutos você receberá o link de recuperação em seu email!</p>
+		</form>
 		<!--HTML Widget code-->
 		<div class="clearfix" id="page">
 			<!-- column -->
@@ -257,7 +266,7 @@
 									<button type="submit"><img class="grpelem" id="u9207-4" alt="CADASTRE-SE" width="148" height="25" src="{{ asset('assets/home/images/u9207-4.png?crc=3899746967') }}"/></button>
 								</div>
 								<div class="clearfix grpelem" id="u9216-remember">
-									<a href="#">Esqueci minha senha</a>
+									<a href="#remember-form" rel="modal:open">Esqueci minha senha</a>
 								</div>
 							</div>
 						</form>
@@ -694,8 +703,9 @@
 			if (document.location.protocol != 'https:') document.write('\x3Cscript src="http://musecdn2.businesscatalyst.com/scripts/4.0/jquery-1.8.3.min.js" type="text/javascript">\x3C/script>');
 		</script>
 		<script type="text/javascript">
-			window.jQuery || document.write('\x3Cscript src="{{ asset('assets/home/scripts/jquery-1.8.3.min.js?crc=209076791') }}" type="text/javascript">\x3C/script>');
+			window.jQuery || document.write('\x3Cscript src="{{ asset('assets/home/js/jquery-1.8.3.min.js?crc=209076791') }}" type="text/javascript">\x3C/script>');
 		</script>
+		<script src="{{ asset('assets/home/js/jquery.modal.min.js') }}" type="text/javascript"></script>
 		<!-- Other scripts -->
 		<script type="text/javascript">
 			window.Muse.assets.check=function(d){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var b={},c=function(a,b){if(window.getComputedStyle){var c=window.getComputedStyle(a,null);return c&&c.getPropertyValue(b)||c&&c[b]||""}if(document.documentElement.currentStyle)return(c=a.currentStyle)&&c[b]||a.style&&a.style[b]||"";return""},a=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),
@@ -769,10 +779,12 @@
 			                    }
 			                }
 			                var time = 500;
-			                var qooqee = 'easeInQuad';
-			                $("html, body").animate({
-			                    scrollTop: $(a[i]).offset().top
-			                }, time, qooqee);
+							var qooqee = 'easeInQuad';
+							if ($(a[i]).length > 0) {
+								$("html, body").animate({
+									scrollTop: $(a[i]).offset().top
+								}, time, qooqee);
+							}
 			            });
 			        })();
 			    }
@@ -834,6 +846,14 @@
 			});
 
 			jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeOutQuad",swing:function(e,f,a,h,g){return jQuery.easing[jQuery.easing.def](e,f,a,h,g)},easeInQuad:function(e,f,a,h,g){return h*(f/=g)*f+a},easeOutQuad:function(e,f,a,h,g){return -h*(f/=g)*(f-2)+a},easeInOutQuad:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f+a}return -h/2*((--f)*(f-2)-1)+a},easeInCubic:function(e,f,a,h,g){return h*(f/=g)*f*f+a},easeOutCubic:function(e,f,a,h,g){return h*((f=f/g-1)*f*f+1)+a},easeInOutCubic:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f+a}return h/2*((f-=2)*f*f+2)+a},easeInQuart:function(e,f,a,h,g){return h*(f/=g)*f*f*f+a},easeOutQuart:function(e,f,a,h,g){return -h*((f=f/g-1)*f*f*f-1)+a},easeInOutQuart:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f+a}return -h/2*((f-=2)*f*f*f-2)+a},easeInQuint:function(e,f,a,h,g){return h*(f/=g)*f*f*f*f+a},easeOutQuint:function(e,f,a,h,g){return h*((f=f/g-1)*f*f*f*f+1)+a},easeInOutQuint:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f*f+a}return h/2*((f-=2)*f*f*f*f+2)+a},easeInSine:function(e,f,a,h,g){return -h*Math.cos(f/g*(Math.PI/2))+h+a},easeOutSine:function(e,f,a,h,g){return h*Math.sin(f/g*(Math.PI/2))+a},easeInOutSine:function(e,f,a,h,g){return -h/2*(Math.cos(Math.PI*f/g)-1)+a},easeInExpo:function(e,f,a,h,g){return(f==0)?a:h*Math.pow(2,10*(f/g-1))+a},easeOutExpo:function(e,f,a,h,g){return(f==g)?a+h:h*(-Math.pow(2,-10*f/g)+1)+a},easeInOutExpo:function(e,f,a,h,g){if(f==0){return a}if(f==g){return a+h}if((f/=g/2)<1){return h/2*Math.pow(2,10*(f-1))+a}return h/2*(-Math.pow(2,-10*--f)+2)+a},easeInCirc:function(e,f,a,h,g){return -h*(Math.sqrt(1-(f/=g)*f)-1)+a},easeOutCirc:function(e,f,a,h,g){return h*Math.sqrt(1-(f=f/g-1)*f)+a},easeInOutCirc:function(e,f,a,h,g){if((f/=g/2)<1){return -h/2*(Math.sqrt(1-f*f)-1)+a}return h/2*(Math.sqrt(1-(f-=2)*f)+1)+a},easeInElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return -(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e},easeOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return g*Math.pow(2,-10*h)*Math.sin((h*k-i)*(2*Math.PI)/j)+l+e},easeInOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k/2)==2){return e+l}if(!j){j=k*(0.3*1.5)}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}if(h<1){return -0.5*(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e}return g*Math.pow(2,-10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j)*0.5+l+e},easeInBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*(f/=h)*f*((g+1)*f-g)+a},easeOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*((f=f/h-1)*f*((g+1)*f+g)+1)+a},easeInOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}if((f/=h/2)<1){return i/2*(f*f*(((g*=(1.525))+1)*f-g))+a}return i/2*((f-=2)*f*(((g*=(1.525))+1)*f+g)+2)+a},easeInBounce:function(e,f,a,h,g){return h-jQuery.easing.easeOutBounce(e,g-f,0,h,g)+a},easeOutBounce:function(e,f,a,h,g){if((f/=g)<(1/2.75)){return h*(7.5625*f*f)+a}else{if(f<(2/2.75)){return h*(7.5625*(f-=(1.5/2.75))*f+0.75)+a}else{if(f<(2.5/2.75)){return h*(7.5625*(f-=(2.25/2.75))*f+0.9375)+a}else{return h*(7.5625*(f-=(2.625/2.75))*f+0.984375)+a}}}},easeInOutBounce:function(e,f,a,h,g){if(f<g/2){return jQuery.easing.easeInBounce(e,f*2,0,h,g)*0.5+a}return jQuery.easing.easeOutBounce(e,f*2-g,0,h,g)*0.5+h*0.5+a}});
+
+			$(function() {
+				$('body').on('submit', '#remember-form', function (e) {
+					e.preventDefault();
+					$('.remember-message').show();
+					$('.remeber-content').hide();
+				});
+			});
 
 			@if (session('convidado'))
 				alert('{{ session('convidado') }}');

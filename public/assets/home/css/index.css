@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'dk_astromonkeyregular';
+    src: url('../../site/fonts/dk_astromonkey-webfont.woff2') format('woff2'),
+         url('../../site/fonts/dk_astromonkey-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .version.index {
     color: #0000F4;
     background-color: #F301E6;
@@ -2290,4 +2298,52 @@
 body {
     position: relative;
     min-width: 1020px;
+}
+
+.jquery-modal.blocker {
+    z-index: 999;
+}
+
+#remember-form {
+    background-color: #E73D3E;
+    box-shadow: none;
+}
+
+.remeber-title {
+    color: #fff;
+    font-family: 'dk_astromonkeyregular';
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.remember-email {
+    font-family: Trebuchet, Trebuchet MS, Tahoma, Arial, sans-serif;
+    line-height: 19px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 0 10px;
+    height: 34px;
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.remember-submit {
+    font-family: 'dk_astromonkeyregular';
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0.1em;
+    padding: 0 20px;
+    background-color: #E5655F;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+}
+
+.remember-message {
+    display: none;
+    color: #fff;
 }
