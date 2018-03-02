@@ -247,6 +247,26 @@ $(function() {
 		}
 	});
 
+
+	if ($previewPins) {
+		$previewPins.on('click', function (e) {
+			e.preventDefault();
+
+			scrollAnimate = true;
+			var $self = $(this);
+
+			$htmlBody.animate({
+				scrollTop: $('.section-' + $self.data('href')).offset().top
+			}, {
+				duration: scrollTime,
+				complete: function(){
+					guestPageCheckHeaderPosition($sections, $doc, $previewHeader, previewHeaderTop, previewHeaderHeight, previewHeaderHeightTotal, $previewHeaderSubmenu, previewHeaderSubmenuTop, previewSections, $previewPins, false);
+					scrollAnimate = false;
+				}
+			});
+		});
+	}
+
 	$win.load(function(e) {
 		var $presentinho = $('.presentinho'),
 			image = $('.usuario-ajax').find('[data-presente]');
@@ -255,6 +275,10 @@ $(function() {
 			$presentinho.append('<img src="' + image.data('presente') + '">');
 		}
 	}).on('scroll', function () {
+		if (scrollAnimate) {
+			return false;
+		}
+
 		if ($doc.scrollTop() - giftsBoxNumberTop - 10 < giftsContainerBottom - giftsBoxNumberBottom &&
 			$doc.scrollTop() > giftsBoxNumberTop + 10) {
 			$giftsBoxNumber.css('top', $doc.scrollTop() - giftsBoxNumberTop - 10); // 10 -> margin-top
@@ -747,18 +771,6 @@ $(function() {
 		}, 500);
 	});
 
-	if ($previewPins) {
-		$previewPins.on('click', function (e) {
-			e.preventDefault();
-
-			var $self = $(this);
-
-			$htmlBody.animate({
-				scrollTop: $('.section-' + $self.data('href')).offset().top - 20
-			}, 500);
-		});
-	}
-
 	let $giftsItem1,
 		$giftsItem2,
 		giftsItemHeight1 = 0,
@@ -842,7 +854,7 @@ $(function() {
 					if ($sectionActive.index() == $sections.length - 1 && scrollDown >= scrollSensitive) {
 						$htmlBody.css('overflow', 'auto');
 					} else {
-						if ($sectionActive.index() == $sections.length - 1 && scrollUp >= 10 && $doc.scrollTop() + $win.height() > $sectionActive.offset().top + $sectionActive.height()) {
+						if ($sectionActive.length > 0 && $sectionActive.index() == $sections.length - 1 && scrollUp >= 10 && $doc.scrollTop() + $win.height() > $sectionActive.offset().top + $sectionActive.height()) {
 							scrollAnimate = true;
 							$htmlBody.animate({
 								scrollTop: $sectionActive.offset().top
@@ -863,7 +875,9 @@ $(function() {
     });
 });
 
-function guestPageCheckHeaderPosition ($sections, $doc, $previewHeader, previewHeaderTop, previewHeaderHeight, previewHeaderHeightTotal, $previewHeaderSubmenu, previewHeaderSubmenuTop, previewSections, $previewPins) {
+function guestPageCheckHeaderPosition ($sections, $doc, $previewHeader, previewHeaderTop, previewHeaderHeight, previewHeaderHeightTotal, $previewHeaderSubmenu, previewHeaderSubmenuTop, previewSections, $previewPins, scrollToSection) {
+	scrollToSection = scrollToSection !== undefined ? scrollToSection : true;
+
 	if ($doc.scrollTop() > previewHeaderTop) {
 		$previewHeader.css('position', 'fixed');
 	} else {
@@ -886,7 +900,7 @@ function guestPageCheckHeaderPosition ($sections, $doc, $previewHeader, previewH
 					previewSections[i].section.addClass('active');
 					$('.section-' + previewSections[i].section.data('href')).addClass('active');
 
-					if (previewSections[i].section !== $activeSection) {
+					if (previewSections[i].section !== $activeSection && scrollToSection) {
 						scrollAnimate = true;
 
 						$htmlBody.animate({
