@@ -196,6 +196,12 @@ class BirthdayController extends Controller {
 			return back()
 						->withErrors($validator)
 						->withInput();
+		} else {
+			if ($request->step == '1' && (new \DateTime($input['festa_ano'] . '-' . $input['festa_mes'] . '-' . $input['festa_dia']) < new \DateTime(date('Y/m/d')))) {
+				return back()
+							->withErrors(['error' => ['A data do aniversário não pode ser anterior a data atual']])
+							->withInput();
+			}
 		}
 
 		$next = (int)$request->step + 1;

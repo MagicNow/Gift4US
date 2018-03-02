@@ -11,7 +11,7 @@
 			<div class="gifts-container row col-md-offset-2">
 				@include('convidado.inc.filtro-brinquedos', $party)
 
-				<div class="col-md-9 dados-container">
+				<div class="col-md-9 dados-container" id="lista-produtos">
 					<div class="row">
 						@include('convidado.inc.filtro-categorias', ['filter' => 'brinquedos'])
 					</div>
