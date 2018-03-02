@@ -68,6 +68,8 @@ $(function() {
     });
 
     $(".colorpicker").colorpicker();
+
+    $('#preco_venda').maskMoney({prefix:'', thousands:'', decimal:'.'});
 });
 
 

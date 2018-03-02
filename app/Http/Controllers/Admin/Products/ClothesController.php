@@ -30,7 +30,7 @@ class ClothesController extends Controller
             $produtos = $produtos->where('titulo', 'LIKE', '%' . $request->titulo . '%');
         }
 
-        $produtos = $produtos->simplePaginate(30);
+        $produtos = $produtos->paginate(15);
 
         return view('admin.produtos.roupas.list', compact('produtos', 'section'));
     }

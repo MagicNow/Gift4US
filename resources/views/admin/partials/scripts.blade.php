@@ -19,6 +19,7 @@
 <script src="{{ asset('/assets/admin/js/daterangepicker/daterangepicker.js') }}"></script>
 <script src="{{ asset('/assets/admin/js/datepicker/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('/assets/admin/js/jquery.validate.js') }}"></script>
+<script src="{{ asset('/assets/admin/js/maskMoney/jquery.maskMoney.min.js') }}"></script>
 <script type="text/javascript">
 	var baseUrl = "{{ url('/') }}";
 </script>

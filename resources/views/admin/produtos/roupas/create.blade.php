@@ -32,8 +32,12 @@
 
         <div class="form-group">
             <label for="titulo" class="form-title">Título</label>
-            {!! Form::text('titulo', isset($product->titulo) ? $product->titulo : '', ['class' => 'form-control','placeholder'=>'Título*', 'id' => 'titulo'] )!!}
+            {!! Form::text('titulo', isset($product->titulo) ? $product->titulo : '', ['class' => 'form-control','placeholder'=>'Título*', 'id' => 'titulo', ] )!!}
         </div>
+        <div class="form-group">
+                <label for="descricao" class="form-title">Descrição</label>
+                {!! Form::textarea('descricao', isset($product->descricao) ? $product->descricao : '', ['class' => 'form-control','placeholder'=>'Descrição*', 'id' => 'descricao'] )!!}
+            </div>
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="preco_venda">Preço</label>

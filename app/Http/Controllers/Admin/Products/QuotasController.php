@@ -28,7 +28,7 @@ class QuotasController extends Controller
 			$produtos = $produtos->where('nome', 'LIKE', '%' . $request->titulo . '%');
 		}
 
-		$produtos = $produtos->simplePaginate(30);
+		$produtos = $produtos->paginate(15);
 
 		return view('admin.produtos.cotas.list', compact('produtos', 'section'));
 	}

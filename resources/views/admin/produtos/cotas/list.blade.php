@@ -60,15 +60,14 @@
 							<td>{{ date('d/m/Y H:i:s',strtotime($prod->created_at)) }}</td>
 							<td>
 								<form method="post" action="{{ route('admin.products.quotas.destroy', $prod->id) }}" style="display: inline-block;">
-
 									{{ Form::open(['method' => 'DELETE', 'route' => [ 'admin.products.quotas.destroy', $prod->id ]]) }}
 										{{ Form::hidden('id', $prod->id) }}
 
-										<button type="submit" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
+										<button type="submit" class="btn btn-danger" title="Excluir" data-toggle="tooltip"><i class="fa fa-times" aria-hidden="true"></i></button>
 									{{ Form::close() }}
 								</form>
-								@if ($prod->festa->ativo == 1)
-									<a href="{{ route('convidado.index', $prod->festa_id) }}" target="_blank" class="btn btn-default" title="Ver página do convidado"><i class="fa fa-eye" aria-hidden="true"></i></a>
+								@if (isset($prod->festa) ? $prod->festa->ativo == 1 : NULL)
+									<a href="{{ route('convidado.index', $prod->festa_id) }}" target="_blank" class="btn btn-default" title="Ver página do convidado" data-toggle="tooltip"><i class="fa fa-eye" aria-hidden="true"></i></a>
 								@endif
 							</td>
 						</tr>

@@ -51,7 +51,7 @@
 						<tr>
 							<td>{{ $prod->id }}</td>
 							<td>{{ $prod->titulo }}</td>
-							<td style="word-wrap: break-word !important;float: left; max-width: 300px;">{{ str_limit($prod->descricao, $limit = 150, $end = '...') }}</td>
+							<td style="word-wrap: break-word !important;float: left; max-width: 300px;">{!! str_limit($prod->descricao, $limit = 150, $end = '...') !!}</td>
 							<td>
 								<img src="{{ $prod->imagem }}" width="100">
 							</td>
@@ -67,7 +67,7 @@
 									{{ Form::open(['method' => 'DELETE', 'route' => [ 'admin.products.clothes.destroy', $prod->id ]]) }}
 										{{ Form::hidden('id', $prod->id) }}
 
-										<button type="submit" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
+										<button type="submit" class="btn btn-danger" title="Excluir"><i class="fa fa-times" aria-hidden="true"></i></button>
 									{{ Form::close() }}
 								</form>
 							</td>

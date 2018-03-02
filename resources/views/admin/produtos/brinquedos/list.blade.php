@@ -63,7 +63,6 @@
 									<a href="{{ route('admin.products.toys.status', [ $prod->id, 1 ]) }}" class="btn btn-default" title="Aprovar"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
 								@endif
 								<form method="post" action="{{ route('admin.products.toys.destroy', $prod->id) }}" style="display: inline-block;">
-
 									{{ Form::open(['method' => 'DELETE', 'route' => [ 'admin.products.toys.destroy', $prod->id ]]) }}
 										{{ Form::hidden('id', $prod->id) }}
 
