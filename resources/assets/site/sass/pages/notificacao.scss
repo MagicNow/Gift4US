@@ -264,6 +264,40 @@
 	&-content {
 		margin-right: 0;
 	}
+
+	&-detalhes {
+		display: table;
+
+		.passos {
+			height: 100%;
+			position: absolute;
+			margin-right: 10px;
+
+			div {
+				padding: 13px 5px;
+			}
+
+			span {
+				font-size: 15px;
+			}
+		}
+
+		&-left {
+			float: none;
+			display: table-cell;
+			position: relative;
+		}
+
+		&-right {
+			float: none;
+			display: table-cell;
+		}
+
+		&-passo {
+			height: 33%;
+			padding: 0 5px;
+		}
+	}
 }
 
 .dados-container .passos{
