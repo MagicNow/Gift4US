@@ -184,7 +184,7 @@ class BirthdayController extends Controller {
 				$dest = storage_path('app/public/birthdays/invites/' . $codigo . '.jpg');
 
 				Browsershot::url($page)
-							->windowSize(533, 500)
+							->fullPage()
 							->save($dest);
 
 				break;
