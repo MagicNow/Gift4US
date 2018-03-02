@@ -14,7 +14,7 @@
 				<div class="passos">
 					<div class="passo1">
 						<div class="bg-presente">1</div>
-						<span>entre no site www.gift4us.com</span>
+						<span>entre no site www.gift4us.com.br</span>
 					</div>
 					<div class="passo2">
 						<div class="bg-presente">2</div>

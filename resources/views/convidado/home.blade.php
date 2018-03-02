@@ -49,26 +49,26 @@
 			<ul class="preview-list row">
 				@if ($party->confirma_presenca === 1)
 					<li class="col-md-3 text-right preview-item-container">
-						<a href="#confirmar">
+						<a href="#confirmar" data-target="confirm-btn" class="preview-list-button">
 							<div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-check.png') }}"></div>
 							<p class="preview-item-text text-center">CONFIRMAR PRESENÇA</p>
 						</a>
 					</li>
 				@endif
 				<li class="{{ $party->confirma_presenca === 1 ? 'col-md-3' : 'col-md-4' }} text-right preview-item-container">
-					<a href="#lista">
+					<a href="#lista" data-target="gifts-btn" class="preview-list-button">
 						<div class="preview-item text-center">{{ round(($percent['toys'] + $percent['clothes'] + $percent['quotas']) / 3) }}%</div>
 						<p class="preview-item-text text-center">LISTA DE PRESENTES DISPONÍVEIS</p>
 					</a>
 				</li>
 				<li class="{{ $party->confirma_presenca === 1 ? 'col-md-3' : 'col-md-4' }} text-right preview-item-container ">
-					<a href="#recado">
+					<a href="#recado" data-target="message-btn" class="preview-list-button">
 						<div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-pin.png') }}"></div>
 						<p class="preview-item-text text-center">ESCREVA UM RECADO</p>
 					</a>
 				</li>
 				<li class="{{ $party->confirma_presenca === 1 ? 'col-md-3' : 'col-md-4' }} text-right preview-item-container ">
-					<a href="#mapa">
+					<a href="#mapa" data-target="map-btn" class="preview-list-button">
 						<div class="preview-item text-center"><img src="{{ asset('assets/site/images/preview-icon-map.png') }}"></div>
 						<p class="preview-item-text text-center">CLIQUE PARA VER O MAPA</p>
 					</a>
@@ -252,6 +252,9 @@
 						<div class="where">
 							<h3>Onde?</h3>
 							<p>{{ $party->endereco }}</p>
+							@if (!empty($party->referencia))
+								<p>Próximo a {{ $party->referencia }}</p>
+							@endif
 							@if (!empty($party->observacoes))
 								<h3>Observações:</h3>
 								<p>{{ $party->observacoes }}</p>

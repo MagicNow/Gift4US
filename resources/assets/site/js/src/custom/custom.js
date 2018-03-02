@@ -820,6 +820,8 @@ $(function() {
 
 		$sectionActive = $('.preview-section.active');
 
+		// guestPageCheckHeaderPosition($sections, $doc, $previewHeader, previewHeaderTop, previewHeaderHeight, previewHeaderHeightTotal, $previewHeaderSubmenu, previewHeaderSubmenuTop, previewSections, $previewPins);
+
 		if(scrollUp >= scrollSensitive && $sectionActive.prev('.preview-section').length > 0) {
 			scrollAnimate = true;
 			$htmlBody.animate({
@@ -872,7 +874,12 @@ $(function() {
 				}
 			}
 		}
-    });
+	});
+	
+	$('.preview-list-button').on('click', function (e) {
+		e.preventDefault();
+		$('.' + $(this).data('target')).trigger('click');
+	});
 });
 
 function guestPageCheckHeaderPosition ($sections, $doc, $previewHeader, previewHeaderTop, previewHeaderHeight, previewHeaderHeightTotal, $previewHeaderSubmenu, previewHeaderSubmenuTop, previewSections, $previewPins, scrollToSection) {
