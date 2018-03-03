@@ -12,6 +12,7 @@ use App\Models\ClientesContas;
 use App\Models\ClientesTemps;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\EmailConfirm;
+use App\Mail\RememberPassword;
 
 class RegisterController extends Controller {
 	private $cliente;
@@ -22,6 +23,7 @@ class RegisterController extends Controller {
 				'/',
 				'usuario/login',
 				'usuario/confirmar-dados',
+				'usuario/recuperar-senha',
 				'cadastro/create',
 				'cadastro'
 			];
@@ -199,5 +201,23 @@ class RegisterController extends Controller {
 				->update(['email' => $client->email]);
 
 		return redirect()->route('home');
+	}
+
+	public function rememberPassword(Request $request) {
+		$client = Clientes::where('email', $request->email)->first();
+
+		if (!$client) {
+			return response()
+						->json(['success' => false, 'response' => 'E-mail não encontrado.']);
+		}
+
+		$senha = Hash::make(str_random(8));
+		$client->senha = $senha;
+		$client->save();
+
+		Mail::to($client->email)->send(new RememberPassword($client, $senha));
+
+		return response()
+					->json(['success' => true, 'response' => 'Uma nova senha de acesso foi encaminhada para seu e-mail.']);
 	}
 }

@@ -26,13 +26,13 @@
 		<style type="text/css">.foop {transition: all 500ms;}body {opacity: 1;margin-left: 0;transition: all 500ms;transition-timing-function: linear;}#u9576 {top: -4300px;}html {overflow: auto !important;} </style>
 	</head>
 	<body>
-		<form id="remember-form" class="modal" action="#">
+		<form id="remember-form" class="modal" action="{{ route('usuario.remember') }}" method="post">
 			<h3 class="remeber-title">Esqueci minha senha</h3>
-			<div class="remeber-content">
+			<form class="remeber-content">
 				<input type="email" name="email" placeholder="Insira seu e-mail" class="remember-email" required>
 				<button type="submit" class="remember-submit">Enviar</button>
-			</div>
-			<p class="remember-message">Em alguns minutos você receberá o link de recuperação em seu email!</p>
+			</form>
+			<p class="remember-message"></p>
 		</form>
 		<!--HTML Widget code-->
 		<div class="clearfix" id="page">
@@ -850,8 +850,14 @@
 			$(function() {
 				$('body').on('submit', '#remember-form', function (e) {
 					e.preventDefault();
-					$('.remember-message').show();
-					$('.remeber-content').hide();
+
+					var $form = $(this);
+console.log($form.attr('action'));
+					$.post($form.attr('action'), $form.serialize(), function (data) {
+						{{--  console.log(data);  --}}
+						$('.remember-message').show();
+						$('.remeber-content').hide();
+					});
 				});
 			});
 

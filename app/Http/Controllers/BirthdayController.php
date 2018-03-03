@@ -357,7 +357,6 @@ class BirthdayController extends Controller {
 		return view('site.presentes.roupas', compact('titulo', 'client'));
 	}
 
-
 	/**
 	 * @param $text
 	 * @param int $id

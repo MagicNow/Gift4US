@@ -23,6 +23,7 @@ Route::group(['prefix' => 'usuario'], function() {
 	Route::resource('nova-senha', 'PasswordController');
 	Route::get('logout', ['as' => 'usuario.logout','uses' => 'RegisterController@logout']);
 	Route::post('login', ['as' => 'usuario.login','uses' => 'RegisterController@login']);
+	Route::post('recuperar-senha', ['as' => 'usuario.remember','uses' => 'RegisterController@rememberPassword']);
 
 	Route::resource('transferencia', 'TransferController');
 
