@@ -2347,3 +2347,10 @@ body {
     display: none;
     color: #fff;
 }
+
+.remember-error {
+    display: none;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+}

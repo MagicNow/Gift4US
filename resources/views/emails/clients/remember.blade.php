@@ -30,7 +30,7 @@
                             </tr>
                             <tr>
                                 <td align="left" valign="top">
-                                    <a href="{{ url('/') }}">{{ asset('assets/home/images/btn-acesse-site.png') }}</a>
+                                    <a href="{{ url('/') }}"><img src="{{ asset('assets/home/images/btn-acesse-site.png') }}" alt="Acesse o site"></a>
                                 </td>
                             </tr>
                         </tbody>

@@ -31,6 +31,7 @@
 			<form class="remeber-content">
 				<input type="email" name="email" placeholder="Insira seu e-mail" class="remember-email" required>
 				<button type="submit" class="remember-submit">Enviar</button>
+				<p class="remember-error"></p>
 			</form>
 			<p class="remember-message"></p>
 		</form>
@@ -852,11 +853,14 @@
 					e.preventDefault();
 
 					var $form = $(this);
-console.log($form.attr('action'));
+
 					$.post($form.attr('action'), $form.serialize(), function (data) {
-						{{--  console.log(data);  --}}
-						$('.remember-message').show();
-						$('.remeber-content').hide();
+						if (data.success) {
+							$('.remember-message').text(data.response).show();
+							$('.remeber-content').hide();
+						} else {
+							$('.remember-error').text(data.response).show();
+						}
 					});
 				});
 			});

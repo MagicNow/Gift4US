@@ -211,8 +211,8 @@ class RegisterController extends Controller {
 						->json(['success' => false, 'response' => 'E-mail não encontrado.']);
 		}
 
-		$senha = Hash::make(str_random(8));
-		$client->senha = $senha;
+		$senha = str_random(8);
+		$client->senha = Hash::make($senha);
 		$client->save();
 
 		Mail::to($client->email)->send(new RememberPassword($client, $senha));
