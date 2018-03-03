@@ -27,12 +27,12 @@
 	</head>
 	<body>
 		<form id="remember-form" class="modal" action="{{ route('usuario.remember') }}" method="post">
-			<h3 class="remeber-title">Esqueci minha senha</h3>
-			<form class="remeber-content">
+			<h3 class="remember-title">Esqueci minha senha</h3>
+			<div class="remember-content">
 				<input type="email" name="email" placeholder="Insira seu e-mail" class="remember-email" required>
 				<button type="submit" class="remember-submit">Enviar</button>
 				<p class="remember-error"></p>
-			</form>
+			</div>
 			<p class="remember-message"></p>
 		</form>
 		<!--HTML Widget code-->
@@ -857,7 +857,7 @@
 					$.post($form.attr('action'), $form.serialize(), function (data) {
 						if (data.success) {
 							$('.remember-message').text(data.response).show();
-							$('.remeber-content').hide();
+							$('.remember-content').hide();
 						} else {
 							$('.remember-error').text(data.response).show();
 						}

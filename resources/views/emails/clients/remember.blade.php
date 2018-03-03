@@ -15,7 +15,7 @@
                         <tbody>
                             <tr height="65">
                                 <td align="left" valign="top">
-                                    <p><strong>Olá,</strong>&nbsp;&nbsp;{{ strtoupper($cliente->nome) }}<br><br>Conforme solicitado, segue sua senha abaixo:</p>
+                                    <p><strong>Olá, </strong>{{ strtoupper($cliente->nome) }}<br><br>Conforme solicitado, segue sua senha abaixo:</p>
                                 </td>
                             </tr>
                             <tr height="50">
@@ -29,8 +29,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="left" valign="top">
-                                    <a href="{{ url('/') }}"><img src="{{ asset('assets/home/images/btn-acesse-site.png') }}" alt="Acesse o site"></a>
+                                <td align="center" valign="top">
+                                    <a href="{{ url('/') }}"><img src="{{ asset('assets/home/images/btn-acesse-site.png') }}" alt="Acesse o site" width="183"></a>
                                 </td>
                             </tr>
                         </tbody>
