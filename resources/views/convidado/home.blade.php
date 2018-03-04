@@ -261,7 +261,7 @@
 							@endif
 						</div>
 						<div class="g-maps">
-							<iframe src="http://maps.google.com/maps?q={{ $party->endereco_latitude }},{{ $party->endereco_longitude }}&z=15&output=embed" width="465" height="360" frameborder="0" style="border:0" allowfullscreen></iframe>
+							<div id="map" style="height: 360px; width: 465px;"></div>
 						</div>
 					</div>
 				</div>
@@ -272,4 +272,68 @@
 	{{--  </div>  --}}
 @endsection
 @section('scripts')
+<script>
+		function setMapPin (map, pin) {
+			var marker = new google.maps.Marker();
+			marker.setIcon(pin);
+			marker.setShadow(baseUrl + '/assets/site/images/pin-shadow.png');
+			marker.setMap(map);
+			return marker;
+		}
+
+		function initMap () {
+			var position = { lat: -15.2581783, lng: -51.8358431 },
+				latlngbounds = new google.maps.LatLngBounds(),
+				addressLat = {{ !empty($party->endereco_latitude) ? $party->endereco_latitude : 0 }},
+				addressLng = {{ !empty($party->endereco_longitude) ? $party->endereco_longitude : 0 }},
+				refLat = {{ !empty($party->referencia_latitude) ? $party->referencia_latitude : 0 }},
+				refLng = {{ !empty($party->referencia_longitude) ? $party->referencia_longitude : 0 }};
+
+			$.getJSON(baseUrl + '/assets/site/json/map.json', function(style) {
+				var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 15,
+					draggable: false,
+					center: position,
+					zoomControl: false,
+					mapTypeControl: false,
+					scaleControl: false,
+					streetViewControl: false,
+					rotateControl: false,
+					fullscreenControl: false,
+					scrollwheel: false,
+					styles: style
+				});
+
+				var marker1 = setMapPin(map, baseUrl + '/assets/site/images/pin-blue.png'),
+					marker2 = setMapPin(map, baseUrl + '/assets/site/images/pin-red.png');
+
+				// Check if positions exists
+				if (addressLat !== 0 && addressLng !== 0) {
+					var latlng = new google.maps.LatLng(addressLat, addressLng);
+					marker1.setPosition(latlng);
+					marker1.setVisible(true);
+
+					// Set map center marker position
+					latlngbounds.extend(latlng);
+					map.setCenter(latlngbounds.getCenter());
+
+					map.draggable = true;
+					map.zoomControl = true;
+				}
+
+				if (refLat !== 0 && refLng !== 0) {
+					var latlng = new google.maps.LatLng(refLat, refLng);
+					marker2.setPosition(latlng);
+					marker2.setVisible(true);
+
+					// Set map center marker position
+					latlngbounds.extend(latlng);
+					map.setCenter(latlngbounds.getCenter());
+					map.fitBounds(latlngbounds);
+				}
+			});
+		}
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5mG8Db_ESKNyncRp8IajDSn5fC3CGLfU&libraries=places&callback=initMap&language=pt-BR">
+	</script>
 @endsection

@@ -55,6 +55,7 @@ class BirthdayController extends Controller {
 		if (isset($festas) && count($festas) > 0) {
 			foreach ($festas as $festa) {
 				$data = $festa->festa_ano . '-' . $festa->festa_mes . '-' . $festa->festa_dia;
+				$festa->festa_data = strtotime($festa->festa_ano . '-' . $festa->festa_mes . '-' . $festa->festa_dia);
 
 				if ($data >= date('Y-m-d')) {
 					$festas_ativas[] = $festa;
@@ -62,6 +63,13 @@ class BirthdayController extends Controller {
 					$festas_antigas[] = $festa;
 				}
 			}
+
+			$name = 'festa_data';
+			usort($festas_ativas, function ($a, $b) use(&$name){
+				return $a[$name] - $b[$name];});
+
+			usort($festas_antigas, function ($a, $b) use(&$name){
+				return $a[$name] - $b[$name];});
 		}
 
 		return [
