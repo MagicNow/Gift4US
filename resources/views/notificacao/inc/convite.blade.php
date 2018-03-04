@@ -6,7 +6,7 @@
 				<div class="header-convite-foto" style="background-image: url({{ asset('storage/birthdays/' . $party->foto) }})"></div>
 			@endif
 			<p>
-				Festa de {{ isset($party->idade_anos) && $party->idade_anos > 0 ? $party->idade_anos . ' anos' : NULL }} {{ isset($party->idade_meses) && $party->idade_meses > 0 ? $party->idade_meses . ' meses' : NULL }} de<br /><span>{{ $party->nome }}</span>
+				Festa de {{ isset($party->idade_anos) && $party->idade_anos > 0 ? $party->idade_anos . ($party->idade_anos > 1 ? ' anos' : ' ano') : NULL }} {{ isset($party->idade_meses) && $party->idade_meses > 0 ? $party->idade_meses . ($party->idade_meses  > 1 ? ' meses' : ' mês') : NULL }} de<br /><span>{{ $party->nome }}</span>
 			</p>
 		</div>
 		<div class="clearfix convite-detalhes">

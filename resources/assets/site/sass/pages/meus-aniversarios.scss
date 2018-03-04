@@ -206,6 +206,15 @@ $layout-color-blue: #019ee3;
 }
 
 .form-birthday {
+	&-response-size {
+		background-color: #fff;
+		border-bottom: 1px solid #aaa;
+		height: 28px;
+		display: block;
+		color: #a0a3a5;
+		font: 16px/36px HelveticaNeueStd_CN;
+	}
+
 	&-paginate-nav {
 		margin-top: 46px;
 	}

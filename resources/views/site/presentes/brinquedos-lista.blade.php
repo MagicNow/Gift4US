@@ -33,7 +33,7 @@
 				<div class="col-md-9 dados-container">
 					<div class="row">
 						<div class="col-md-4">
-							<h4 class="gifts-title">Selecionados</h4>
+							<h4 class="gifts-title">{{ $request->adicionados == 1 ? 'Lista de Adicionados' : ($request->selecionados == 1 ? 'Lista de Selecionados' : 'Sugestões') }}</h4>
 						</div>
 						<div class="gifts-filter col-md-8">
 							<ul class="gifts-filter-categories">
