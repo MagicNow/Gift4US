@@ -55,7 +55,7 @@
 
 										<p class="gifts-item-price-description">Valor total</p>
 										<div class="input-group gifts-input-icon">
-											<input type="text" class="money quota form-control gifts-item-price-value bgC {{ $errors->first('valor_total', 'has-error') }}" placeholder="0,00" aria-describedby="gifts-total-price" name="valor_total" value="{{ old('valor_total') }}">
+											<input type="text" class="money quota form-control gifts-item-price-value bgC {{ $errors->first('valor_total', 'has-error') }}" placeholder="R$0,00" aria-describedby="gifts-total-price" name="valor_total" value="{{ old('valor_total') }}">
 											<span class="input-group-addon" id="gifts-total-price"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 										</div>
 
@@ -89,7 +89,7 @@
 												</div>
 												<span class="gifts-item-price-description clearfix">Valor por cota</span>
 												<span class="gifts-item-price-value bgC clearfix criar-presentes-cota-valor">
-													{{ old('valor_total') ? old('valor_total') / old('quantidade_cotas') : '0,00' }}
+													{{ old('valor_total') ? str_replace('R$', '', old('valor_total')) / old('quantidade_cotas') : 'R$0,00' }}
 												</span>
 											</div>
 										</div>

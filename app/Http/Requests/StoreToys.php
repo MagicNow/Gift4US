@@ -27,7 +27,7 @@ class StoreToys extends FormRequest
 			'imagem' => 'required|file',
 			'titulo' => 'required|max:100',
 			'descricao' => 'max:255',
-			'preco_venda' => 'required|regex:/^[+-]?[0-9]{1,3}(?:\.?[0-9]{3})*,[0-9]{2}$/',
+			'preco_venda' => 'required',
 			'lojas' => 'required'
 		];
 	}

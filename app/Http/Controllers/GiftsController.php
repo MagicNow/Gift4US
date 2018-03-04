@@ -236,7 +236,7 @@ class GiftsController extends Controller {
 		}
 
  		$input['festas_id'] = $festa_id;
- 		$input['preco_venda'] = str_replace(',', '.', str_replace('.', '', $input['preco_venda']));
+ 		$input['preco_venda'] = str_replace('R$', '', str_replace(',', '.', str_replace('.', '', $input['preco_venda'])));
  		$input['categoria'] = 'brinquedo';
  		$input['adicionado'] = 1;
  		$input['imagem'] = url('storage/toys/' . $this->upload($request, 'toys'));
@@ -311,7 +311,7 @@ class GiftsController extends Controller {
 		}
 
  		$input['festas_id'] = $festa_id;
- 		$input['valor_total'] = str_replace(',', '.', str_replace('.', '', $input['valor_total']));
+		$input['valor_total'] = str_replace('R$', '', str_replace(',', '.', str_replace('.', '', $input['valor_total'])));
  		$input['foto'] = $this->upload($request, 'quotas');
 
  		if ($input['dividir_cota'] == 0) {

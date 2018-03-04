@@ -59,10 +59,12 @@
 	<p>Presenças confirmadas</p>
 	<div class="row pD">
 		<span class="pull-left">{{ $party->confirmacaoPresenca->sum('numero_pessoas') }} pessoas confirmadas</span>
-		<small class="pull-left">
-			<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
-			<span>{{ $party->confirmacaoPresenca()->where('visualizado', 0)->count() }}</span>
-		</small>
+		@if ($party->confirmacaoPresenca()->where('visualizado', 0)->count() > 0)
+			<small class="pull-left">
+				<img src="{{ asset('assets/site/images/img-presente-in.png') }}" />
+				<span>{{ $party->confirmacaoPresenca()->where('visualizado', 0)->count() }}</span>
+			</small>
+		@endif
 	</div>
 	<div class="row"> 
 		<a href="{{ route('notificacoes.aniversario', [ $party->id, 'modal' => 'lista-de-aniversarios' ]) }}" class="gifts-box-number-middle dados-container col-md-12">

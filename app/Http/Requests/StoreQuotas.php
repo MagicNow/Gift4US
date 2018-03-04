@@ -27,7 +27,7 @@ class StoreQuotas extends FormRequest
             'foto' => 'required|file',
             'nome' => 'required|max:100',
             'observacao' => 'max:255',
-            'valor_total' => 'required|regex:/^[+-]?[0-9]{1,3}(?:\.?[0-9]{3})*,[0-9]{2}$/',
+            'valor_total' => 'required',
             'dividir_cota' => 'required|boolean',
             'quantidade_cotas' => 'integer|required_if:dividir_cota,1'
         ];
