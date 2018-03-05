@@ -126,7 +126,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 	Route::get('users/destroy/{id}', ['as'=> 'admin.users.destroy','uses' => 'UsersController@destroy']);
 	Route::post('users/store/{id?}', ['as'=> 'admin.users.store','uses' => 'UsersController@store']);
 	
-	//POSTS
+	//SALES
+	Route::get('sales', ['as'=> 'admin.sales','uses' => 'SalesController@index']);
 
 	Route::group(['prefix' => 'produtos', 'namespace' => 'Products'], function() {
 		Route::get('brinquedos/status/{id}/{status}', ['as'=> 'admin.products.toys.status', 'uses' => 'ToysController@status']);
