@@ -62,5 +62,7 @@
 		</div>
 	</div>
 
-	{{ $presentes->links('notificacao.inc.gifts-paginator', ['request' => $request, 'party' => $party->id]) }}
+	@if (count($presentes) > 0)
+		{{ $presentes->links('notificacao.inc.gifts-paginator', ['request' => $request, 'party' => $party->id]) }}
+	@endif
 </div>
