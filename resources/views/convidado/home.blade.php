@@ -75,7 +75,7 @@
 				</li>
 			</ul>
 			<div class="preview-advertising">
-				<span class="preview-advertising-btn">Publicidade</span>
+				<img src="{{ asset('assets/site/images/banner-775x125.jpg') }}" alt="">
 			</div>
 		</div>
 	</div>
@@ -238,7 +238,7 @@
 				</form>
 				<div class="boxfR">
 					<div class="preview-advertising">
-						<span class="preview-advertising-btn">Publicidade</span>
+						<img src="{{ asset('assets/site/images/banner-444x221.jpg') }}" alt="">
 					</div>
 				</div>
 			</div>
