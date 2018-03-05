@@ -4,9 +4,9 @@
     <!-- Logo -->
     <a href="{{ url('/admin') }}" class="logo" >
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>HN</b></span>
+        <span class="logo-mini"><img src="{{ asset('assets/admin/images/logo-login.png') }}" alt="Gift4US"></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Admin</b></span>
+        <span class="logo-lg"><img src="{{ asset('assets/admin/images/logo-login.png') }}" alt="Gift4US"></span>
     </a>
 
     <!-- Header Navbar -->

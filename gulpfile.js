@@ -196,6 +196,13 @@ gulp.task('admin-scripts', function() {
         .pipe(gulp.dest('public/assets/admin/js'));
 });
 
+//compressing images & handle SVG files
+gulp.task('admin-images', function() {
+    gulp.src(['resources/assets/admin/images/**/*', '!resources/assets/admin/images/README'])
+        .pipe(plumber())
+        .pipe(gulp.dest('public/assets/admin/images'));
+});
+
 gulp.task('admin-styles', function() {
     return gulp.src(['resources/assets/admin/bootstrap/bootstrap.less','resources/assets/admin/less/AdminLTE.less'])
             .pipe(plumber({
@@ -225,10 +232,11 @@ gulp.task('admin-styles', function() {
             .pipe(gulp.dest('public/assets/admin/styles'));
 });
 
-gulp.task('admin', ['admin-fonts', 'admin-styles','admin-scripts'], function() {
+gulp.task('admin', ['admin-fonts', 'admin-styles', 'admin-scripts', 'admin-images'], function() {
     //a list of watchers, so it will watch all of the following files waiting for changes
     gulp.watch('resources/assets/admin/js/**', ['admin-scripts']);
     gulp.watch('resources/assets/admin/less/**/*', ['admin-styles']);
+    gulp.watch('resources/assets/admin/images/**/*', ['admin-images']);
 });
 
-gulp.task('admin-deploy', gulpSequence( ['admin-fonts', 'admin-styles','admin-scripts']));
+gulp.task('admin-deploy', gulpSequence( ['admin-fonts', 'admin-styles', 'admin-scripts', 'admin-images']));

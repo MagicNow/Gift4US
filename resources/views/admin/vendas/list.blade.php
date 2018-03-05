@@ -71,6 +71,7 @@
                         <th>Valor</th>
                         <th>Nome do Convidado</th>
                         <th>E-mail do convidado</th>
+                        <th>Código do pagamento</th>
                         <th>Status</th>
 					</tr>
 				</tfoot>

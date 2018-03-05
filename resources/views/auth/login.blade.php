@@ -8,7 +8,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#">Admin</a>
+            <img src="{{ asset('assets/admin/images/logo-login.png') }}" alt="Gift4US">
         </div><!-- /.login-logo -->
 
         @if(count($errors) > 0)
