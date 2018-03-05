@@ -28,7 +28,7 @@ class QuotasController extends Controller {
 			$this->quotasAvalible = Cotas::where('quantidade_cotas', '>', \DB::raw('(SELECT COUNT( cotas_compras.id ) FROM cotas_compras WHERE cotas_compras.cotas_id = cotas.id)'))
 										->whereFestaId($this->party->id);
 
-			$percent = $this->quotas->sum('quantidade_cotas') > 0 ? round(($totalBuyed / $this->quotas->sum('quantidade_cotas')) * 100, 0, PHP_ROUND_HALF_EVEN) : 0;
+			$percent = $this->quotas->sum('quantidade_cotas') > 0 ? 100 - (round(($totalBuyed / $this->quotas->sum('quantidade_cotas')) * 100, 0, PHP_ROUND_HALF_EVEN)) : 0;
 			view()->share('percent', $percent);
 
 			return $next($request);

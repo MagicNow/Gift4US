@@ -67,12 +67,12 @@
 										<p class="gifts-item-price-description">Preço aproximado:</p>
 										@if ($product->adicionado)
 											<div class="input-group gifts-input-icon">
-												<input type="text" class="money form-control gifts-item-price-value bgC" aria-describedby="gifts-total-price" name="preco_venda" value="R${{ str_replace('.', ',', $product->preco_venda) }}">
+												<input type="text" class="money form-control gifts-item-price-value bgC" aria-describedby="gifts-total-price" name="preco_venda" value="R$ {{ str_replace('.', ',', $product->preco_venda) }}">
 												<span class="input-group-addon" id="gifts-total-price"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 											</div>
 										@else
 											<div class="input-group gifts-input-icon w100">
-												<span class="form-control gifts-item-price-value bgC textB w100">R${{ $product->preco_venda }}</span>
+												<span class="form-control gifts-item-price-value bgC textB w100">R$ {{ $product->preco_venda }}</span>
 											</div>
 										@endif
 										<p class="gifts-item-price-description">Observação</p>

@@ -696,7 +696,7 @@ $(function() {
 	});
 
 	$('.money').maskMoney({
-		prefix:'R$',
+		prefix:'R$ ',
 		allowNegative: false,
 		thousands:'.',
 		decimal:',',
@@ -882,6 +882,10 @@ $(function() {
 		e.preventDefault();
 		$('.' + $(this).data('target')).trigger('click');
 	});
+
+	$('.modal-content-lista-order').on('change', function () {
+		window.location = $(this).val();
+	});
 });
 
 function guestPageCheckHeaderPosition ($sections, $doc, $previewHeader, previewHeaderTop, previewHeaderHeight, previewHeaderHeightTotal, $previewHeaderSubmenu, previewHeaderSubmenuTop, previewSections, $previewPins, scrollToSection) {
@@ -931,14 +935,14 @@ function guestPageCheckHeaderPosition ($sections, $doc, $previewHeader, previewH
 
 function changeQuotaSplit() {
 	if ($('.criar-presentes.cota').length > 0) {
-		let quotaTotal = $('.criar-presentes.cota').find('[name="valor_total"]').val().replace(/\./g, '').replace('R$', '').replace(',', '.');
+		let quotaTotal = $('.criar-presentes.cota').find('[name="valor_total"]').val().replace(/\./g, '').replace('R$ ', '').replace(',', '.');
 		let quotaNumber = $('.criar-presentes.cota .form-birthday-size-input').val();
 		let quotaCost = quotaTotal / quotaNumber;
 
 		if (quotaNumber !== '') {
-			$('.criar-presentes-cota-valor').text('R$' + quotaCost.toFixed(2).toString().replace(".", ","));
+			$('.criar-presentes-cota-valor').text('R$ ' + quotaCost.toFixed(2).toString().replace(".", ","));
 		} else {
-			$('.criar-presentes-cota-valor').text('R$0,00');
+			$('.criar-presentes-cota-valor').text('R$ 0,00');
 		}
 	}
 }

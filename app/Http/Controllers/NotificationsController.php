@@ -36,6 +36,13 @@ class NotificationsController extends Controller
 			$toysTotal = $toys->count();
 			$clothesTotal = $clothes->count();
 			$quotasBuyed = CotasCompras::whereIn('cotas_id', $quotas->pluck('id'));
+
+			$quotasBuyedCost = $quotasBuyed->withCount([
+				'cotas AS preco_venda' => function ($query) {
+					$query->select(DB::raw("FORMAT(SUM(valor_total / quantidade_cotas), 2) as paidsum"));
+				}
+			])->get()->toArray();
+
 			view()->share([
 				'toysTotal' => $toysTotal,
 				'toysBuyed' => $toys->whereNotNull('nome')->count(),
@@ -43,9 +50,11 @@ class NotificationsController extends Controller
 				'clothesTotal' => $clothesTotal,
 				'clothesBuyed' => $clothes->whereNotNull('nome')->count(),
 				'clothesNotShow' => $clothes->whereNotNull('nome')->whereNotNull('nome')->whereVisualizado(0)->count(),
+				'clothesBuyedCost' => $clothes->whereNotNull('nome')->sum('preco_venda'),
 				'quotasTotal' => $quotas->sum('quantidade_cotas'),
 				'quotasBuyed' => $quotasBuyed->count(),
 				'quotasNotShow' => $quotasBuyed->whereVisualizado(0)->count(),
+				'quotasBuyedCost' => array_sum(array_map(function($var) { return $var['preco_venda']; }, $quotasBuyedCost))
 			]);
 
 			return $next($request);
@@ -94,7 +103,7 @@ class NotificationsController extends Controller
 			$presentes = $this->listaPresentes($request);
 		}
 
-		return view('notificacao.aniversario', compact('client', 'request', 'party', 'titulo', 'client', 'presencas', 'presencasTotal', 'paginas', 'pagina'));
+		return view('notificacao.aniversario', compact('client', 'request', 'party', 'titulo', 'client', 'presencas', 'presencasTotal', 'paginas', 'pagina', 'presentes'));
 	}
 
 	private function calcClothes ($party) {
@@ -223,20 +232,49 @@ class NotificationsController extends Controller
 	}
 	
 	private function listaPresentes ($request) {
-		$quotasBuyed = CotasCompras::select('cotas.id',
-											'cotas.nome',
-											DB::raw('FORMAT((cotas.valor_total / cotas.quantidade_cotas), 2) AS valor_venda'),
-											DB::raw('cotas_compras.nome AS convidado_nome'),
-											DB::raw('cotas_compras.email AS convidado_email'),
-											'cotas.quantidade_cotas'
-											)
-									->leftJoin('cotas', 'cotas.id', 'cotas_compras.cotas_id')
-									->where('cotas.festa_id', $this->festa->id);
-		dd($quotasBuyed->pluck('cotas.id'));
+		$clothes = DB::table('festas_produtos')
+						->select(DB::raw("produtos.id, produtos.titulo AS presente_nome, produtos.preco_venda AS valor_venda, festas_produtos.nome AS convidado_nome, festas_produtos.email AS convidado_email, festas_produtos.pagamento_status AS status, festas_produtos.updated_at"))
+						->join('produtos', 'produtos.id', 'festas_produtos.produtos_id')
+						->whereNotNull('festas_produtos.numero_pedido')
+						->whereCategoria('roupa')
+						->where('festas_produtos.festas_id', $this->festa->id);
 
-// SELECT cotas.nome AS presente_nome, FORMAT((cotas.valor_total / cotas.quantidade_cotas), 2) AS valor_venda, cotas_compras.nome AS convidado_nome, cotas_compras.email AS convidado_email
-// FROM cotas_compras
-// LEFT JOIN cotas ON cotas.id = cotas_compras.cotas_id
-// 
+		$toys = DB::table('festas_produtos')
+						->select(DB::raw("produtos.id, produtos.titulo AS presente_nome,'irá presentear' AS valor_venda, festas_produtos.nome AS convidado_nome, festas_produtos.email AS convidado_email, festas_produtos.pagamento_status AS status, festas_produtos.updated_at"))
+						->join('produtos', 'produtos.id', 'festas_produtos.produtos_id')
+						->whereNotNull('festas_produtos.nome')
+						->whereCategoria('brinquedo')
+						->where('festas_produtos.festas_id', $this->festa->id);
+
+		$products = DB::table('cotas_compras')
+						->select(DB::raw("cotas.id, cotas.nome AS presente_nome, FORMAT((cotas.valor_total / cotas.quantidade_cotas), 2) AS valor_venda, cotas_compras.nome AS convidado_nome, cotas_compras.email AS convidado_email, cotas_compras.pagamento_status AS status, cotas_compras.updated_at"))
+						->join('cotas', 'cotas.id', 'cotas_compras.cotas_id')
+						->whereNotNull('cotas_compras.numero_pedido')
+						->where('cotas.festa_id', $this->festa->id)
+						->union($toys)
+						->union($clothes);
+
+		switch ($request->ordem) {
+			case 'recentes':
+				$products->orderBy('updated_at', 'DESC');
+				break;
+			case 'az':
+				$products->orderBy('presente_nome', 'ASC');
+				break;
+			case 'convidados':
+				$products->orderBy('convidado_nome', 'ASC');
+				break;
+		}
+
+		$products = $products->get()
+							->toArray();
+
+		$page = isset($request->page) ? $request->page : 1;
+		$paginate = 20;
+		$offSet = ($page * $paginate) - $paginate;
+		$itemsForCurrentPage = array_slice($products, $offSet, $paginate, true);
+		$products = new \Illuminate\Pagination\LengthAwarePaginator($itemsForCurrentPage, count($products), $paginate, $page);
+
+		return $products;
 	}
 }
