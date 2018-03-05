@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Models\FestasProdutos;
 use App\Models\CotasCompras;
 use App\Models\Festas;
 use App\Models\Clientes;
@@ -100,6 +101,12 @@ class NotificationsController extends Controller
 
 		$presentes = NULL;
 		if ($request->modal == 'lista-de-presentes') {
+			FestasProdutos::where('festas_id', $this->festa->id)->update(['visualizado' => 1]);
+			DB::table('cotas_compras')
+				->join('cotas', 'cotas.id', 'cotas_compras.cotas_id')
+				->where('cotas.festa_id', $this->festa->id)
+				->update(['visualizado' => 1]);
+	
 			$presentes = $this->listaPresentes($request);
 		}
 
