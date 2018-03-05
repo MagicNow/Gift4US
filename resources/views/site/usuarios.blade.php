@@ -19,9 +19,9 @@
 								<p class="usuario-menu-texto-cinza">Nenhuma conta cadastrada neste perfil</p>
 							@endif
 						</div>
-						<a href="{{ URL::route('transferencia.index') }}" class="{{ Route::currentRouteName() == 'usuario.transferencia' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Resgatar valores</span></a>
+						{{--  <a href="{{ URL::route('transferencia.index') }}" class="{{ Route::currentRouteName() == 'usuario.transferencia' ? 'active': '' }} usuario-menu"><span class="usuario-menu-texto">Resgatar valores</span></a>
 						<span class="usuario-menu-texto-cinza">R$ 0,00</span>
-						<p class="usuario-menu-texto-cinza">Você não tem nenhum valor para ser resgatado</p>
+						<p class="usuario-menu-texto-cinza">Você não tem nenhum valor para ser resgatado</p>  --}}
 					</div>
 				</div>
 
