@@ -35,7 +35,7 @@ class SalesController extends Controller
                     ->select(DB::raw("produtos.categoria AS tipo, produtos.titulo AS presente_nome, produtos.preco_venda AS valor_venda, festas_produtos.nome AS convidado_nome, festas_produtos.email AS convidado_email, festas_produtos.pagamento_status AS status, pagamento_codigo"))
                     ->join('produtos', 'produtos.id', 'festas_produtos.produtos_id')
                     ->whereNotNull('festas_produtos.numero_pedido')
-                    ->orderBy('cotas_compras.updated_at', 'DESC')
+                    ->orderBy('festas_produtos.updated_at', 'DESC')
                     ->union($cotas)
                     ->get()
                     ->toArray();
