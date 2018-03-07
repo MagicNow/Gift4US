@@ -1102,10 +1102,10 @@ function formAddGift() {
 			method: $form.attr('method'),
 			data: $form.serialize(),
 			dataType: 'json',
-			success: function (data) {
+			always: function () {
 				$form.remove();
 				var count = $('.form-invite-delete').length;
-				$('.form-invite-count').html(count + ' emails cadastrados');
+				$('.form-invite-count').html(count - 1 + ' emails cadastrados');
 			}
 		});
 	});
