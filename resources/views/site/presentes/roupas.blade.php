@@ -12,6 +12,7 @@
 			</div>
 		</div>
 	</div>
+	@include('site.inc.modal-roupas-finalizar')
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container">
 			{{ Html::image('assets/site/images/presentinho_aniversario_presente_roupas.png', '', array('class' => 'presentinho col-xs-12 col-sm-12 col-md-6')) }} 
@@ -36,7 +37,7 @@
 						</a>
 					@endif
 					<div class="gifts-box-number-footer dados-container">
-						<a class="gifts-box-number-submit" href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}">Finalizar lista de roupas</a>
+						<a class="gifts-box-number-submit btn-modal-finalizar" href="#">Finalizar lista de roupas</a>
 						<a href="{{ route('usuario.meus-aniversarios.novo.festa', [ $party->id, 5 ]) }}" class="gifts-box-number-back">voltar a etapa anterior</a>
 					</div>
 				</div>

@@ -15,14 +15,6 @@
 						@include('site.inc.filtro-categorias', ['filter' => 'cotas'])
 					</div>
 					<div class="gifts-list">
-						@if(!isset($_COOKIE['closeModalQuotasAdd']) || empty($_COOKIE['closeModalQuotasAdd']))
-							<div class="gifts-list-message">
-								<button class="gifts-list-message-remove" data-cookie="closeModalQuotasAdd"></button>
-								<p class="gifts-list-message-first">Crie cotas para aqueles presentes de valores maiores! Assim facilita pra todos! Cada um dando uma parcela do presente fica bem mais tranquilo e o aniversariante não fica sem ganhar o presente que tanto queria! Adicionar cotas é muito fácil! Só precisará preeencher algumas informações básicas descritas abaixo e inserir uma imagem do presente e pronto! Ao salvar ele estará automaticamente</p>
-								<p class="gifts-list-message-secound">*As cotas adquiridas pelos convidados serão automaticamente convertidas em crédito na sua conta bancária. Não cadastrou seu conta bancária ainda? Não esqueça de cadastra-la a qualquer momento no painel de controle assim que finalizar a criação do aniversário.</p>
-							</div>
-						@endif
-
 						<div class="col-md-12 gifts-item gifts-item-detalhe" data-id="1">
 							<div class="row">
 								<p class="gifts-item-title">Criar cota</p>

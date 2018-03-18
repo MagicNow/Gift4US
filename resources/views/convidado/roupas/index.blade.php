@@ -21,7 +21,7 @@
 						<div class="roupaMedidas">
 							<div class="col-xs-12 col-sm-12">
 								<div class="col-md-12">
-									<a href="#" class="my-birthday-create-button-small">Não quer errar no presente? Aqui você pode<br />ver todas as medidas do aniversariante!</a>
+									<div class="my-birthday-create-button-small">Não quer errar no presente? Aqui você pode<br />ver todas as medidas do aniversariante!</div>
 								</div>
 								<div class="row">
 									<div class="col-md-7 form-birthday-size-column">

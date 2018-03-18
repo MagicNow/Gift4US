@@ -734,6 +734,10 @@ $(function() {
 			success: function (data) {
 				console.log(data.response, data);
 				$form.html('<p class="form-success-message">' + data.response + '</p>');
+
+				if ($form.data('callback').length > 0) {
+					window[$form.data('callback')]()
+				}
 			}
 		});
 	});
@@ -1184,4 +1188,8 @@ function populateEmailsList(data) {
 
 	$('.form-invite-count').html(data.total +' emails cadastrados');
 	$('.form-invite-email').val('');
+}
+
+function enableBuyButtons () {
+	$('.linkLojaOnline').removeAttr('disabled');
 }

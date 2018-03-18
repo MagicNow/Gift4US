@@ -327,6 +327,21 @@ header.area-convidado h2 {
 	font-size:15px
 }
 
+.brinquedosLista.brinquedosListaCompraOnline .gifts-item-detalhe .gifts-item-content .brinquedosListaAtencao {
+	background-color: #f09121;
+	margin: 10px 0;
+	padding: 10px;
+}
+
+.brinquedosLista.brinquedosListaCompraOnline .gifts-item-detalhe .gifts-item-content .brinquedosListaAtencao h5 {
+	font-weight: bold;
+	color: #000;
+}
+
+.brinquedosLista.brinquedosListaCompraOnline .gifts-item-detalhe .gifts-item-content .brinquedosListaAtencao p {
+	color: #000;
+}
+
 .brinquedosLista .dados-container{
 	padding-top:50px;
 }
@@ -391,6 +406,9 @@ header.area-convidado h2 {
 	padding:0;
 }
 
+.brinquedosLista.brinquedosListaCompraOnline .gifts-item-detalhe .gifts-item-content div{
+	margin: 0;
+}
 
 .brinquedosLista .gifts-item-detalhe .gifts-item-content div:last-child{
 	padding-left:20px;
@@ -482,6 +500,11 @@ header.area-convidado h2 {
 	padding:26px 10px!important;
 	margin-right:24px;
 	margin-bottom:15px;
+}
+
+.brinquedosLista .linkLojaOnline[disabled] {
+	background-color: #B8B9BA;
+	pointer-events: none;
 }
 
 .brinquedosLista .formOnline{

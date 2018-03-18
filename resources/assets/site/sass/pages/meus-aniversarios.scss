@@ -766,6 +766,10 @@ $layout-color-blue: #019ee3;
 	}
 }
 
+div.my-birthday-create-button-small {
+	pointer-events: none;
+}
+
 .form-inline .form-birthday {
 	&-years {
 		width: 50px;

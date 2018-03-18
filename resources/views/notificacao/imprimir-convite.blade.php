@@ -75,7 +75,7 @@
 									</div>
 									<div class="passo2">
 										<div class="bg-presente">2</div>
-										<span>insira o aniversário ou o código <strong>{{ $party->codigo }}</strong></span>
+										<span>insira o nome do aniversariante ou o código <strong>{{ $party->codigo }}</strong></span>
 									</div>
 									<div class="passo3">
 										<div class="bg-presente">3</div>

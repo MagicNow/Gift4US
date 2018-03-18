@@ -9,7 +9,7 @@
 	</div>
 	
 	<div class="dashboard col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<div class="container brinquedosLista">
+		<div class="container brinquedosLista brinquedosListaCompraOnline">
 			
 			<img src="{{ asset('assets/site/images/presentinho_aniversario_presente_roupas_ent05.png') }}" class="presentinho col-xs-5 col-sm-5 col-md-5" alt="">
 			
@@ -35,19 +35,11 @@
 									<p class="gifts-item-price-value bgC">R$ {{ $product->preco_venda }}</p>
 									<p class="gifts-item-price-description">Observação</p>
 									<p class="gifts-item-price-value bgC">{{ $product->descricao }}</p>
-									<p class="gifts-item-price-description">Lojas disponiveis</p>
-									<span class="clearfix">
-										@if ($product->lojas->count() > 0)
-											@foreach ($product->lojas as $key => $loja)
-												<a class="linkLojaOnline" href="{{ $loja->link }}" target="_blank">{{ $loja->nome }}</a>
-											@endforeach
-										@endif
-									</span>
-									<p class="gifts-item-obs">Clique no botão acima<br>para comprar agora</p>
-
-									<h5 class="col-md-12 gifts-item-title">Atenção</h5>
-									<p class="col-md-12 gifts-item-price-description">Antes de sair, que tal avisar o aniversariante que irá dar este presente?<br />Preencha os campos abaixo para concluir!</p>
-									<form action="{{ route('presentes.reservar') }}" method="post" class="col-md-12 formOnline send-form-ajax">
+									<div class="brinquedosListaAtencao">
+										<h5 class="gifts-item-title">Atenção</h5>
+										<p class="gifts-item-price-description">Antes de sair, que tal avisar o aniversariante que irá dar este presente?<br />Preencha os campos abaixo para concluir!</p>
+									</div>
+									<form action="{{ route('presentes.reservar') }}" method="post" class="col-md-12 formOnline send-form-ajax" data-callback="enableBuyButtons">
 										<input type="hidden" name="festas_id" value="{{ $party->id }}">
 										<input type="hidden" name="produtos_id" value="{{ $product->id }}">
 										<div class="form-group">
@@ -62,14 +54,23 @@
 										<div class="form-group">
 											<textarea name="mensagem" id="msg-mensagem" class="form-control form-input bgC" placeholder="Escreva aqui uma mensagem bem legal e divertida para o aniversariante"></textarea>
 										</div>
-										<p class="gifts-item-price-value">Atenção1: A partir do momento que você decidir dar este presente, ele será <cite>removido definitivamente da lista</cite> e não poderá mais ser escolhido por nenhum outro convidado da festa</p>
-										<div class="row">
+										<p class="gifts-item-price-value">Atenção: A partir do momento que você decidir dar este presente, ele será <cite>removido definitivamente da lista</cite> e não poderá mais ser escolhido por nenhum outro convidado da festa</p>
+										<div class="clearfix">
 											<div class="col-md-8">&nbsp;</div>
 											<div class="col-md-4 text-right">
 												<input type="submit" class="my-birthday-create-button-small" value="Enviar">
 											</div>
 										</div>
 									</form>
+									<p class="gifts-item-price-description">Lojas disponiveis</p>
+									<span class="clearfix">
+										@if ($product->lojas->count() > 0)
+											@foreach ($product->lojas as $key => $loja)
+												<a class="linkLojaOnline" disabled href="{{ $loja->link }}" target="_blank">{{ $loja->nome }}</a>
+											@endforeach
+										@endif
+									</span>
+									<p class="gifts-item-obs">Clique no botão acima<br>para comprar agora</p>
 								</div>
 							</div>
 						</li>
