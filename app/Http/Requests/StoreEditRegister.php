@@ -25,8 +25,8 @@ class StoreEditRegister extends FormRequest
     {
         return [
             'nome' => 'required|max:255',
-            'email' => 'required|email|unique:clientes',
-            'tel' => 'required|max:15'
+            'email' => 'required|email',
+            'tel' => 'required|max:16'
         ];
     }
 }

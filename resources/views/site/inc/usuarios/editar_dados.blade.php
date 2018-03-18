@@ -1,4 +1,13 @@
 <form action="{{ route('cadastro.update', $client->id) }}" method="post" class="usuario-form" data-presente="{{ asset('assets/site/images/presentinho_senha.png') }}">
+	@if ($errors->any())
+		<div class="notify hidden" data-type="danger">
+			<ul>
+				@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+	@endif
 	<input type="hidden" name="_method" value="put" />
 	<fieldset class="editar-dados col-md-12">
 		<div class="form-group">
@@ -14,6 +23,12 @@
 			<input type="tel" name="tel" id="dados-telefone" class="form-control form-input" value="({{ $client->telefone_ddd }}) {{ $client->telefone_numero }}">
 		</div>
 		<button type="submit" class="enviar usuario-form-enviar"> Concluir</button>
-		<p class="text-center usuario-form-header-text">Você receberá um email de confirmação</p>
+		@if (!empty($message))
+			<p class="text-center usuario-form-header-text">{{ $message }}</p>
+		@endif
+
+		@if (session('message'))
+			<p class="text-center usuario-form-header-text">{{ session('message') }}</p>
+		@endif
 	</fieldset>
 </form>

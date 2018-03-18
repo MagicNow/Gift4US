@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use Validator;
 use \DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRegister;
@@ -133,8 +134,19 @@ class RegisterController extends Controller {
 	{
 		$input = $request->all();
 		$token = Hash::make(date('YmdHis'));
+		$message = '';
 
 		if ($request->email !== $this->cliente->email) {
+			$validator = Validator::make($request->all(), [
+				'email' => 'unique:clientes'
+			]);
+	
+			if ($validator->fails()) {
+				return redirect()->route('cadastro.edit', [ 'id' => $this->cliente->id])
+							->withErrors($validator)
+							->withInput();
+			}
+
 			$data = [
 				'email' => $request->email,
 				'token' => $token
@@ -149,14 +161,25 @@ class RegisterController extends Controller {
 			];
 			$mail = Mail::to($request->email)
 						->send(new EmailConfirm($content));
+
+			$message = 'Você receberá um email de confirmação.';
+		} else {
+			$message = 'Cadastro efetuado com sucesso.';
 		}
 
 		unset($input['email']);
 
+		$telefone = explode(')', $input['tel']);
+		$ddd = preg_replace( '/[^0-9]/', '', $telefone[0]);
+		$phone = preg_replace( '/[^0-9]/', '', $telefone[1]);
+
+		$input['telefone_ddd'] = $ddd;
+		$input['telefone_numero'] = $phone;
+
 		$this->cliente->fill($input);
 		$store = $this->cliente->save();
 		
-		return redirect()->route('cadastro.edit', [ 'id' => $this->cliente->id ]);
+		return redirect()->route('cadastro.edit', [ 'id' => $this->cliente->id])->with('message', $message);
 	}
 
 	/**
