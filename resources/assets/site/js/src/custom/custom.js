@@ -1097,7 +1097,7 @@ function formAddGift() {
 		});
 	});
 
-	$('.form-invite-results').on('.form-invite-delete', 'submit', function(e) {
+	$('.form-invite-results').on('submit', '.form-invite-delete', function(e) {
 		e.preventDefault();
 
 		var $form = $(this);
