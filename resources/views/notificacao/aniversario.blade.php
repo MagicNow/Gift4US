@@ -15,7 +15,7 @@
 				<div class="col-md-8 dados-container">
 					<div class="clearfix">
 						<div class="col-md-offset-1 clearfix col-md-10 text-right social-back-home">
-							<a href="{{ route('usuario.meus-aniversarios') }}">Voltar ao início</a>
+							<a href="{{ route('usuario.meus-aniversarios') }}">Home</a>
 						</div>
 						<div class="col-md-offset-1 social clearfix col-md-10">
 							<div class="clearfix text-right">

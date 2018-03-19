@@ -1097,7 +1097,7 @@ function formAddGift() {
 		});
 	});
 
-	$('.form-invite-results').delegate('.form-invite-delete', 'submit', function(e) {
+	$('.form-invite-results').on('.form-invite-delete', 'submit', function(e) {
 		e.preventDefault();
 
 		var $form = $(this);
@@ -1106,10 +1106,9 @@ function formAddGift() {
 			method: $form.attr('method'),
 			data: $form.serialize(),
 			dataType: 'json',
-			always: function () {
+			success: function (data) {
 				$form.remove();
-				var count = $('.form-invite-delete').length;
-				$('.form-invite-count').html(count - 1 + ' emails cadastrados');
+				$('.form-invite-count').html(data.total + ' emails cadastrados');
 			}
 		});
 	});
