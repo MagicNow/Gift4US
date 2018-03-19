@@ -66,11 +66,14 @@ class HomeController extends Controller {
 	public function login(Request $request)
 	{
 		$name = $request->name;
+
 		$party = Festas::where('ativo', 1)
 						->where(function ($query) use ($name) {
-							$query->where('codigo', 'LIKE', $name);
+							$query->where('nome', 'LIKE', $name)
+								->orWhere('codigo', 'LIKE', $name);
 						})
 						->first();
+
 
 		if (isset($party) && !empty($party)) {
 			return redirect()->route('convidado.index', $party->codigo);
