@@ -228,7 +228,7 @@
     					<input type="password" name="confirma_senha" required>
 					</label>
 					<label class="" for="checkbox-termos">
-						<input type="checkbox" id="checkbox-termos" class="pull-left"> <span class="pull-left">Li e aceito os <a href="#" data-toggle="modal" data-target="#modal-termos">termos de uso</a></span>
+						<input type="checkbox" name="termos" id="checkbox-termos" class="pull-left" required> <span class="pull-left">Li e aceito os <a href="#" data-toggle="modal" data-target="#modal-termos">termos de uso</a></span>
 					</label>
     			</fieldset>
     			<fieldset class="financeiro col-xs-12 col-sm-12 col-md-6 col-lg-6">

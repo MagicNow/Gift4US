@@ -29,6 +29,7 @@ class StoreRegister extends FormRequest
             'tel' => 'required|max:15',
             'senha' => 'required',
             'confirma_senha' => 'required',
+            'termos' => 'required'
             // 'bancos_id' => 'required|max:15',
             // 'agencia' => 'required|max:10',
             // 'tipo_conta' => 'required|in:corrente,poupanca',
