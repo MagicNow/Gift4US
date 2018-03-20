@@ -124,3 +124,31 @@
 #boletoData {
 	display: none;
 }
+
+#checkbox-termos {
+	width: auto;
+	margin-right: 5px;
+}
+
+label[for="checkbox-termos"] span {
+	color: #525353 !important;
+}
+
+label[for="checkbox-termos"] a {
+	color: #525353;
+	text-decoration: underline;
+}
+
+#modal-termos {
+	font-size: 12px;
+
+	.modal-title {
+		font-weight: bold;
+		width: 90%;
+		display: inline-block;
+	}
+
+	.modal-content {
+		box-shadow: none;
+	}
+}
